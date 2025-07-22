@@ -40,10 +40,10 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
 <summary>2024</summary>
 <ul>
   <li>
-    <span style="color:blue">[Progress]:</span> [May. 2024] I have obtained my MPhil degree and started my PhD journey!
+    <span style="color:organge">[Progress]:</span> [May. 2024] I have obtained my MPhil degree and started my PhD journey!
   </li>
   <li>
-    <span style="color:blue">[Progress]:</span> [Apr. 2024] I have passed my MPhil Thesis Defence!
+    <span style="color:organge">[Progress]:</span> [Apr. 2024] I have passed my MPhil Thesis Defence!
   </li>
   <li>
     <span style="color:blue">[Award]:</span> [Jan. 2024] Awarded the CSIRO’s Data61-UNSW Joint PhD Full Scholarship.
