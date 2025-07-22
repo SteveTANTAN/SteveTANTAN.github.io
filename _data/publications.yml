@@ -17,7 +17,7 @@ main:
     image: ./assets/img/PoG.jpg
 
 
-  - title: "Higher-order peak decomposition"
+  - title: "Higher-Order Peak Decomposition"
     authors: <strong>Xingyu Tan</strong>, Jingya Qian, Chen Chen, Sima Qing, Yanping Wu, Xiaoyang Wang, Wenjie Zhang
     conference_short: CIKM
     conference: ACM International Conference on Information and Knowledge Management <strong>(CIKM)</strong>, 2023.
