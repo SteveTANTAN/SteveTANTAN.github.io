@@ -4,9 +4,9 @@ layout: homepage
 
 ## About Me
 
-I am currently a Ph.D. candidate in the [Data and Knowledge Research Group (DKR)](https://unswdb.github.io/) at the School of Computer Science and Engineering, [University of New South Wales (UNSW)](https://www.unsw.edu.au/) and [Software Systems Group](https://research.csiro.au/ss/), Data61, CSIRO. I am under the joint supervision of [Dr. Xiaoyang Wang](https://www.unsw.edu.au/staff/xiaoyang-wang) and [Prof. Wenjie Zhang](https://cgi.cse.unsw.edu.au/~zhangw/) from UNSW, as well as [Dr. Qing Liu](https://people.csiro.au/L/Q/Q-Liu), [Dr. Xiwei Xu](https://people.csiro.au/X/S/Xiwei-Xu), [Dr. Xin Yuan](https://people.csiro.au/y/x/xin-yuan), and [Prof. Liming Zhu](https://people.csiro.au/Z/L/Liming-Zhu) from CSIRO's Data61. 
+I am currently a Ph.D. candidate in the [Data and Knowledge Research Group (DKR)](https://unswdb.github.io/) at the School of Computer Science and Engineering, [University of New South Wales (UNSW)](https://www.unsw.edu.au/) and [Software Systems Group](https://research.csiro.au/ss/) at Data61, CSIRO. I am under the joint supervision of [Dr. Xiaoyang Wang](https://www.unsw.edu.au/staff/xiaoyang-wang) and [Prof. Wenjie Zhang](https://cgi.cse.unsw.edu.au/~zhangw/) from UNSW, as well as [Dr. Qing Liu](https://people.csiro.au/L/Q/Q-Liu), [Dr. Xiwei Xu](https://people.csiro.au/X/S/Xiwei-Xu), [Dr. Xin Yuan](https://people.csiro.au/y/x/xin-yuan), and [Prof. Liming Zhu](https://people.csiro.au/Z/L/Liming-Zhu) from CSIRO. 
 
-Previously, I completed my Bachelor of Science (BSc) in Computer Science and my Master of Philosophy (MPhil) at UNSW, where I was also supervised by Dr. Xiaoyang Wang and Prof. Wenjie Zhang.
+Previously, I completed both of my Bachelor of Science (BSc.) in Computer Science and Master of Philosophy (MPhil.) in Computer Science and Engineering at UNSW, under the supervision of Dr. Xiaoyang Wang and Prof. Wenjie Zhang.
 
 ## Research Interests
 
