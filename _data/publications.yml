@@ -1,4 +1,12 @@
 main:
+
+  - title: "Hydra: Structured Cross-Source Enhanced Large Language Model Reasoning"
+    authors: Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang
+    conference_short: arXiv
+    conference: arXiv preprint, 2025.
+    pdf: https://arxiv.org/pdf/2505.17464.pdf
+    image: ./assets/img/Hydra.png
+
   - title: "Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning"
     authors: Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Wenjie Zhang 
     conference_short: WWW
@@ -7,13 +15,6 @@ main:
     code: https://github.com/SteveTANTAN/PoG
     notes: Awarded Travel Grant
     image: ./assets/img/PoG.jpg
-
-  - title: "Hydra: Structured Cross-Source Enhanced Large Language Model Reasoning"
-    authors: Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang
-    conference_short: arXiv
-    conference: arXiv preprint, 2025.
-    pdf: https://arxiv.org/pdf/2505.17464.pdf
-    image: ./assets/img/Hydra.png
 
 
   - title: "Higher-order peak decomposition"
