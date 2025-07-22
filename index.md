@@ -1,6 +1,6 @@
 ---
-
-## layout: homepage
+layout: homepage
+---
 
 ## About Me
 
@@ -43,6 +43,6 @@ Previously, I completed my Bachelor of Science (BSc) in Computer Science and my 
 
 </details>
 
-{% include\_relative \_includes/publications.md %}
+{% include_relative _includes/publications.md %}
 
-{% include\_relative \_includes/services.md %}
+{% include_relative _includes/services.md %}
