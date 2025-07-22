@@ -1,11 +1,10 @@
-Selected Publications:
+main:
   - title: "Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning"
     authors: Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Wenjie Zhang 
     conference_short: WWW
     conference: ACM Web Conference (WWW), 2025.
     pdf: https://dl.acm.org/doi/abs/10.1145/3696410.3714892
     code: https://github.com/SteveTANTAN/PoG
-
     notes: Awarded Travel Grant
     image: ./assets/img/PoG.png
 
