@@ -17,7 +17,7 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
 ## News
 
 <details open>
-<summary>2025</summary>
+<summary>Current - 2025</summary>
 <ul>
   <li>
     <span style="color:red">[Paper]:</span> [Jun. 2025] Our latest work
@@ -37,13 +37,13 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
 </details>
 
 <details>
-<summary>2024</summary>
+<summary>More News - 2024</summary>
 <ul>
   <li>
-    <span style="color:yellow">[Progress]:</span> [May. 2024] I have obtained my MPhil degree and started my PhD journey!
+    <span style="color:purple">[Progress]:</span> [May. 2024] I have obtained my MPhil degree and started my PhD journey!
   </li>
   <li>
-    <span style="color:yellow">[Progress]:</span> [Apr. 2024] I have passed my MPhil Thesis Defence!
+    <span style="color:purple">[Progress]:</span> [Apr. 2024] I have passed my MPhil Thesis Defence!
   </li>
   <li>
     <span style="color:blue">[Award]:</span> [Jan. 2024] Awarded the CSIRO’s Data61-UNSW Joint PhD Full Scholarship.
@@ -52,7 +52,7 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
 </details>
 
 <details>
-<summary>2023</summary>
+<summary>More News - 2023</summary>
 <ul>
   <li>
     <span style="color:red">[Paper]:</span> [Nov. 2023] Our paper
