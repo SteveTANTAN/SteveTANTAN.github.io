@@ -19,30 +19,29 @@ Previously, I completed my Bachelor of Science (BSc) in Computer Science and my 
 <details open>
 <summary>2025</summary>
 
-* **[Jun. 2025]** Our latest work [Hydra: Structured Cross-Source Enhanced Large Language Model Reasoning](https://www.arxiv.org/abs/2505.17464) is now public.
-* **[Apr. 2025]** Awarded the WWW2025 Student Travel Award (2025).
-* **[Jan. 2025]** Our paper *Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning* is accepted to [WWW 2025](https://www2025.thewebconf.org/).
+* <font color=red>[Paper]:</font>  **[Jun. 2025]** Our latest work [Hydra: Structured Cross-Source Enhanced Large Language Model Reasoning](https://www.arxiv.org/abs/2505.17464) is now public.
+* <font color=blue>[Award]:</font>  **[Apr. 2025]** Awarded the WWW2025 Student Travel Award (2025).
+* <font color=red>[Paper]:</font>  **[Jan. 2025]** Our paper *Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning* is accepted to [WWW 2025](https://www2025.thewebconf.org/).
 
 </details>
 
 <details>
 <summary>2024</summary>
-
-* **[May. 2024]** I have obtained my MPhil degree and started my PhD journey!
-* **[Apr. 2024]** I have passed my MPhil Thesis Defence!
-* **[Jan. 2024]** Awarded the CSIRO’s Data61-UNSW Joint PhD Full Scholarship.
+  
+* <font color=blue>[Progress]:</font>  **[May. 2024]** I have obtained my MPhil degree and started my PhD journey!
+* <font color=blue>[Progress]:</font>  **[Apr. 2024]** I have passed my MPhil Thesis Defence!
+* <font color=blue>[Award]:</font>  **[Jan. 2024]** Awarded the CSIRO’s Data61-UNSW Joint PhD Full Scholarship.
 
 </details>
 
 <details>
 <summary>2023</summary>
 
-* **[Nov. 2023]** Our paper *Higher-order peak decomposition* is accepted to [CIKM 2023](https://uobevents.eventsair.com/cikm2023/).
-* **[Nov. 2023]** Awarded the CIRES-ADC Travel Grant.
-* **[Jun. 2023]** Our paper *Maximum Fairness‑Aware (k,r)‑Core Identification in Large Graphs* is accepted to [ADC 2023](https://adc2023.github.io/).
+* <font color=red>[Paper]:</font>  **[Nov. 2023]** Our paper *Higher-order peak decomposition* is accepted to [CIKM 2023](https://uobevents.eventsair.com/cikm2023/).
+* <font color=blue>[Award]:</font>  **[Nov. 2023]** Awarded the CIRES-ADC Travel Grant.
+* <font color=red>[Paper]:</font>  **[Jun. 2023]** Our paper *Maximum Fairness‑Aware (k,r)‑Core Identification in Large Graphs* is accepted to [ADC 2023](https://adc2023.github.io/).
 
 </details>
 
 {% include_relative _includes/publications.md %}
 
-# {% include_relative _includes/services.md %}
