@@ -40,10 +40,10 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
 <summary>2024</summary>
 <ul>
   <li>
-    <span style="color:organge">[Progress]:</span> [May. 2024] I have obtained my MPhil degree and started my PhD journey!
+    <span style="color:yellow">[Progress]:</span> [May. 2024] I have obtained my MPhil degree and started my PhD journey!
   </li>
   <li>
-    <span style="color:organge">[Progress]:</span> [Apr. 2024] I have passed my MPhil Thesis Defence!
+    <span style="color:yellow">[Progress]:</span> [Apr. 2024] I have passed my MPhil Thesis Defence!
   </li>
   <li>
     <span style="color:blue">[Award]:</span> [Jan. 2024] Awarded the CSIRO’s Data61-UNSW Joint PhD Full Scholarship.
@@ -77,10 +77,11 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
 
 <ul>
   <li>
-    <b>Teaching Academic & Course Admin</b> &mdash; Sydney, Australia
+    <b>Teaching Academic & Course Admin</b> &mdash; UNSW, Sydney, Australia
     <ul>
       <li>
-        <b>COMP9311 Database Systems</b>
+        <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//COMP9311">COMP9311 Database Systems</a>.
+<!--         <b>COMP9311 Database Systems</b> -->
         <ul>
           <li>
             <b>Teaching Academic</b>: 23T1, 23T3
@@ -94,7 +95,8 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
         </ul>
       </li>
       <li>
-        <b>COMP9315 Database Systems Implementation</b>
+        <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//COMP9315">COMP9315 Database Systems Implementation</a>.
+<!--         <b>COMP9315 Database Systems Implementation</b> -->
         <ul>
           <li>
             <b>Course Admin</b>: 25T1
@@ -102,7 +104,8 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
         </ul>
       </li>
       <li>
-        <b>COMP9313 Big Data Management</b>
+        <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//COMP9313">COMP9313 Big Data Management</a>.
+<!--         <b>COMP9313 Big Data Management</b> -->
         <ul>
           <li>
             <b>Teaching Academic</b>: 24T2
