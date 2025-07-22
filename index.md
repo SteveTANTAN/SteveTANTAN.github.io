@@ -73,4 +73,52 @@ Previously, I completed my Bachelor of Science (BSc) in Computer Science and my 
 
 {% include_relative _includes/publications.md %}
 
+## Teaching
 
+<ul>
+  <li>
+    <b>Teaching Academic & Course Admin</b> &mdash; Sydney, Australia
+    <ul>
+      <li>
+        <b>COMP9311 Database Systems</b>
+        <ul>
+          <li>
+            <b>Teaching Academic</b>: 23T1, 23T3
+          </li>
+          <li>
+            <b>Course Admin</b>: 24T1, 25T1
+          </li>
+          <li>
+            <span style="color:#4A90E2;"><b>Awarded Best Teaching Course in CSE</b> (2024)</span>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>COMP9315 Database Systems Implementation</b>
+        <ul>
+          <li>
+            <b>Course Admin</b>: 25T1
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>COMP9313 Big Data Management</b>
+        <ul>
+          <li>
+            <b>Teaching Academic</b>: 24T2
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+## Honors & Awards
+
+<ul>
+  <li><b>WWW2025 Student Travel Award</b> (2025)</li>
+  <li><b>CSIRO's Data61-UNSW Joint PhD Full Scholarship</b> (2024-2028)</li>
+  <li><b>CIRES-ADC Travel Grant</b> (2023)</li>
+  <li><b>UNSW Australia's Global University Award PUCA1026</b> (2022)</li>
+  <li><b>UNSW International Academic Excellence Award PUCE1015</b> (2019)</li>
+</ul>
