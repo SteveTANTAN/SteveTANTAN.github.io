@@ -18,6 +18,28 @@ Previously, I completed my Bachelor of Science (BSc) in Computer Science and my 
 
 <details open>
 <summary>2025</summary>
+<ul>
+  <li>
+    <span style="color:red">[Paper]:</span> <strong>[Jun. 2025]</strong>
+    Our latest work
+    <a href="https://www.arxiv.org/abs/2505.17464">Hydra: Structured Cross-Source Enhanced Large Language Model Reasoning</a>
+    is now public.
+  </li>
+  <li>
+    <span style="color:blue">[Award]:</span> <strong>[Apr. 2025]</strong>
+    Awarded the WWW2025 Student Travel Award (2025).
+  </li>
+  <li>
+    <span style="color:red">[Paper]:</span> <strong>[Jan. 2025]</strong>
+    Our paper <em>Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning</em> is accepted to
+    <a href="https://www2025.thewebconf.org/">WWW 2025</a>.
+  </li>
+</ul>
+</details>
+
+
+<details open>
+<summary>2025</summary>
 
 <span style="color:red">[Paper]:</span>  [Jun. 2025] Our latest work [Hydra: Structured Cross-Source Enhanced Large Language Model Reasoning](https://www.arxiv.org/abs/2505.17464) is now public.
 
