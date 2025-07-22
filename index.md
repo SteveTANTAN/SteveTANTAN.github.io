@@ -113,7 +113,7 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
         </ul>
       </li>
       <li>
-        <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//COMP9313">ZZSC9001 Foundations of Data Science</a>.
+        <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//ZZSC9001">ZZSC9001 Foundations of Data Science</a>.
 <!--         <b>COMP9313 Big Data Management</b> -->
         <ul>
           <li>
