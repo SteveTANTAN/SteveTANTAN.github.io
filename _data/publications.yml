@@ -23,5 +23,6 @@ main:
     conference: ACM International Conference on Information and Knowledge Management (CIKM), 2023.
     pdf: https://dl.acm.org/doi/10.1145/3583780.3615209
     image: ./assets/img/CIKM.jpg
+    code: https://github.com/SteveTANTAN/kh-peak
 
 
