@@ -15,6 +15,7 @@ main:
     code: https://github.com/SteveTANTAN/PoG
     notes: Awarded Travel Grant
     image: ./assets/img/PoG.jpg
+    poster: ./assets/files/CIKM_KHPeak_poster.pdf
 
 
   - title: "Higher-Order Peak Decomposition"
@@ -24,5 +25,7 @@ main:
     pdf: https://dl.acm.org/doi/10.1145/3583780.3615209
     image: ./assets/img/CIKM.jpg
     code: https://github.com/SteveTANTAN/kh-peak
+    poster: ./assets/files/WWW_PoG_poster.pdf
+    
 
 
