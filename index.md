@@ -77,10 +77,10 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
 
 <ul>
   <li>
-    <b>Teaching Academic & Course Admin</b> &mdash; UNSW, Sydney, Australia
+    <b>Teaching Academic & Course Admin</b> &mdash; Sydney, Australia
     <ul>
       <li>
-        <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//COMP9311">COMP9311 Database Systems</a>.
+        <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//COMP9311">UNSW - COMP9311 Database Systems</a>.
 <!--         <b>COMP9311 Database Systems</b> -->
         <ul>
           <li>
@@ -95,7 +95,7 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
         </ul>
       </li>
       <li>
-        <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//COMP9315">COMP9315 Database Systems Implementation</a>.
+        <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//COMP9315">UNSW - COMP9315 Database Systems Implementation</a>.
 <!--         <b>COMP9315 Database Systems Implementation</b> -->
         <ul>
           <li>
@@ -104,7 +104,7 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
         </ul>
       </li>
       <li>
-        <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//COMP9313">COMP9313 Big Data Management</a>.
+        <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//COMP9313">UNSW - COMP9313 Big Data Management</a>.
 <!--         <b>COMP9313 Big Data Management</b> -->
         <ul>
           <li>
@@ -113,11 +113,21 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
         </ul>
       </li>
       <li>
-        <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//ZZSC9001">ZZSC9001 Foundations of Data Science</a>.
+        <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//ZZSC9001">UNSW - ZZSC9001 Foundations of Data Science</a>.
 <!--         <b>COMP9313 Big Data Management</b> -->
         <ul>
           <li>
             <b>Teaching Academic</b>: 2023T3
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://courses.uow.edu.au/subjects/2023/csit115?year=2023">UoW - CSIT115 - Data Management and Security
+</a>.
+<!--         <b>COMP9313 Big Data Management</b> -->
+        <ul>
+          <li>
+            <b>Teaching Academic</b>: 2023S2
           </li>
         </ul>
       </li>
