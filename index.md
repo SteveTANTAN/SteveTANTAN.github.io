@@ -122,7 +122,7 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
         </ul>
       </li>
       <li>
-        <a href="https://courses.uow.edu.au/subjects/2023/csit115?year=2023">UoW - CSIT115 - Data Management and Security
+        <a href="https://courses.uow.edu.au/subjects/2023/csit115?year=2023">UoW - CSIT115 Data Management and Security
 </a>.
 <!--         <b>COMP9313 Big Data Management</b> -->
         <ul>
