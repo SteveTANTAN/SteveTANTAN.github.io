@@ -4,7 +4,7 @@ layout: homepage
 
 ## About Me
 
-I am currently a Ph.D. candidate in the [Data and Knowledge Research Group (DKR)](https://unswdb.github.io/) at the School of Computer Science and Engineering, [University of New South Wales (UNSW)](https://www.unsw.edu.au/) and [Software Systems Group](https://research.csiro.au/ss/) at Data61, [Commonwealth Scientific and Industrial Research Organisation (CSIRO)](https://www.csiro.au/). I am fortunate to be jointly supervised by [Dr. Xiaoyang Wang](https://www.unsw.edu.au/staff/xiaoyang-wang) and [Prof. Wenjie Zhang](https://cgi.cse.unsw.edu.au/~zhangw/) from UNSW, as well as [Dr. Qing Liu](https://people.csiro.au/L/Q/Q-Liu), [Dr. Xiwei Xu](https://people.csiro.au/X/S/Xiwei-Xu), [Dr. Xin Yuan](https://people.csiro.au/y/x/xin-yuan), and [Prof. Liming Zhu](https://people.csiro.au/Z/L/Liming-Zhu) from CSIRO. 
+Hi there! I am Xingyu Tan (谭星雨), currently a Ph.D. candidate in the [Data and Knowledge Research Group (DKR)](https://unswdb.github.io/) at the School of Computer Science and Engineering, [University of New South Wales (UNSW)](https://www.unsw.edu.au/) and [Software Systems Group](https://research.csiro.au/ss/) at Data61, [Commonwealth Scientific and Industrial Research Organisation (CSIRO)](https://www.csiro.au/). I am fortunate to be jointly supervised by [Dr. Xiaoyang Wang](https://www.unsw.edu.au/staff/xiaoyang-wang) and [Prof. Wenjie Zhang](https://cgi.cse.unsw.edu.au/~zhangw/) from UNSW, as well as [Dr. Qing Liu](https://people.csiro.au/L/Q/Q-Liu), [Dr. Xiwei Xu](https://people.csiro.au/X/S/Xiwei-Xu), [Dr. Xin Yuan](https://people.csiro.au/y/x/xin-yuan), and [Prof. Liming Zhu](https://people.csiro.au/Z/L/Liming-Zhu) from CSIRO. 
 
 Previously, I completed both of my Bachelor of Science (BSc.) in Computer Science and Master of Philosophy (MPhil.) in Computer Science and Engineering at UNSW, under the supervision of Dr. Xiaoyang Wang and Prof. Wenjie Zhang.
 
@@ -148,7 +148,7 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
 
 ## Educations
 
-- [May. 2024 –    Now   ], Ph.D. Candidate in Computer Science,        UNSW & CSIRO’s Data61, Sydney
+- [May. 2024 – Present], Ph.D. Candidate in Computer Science,        UNSW & CSIRO’s Data61, Sydney
 - [Sep. 2022 – Dec. 2023], M.Phil. in Computer Science,                UNSW, Sydney
 - [Sep. 2019 – May. 2022], B.Sc. in Computer Science with Distinction, UNSW, Sydney
 
