@@ -146,40 +146,10 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
 </ul>
 
 
-## Education
+## Educations
 
-<table style="width:100%; border:none;">
-  <tr>
-    <td style="border:none; vertical-align:top;">
-      <b>University of New South Wales &amp; CSIRO’s Data61</b><br>
-      <i>Doctor of Philosophy in Computer Science and Engineering</i>
-    </td>
-    <td style="border:none; text-align:right; vertical-align:top; white-space:nowrap;">
-      <b>May. 2024 &ndash; Now</b><br>
-      <i>Sydney, Australia</i>
-    </td>
-  </tr>
-  <tr><td colspan="2" style="height:0.8em; border:none;"></td></tr>
-  <tr>
-    <td style="border:none; vertical-align:top;">
-      <b>University of New South Wales</b><br>
-      <i>Master of Philosophy in Computer Science and Engineering</i>
-    </td>
-    <td style="border:none; text-align:right; vertical-align:top; white-space:nowrap;">
-      <b>Sep. 2022 &ndash; Dec. 2023</b><br>
-      <i>Sydney, Australia</i>
-    </td>
-  </tr>
-  <tr><td colspan="2" style="height:0.8em; border:none;"></td></tr>
-  <tr>
-    <td style="border:none; vertical-align:top;">
-      <b>University of New South Wales</b><br>
-      <i>Bachelor of Science in Computer Science with Distinction</i>
-    </td>
-    <td style="border:none; text-align:right; vertical-align:top; white-space:nowrap;">
-      <b>Sep. 2019 &ndash; May. 2022</b><br>
-      <i>Sydney, Australia</i>
-    </td>
-  </tr>
-</table>
+- [May. 2024 –    Now   ], Ph.D. Candidate in Computer Science,        University of New South Wales & CSIRO’s Data61
+- [Sep. 2022 – Dec. 2023], M.Phil. in Computer Science,                University of New South Wales
+- [Sep. 2019 – May. 2022], B.Sc. in Computer Science with Distinction, University of New South Wales
+
 
