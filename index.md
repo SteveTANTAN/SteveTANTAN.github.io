@@ -148,8 +148,8 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
 
 ## Educations
 
-- [May. 2024 –    Now   ], Ph.D. Candidate in Computer Science,        University of New South Wales & CSIRO’s Data61
-- [Sep. 2022 – Dec. 2023], M.Phil. in Computer Science,                University of New South Wales
-- [Sep. 2019 – May. 2022], B.Sc. in Computer Science with Distinction, University of New South Wales
+- [May. 2024 –    Now   ], Ph.D. Candidate in Computer Science,        UNSW & CSIRO’s Data61, Sydney
+- [Sep. 2022 – Dec. 2023], M.Phil. in Computer Science,                UNSW, Sydney
+- [Sep. 2019 – May. 2022], B.Sc. in Computer Science with Distinction, UNSW, Sydney
 
 
