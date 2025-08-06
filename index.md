@@ -84,10 +84,10 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
 <!--         <b>COMP9311 Database Systems</b> -->
         <ul>
           <li>
-            <b>Teaching Academic</b>: 2023T1, 2023T3
+            <b>Course Admin</b>: 2025T1, 2024T1
           </li>
           <li>
-            <b>Course Admin</b>: 2024T1, 2025T1
+            <b>Teaching Academic</b>: 2023T3, 2023T1
           </li>
           <li>
             <span style="color:#4A90E2;"><b>Awarded Annual Best Teaching Course in CSE</b> (2024)</span>
