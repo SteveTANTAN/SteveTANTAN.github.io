@@ -20,7 +20,7 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
 <summary>Current - 2025</summary>
 <ul>
   <li>
-    <span style="color:red">[Paper]:</span> [Jun. 2025] Our latest work
+    <span style="color:red">[Paper]:</span> [Aug. 2025] Our latest work
     <a href="https://arxiv.org/pdf/2508.06588">Graph is a Natural Regularization: Revisiting Vector Quantization for Graph Representation Learning</a>
     is now public.
   </li>
