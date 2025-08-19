@@ -21,6 +21,11 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
 <ul>
   <li>
     <span style="color:red">[Paper]:</span> [Jun. 2025] Our latest work
+    <a href="https://arxiv.org/pdf/2508.06588">Graph is a Natural Regularization: Revisiting Vector Quantization for Graph Representation Learning</a>
+    is now public.
+  </li>
+  <li>
+    <span style="color:red">[Paper]:</span> [Jun. 2025] Our latest work
     <a href="https://www.arxiv.org/abs/2505.17464">Hydra: Structured Cross-Source Enhanced Large Language Model Reasoning</a>
     is now public.
   </li>
