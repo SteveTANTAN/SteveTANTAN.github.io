@@ -4,8 +4,8 @@ main:
     authors: <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang
     conference_short: EMNLP Main
     conference: The 2025 Conference on Empirical Methods in Natural Language Processing <strong>(EMNLP)</strong>, 2025.
-    code: https://github.com/SteveTANTAN/HydraRAG
     pdf: https://arxiv.org/pdf/2505.17464.pdf
+    code: https://github.com/SteveTANTAN/HydraRAG
     image: ./assets/img/Hydra.png
 
   - title: "Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning"
