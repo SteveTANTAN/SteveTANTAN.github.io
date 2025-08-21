@@ -23,7 +23,7 @@ Previously, I completed both of my Bachelor of Science (BSc.) in Computer Scienc
     <span style="color:red">[Paper]:</span> [Aug. 2025] Our paper
     <em>Hydra: Structured Cross-Source Enhanced Large Language Model Reasoning</em>
     is accepted to
-    <a href="https://2025.emnlp.org/">EMNLP 2025 (Main Conference)</a>.
+    <a href="https://2025.emnlp.org/">EMNLP 2025</a> (Main Conference).
   </li>
   <li>
     <span style="color:red">[Paper]:</span> [Aug. 2025] Our latest work
