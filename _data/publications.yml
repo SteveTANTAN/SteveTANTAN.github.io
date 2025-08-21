@@ -3,7 +3,7 @@ main:
   - title: "Hydra: Structured Cross-Source Enhanced Large Language Model Reasoning"
     authors: <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang
     conference_short: EMNLP Main
-    conference: The 2025 Conference on Empirical Methods in Natural Language Processing
+    conference: The 2025 Conference on Empirical Methods in Natural Language Processing <strong>(EMNLP)</strong>, 2025.
     pdf: https://arxiv.org/pdf/2505.17464.pdf
     image: ./assets/img/Hydra.png
 
