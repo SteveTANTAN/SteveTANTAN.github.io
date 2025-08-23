@@ -6,9 +6,7 @@ layout: homepage
 
 ## About Me
 
-Hi there! 👋 I am **Xingyu Tan (谭星雨)**, currently a **Ph.D. candidate** in the [Data and Knowledge Research Group (DKR)](https://unswdb.github.io/) at the School of Computer Science and Engineering, [University of New South Wales (UNSW)](https://www.unsw.edu.au/), and the [Software Systems Group](https://research.csiro.au/ss/) at Data61, [Commonwealth Scientific and Industrial Research Organisation (CSIRO)](https://www.csiro.au/).
-
-I am fortunate to be jointly supervised by [Dr. Xiaoyang Wang](https://www.unsw.edu.au/staff/xiaoyang-wang) and [Prof. Wenjie Zhang](https://cgi.cse.unsw.edu.au/~zhangw/) from UNSW, along with [Dr. Qing Liu](https://people.csiro.au/L/Q/Q-Liu), [Prof. Xiwei Xu](https://people.csiro.au/X/S/Xiwei-Xu), [Dr. Xin Yuan](https://people.csiro.au/y/x/xin-yuan), and [Prof. Liming Zhu](https://people.csiro.au/Z/L/Liming-Zhu) from CSIRO.
+Hi there! 👋 I am **Xingyu Tan (谭星雨)**, currently a **Ph.D. candidate** in the [Data and Knowledge Research Group (DKR)](https://unswdb.github.io/) at the School of Computer Science and Engineering, [University of New South Wales (UNSW)](https://www.unsw.edu.au/), and the [Software Systems Group](https://research.csiro.au/ss/) at Data61, [Commonwealth Scientific and Industrial Research Organisation (CSIRO)](https://www.csiro.au/). I am fortunate to be jointly supervised by [Dr. Xiaoyang Wang](https://www.unsw.edu.au/staff/xiaoyang-wang) and [Prof. Wenjie Zhang](https://cgi.cse.unsw.edu.au/~zhangw/) from UNSW, along with [Dr. Qing Liu](https://people.csiro.au/L/Q/Q-Liu), [Prof. Xiwei Xu](https://people.csiro.au/X/S/Xiwei-Xu), [Dr. Xin Yuan](https://people.csiro.au/y/x/xin-yuan), and [Prof. Liming Zhu](https://people.csiro.au/Z/L/Liming-Zhu) from CSIRO.
 
 Previously, I completed both my **Bachelor of Science (BSc.)** in Computer Science and my **Master of Philosophy (MPhil.)** in Computer Science and Engineering at UNSW, under the supervision of Dr. Xiaoyang Wang and Prof. Wenjie Zhang.
 
@@ -34,7 +32,7 @@ Previously, I completed both my **Bachelor of Science (BSc.)** in Computer Scien
   <li>
     <span style="color:red">[📄 Paper]:</span> [Aug. 2025] Our latest work
     <a href="https://arxiv.org/pdf/2508.06588">Graph is a Natural Regularization: Revisiting Vector Quantization for Graph Representation Learning</a>
-    is now public 🚀
+    is now public 📢
   </li>
   <li>
     <span style="color:red">[📄 Paper]:</span> [Jun. 2025] Our latest work
@@ -48,7 +46,7 @@ Previously, I completed both my **Bachelor of Science (BSc.)** in Computer Scien
     <span style="color:red">[📄 Paper]:</span> [Jan. 2025] Our paper
     <em>Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning</em>
     is accepted to
-    <a href="https://www2025.thewebconf.org/">WWW 2025</a> 🎊
+    <a href="https://www2025.thewebconf.org/">WWW 2025</a> 🎉
   </li>
 </ul>
 </details>
@@ -83,7 +81,7 @@ Previously, I completed both my **Bachelor of Science (BSc.)** in Computer Scien
     <span style="color:red">[📄 Paper]:</span> [Jun. 2023] Our paper
     <em>Maximum Fairness-Aware (k,r)-Core Identification in Large Graphs</em>
     is accepted to
-    <a href="https://adc2023.github.io/">ADC 2023</a> 🎊
+    <a href="https://adc2023.github.io/">ADC 2023</a> 🎉
   </li>
 </ul>
 </details>
