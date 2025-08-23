@@ -3,7 +3,7 @@ main:
   - title: "Hydra: Structured Cross-Source Enhanced Large Language Model Reasoning"
     authors: <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang
     conference_short: EMNLP Main
-    conference: The 2025 Conference on Empirical Methods in Natural Language Processing <strong>(EMNLP)</strong>, 2025.
+    conference: The 2025 Conference on Empirical Methods in Natural Language Processing <strong>(EMNLP, CORE A*)</strong>, 2025.
     pdf: https://arxiv.org/pdf/2505.17464.pdf
     code: https://github.com/SteveTANTAN/HydraRAG
     image: ./assets/img/Hydra.png
@@ -11,7 +11,7 @@ main:
   - title: "Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning"
     authors: <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Wenjie Zhang 
     conference_short: WWW
-    conference: ACM Web Conference <strong>(WWW)</strong>, 2025.
+    conference: The ACM Web Conference <strong>(WWW, CORE A*)</strong>, 2025.
     pdf: https://dl.acm.org/doi/abs/10.1145/3696410.3714892
     code: https://github.com/SteveTANTAN/PoG
     notes: Awarded Travel Grant
@@ -22,7 +22,7 @@ main:
   - title: "Higher-Order Peak Decomposition"
     authors: <strong>Xingyu Tan</strong>, Jingya Qian, Chen Chen, Sima Qing, Yanping Wu, Xiaoyang Wang, Wenjie Zhang
     conference_short: CIKM
-    conference: ACM International Conference on Information and Knowledge Management <strong>(CIKM)</strong>, 2023.
+    conference: The ACM International Conference on Information and Knowledge Management <strong>(CIKM, CORE A)</strong>, 2023.
     pdf: https://dl.acm.org/doi/10.1145/3583780.3615209
     image: ./assets/img/CIKM.jpg
     code: https://github.com/SteveTANTAN/kh-peak
