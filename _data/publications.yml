@@ -1,6 +1,7 @@
 main:
 
-  - title: "Hydra: Structured Cross-Source Enhanced Large Language Model Reasoning"
+  - logo: ./assets/img/hydra-logo-purple-1024.png
+    title: "Hydra: Structured Cross-Source Enhanced Large Language Model Reasoning"
     authors: <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang
     conference_short: EMNLP Main
     conference: The 2025 Conference on Empirical Methods in Natural Language Processing <strong>(EMNLP, CORE A*)</strong>, 2025.
@@ -8,6 +9,7 @@ main:
     code: https://github.com/SteveTANTAN/HydraRAG
     image: ./assets/img/Hydra.png
     website: https://stevetantan.github.io/Hydra/
+
 
   - title: "Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning"
     authors: <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Wenjie Zhang 
@@ -28,5 +30,4 @@ main:
     image: ./assets/img/CIKM.jpg
     code: https://github.com/SteveTANTAN/kh-peak
     poster: ./assets/files/CIKM_KHPeak_poster.pdf
-
 
