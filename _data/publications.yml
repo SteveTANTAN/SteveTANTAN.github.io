@@ -7,6 +7,7 @@ main:
     pdf: https://arxiv.org/pdf/2505.17464.pdf
     code: https://github.com/SteveTANTAN/HydraRAG
     image: ./assets/img/Hydra.png
+    Website: https://stevetantan.github.io/Hydra/
 
   - title: "Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning"
     authors: <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Wenjie Zhang 
