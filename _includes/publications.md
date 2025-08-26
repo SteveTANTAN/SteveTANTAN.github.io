@@ -20,7 +20,11 @@
         {% if link.logo %}
           <img src="{{ link.logo }}" alt="logo" style="height:20px; vertical-align:middle; margin-right:6px;">
         {% endif %}
-        <a href="{{ link.pdf }}">{{ link.title }}</a>
+        {% if link.website %}
+          <a href="{{ link.website }}" target="_blank">{{ link.title }}</a>
+        {% else %}
+          <a href="{{ link.pdf }}" target="_blank">{{ link.title }}</a>
+        {% endif %}
       </div>
       <div class="author">{{ link.authors }}</div>
       <div class="periodical"><em>{{ link.conference }}</em>
