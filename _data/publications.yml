@@ -11,7 +11,8 @@ main:
     website: https://stevetantan.github.io/Hydra/
 
 
-  - title: "Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning"
+  - logo: ./assets/img/PoG_logo.png
+    title: "Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning"
     authors: <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Wenjie Zhang 
     conference_short: WWW
     conference: The ACM Web Conference <strong>(WWW, CORE A*)</strong>, 2025.
@@ -20,6 +21,7 @@ main:
     notes: Awarded Travel Grant
     image: ./assets/img/PoG.jpg
     poster: ./assets/files/WWW_PoG_poster.pdf
+    website: https://github.com/SteveTANTAN/PoG
 
 
   - title: "Higher-Order Peak Decomposition"
