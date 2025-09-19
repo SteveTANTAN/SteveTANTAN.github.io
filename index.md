@@ -25,7 +25,7 @@ Previously, I completed both my **Bachelor of Science (BSc.)** in Computer Scien
 <ul>
   <li>
     <span style="color:red">[📄 Paper]:</span> [Aug. 2025] Our paper
-    <em>Hydra: Structured Cross-Source Enhanced Large Language Model Reasoning</em>
+    <em>HydraRAG: Structured Cross-Source Enhanced Large Language Model Reasoning</em>
     is accepted to
     <a href="https://2025.emnlp.org/">EMNLP 2025</a> 🎉
   </li>
@@ -36,7 +36,7 @@ Previously, I completed both my **Bachelor of Science (BSc.)** in Computer Scien
   </li>
   <li>
     <span style="color:red">[📄 Paper]:</span> [Jun. 2025] Our latest work
-    <a href="https://www.arxiv.org/abs/2505.17464">Hydra: Structured Cross-Source Enhanced Large Language Model Reasoning</a>
+    <a href="https://www.arxiv.org/abs/2505.17464">HydraRAG: Structured Cross-Source Enhanced Large Language Model Reasoning</a>
     is now public 📢
   </li>
   <li>
