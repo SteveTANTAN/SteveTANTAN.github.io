@@ -1,7 +1,7 @@
 main:
 
   - logo: ./assets/img/hydra-logo-purple-1024.png
-    title: "Hydra: Structured Cross-Source Enhanced Large Language Model Reasoning"
+    title: "HydraRAG: Structured Cross-Source Enhanced Large Language Model Reasoning"
     authors: <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang
     conference_short: EMNLP Main
     conference: The 2025 Conference on Empirical Methods in Natural Language Processing <strong>(EMNLP, CORE A*)</strong>, 2025.
