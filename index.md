@@ -24,6 +24,15 @@ Previously, I completed both my **Bachelor of Science (BSc.)** in Computer Scien
 <summary>📌 Current - 2025</summary>
 <ul>
   <li>
+    <span style="color:red">[📄 Paper]:</span> [Aug. 2025] Our latest work
+    <a href="https://arxiv.org/abs/2510.13614">MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning</a> about LLM Memory RAG is now public 📢
+  </li>
+  <li>
+    <span style="color:red">[📄 Paper]:</span> [Aug. 2025] Our latest work
+    <a href="https://arxiv.org/abs/2510.12434">PRoH: Dynamic Planning and Reasoning over Knowledge Hypergraphs for Retrieval-Augmented Generation</a>
+    is now public 📢
+  </li>
+  <li>
     <span style="color:red">[📄 Paper]:</span> [Aug. 2025] Our paper
     <em>HydraRAG: Structured Cross-Source Enhanced Large Language Model Reasoning</em>
     is accepted to
