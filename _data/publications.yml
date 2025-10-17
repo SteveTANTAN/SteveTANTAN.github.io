@@ -6,7 +6,7 @@ main:
     conference_short: ArXiv
     conference: ArXiv, 2025.
     pdf: https://arxiv.org/pdf/2510.13614.pdf
-    image: ./assets/img/MemoTime.png
+    image: ./assets/img/MemoTime.jpg
     website: https://arxiv.org/abs/2510.13614
 
   - title: "PRoH: Dynamic Planning and Reasoning over Knowledge Hypergraphs for Retrieval-Augmented Generation"
@@ -14,7 +14,7 @@ main:
     conference_short:  ArXiv
     conference: ArXiv, 2025.
     pdf: https://arxiv.org/pdf/2510.12434.pdf
-    image: ./assets/img/PRoH.png
+    image: ./assets/img/PRoH.jpg
     website: https://arxiv.org/abs/2510.12434
     
 
