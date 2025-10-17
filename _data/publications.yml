@@ -1,5 +1,23 @@
 main:
 
+  - logo: ./assets/img/MemoTime_logo.png
+    title: "MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning"
+    authors: <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang
+    conference_short: ArXiv
+    conference: ArXiv, 2025.
+    pdf: https://arxiv.org/pdf/2510.13614.pdf
+    image: ./assets/img/MemoTime.png
+    website: https://arxiv.org/abs/2510.13614
+
+  - title: "PRoH: Dynamic Planning and Reasoning over Knowledge Hypergraphs for Retrieval-Augmented Generation"
+    authors: Xiangjun Zai, <strong>Xingyu Tan*</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Wenjie Zhang
+    conference_short:  ArXiv
+    conference: ArXiv, 2025.
+    pdf: https://arxiv.org/pdf/2510.12434.pdf
+    image: ./assets/img/PRoH.png
+    website: https://arxiv.org/abs/2510.12434
+    
+
   - logo: ./assets/img/hydra-logo-purple-1024.png
     title: "HydraRAG: Structured Cross-Source Enhanced Large Language Model Reasoning"
     authors: <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang
