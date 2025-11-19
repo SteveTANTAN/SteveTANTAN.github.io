@@ -24,7 +24,7 @@ Previously, I completed both my **Bachelor of Science (BSc.)** in Computer Scien
 <summary>📌 Current - 2025</summary>
 <ul>
     <li>
-    <span style="color:blue">[🏆 Award]:</span> [Apr. 2025] Awarded UNSW Industry Engagement Grant 🔬
+    <span style="color:blue">[🏆 Award]:</span> [Nov. 2025] Awarded UNSW Industry Engagement Grant 🔬
   </li>
   <li>
     <span style="color:red">[📄 Paper]:</span> [Oct. 2025] Our latest work
