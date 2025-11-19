@@ -23,6 +23,9 @@ Previously, I completed both my **Bachelor of Science (BSc.)** in Computer Scien
 <details open>
 <summary>📌 Current - 2025</summary>
 <ul>
+    <li>
+    <span style="color:blue">[🏆 Award]:</span> [Apr. 2025] Awarded UNSW Industry Engagement Grant 🔬
+  </li>
   <li>
     <span style="color:red">[📄 Paper]:</span> [Oct. 2025] Our latest work
     <a href="https://arxiv.org/abs/2510.13614">MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning</a> about LLM Memory RAG is now public 📢
@@ -163,6 +166,7 @@ Previously, I completed both my **Bachelor of Science (BSc.)** in Computer Scien
 ## Honors & Awards
 
 <ul>
+  <li><b>UNSW Industry Engagement Grant</b> (2025)</li>
   <li><b>WWW2025 Student Travel Award</b> (2025)</li>
   <li><b>CSIRO's Data61-UNSW Joint PhD Full Scholarship</b> (2024-2028)</li>
   <li><b>CIRES-ADC Travel Grant</b> (2023)</li>
