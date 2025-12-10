@@ -26,8 +26,8 @@ main:
     pdf: https://arxiv.org/pdf/2505.17464.pdf
     code: https://github.com/SteveTANTAN/HydraRAG
     image: ./assets/img/Hydra.png
+    poster: ./assets/files/EMNLP_HydraRAG_poster.pdf
     website: https://stevetantan.github.io/Hydra/
-
 
   - logo: ./assets/img/PoG_logo.png
     title: "Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning"
