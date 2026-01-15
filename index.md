@@ -19,9 +19,29 @@ Previously, I completed both my **Bachelor of Science (BSc.)** in Computer Scien
 - **Large Language Models:** knowledge-enhanced reasoning, interpretability, cross-source verification
 
 ## News
-
 <details open>
-<summary>📌 Current - 2025</summary>
+<summary>📌 Current - 2026</summary>
+    <ul>
+<li>
+    <span style="color:red">[📄 Paper]:</span> [Jan. 2026] Our paper
+    <em>MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning</em>
+    is accepted to
+    <a href="https://www2026.thewebconf.org/">WWW 2026</a> 🎉
+  </li>
+        <li>
+    <span style="color:red">[📄 Paper]:</span> [Jan. 2026] Our paper
+    <em>PRoH: Dynamic Planning and Reasoning over Knowledge Hypergraphs for Retrieval-Augmented Generation</em>
+    is accepted to
+    <a href="https://www2026.thewebconf.org/">WWW 2026</a> 🎉
+  </li>
+    <li>
+    <span style="color:red">[📄 Paper]:</span> [Jan. 2026] Our latest work
+    <a href="https://arxiv.org/abs/2601.08739">PrivGemo: Privacy-Preserving Dual-Tower Graph Retrieval for Empowering LLM Reasoning with Memory Augmentation</a> about LLM privacy-protected Graph RAG is now public 📢
+  </li>
+    </ul>
+</details>
+<details open>
+<summary>📰 More News - 2025</summary>
 <ul>
     <li>
     <span style="color:blue">[🏆 Award]:</span> [Nov. 2025] Awarded UNSW Industry Engagement Grant 🔬
