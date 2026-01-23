@@ -1,4 +1,7 @@
 <h2 id="Selected Publications" style="margin: 2px 0px -15px;">Selected Publications</h2>
+(* indicates corresponding author)
+
+
 
 <div class="publications">
 <ol class="bibliography">
