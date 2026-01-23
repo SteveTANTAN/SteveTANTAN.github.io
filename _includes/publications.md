@@ -1,6 +1,7 @@
 <h2 id="Selected Publications" style="margin: 2px 0px -15px;">Selected Publications</h2>
-(* indicates corresponding author)
-
+<p class="pub-note" style="margin: 0 0 6px; font-size: 12px; color: #666;">
+  (<span style="font-weight:600;">*</span> indicates corresponding author)
+</p>
 
 
 <div class="publications">
