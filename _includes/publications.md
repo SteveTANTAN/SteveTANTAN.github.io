@@ -1,11 +1,17 @@
-<div style="margin: 3px 0 15px;">
+<!-- <div style="margin: 3px 0 15px;">
   <h2 id="Selected Publications" style="margin: 0; line-height: 1.5;">
     Selected Publications
   </h2>
   <div style="margin-top: 4px; font-size: 12px; color: #6b7280; line-height: 1.2;">
     <span style="font-weight: 600;">*</span> indicates corresponding author
   </div>
-</div>
+</div> -->
+<h2 id="Selected Publications" style="margin: 2px 0px -15px; display:flex; align-items:baseline; gap:10px;">
+  <span>Selected Publications</span>
+  <span style="font-size:12px; color:#666; font-weight:400;">
+    (<span style="font-weight:600;">*</span> indicates corresponding author)
+  </span>
+</h2>
 
 
 <div class="publications">
