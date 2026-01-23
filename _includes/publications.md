@@ -1,5 +1,5 @@
-<div style="margin: 2px 0 12px;">
-  <h2 id="Selected Publications" style="margin: 0; line-height: 1.15;">
+<div style="margin: 3px 0 15px;">
+  <h2 id="Selected Publications" style="margin: 0; line-height: 1.5;">
     Selected Publications
   </h2>
   <div style="margin-top: 4px; font-size: 12px; color: #6b7280; line-height: 1.2;">
