@@ -1,7 +1,11 @@
-<h2 id="Selected Publications" style="margin: 2px 0px -15px;">Selected Publications</h2>
-<p class="pub-note" style="margin: 0 0 6px; font-size: 12px; color: #666;">
-  (<span style="font-weight:600;">*</span> indicates corresponding author)
-</p>
+<div style="margin: 2px 0 12px;">
+  <h2 id="Selected Publications" style="margin: 0; line-height: 1.15;">
+    Selected Publications
+  </h2>
+  <div style="margin-top: 4px; font-size: 12px; color: #6b7280; line-height: 1.2;">
+    <span style="font-weight: 600;">*</span> indicates corresponding author
+  </div>
+</div>
 
 
 <div class="publications">
