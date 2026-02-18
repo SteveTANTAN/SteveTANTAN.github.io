@@ -139,7 +139,7 @@ I am currently a **MLE & Research Intern** at **TikTok, Australia**, working on 
 ## Experience
 <ul>
   <li>
-    <b>Machine Learning Engineer (MLE) & Research Intern</b> &mdash; TikTok Australia, Sydney, Australia
+    <b>Machine Learning Engineer (MLE) & Research Intern</b> &mdash; TikTok, Sydney, Australia
     <ul>
       <li>
         Working on MLLMs and applied research.
