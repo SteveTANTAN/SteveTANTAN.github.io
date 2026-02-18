@@ -156,7 +156,7 @@ I am currently a **MLE & Research Intern** at **TikTok, Australia**, working on 
 <!--         <b>COMP9311 Database Systems</b> -->
         <ul>
           <li>
-            <b>Course Admin</b>: 2025T1, 2024T1
+            <b>Course Admin</b>: 2026T1, 2025T1, 2024T1
           </li>
           <li>
             <b>Teaching Academic</b>: 2023T3, 2023T1
@@ -171,7 +171,7 @@ I am currently a **MLE & Research Intern** at **TikTok, Australia**, working on 
 <!--         <b>COMP9315 Database Systems Implementation</b> -->
         <ul>
           <li>
-            <b>Course Admin</b>: 2025T1
+            <b>Course Admin</b>: 2026T1, 2025T1
           </li>
         </ul>
       </li>
