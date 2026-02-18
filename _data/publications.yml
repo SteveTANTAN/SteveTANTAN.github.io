@@ -7,6 +7,7 @@ main:
     image: ./assets/img/PrivGemo.jpg
     website: https://arxiv.org/abs/2601.08739
     
+    
   - logo: ./assets/img/MemoTime_logo.png
     title: "MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning"
     authors: <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang
@@ -15,6 +16,8 @@ main:
     pdf: https://arxiv.org/pdf/2510.13614.pdf
     image: ./assets/img/MemoTime.jpg
     website: https://arxiv.org/abs/2510.13614
+    code: https://github.com/SteveTANTAN/MemoTime
+    
 
   - title: "PRoH: Dynamic Planning and Reasoning over Knowledge Hypergraphs for Retrieval-Augmented Generation"
     authors: Xiangjun Zai, <strong>Xingyu Tan*</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Wenjie Zhang
@@ -23,6 +26,8 @@ main:
     pdf: https://arxiv.org/pdf/2510.12434.pdf
     image: ./assets/img/PRoH.jpg
     website: https://arxiv.org/abs/2510.12434
+    code: https://github.com/zaixjun/PRoH
+    
     
 
   - logo: ./assets/img/hydra-logo-purple-1024.png
