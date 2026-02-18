@@ -162,7 +162,7 @@ I am currently a **MLE & Research Intern** at **TikTok, Australia**, working on 
             <b>Teaching Academic</b>: 2023T3, 2023T1
           </li>
           <li>
-            <span style="color:#4A90E2;"><b>Awarded Annual Best Teaching Course in CSE</b> (2024)</span>
+            <span style="color:#4A90E2;"><b>Awarded Annual Best Teaching Course in CSE</b> (2024， 2025)</span>
           </li>
         </ul>
       </li>
