@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YWYL0QFYJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8YWYL0QFYJ');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Xingyu Tan | UNSW, Sydney | Data61, CSIRO</title>
+  <meta name="description" content="Xingyu TAN, UNSW, Sydney" />
+  <meta name="keywords" content="Xingyu TAN" />
+  <link rel="canonical" href="https://SteveTANTAN.github.io/" />
+
+  <link rel="icon" media="(prefers-color-scheme:dark)" href="./assets/img/favicon-dark.png" type="image/png" />
+  <link rel="icon" media="(prefers-color-scheme:light)" href="./assets/img/favicon.png" type="image/png" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" />
+
+  <style>
+    :root{
+      --brand: 79 70 229;   /* indigo-600 */
+      --ink: 17 24 39;      /* gray-900 */
+      --muted: 107 114 128; /* gray-500 */
+      --card: 255 255 255;
+      --bg: 248 250 252;    /* slate-50 */
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+
+    /* Better anchor offset for fixed nav */
+    section { scroll-margin-top: 92px; }
+
+    /* Custom scrollbar */
+    .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.04); border-radius: 999px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.18); border-radius: 999px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.26); }
+
+    /* Link underline animation */
+    .hover-underline-animation { display: inline-block; position: relative; }
+    .hover-underline-animation::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: rgb(var(--brand));
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+    .hover-underline-animation:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    /* Subtle background grid + glow */
+    .bg-grid {
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.07) 1px, transparent 0);
+      background-size: 22px 22px;
+      mask-image: radial-gradient(ellipse at top, rgba(0,0,0,0.9), transparent 65%);
+    }
+    .hero-glow::before{
+      content:"";
+      position:absolute;
+      inset:-220px -120px auto -120px;
+      height: 420px;
+      background: radial-gradient(closest-side, rgba(var(--brand),0.18), transparent 70%);
+      pointer-events:none;
+      filter: blur(8px);
+    }
+
+    /* Floating card shadow */
+    .soft-card{
+      background: rgb(var(--card));
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.04),
+        0 8px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    /* Glass nav */
+    .glass {
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(15,23,42,0.08);
+    }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+
+<body class="bg-[rgb(var(--bg))] text-gray-800 antialiased selection:bg-indigo-100 selection:text-indigo-700">
+  <!-- Background -->
+  <div class="fixed inset-0 -z-10 bg-grid"></div>
+
+  <!-- NAV -->
+  <nav class="fixed w-full z-50 glass">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="#about" class="flex items-center gap-2 font-bold text-lg sm:text-xl tracking-tight text-gray-900">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-sm">
+            XT
+          </span>
+          <span class="hidden sm:inline">Xingyu Tan</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-1 text-sm font-medium">
+          <a href="#about" class="px-3 py-2 rounded-lg text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/70 transition">About</a>
+          <a href="#news" class="px-3 py-2 rounded-lg text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/70 transition">News</a>
+          <a href="#publications" class="px-3 py-2 rounded-lg text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/70 transition">Publications</a>
+          <a href="#experience" class="px-3 py-2 rounded-lg text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/70 transition">Experience</a>
+          <a href="#honors" class="px-3 py-2 rounded-lg text-gray-600 hover:text-indigo-600 hover:bg-indigo-50/70 transition">Honors</a>
+          <a href="#publications" class="ml-2 inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-indigo-600 text-white shadow-sm hover:shadow transition">
+            <i class="far fa-file-lines"></i> CV
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl hover:bg-gray-100 transition" aria-label="Open menu" aria-expanded="false">
+          <i class="fas fa-bars text-gray-700"></i>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="md:hidden hidden pb-4">
+        <div class="soft-card rounded-2xl p-3">
+          <div class="grid gap-1 text-sm font-medium">
+            <a href="#about" class="px-3 py-2 rounded-lg text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/70 transition">About</a>
+            <a href="#news" class="px-3 py-2 rounded-lg text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/70 transition">News</a>
+            <a href="#publications" class="px-3 py-2 rounded-lg text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/70 transition">Publications</a>
+            <a href="#experience" class="px-3 py-2 rounded-lg text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/70 transition">Experience</a>
+            <a href="#honors" class="px-3 py-2 rounded-lg text-gray-700 hover:text-indigo-600 hover:bg-indigo-50/70 transition">Honors</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ABOUT / HERO -->
+  <section id="about" class="pt-28 pb-14 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative hero-glow">
+    <div class="soft-card rounded-3xl p-6 sm:p-8">
+      <div class="flex flex-col md:flex-row items-start gap-10">
+        <div class="w-full md:w-1/3 flex flex-col items-center text-center">
+          <div class="relative w-56 aspect-[3/4] overflow-hidden rounded-2xl shadow-xl ring-1 ring-gray-200 bg-gray-200 group">
+            <img
+              src="./assets/img/me.jpg"
+              alt="Xingyu Tan"
+              class="w-full h-full object-cover transition transform duration-500 group-hover:scale-105"
+              onerror="this.src='https://ui-avatars.com/api/?name=Xingyu+Tan&size=300&background=random'"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition"></div>
+          </div>
+
+          <h1 class="mt-6 text-3xl font-bold text-gray-900 tracking-tight">Xingyu Tan</h1>
+
+          <div class="mt-3 space-y-1">
+            <div class="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-sm font-semibold border border-indigo-100">
+              <span class="h-2 w-2 rounded-full bg-indigo-500"></span>
+              Ph.D. Candidate
+            </div>
+            <p class="text-sm text-gray-600">UNSW, Sydney | Data61, CSIRO</p>
+            <p class="text-xs text-gray-500 mt-1">xingyu.tan (at) unsw.edu.au</p>
+          </div>
+
+          <div class="mt-6 flex gap-3 text-xl text-gray-500 items-center justify-center">
+            <a href="https://scholar.google.com/citations?user=2gzpDtsAAAAJ&hl=en" target="_blank"
+               class="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-gray-200 bg-white hover:bg-indigo-50 hover:text-indigo-600 transition"
+               title="Google Scholar" rel="noreferrer">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+            <a href="https://github.com/SteveTANTAN" target="_blank"
+               class="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-gray-200 bg-white hover:bg-gray-900 hover:text-white transition"
+               title="GitHub" rel="noreferrer">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/xingyu-tan-b90179173/?originalSubdomain=au" target="_blank"
+               class="inline-flex items-center justify-center w-11 h-11 rounded-xl border border-gray-200 bg-white hover:bg-blue-50 hover:text-blue-600 transition"
+               title="LinkedIn" rel="noreferrer">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+
+          <div class="mt-5 w-full">
+            <a href="#publications"
+               class="inline-flex w-full items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gray-900 text-white shadow-sm hover:shadow transition">
+              <i class="fas fa-arrow-down"></i> See Publications
+            </a>
+          </div>
+        </div>
+
+        <div class="w-full md:w-2/3">
+          <div class="flex items-center gap-3 mb-5">
+            <h2 class="text-2xl font-bold text-gray-900">About Me</h2>
+            <div class="h-1 w-20 bg-indigo-600 rounded-full"></div>
+          </div>
+
+          <div class="prose prose-lg text-gray-600 leading-relaxed text-base max-w-none">
+            <p class="mb-4">
+              Hi there! 👋 I am <strong>Xingyu Tan (谭星雨)</strong>, currently a <strong>Ph.D. candidate</strong> in the
+              <a href="https://unswdb.github.io/" class="text-indigo-600 font-medium hover-underline-animation" rel="noreferrer" target="_blank">
+                Data and Knowledge Research Group (DKR)
+              </a>
+              at UNSW, and the
+              <a href="https://research.csiro.au/ss/" class="text-indigo-600 font-medium hover-underline-animation" rel="noreferrer" target="_blank">
+                Software Systems Group
+              </a>
+              at Data61, CSIRO.
+            </p>
+
+            <p class="mb-4">
+              I am supervised by
+              <a href="https://www.unsw.edu.au/staff/xiaoyang-wang" class="font-bold text-gray-900 hover:text-indigo-600 hover-underline-animation" rel="noreferrer" target="_blank">Dr. Xiaoyang Wang</a>
+              and
+              <a href="https://cgi.cse.unsw.edu.au/~zhangw/" class="font-bold text-gray-900 hover:text-indigo-600 hover-underline-animation" rel="noreferrer" target="_blank">Prof. Wenjie Zhang</a>
+              from UNSW, along with
+              <a href="https://people.csiro.au/L/Q/Q-Liu" class="font-bold text-gray-900 hover:text-indigo-600 hover-underline-animation" rel="noreferrer" target="_blank">Dr. Qing Liu</a>,
+              <a href="https://people.csiro.au/X/S/Xiwei-Xu" class="font-bold text-gray-900 hover:text-indigo-600 hover-underline-animation" rel="noreferrer" target="_blank">Prof. Xiwei Xu</a>,
+              <a href="https://people.csiro.au/y/x/xin-yuan" class="font-bold text-gray-900 hover:text-indigo-600 hover-underline-animation" rel="noreferrer" target="_blank">Dr. Xin Yuan</a>,
+              and
+              <a href="https://people.csiro.au/Z/L/Liming-Zhu" class="font-bold text-gray-900 hover:text-indigo-600 hover-underline-animation" rel="noreferrer" target="_blank">Prof. Liming Zhu</a>
+              from CSIRO.
+            </p>
+
+            <div class="mt-5 flex flex-col sm:flex-row gap-3">
+              <div class="flex-1 rounded-2xl bg-purple-50 border border-purple-100 p-4">
+                <div class="flex items-start gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-purple-600 text-white inline-flex items-center justify-center shrink-0">
+                    <i class="fas fa-briefcase"></i>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-gray-900">Now</div>
+                    <div class="text-sm text-purple-700">MLE & Research Intern at TikTok, Australia</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex-1 rounded-2xl bg-indigo-50 border border-indigo-100 p-4">
+                <div class="flex items-start gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white inline-flex items-center justify-center shrink-0">
+                    <i class="fas fa-graduation-cap"></i>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-gray-900">Education</div>
+                    <div class="text-sm text-indigo-700">BSc. & MPhil. in Computer Science (UNSW)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 soft-card p-5 rounded-2xl">
+              <h3 class="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <span class="inline-flex w-9 h-9 items-center justify-center rounded-xl bg-indigo-50 text-indigo-700 border border-indigo-100">
+                  <i class="fas fa-search"></i>
+                </span>
+                Research Interests
+              </h3>
+              <ul class="grid sm:grid-cols-1 gap-2 text-sm text-gray-700">
+                <li class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full bg-indigo-500 mt-2 shrink-0"></span>
+                  <span><strong>Graph Mining:</strong> subgraph detection, fairness-aware mining, graph analytics</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full bg-indigo-500 mt-2 shrink-0"></span>
+                  <span><strong>Knowledge Graph Reasoning:</strong> multi-hop reasoning, retrieval-augmented generation</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="w-2 h-2 rounded-full bg-indigo-500 mt-2 shrink-0"></span>
+                  <span><strong>Large Language Models:</strong> knowledge-enhanced reasoning, interpretability</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section id="news" class="py-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="soft-card rounded-3xl p-6 sm:p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="inline-flex w-10 h-10 items-center justify-center rounded-2xl bg-orange-50 text-orange-700 border border-orange-100">
+            🔥
+          </span>
+          <h2 class="text-2xl font-bold text-gray-900">News</h2>
+        </div>
+
+        <div class="max-h-[420px] overflow-y-auto custom-scrollbar pr-2 space-y-7">
+          <div>
+            <h3 class="sticky top-0 bg-white/90 backdrop-blur py-2 font-bold text-gray-900 z-10 border-b border-gray-100 mb-3">
+              📌 2026
+            </h3>
+            <ul class="space-y-3 text-sm">
+              <li class="flex gap-3 items-start">
+                <span class="text-xs font-bold px-2 py-1 rounded-lg bg-purple-100 text-purple-800 mt-0.5 shrink-0 w-20 text-center">Intern</span>
+                <div><span class="font-bold text-gray-500 mr-2">[Jan. 2026]</span> Starting the <strong>MLE & Research Intern</strong> at <strong>TikTok Australia</strong> (Sydney).</div>
+              </li>
+              <li class="flex gap-3 items-start">
+                <span class="text-xs font-bold px-2 py-1 rounded-lg bg-green-100 text-green-800 mt-0.5 shrink-0 w-20 text-center">Accepted</span>
+                <div><span class="font-bold text-gray-500 mr-2">[Jan. 2026]</span> Paper <strong>MemoTime</strong> accepted to <a href="#" class="text-indigo-600 hover:underline">WWW 2026</a> 🎉</div>
+              </li>
+              <li class="flex gap-3 items-start">
+                <span class="text-xs font-bold px-2 py-1 rounded-lg bg-green-100 text-green-800 mt-0.5 shrink-0 w-20 text-center">Accepted</span>
+                <div><span class="font-bold text-gray-500 mr-2">[Jan. 2026]</span> Paper <strong>PRoH</strong> accepted to <a href="#" class="text-indigo-600 hover:underline">WWW 2026</a> 🎉</div>
+              </li>
+              <li class="flex gap-3 items-start">
+                <span class="text-xs font-bold px-2 py-1 rounded-lg bg-orange-100 text-orange-800 mt-0.5 shrink-0 w-20 text-center">Preprint</span>
+                <div><span class="font-bold text-gray-500 mr-2">[Jan. 2026]</span> New paper public: <strong>PrivGemo</strong> (Privacy-Preserving Dual-Tower Graph Retrieval) 📢</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="sticky top-0 bg-white/90 backdrop-blur py-2 font-bold text-gray-900 z-10 border-b border-gray-100 mb-3">
+              📰 2025
+            </h3>
+            <ul class="space-y-3 text-sm">
+              <li class="flex gap-3 items-start">
+                <span class="text-xs font-bold px-2 py-1 rounded-lg bg-blue-100 text-blue-800 mt-0.5 shrink-0 w-20 text-center">Award</span>
+                <div><span class="font-bold text-gray-500 mr-2">[Nov. 2025]</span> Awarded <strong>UNSW Industry Engagement Grant</strong> 🔬</div>
+              </li>
+              <li class="flex gap-3 items-start">
+                <span class="text-xs font-bold px-2 py-1 rounded-lg bg-orange-100 text-orange-800 mt-0.5 shrink-0 w-20 text-center">Preprint</span>
+                <div><span class="font-bold text-gray-500 mr-2">[Oct. 2025]</span> New paper public: <strong>MemoTime</strong> 📢</div>
+              </li>
+              <li class="flex gap-3 items-start">
+                <span class="text-xs font-bold px-2 py-1 rounded-lg bg-orange-100 text-orange-800 mt-0.5 shrink-0 w-20 text-center">Preprint</span>
+                <div><span class="font-bold text-gray-500 mr-2">[Oct. 2025]</span> New paper public: <strong>PRoH</strong> 📢</div>
+              </li>
+              <li class="flex gap-3 items-start">
+                <span class="text-xs font-bold px-2 py-1 rounded-lg bg-purple-100 text-purple-800 mt-0.5 shrink-0 w-20 text-center">Accepted</span>
+                <div><span class="font-bold text-gray-500 mr-2">[Aug. 2025]</span> Paper <strong>HydraRAG</strong> accepted to <a href="#" class="text-indigo-600 hover:underline">EMNLP 2025</a> 🎉</div>
+              </li>
+              <li class="flex gap-3 items-start">
+                <span class="text-xs font-bold px-2 py-1 rounded-lg bg-blue-100 text-blue-800 mt-0.5 shrink-0 w-20 text-center">Award</span>
+                <div><span class="font-bold text-gray-500 mr-2">[Apr. 2025]</span> Awarded <strong>WWW2025 Student Travel Award</strong> ✈️</div>
+              </li>
+              <li class="flex gap-3 items-start">
+                <span class="text-xs font-bold px-2 py-1 rounded-lg bg-green-100 text-green-800 mt-0.5 shrink-0 w-20 text-center">Accepted</span>
+                <div><span class="font-bold text-gray-500 mr-2">[Jan. 2025]</span> Paper <strong>Paths-over-Graph</strong> accepted to <a href="#" class="text-indigo-600 hover:underline">WWW 2025</a> 🎉</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="sticky top-0 bg-white/90 backdrop-blur py-2 font-bold text-gray-900 z-10 border-b border-gray-100 mb-3">
+              📰 2024 - 2023
+            </h3>
+            <ul class="space-y-3 text-sm">
+              <li class="flex gap-3 items-start">
+                <span class="text-xs font-bold px-2 py-1 rounded-lg bg-purple-100 text-purple-800 mt-0.5 shrink-0 w-20 text-center">Progress</span>
+                <div><span class="font-bold text-gray-500 mr-2">[May. 2024]</span> Obtained MPhil degree and started PhD journey! 🥳</div>
+              </li>
+              <li class="flex gap-3 items-start">
+                <span class="text-xs font-bold px-2 py-1 rounded-lg bg-blue-100 text-blue-800 mt-0.5 shrink-0 w-20 text-center">Award</span>
+                <div><span class="font-bold text-gray-500 mr-2">[Jan. 2024]</span> Awarded the <strong>CSIRO’s Data61-UNSW Joint PhD Full Scholarship</strong> 📚</div>
+              </li>
+              <li class="flex gap-3 items-start">
+                <span class="text-xs font-bold px-2 py-1 rounded-lg bg-green-100 text-green-800 mt-0.5 shrink-0 w-20 text-center">Accepted</span>
+                <div><span class="font-bold text-gray-500 mr-2">[Nov. 2023]</span> Paper <strong>Higher-order peak decomposition</strong> accepted to CIKM 2023 🎉</div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS (kept your cards; just wrapped + spacing polish) -->
+  <section id="publications" class="py-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-8">
+      <span class="inline-flex w-10 h-10 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-700 border border-indigo-100">
+        <i class="far fa-file-lines"></i>
+      </span>
+      <h2 class="text-2xl font-bold text-gray-900">Selected Publications</h2>
+    </div>
+
+    <div class="space-y-8">
+      <!-- Your publication cards below: only small UI tweaks (rounded, shadow, hover) -->
+      <div class="soft-card p-5 rounded-3xl hover:shadow-lg transition flex flex-col md:flex-row gap-6 group">
+        <div class="w-full md:w-48 shrink-0 overflow-hidden rounded-2xl border border-gray-200 bg-gray-50">
+          <img src="./assets/img/PrivGemo.jpg" alt="PrivGemo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/400x300?text=PrivGemo'">
+        </div>
+        <div class="flex-1">
+          <h3 class="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition">
+            PrivGemo: Privacy-Preserving Dual-Tower Graph Retrieval for Empowering LLM Reasoning with Memory Augmentation
+          </h3>
+          <div class="text-sm text-gray-600 mt-2">
+            <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang
+          </div>
+          <div class="mt-3 flex items-center gap-2">
+            <span class="bg-gray-100 text-gray-700 text-xs font-semibold px-2.5 py-1 rounded-lg border border-gray-200">ArXiv 2026</span>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-3 text-sm font-medium">
+            <a href="https://arxiv.org/pdf/2601.08739" class="text-indigo-600 hover:underline flex items-center gap-1" rel="noreferrer" target="_blank"><i class="far fa-file-pdf"></i> PDF</a>
+            <span class="text-gray-300">|</span>
+            <a href="https://arxiv.org/abs/2601.08739" class="text-gray-600 hover:text-gray-900 flex items-center gap-1" rel="noreferrer" target="_blank"><i class="fas fa-globe"></i> Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Keep the rest of your publication cards as-is; only swapped outer classes -->
+      <!-- MemoTime -->
+      <div class="soft-card p-5 rounded-3xl hover:shadow-lg transition flex flex-col md:flex-row gap-6 group">
+        <div class="w-full md:w-48 shrink-0 overflow-hidden rounded-2xl border border-gray-200 bg-gray-50">
+          <img src="./assets/img/MemoTime.jpg" alt="MemoTime" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/400x300?text=MemoTime'">
+        </div>
+        <div class="flex-1">
+          <h3 class="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition">
+            MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning
+          </h3>
+          <div class="text-sm text-gray-600 mt-2">
+            <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang
+          </div>
+          <div class="mt-3 flex items-center gap-2">
+            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-1 rounded-lg border border-green-200">WWW 2026</span>
+            <span class="text-xs text-gray-400 font-medium">CORE A*</span>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-3 text-sm font-medium">
+            <a href="https://arxiv.org/pdf/2510.13614.pdf" class="text-indigo-600 hover:underline flex items-center gap-1" rel="noreferrer" target="_blank"><i class="far fa-file-pdf"></i> PDF</a>
+            <span class="text-gray-300">|</span>
+            <a href="https://github.com/SteveTANTAN/MemoTime" class="text-gray-600 hover:text-gray-900 flex items-center gap-1" rel="noreferrer" target="_blank"><i class="fab fa-github"></i> Code</a>
+            <span class="text-gray-300">|</span>
+            <a href="https://arxiv.org/abs/2510.13614" class="text-gray-600 hover:text-gray-900 flex items-center gap-1" rel="noreferrer" target="_blank"><i class="fas fa-globe"></i> Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRoH -->
+      <div class="soft-card p-5 rounded-3xl hover:shadow-lg transition flex flex-col md:flex-row gap-6 group">
+        <div class="w-full md:w-48 shrink-0 overflow-hidden rounded-2xl border border-gray-200 bg-gray-50">
+          <img src="./assets/img/PRoH.jpg" alt="PRoH" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/400x300?text=PRoH'">
+        </div>
+        <div class="flex-1">
+          <h3 class="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition">
+            PRoH: Dynamic Planning and Reasoning over Knowledge Hypergraphs for Retrieval-Augmented Generation
+          </h3>
+          <div class="text-sm text-gray-600 mt-2">
+            Xiangjun Zai, <strong>Xingyu Tan*</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Wenjie Zhang
+          </div>
+          <div class="mt-3 flex items-center gap-2">
+            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-1 rounded-lg border border-green-200">WWW 2026</span>
+            <span class="text-xs text-gray-400 font-medium">CORE A*</span>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-3 text-sm font-medium">
+            <a href="https://arxiv.org/pdf/2510.12434.pdf" class="text-indigo-600 hover:underline flex items-center gap-1" rel="noreferrer" target="_blank"><i class="far fa-file-pdf"></i> PDF</a>
+            <span class="text-gray-300">|</span>
+            <a href="https://github.com/zaixjun/PRoH" class="text-gray-600 hover:text-gray-900 flex items-center gap-1" rel="noreferrer" target="_blank"><i class="fab fa-github"></i> Code</a>
+            <span class="text-gray-300">|</span>
+            <a href="https://arxiv.org/abs/2510.12434" class="text-gray-600 hover:text-gray-900 flex items-center gap-1" rel="noreferrer" target="_blank"><i class="fas fa-globe"></i> Website</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- HydraRAG -->
+      <div class="soft-card p-5 rounded-3xl hover:shadow-lg transition flex flex-col md:flex-row gap-6 group">
+        <div class="w-full md:w-48 shrink-0 overflow-hidden rounded-2xl border border-gray-200 bg-gray-50">
+          <img src="./assets/img/Hydra.png" alt="HydraRAG" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/400x300?text=HydraRAG'">
+        </div>
+        <div class="flex-1">
+          <h3 class="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition">
+            HydraRAG: Structured Cross-Source Enhanced Large Language Model Reasoning
+          </h3>
+          <div class="text-sm text-gray-600 mt-2">
+            <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang
+          </div>
+          <div class="mt-3 flex items-center gap-2">
+            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-1 rounded-lg border border-purple-200">EMNLP 2025</span>
+            <span class="text-xs text-gray-400 font-medium">Main Conference | CORE A*</span>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-3 text-sm font-medium">
+            <a href="https://aclanthology.org/2025.emnlp-main.730/" class="text-indigo-600 hover:underline flex items-center gap-1" rel="noreferrer" target="_blank"><i class="far fa-file-pdf"></i> PDF</a>
+            <span class="text-gray-300">|</span>
+            <a href="https://github.com/SteveTANTAN/HydraRAG" class="text-gray-600 hover:text-gray-900 flex items-center gap-1" rel="noreferrer" target="_blank"><i class="fab fa-github"></i> Code</a>
+            <span class="text-gray-300">|</span>
+            <a href="https://stevetantan.github.io/Hydra/" class="text-gray-600 hover:text-gray-900 flex items-center gap-1" rel="noreferrer" target="_blank"><i class="fas fa-globe"></i> Website</a>
+            <span class="text-gray-300">|</span>
+            <a href="./assets/files/EMNLP_HydraRAG_poster.pdf" class="text-gray-600 hover:text-gray-900 flex items-center gap-1"><i class="fas fa-image"></i> Poster</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PoG -->
+      <div class="soft-card p-5 rounded-3xl hover:shadow-lg transition flex flex-col md:flex-row gap-6 group">
+        <div class="w-full md:w-48 shrink-0 overflow-hidden rounded-2xl border border-gray-200 bg-gray-50">
+          <img src="./assets/img/PoG.jpg" alt="PoG" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/400x300?text=PoG'">
+        </div>
+        <div class="flex-1">
+          <h3 class="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition">
+            Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning
+          </h3>
+          <div class="text-sm text-gray-600 mt-2">
+            <strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Wenjie Zhang
+          </div>
+          <div class="mt-3 flex flex-wrap items-center gap-2">
+            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-1 rounded-lg border border-green-200">WWW 2025</span>
+            <span class="text-xs text-gray-400 font-medium">CORE A*</span>
+            <span class="text-xs bg-yellow-50 text-yellow-700 px-2 py-1 rounded-lg border border-yellow-100 flex items-center gap-1">
+              <i class="fas fa-trophy text-[10px]"></i> Travel Grant
+            </span>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-3 text-sm font-medium">
+            <a href="https://dl.acm.org/doi/abs/10.1145/3696410.3714892" class="text-indigo-600 hover:underline flex items-center gap-1" rel="noreferrer" target="_blank"><i class="far fa-file-pdf"></i> PDF</a>
+            <span class="text-gray-300">|</span>
+            <a href="https://github.com/SteveTANTAN/PoG" class="text-gray-600 hover:text-gray-900 flex items-center gap-1" rel="noreferrer" target="_blank"><i class="fab fa-github"></i> Code/Website</a>
+            <span class="text-gray-300">|</span>
+            <a href="./assets/files/WWW_PoG_poster.pdf" class="text-gray-600 hover:text-gray-900 flex items-center gap-1"><i class="fas fa-image"></i> Poster</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CIKM -->
+      <div class="soft-card p-5 rounded-3xl hover:shadow-lg transition flex flex-col md:flex-row gap-6 group">
+        <div class="w-full md:w-48 shrink-0 overflow-hidden rounded-2xl border border-gray-200 bg-gray-50">
+          <img src="./assets/img/CIKM.jpg" alt="CIKM" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/400x300?text=CIKM'">
+        </div>
+        <div class="flex-1">
+          <h3 class="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition">
+            Higher-Order Peak Decomposition
+          </h3>
+          <div class="text-sm text-gray-600 mt-2">
+            <strong>Xingyu Tan</strong>, Jingya Qian, Chen Chen, Sima Qing, Yanping Wu, Xiaoyang Wang, Wenjie Zhang
+          </div>
+          <div class="mt-3 flex items-center gap-2">
+            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-1 rounded-lg border border-blue-200">CIKM 2023</span>
+            <span class="text-xs text-gray-400 font-medium">CORE A</span>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-3 text-sm font-medium">
+            <a href="https://dl.acm.org/doi/10.1145/3583780.3615209" class="text-indigo-600 hover:underline flex items-center gap-1" rel="noreferrer" target="_blank"><i class="far fa-file-pdf"></i> PDF</a>
+            <span class="text-gray-300">|</span>
+            <a href="https://github.com/SteveTANTAN/kh-peak" class="text-gray-600 hover:text-gray-900 flex items-center gap-1" rel="noreferrer" target="_blank"><i class="fab fa-github"></i> Code</a>
+            <span class="text-gray-300">|</span>
+            <a href="./assets/files/CIKM_KHPeak_poster.pdf" class="text-gray-600 hover:text-gray-900 flex items-center gap-1"><i class="fas fa-image"></i> Poster</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE (mostly your content; wrapped into a card) -->
+  <section id="experience" class="py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="soft-card rounded-3xl p-6 sm:p-8">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="inline-flex w-10 h-10 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-700 border border-indigo-100">
+            💼
+          </span>
+          <h2 class="text-2xl font-bold text-gray-900">Experience</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-lg font-bold text-gray-800 mb-6 flex items-center gap-2">
+              <i class="fas fa-briefcase text-indigo-500"></i> Industry & Research
+            </h3>
+
+            <div class="relative border-l-2 border-gray-200 ml-3 space-y-10">
+              <div class="relative pl-8 group">
+                <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-600 border-2 border-white shadow group-hover:scale-110 transition"></span>
+                <h4 class="text-base font-bold text-gray-900 leading-tight">MLE & Research Intern</h4>
+                <div class="text-sm text-indigo-600 font-medium mb-1">TikTok, Sydney</div>
+                <div class="text-xs text-gray-500 mb-2 font-mono">Jan. 2026 - Present</div>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                  Working on Multimodal Large Language Models (MLLMs) and applied research.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Teaching: keep your items; only spacing polish -->
+          <div>
+            <h3 class="text-lg font-bold text-gray-800 mb-6 flex items-center gap-2">
+              <i class="fas fa-chalkboard-teacher text-indigo-500"></i> Teaching
+            </h3>
+
+            <div class="relative border-l-2 border-gray-200 ml-3 space-y-8">
+              <div class="relative pl-8 group">
+                <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-gray-400 border-2 border-white group-hover:bg-indigo-500 transition"></span>
+                <div class="flex items-center gap-2">
+                  <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//COMP9311" target="_blank" rel="noreferrer"
+                     class="text-base font-bold text-gray-900 hover:text-indigo-600 hover-underline-animation">COMP9311 Database Systems</a>
+                  <span class="text-[10px] bg-gray-200 px-2 py-0.5 rounded text-gray-700 font-bold">UNSW</span>
+                </div>
+
+                <div class="mt-2 space-y-1 text-sm text-gray-600">
+                  <div class="flex gap-2 text-xs">
+                    <span class="font-semibold text-gray-700 w-24">Course Admin:</span>
+                    <span>2026T1, 2025T1, 2024T1</span>
+                  </div>
+                  <div class="flex gap-2 text-xs">
+                    <span class="font-semibold text-gray-700 w-24">Teaching:</span>
+                    <span>2023T3, 2023T1</span>
+                  </div>
+                  <div class="mt-1 inline-flex items-center gap-1.5 px-2 py-1 bg-yellow-50 text-yellow-700 text-xs rounded-lg border border-yellow-100 font-medium">
+                    <i class="fas fa-star text-yellow-500 text-[10px]"></i>
+                    Awarded Annual Best Teaching Course in CSE (2024, 2025)
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative pl-8 group">
+                <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-gray-400 border-2 border-white group-hover:bg-indigo-500 transition"></span>
+                <div class="flex items-center gap-2">
+                  <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//COMP9315" target="_blank" rel="noreferrer"
+                     class="text-base font-bold text-gray-900 hover:text-indigo-600 hover-underline-animation">COMP9315 DB Implementation</a>
+                  <span class="text-[10px] bg-gray-200 px-2 py-0.5 rounded text-gray-700 font-bold">UNSW</span>
+                </div>
+                <div class="mt-2 text-sm text-gray-600">
+                  <div class="flex gap-2 text-xs">
+                    <span class="font-semibold text-gray-700 w-24">Course Admin:</span>
+                    <span>2026T1, 2025T1</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative pl-8 group">
+                <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-gray-400 border-2 border-white group-hover:bg-indigo-500 transition"></span>
+                <div class="flex items-center gap-2">
+                  <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//COMP9313" target="_blank" rel="noreferrer"
+                     class="text-base font-bold text-gray-900 hover:text-indigo-600 hover-underline-animation">COMP9313 Big Data Mgmt</a>
+                  <span class="text-[10px] bg-gray-200 px-2 py-0.5 rounded text-gray-700 font-bold">UNSW</span>
+                </div>
+                <div class="mt-2 text-sm text-gray-600">
+                  <div class="flex gap-2 text-xs">
+                    <span class="font-semibold text-gray-700 w-24">Teaching:</span>
+                    <span>2024T2</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative pl-8 group">
+                <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-gray-400 border-2 border-white group-hover:bg-indigo-500 transition"></span>
+                <div class="flex items-center gap-2">
+                  <a href="https://www.handbook.unsw.edu.au/postgraduate/courses//ZZSC9001" target="_blank" rel="noreferrer"
+                     class="text-base font-bold text-gray-900 hover:text-indigo-600 hover-underline-animation">ZZSC9001 Data Science</a>
+                  <span class="text-[10px] bg-gray-200 px-2 py-0.5 rounded text-gray-700 font-bold">UNSW</span>
+                </div>
+                <div class="mt-2 text-sm text-gray-600">
+                  <div class="flex gap-2 text-xs">
+                    <span class="font-semibold text-gray-700 w-24">Teaching:</span>
+                    <span>2023T3</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative pl-8 group">
+                <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-gray-400 border-2 border-white group-hover:bg-indigo-500 transition"></span>
+                <div class="flex items-center gap-2">
+                  <a href="https://courses.uow.edu.au/subjects/2023/csit115?year=2023" target="_blank" rel="noreferrer"
+                     class="text-base font-bold text-gray-900 hover:text-indigo-600 hover-underline-animation">CSIT115 Data & Security</a>
+                  <span class="text-[10px] bg-gray-200 px-2 py-0.5 rounded text-gray-700 font-bold">UoW</span>
+                </div>
+                <div class="mt-2 text-sm text-gray-600">
+                  <div class="flex gap-2 text-xs">
+                    <span class="font-semibold text-gray-700 w-24">Teaching:</span>
+                    <span>2023S2</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HONORS -->
+  <section id="honors" class="py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="soft-card rounded-3xl p-6 sm:p-8">
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <span class="inline-flex w-10 h-10 items-center justify-center rounded-2xl bg-yellow-50 text-yellow-700 border border-yellow-100">
+                <i class="fas fa-trophy"></i>
+              </span>
+              Honors & Awards
+            </h2>
+            <ul class="space-y-4 text-sm text-gray-700">
+              <li class="flex items-start gap-3">
+                <span class="text-yellow-600 mt-0.5"><i class="fas fa-trophy"></i></span>
+                <span><strong>UNSW Industry Engagement Grant</strong> (2025)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-yellow-600 mt-0.5"><i class="fas fa-trophy"></i></span>
+                <span><strong>WWW2025 Student Travel Award</strong> (2025)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-yellow-600 mt-0.5"><i class="fas fa-trophy"></i></span>
+                <span><strong>CSIRO's Data61-UNSW Joint PhD Full Scholarship</strong> (2024-2028)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-yellow-600 mt-0.5"><i class="fas fa-trophy"></i></span>
+                <span><strong>CIRES-ADC Travel Grant</strong> (2023)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-yellow-600 mt-0.5"><i class="fas fa-trophy"></i></span>
+                <span><strong>UNSW Global University Award</strong> (2022)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-yellow-600 mt-0.5"><i class="fas fa-trophy"></i></span>
+                <span><strong>UNSW International Academic Excellence Award</strong> (2019)</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <span class="inline-flex w-10 h-10 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-700 border border-indigo-100">
+                <i class="fas fa-graduation-cap"></i>
+              </span>
+              Education
+            </h2>
+            <div class="space-y-6 relative border-l-2 border-gray-200 ml-2 pl-6">
+              <div class="relative">
+                <div class="absolute -left-[31px] top-1 w-4 h-4 bg-indigo-600 rounded-full border-2 border-white shadow"></div>
+                <h4 class="font-bold text-gray-900">Ph.D. Candidate in Computer Science</h4>
+                <p class="text-sm text-gray-600 mb-1">UNSW & CSIRO's Data61, Sydney</p>
+                <span class="text-xs font-medium text-indigo-700 bg-indigo-50 px-2 py-1 rounded-lg border border-indigo-100">May. 2024 – Present</span>
+              </div>
+
+              <div class="relative">
+                <div class="absolute -left-[31px] top-1 w-4 h-4 bg-gray-400 rounded-full border-2 border-white"></div>
+                <h4 class="font-bold text-gray-900">M.Phil. in Computer Science</h4>
+                <p class="text-sm text-gray-600 mb-1">UNSW, Sydney</p>
+                <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded-lg border border-gray-200">Sep. 2022 – Dec. 2023</span>
+              </div>
+
+              <div class="relative">
+                <div class="absolute -left-[31px] top-1 w-4 h-4 bg-gray-400 rounded-full border-2 border-white"></div>
+                <h4 class="font-bold text-gray-900">B.Sc. in Computer Science</h4>
+                <p class="text-sm text-gray-600 mb-1">UNSW, Sydney</p>
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded-lg border border-gray-200">Sep. 2019 – May. 2022</span>
+                  <span class="text-xs text-orange-700 bg-orange-50 border border-orange-100 px-2 py-1 rounded-lg">Distinction</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 text-center text-sm text-gray-500">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="soft-card rounded-3xl p-6">
+        <div class="mb-4 flex justify-center">
+          <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=m&d=huHThO_g4uI-kUM6IW4GWhVqE2ZQ9ProJCJ7R0uQUfM"></script>
+        </div>
+        <p>&copy; 2026 Xingyu Tan. Powered by Tailwind CSS & Jekyll Minimal Light.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(isHidden));
+    });
+
+    // Close mobile menu on click
+    mobileMenu?.querySelectorAll('a')?.forEach(a => {
+      a.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+  </script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', '{{ site.google_analytics }}', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
