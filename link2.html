@@ -31,6 +31,7 @@
 
     <style>
         body { font-family: 'Lora', serif; }
+        html { scroll-behavior: smooth; }
         
         /* 隐藏滚动条但保留滚动功能 (特别是为移动端导航) */
         .scroll-hide::-webkit-scrollbar { display: none; }
@@ -70,18 +71,18 @@
 </head>
 <body class="bg-[#f8f9fa] text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-800">
 
-    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 border-b border-gray-200">
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 border-b border-gray-200 lg:hidden">
         <div class="px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-row items-center h-16">
-                <a href="#" class="flex-shrink-0 font-bold text-xl text-blue-700 tracking-tight hover:text-blue-900 transition">Xingyu Tan</a>
-                <div class="hidden sm:flex space-x-6 sm:space-x-8 text-sm font-medium ml-6">
+            <div class="flex flex-row items-center h-12">
+                <a href="#" class="flex-shrink-0 font-bold text-lg text-blue-700 tracking-tight hover:text-blue-900 transition">Xingyu Tan</a>
+                <div class="hidden sm:flex lg:hidden space-x-6 sm:space-x-8 text-sm font-medium ml-6">
                     <a href="#about" class="text-slate-600 hover:text-blue-700 transition duration-200 whitespace-nowrap">About</a>
                     <a href="#news" class="text-slate-600 hover:text-blue-700 transition duration-200 whitespace-nowrap">News</a>
                     <a href="#publications" class="text-slate-600 hover:text-blue-700 transition duration-200 whitespace-nowrap">Publications</a>
                     <a href="#experience" class="text-slate-600 hover:text-blue-700 transition duration-200 whitespace-nowrap">Experience</a>
                     <a href="#honors" class="text-slate-600 hover:text-blue-700 transition duration-200 whitespace-nowrap">Honors</a>
                 </div>
-                <button id="nav-toggle" class="ml-auto sm:hidden p-2 text-slate-600 hover:text-blue-700">
+                <button id="nav-toggle" class="sm:hidden p-2 text-slate-600 hover:text-blue-700 ml-auto">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -96,13 +97,13 @@
             </div>
         </div>
     </nav>
-    <div class="max-w-9xl mx-auto px-3 sm:px-4 lg:px-6 pt-24 relative lg:pl-60 bg-white">
-        <aside class="hidden lg:flex lg:flex-col fixed left-0 top-16 h-[calc(100vh-4rem)] w-60 bg-white p-5">
+    <div class="max-w-9xl mx-auto lg:mx-0 lg:mr-auto lg:ml-[50px] px-3 sm:px-4 lg:px-6 pt-24 lg:pt-6 relative lg:pl-60 bg-white">
+        <aside class="hidden lg:flex lg:flex-col fixed left-0 top-16 lg:top-0 h-[calc(100vh-4rem)] lg:h-screen w-60 bg-white p-5 lg:shadow-sm lg:ring-1 lg:ring-slate-100">
             <div class="w-40 h-60 rounded-xl overflow-hidden mx-auto bg-slate-100 mt-6 ring-4 ring-blue-100 ring-offset-2 ring-offset-white shadow-md">
                 <img src="./assets/img/me.jpg" alt="Xingyu Tan" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Xingyu+Tan&size=300&background=random'">
             </div>
             <div class="text-center mt-3">
-                <div class="text-2xl font-bold text-slate-900">Xingyu Tan</div>
+                <div class="text-3xl font-bold text-slate-900">Xingyu Tan</div>
                 <div class="mt-1 text-sm text-slate-600">Ph.D. Candidate</div>
                 <div class="text-xs text-slate-600 mt-1">UNSW, Sydney | Data61, CSIRO</div>
             </div>
@@ -112,19 +113,19 @@
                 <a href="https://www.linkedin.com/in/xingyu-tan-b90179173/?originalSubdomain=au" target="_blank" title="LinkedIn" class="color-linkedin transition hover:scale-110"><i class="fab fa-linkedin"></i></a>
                 <a href="mailto:xingyu.tan@unsw.edu.au" title="Email" class="text-blue-600 transition hover:scale-110"><i class="fas fa-envelope"></i></a>
             </div>
-            <!-- <nav class="mt-6">
-                <ul class="space-y-1 text-sm">
-                    <li><a href="#about" class="block px-2 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700">About</a></li>
-                    <li><a href="#news" class="block px-2 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700">News</a></li>
-                    <li><a href="#publications" class="block px-2 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700">Publications</a></li>
-                    <li><a href="#experience" class="block px-2 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700">Experience</a></li>
-                    <li><a href="#honors" class="block px-2 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700">Honors</a></li>
+            <nav class="mt-6" id="side-nav">
+                <ul class="space-y-1">
+                    <li><a href="#about" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700 text-lg font-medium">About</a></li>
+                    <li><a href="#news" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700 text-lg font-medium">News</a></li>
+                    <li><a href="#publications" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700 text-lg font-medium">Publications</a></li>
+                    <li><a href="#experience" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700 text-lg font-medium">Experience</a></li>
+                    <li><a href="#honors" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700 text-lg font-medium">Honors</a></li>
                 </ul>
-            </nav> -->
+            </nav>
             <div class="flex-1"></div>
         </aside>
         <div class="flex-1 min-w-0">
-    <section id="about" class="py-12 bg-white border-b border-slate-200 w-full"><div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" class="py-12 bg-white border-b border-slate-200 w-full"><div class="w-full max-w-5xl mx-auto lg:mx-0 lg:mr-auto lg:ml-[50px] px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-center md:items-start gap-10">
             <div class="w-full md:w-1/3 flex flex-col items-center text-center mt-2 shrink-0 lg:hidden">
                 <br>
@@ -208,7 +209,7 @@
     </div></section>
 
     <section id="news" class="py-10 bg-white border-y border-slate-200 w-full">
-        <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="w-full max-w-5xl mx-auto lg:mx-0 lg:mr-auto lg:ml-[50px] px-4 sm:px-6 lg:px-8">
             <h2 class="text-2xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">News</h2>
 
             <div class="max-h-[400px] overflow-y-auto custom-scrollbar pr-2 space-y-8 text-slate-700">
@@ -303,7 +304,7 @@
         </div>
     </section>
 
-    <section id="publications" class="py-12 bg-white border-y border-slate-200 w-full"><div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="publications" class="py-12 bg-white border-y border-slate-200 w-full"><div class="w-full max-w-5xl mx-auto lg:mx-0 lg:mr-auto lg:ml-[50px] px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">Selected Publications</h2>
         
         <div class="space-y-6">
@@ -685,7 +686,7 @@
     </section> -->
 
     <section id="experience" class="py-12 bg-white border-y border-slate-200 w-full">
-        <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="w-full max-w-5xl mx-auto lg:mx-0 lg:mr-auto lg:ml-[50px] px-4 sm:px-6 lg:px-8">
             <h2 class="text-2xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">Professional Experience</h2>
             
             <div class="relative">
@@ -876,7 +877,7 @@
     </section>
 
     <section id="honors" class="py-12 bg-white border-y border-slate-200 w-full">
-        <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12">
+        <div class="w-full max-w-5xl mx-auto lg:mx-0 lg:mr-auto lg:ml-[50px] px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12">
             <div>
                 <h2 class="text-2xl font-bold text-slate-900 mb-6 border-l-4 border-blue-600 pl-4">Honors & Awards</h2>
                 <ul class="space-y-4 text-sm text-slate-700">
@@ -963,6 +964,20 @@
             var b=document.getElementById('nav-toggle');
             var m=document.getElementById('mobile-menu');
             if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}
+            var l=document.querySelectorAll('#mobile-menu a');
+            l.forEach(function(a){a.addEventListener('click',function(){m.classList.add('hidden');});});
+            var ids=['about','news','publications','experience','honors'];
+            var links={};
+            ids.forEach(function(id){var a=document.querySelector('#side-nav a[href="#'+id+'"]');if(a){links[id]=a;}});
+            function setActive(id){
+                Object.values(links).forEach(function(a){a.classList.remove('bg-blue-50','text-blue-700');});
+                if(links[id]){links[id].classList.add('bg-blue-50','text-blue-700');}
+            }
+            var obs=new IntersectionObserver(function(entries){
+                entries.forEach(function(e){if(e.isIntersecting){setActive(e.target.id);}});
+            },{root:null,threshold:0.4});
+            ids.forEach(function(id){var s=document.getElementById(id);if(s){obs.observe(s);}});
+            setActive(ids[0]);
         });
     </script>
     <script>
