@@ -71,14 +71,26 @@
 
     <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 border-b border-gray-200">
         <div class="px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-row justify-start items-center h-16">
+            <div class="flex flex-row items-center h-16">
                 <a href="#" class="flex-shrink-0 font-bold text-xl text-blue-700 tracking-tight hover:text-blue-900 transition">Xingyu Tan</a>
-                <div class="flex space-x-6 sm:space-x-8 text-sm font-medium overflow-x-auto scroll-hide ml-6">
+                <div class="hidden sm:flex space-x-6 sm:space-x-8 text-sm font-medium ml-6">
                     <a href="#about" class="text-slate-600 hover:text-blue-700 transition duration-200 whitespace-nowrap">About</a>
                     <a href="#news" class="text-slate-600 hover:text-blue-700 transition duration-200 whitespace-nowrap">News</a>
                     <a href="#publications" class="text-slate-600 hover:text-blue-700 transition duration-200 whitespace-nowrap">Publications</a>
                     <a href="#experience" class="text-slate-600 hover:text-blue-700 transition duration-200 whitespace-nowrap">Experience</a>
                     <a href="#honors" class="text-slate-600 hover:text-blue-700 transition duration-200 whitespace-nowrap">Honors</a>
+                </div>
+                <button id="nav-toggle" class="ml-auto sm:hidden p-2 text-slate-600 hover:text-blue-700">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="sm:hidden hidden border-t border-slate-200 bg-white">
+                <div class="px-4 py-2 flex flex-col text-sm font-medium">
+                    <a href="#about" class="py-2 text-slate-600 hover:text-blue-700">About</a>
+                    <a href="#news" class="py-2 text-slate-600 hover:text-blue-700">News</a>
+                    <a href="#publications" class="py-2 text-slate-600 hover:text-blue-700">Publications</a>
+                    <a href="#experience" class="py-2 text-slate-600 hover:text-blue-700">Experience</a>
+                    <a href="#honors" class="py-2 text-slate-600 hover:text-blue-700">Honors</a>
                 </div>
             </div>
         </div>
@@ -91,7 +103,7 @@
             <div class="text-center mt-3">
                 <div class="text-2xl font-bold text-slate-900">Xingyu Tan</div>
                 <div class="mt-1 text-sm text-slate-600">Ph.D. Candidate</div>
-                <div class="text-xs text-slate-500">UNSW | Data61, CSIRO</div>
+                <div class="text-xs text-slate-600 mt-1">UNSW, Sydney | Data61, CSIRO</div>
             </div>
             <div class="flex justify-center gap-4 text-2xl mt-4">
                 <a href="https://scholar.google.com/citations?user=2gzpDtsAAAAJ&hl=en" target="_blank" title="Google Scholar" class="color-scholar transition hover:scale-110"><i class="ai ai-google-scholar"></i></a>
@@ -165,7 +177,8 @@
 
                     <p class="mb-6">
                         <span class="inline-flex items-center gap-2 mt-2 px-3 py-1.5 bg-blue-50 text-blue-800 rounded-md text-sm font-medium border border-blue-200 shadow-sm">
-                            <i class="fas fa-briefcase"></i> Currently MLE & Research Intern at TikTok (Australia), working on MLLMs and related research.
+                            <img src="./assets/img/logo/TikTok-Logo.wine.svg" alt="TikTok" class="h-5 w-auto">
+                            <span>Currently MLE & Research Intern at TikTok (Australia), working on MLLMs and related research.</span>
                         </span>
                     </p>
                 </div>
@@ -691,6 +704,7 @@
                             </div>
                             
                             <div class="flex flex-wrap items-center gap-2 mb-3">
+                                <img src="./assets/img/logo/TikTok-Logo.wine.svg" alt="TikTok" class="h-5 w-auto" loading="lazy">
                                 <span class="text-blue-700 font-bold text-sm">TikTok</span>
                             <div class="text-xs text-slate-600">
                                 Sydney, Australia
@@ -714,6 +728,7 @@
                             </div>
 
                             <div class="flex flex-wrap items-center gap-2 mb-3">
+                                <img src="./assets/img/logo/UNSW%20L.png" alt="UNSW" class="h-5 w-auto rounded-sm" loading="lazy">
                                 <span class="text-blue-700 font-bold text-sm">UNSW</span>
                             <div class="text-xs text-slate-600">
                                 Sydney, Australia
@@ -741,6 +756,7 @@
                             </div>
 
                             <div class="flex flex-wrap items-center gap-2 mb-3">
+                                <img src="./assets/img/logo/UNSW%20L.png" alt="UNSW" class="h-5 w-auto rounded-sm" loading="lazy">
                                 <span class="text-blue-700 font-bold text-sm">UNSW </span>
                             <div class="text-xs text-slate-600">
                                 Sydney, Australia
@@ -774,6 +790,7 @@
                             </div>
 
                             <div class="flex flex-wrap items-center gap-2 mb-3">
+                                <img src="./assets/img/logo/UNSW%20L.png" alt="UNSW" class="h-5 w-auto rounded-sm" loading="lazy">
                                 <span class="text-blue-700 font-bold text-sm">UNSW</span>
                             <div class="text-xs text-slate-600">
                                 Sydney, Australia
@@ -804,6 +821,7 @@
                             </div>
 
                             <div class="flex flex-wrap items-center gap-2 mb-3">
+                                <img src="./assets/img/logo/UNSW%20L.png" alt="UNSW" class="h-5 w-auto rounded-sm" loading="lazy">
                                 <span class="text-blue-700 font-bold text-sm">UNSW</span>
                             <div class="text-xs text-slate-600">
                                 Sydney, Australia
@@ -831,6 +849,7 @@
                             </div>
 
                             <div class="flex flex-wrap items-center gap-2 mb-3">
+                                <img src="./assets/img/logo/UOW.png" alt="UoW" class="h-5 w-auto rounded-sm" loading="lazy">
                                 <span class="text-blue-700 font-bold text-sm">UoW</span>
                             <div class="text-xs text-slate-600">
                                 Sydney, Australia
@@ -896,19 +915,29 @@
                     <div class="relative">
                         <div class="absolute -left-[31px] top-1 w-4 h-4 bg-blue-600 rounded-full border-2 border-white shadow"></div>
                         <h4 class="font-bold text-slate-900">Ph.D. Candidate in Computer Science and Engineering</h4>
-                        <p class="text-sm text-slate-600 mb-1">UNSW & CSIRO's Data61, Sydney</p>
+                        <p class="text-sm text-slate-600 mb-1 flex items-center gap-2">
+                            <img src="./assets/img/logo/UNSW%20L.png" alt="UNSW" class="h-5 w-auto rounded-sm" loading="lazy">
+                            <img src="./assets/img/logo/data61-logo.png" alt="CSIRO Data61" class="h-5 w-auto rounded-sm" loading="lazy">
+                            <span>UNSW & CSIRO's Data61, Sydney</span>
+                        </p>
                         <span class="text-xs font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">May. 2024 – Present</span>
                     </div>
                     <div class="relative">
                          <div class="absolute -left-[31px] top-1 w-4 h-4 bg-slate-400 rounded-full border-2 border-white"></div>
                         <h4 class="font-bold text-slate-900">M.Phil. in Computer Science and Engineering</h4>
-                        <p class="text-sm text-slate-600 mb-1">UNSW, Sydney</p>
+                        <p class="text-sm text-slate-600 mb-1 flex items-center gap-2">
+                            <img src="./assets/img/logo/UNSW%20L.png" alt="UNSW" class="h-5 w-auto rounded-sm" loading="lazy">
+                            <span>UNSW, Sydney</span>
+                        </p>
                         <span class="text-xs font-medium text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Sep. 2022 – Dec. 2023</span>
                     </div>
                     <div class="relative">
                          <div class="absolute -left-[31px] top-1 w-4 h-4 bg-slate-400 rounded-full border-2 border-white"></div>
                         <h4 class="font-bold text-slate-900">B.Sc. in Computer Science with Distinction</h4>
-                        <p class="text-sm text-slate-600 mb-1">UNSW, Sydney</p>
+                        <p class="text-sm text-slate-600 mb-1 flex items-center gap-2">
+                            <img src="./assets/img/logo/UNSW%20L.png" alt="UNSW" class="h-5 w-auto rounded-sm" loading="lazy">
+                            <span>UNSW, Sydney</span>
+                        </p>
                         <span class="text-xs font-medium text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200 mr-2">Sep. 2019 – May. 2022</span>
                     </div>
                 </div>
@@ -928,6 +957,13 @@
     </footer>
 
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            var b=document.getElementById('nav-toggle');
+            var m=document.getElementById('mobile-menu');
+            if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}
+        });
+    </script>
     <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
