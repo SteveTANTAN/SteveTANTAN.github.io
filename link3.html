@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YWYL0QFYJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8YWYL0QFYJ');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Xingyu Tan | UNSW, Sydney | Data61, CSIRO</title>
+  <meta name="description" content="Xingyu Tan, Ph.D. Candidate at UNSW and Data61, CSIRO. Research in knowledge graphs, reasoning, and large language models.">
+  <meta name="keywords" content="Xingyu Tan, Knowledge Graph, LLM, UNSW, Data61, CSIRO">
+  <link rel="canonical" href="https://SteveTANTAN.github.io/">
+
+  <link rel="icon" media="(prefers-color-scheme:dark)" href="./assets/img/favicon-dark.png" type="image/png" />
+  <link rel="icon" media="(prefers-color-scheme:light)" href="./assets/img/favicon.png" type="image/png" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+
+    .scroll-hide::-webkit-scrollbar { display: none; }
+    .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+    .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    .section-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 0.35rem;
+      height: 1.5rem;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, #2563eb, #60a5fa);
+    }
+
+    .glass-card {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(226,232,240,0.9);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .soft-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .soft-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
+      border-color: #93c5fd;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .tag-blue { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+    .tag-green { background: #ecfdf5; color: #047857; border-color: #a7f3d0; }
+    .tag-amber { background: #fffbeb; color: #b45309; border-color: #fde68a; }
+    .tag-rose { background: #fff1f2; color: #be123c; border-color: #fecdd3; }
+    .tag-slate { background: #f8fafc; color: #475569; border-color: #cbd5e1; }
+    .tag-purple { background: #faf5ff; color: #7e22ce; border-color: #e9d5ff; }
+
+    .social-link {
+      width: 2.7rem;
+      height: 2.7rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      border: 1px solid #dbeafe;
+      background: #ffffff;
+      color: #334155;
+      transition: all 0.22s ease;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+      border-color: #93c5fd;
+      color: #2563eb;
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.12);
+    }
+
+    .hero-grid {
+      background-image:
+        linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .news-date {
+      min-width: 90px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-900">
+
+  <div class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/80 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-16">
+      <a href="#top" class="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 hover:text-blue-700 transition">Xingyu Tan</a>
+      <div class="ml-6 flex items-center gap-6 overflow-x-auto scroll-hide text-sm font-medium text-slate-600">
+        <a href="#about" class="whitespace-nowrap hover:text-blue-700 transition">About</a>
+        <a href="#news" class="whitespace-nowrap hover:text-blue-700 transition">News</a>
+        <a href="#publications" class="whitespace-nowrap hover:text-blue-700 transition">Publications</a>
+        <a href="#experience" class="whitespace-nowrap hover:text-blue-700 transition">Experience</a>
+        <a href="#honors" class="whitespace-nowrap hover:text-blue-700 transition">Honors</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="top" class="pt-16">
+    <section class="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-white via-slate-50 to-blue-50/50 hero-grid">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute -top-24 right-0 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-sky-100/50 blur-3xl"></div>
+      </div>
+
+      <div class="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:px-8 lg:py-20">
+        <aside class="glass-card rounded-3xl p-6 lg:sticky lg:top-24 h-fit">
+          <div class="mx-auto w-44 overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-sm sm:w-48">
+            <img src="./assets/img/me.jpg" alt="Xingyu Tan" class="aspect-[4/5] w-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Xingyu+Tan&size=400&background=f1f5f9&color=0f172a'">
+          </div>
+
+          <div class="mt-5 text-center">
+            <h1 class="text-2xl font-extrabold tracking-tight text-slate-900">Xingyu Tan</h1>
+            <p class="mt-2 text-sm font-medium text-blue-700">Ph.D. Candidate</p>
+            <p class="mt-1 text-sm text-slate-600">UNSW Sydney · Data61, CSIRO</p>
+            <p class="mt-1 text-xs text-slate-500">xingyu.tan (at) unsw.edu.au</p>
+          </div>
+
+          <div class="mt-5 flex flex-wrap justify-center gap-2">
+            <span class="tag tag-blue">Knowledge Graphs</span>
+            <span class="tag tag-blue">LLM Reasoning</span>
+            <span class="tag tag-blue">Graph RAG</span>
+          </div>
+
+          <div class="mt-6 flex items-center justify-center gap-3 text-lg">
+            <a href="https://scholar.google.com/citations?user=2gzpDtsAAAAJ&hl=en" target="_blank" class="social-link" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+            <a href="https://github.com/SteveTANTAN" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/xingyu-tan-b90179173/?originalSubdomain=au" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+
+          <div class="mt-6 space-y-3 text-sm">
+            <a href="#publications" class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 hover:border-blue-200 hover:text-blue-700 transition">
+              <span class="font-medium">Selected Publications</span>
+              <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+            <a href="#experience" class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-700 hover:border-blue-200 hover:text-blue-700 transition">
+              <span class="font-medium">Professional Experience</span>
+              <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </aside>
+
+        <div class="flex min-w-0 flex-col justify-center">
+          <div class="max-w-4xl">
+            <div class="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-4 py-2 text-sm font-medium text-blue-700 shadow-sm">
+              <i class="fas fa-circle text-[8px]"></i>
+              Research in knowledge graphs, reasoning, and large language models
+            </div>
+
+            <h2 class="mt-6 text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl leading-tight">
+              Building reliable and structured reasoning systems for complex knowledge-intensive AI.
+            </h2>
+
+            <p class="mt-6 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+              I am a Ph.D. candidate in the Data and Knowledge Research Group at UNSW and the Software Systems Group at Data61, CSIRO. My work focuses on knowledge graph reasoning, graph-enhanced retrieval, memory-augmented methods, and large language models.
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#about" class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 hover:bg-blue-700 transition">
+                <i class="fas fa-user"></i>
+                About Me
+              </a>
+              <a href="#publications" class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:border-blue-200 hover:text-blue-700 transition">
+                <i class="fas fa-book"></i>
+                View Publications
+              </a>
+            </div>
+
+            <div class="mt-10 grid gap-4 sm:grid-cols-3">
+              <div class="soft-card rounded-2xl p-5">
+                <div class="text-2xl font-extrabold text-slate-900">6+</div>
+                <div class="mt-1 text-sm text-slate-600">Selected research papers</div>
+              </div>
+              <div class="soft-card rounded-2xl p-5">
+                <div class="text-2xl font-extrabold text-slate-900">A* / A</div>
+                <div class="mt-1 text-sm text-slate-600">Top publication venues</div>
+              </div>
+              <div class="soft-card rounded-2xl p-5">
+                <div class="text-2xl font-extrabold text-slate-900">UNSW · CSIRO · TikTok</div>
+                <div class="mt-1 text-sm text-slate-600">Academic and industry experience</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title">About</h2>
+
+        <div class="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(280px,0.8fr)]">
+          <div class="soft-card rounded-3xl p-7 sm:p-8">
+            <div class="space-y-5 text-[15px] leading-8 text-slate-700">
+              <p>
+                Hi, I am <strong class="text-slate-900">Xingyu Tan (谭星雨)</strong>, currently a <strong class="text-slate-900">Ph.D. candidate</strong> in the
+                <a href="https://unswdb.github.io/" class="font-medium text-blue-600 hover:underline">Data and Knowledge Research Group</a>
+                at the School of Computer Science and Engineering,
+                <a href="https://www.unsw.edu.au/" class="font-medium text-blue-600 hover:underline">UNSW</a>, and the
+                <a href="https://research.csiro.au/ss/" class="font-medium text-blue-600 hover:underline">Software Systems Group</a>
+                at <a href="https://www.csiro.au/" class="font-medium text-blue-600 hover:underline">Data61, CSIRO</a>.
+              </p>
+
+              <p>
+                I am jointly supervised by
+                <a href="https://www.unsw.edu.au/staff/xiaoyang-wang" class="font-semibold text-slate-900 hover:text-blue-600 transition">Dr. Xiaoyang Wang</a>,
+                <a href="https://cgi.cse.unsw.edu.au/~zhangw/" class="font-semibold text-slate-900 hover:text-blue-600 transition">Prof. Wenjie Zhang</a>,
+                <a href="https://people.csiro.au/L/Q/Q-Liu" class="font-semibold text-slate-900 hover:text-blue-600 transition">Dr. Qing Liu</a>,
+                <a href="https://people.csiro.au/X/S/Xiwei-Xu" class="font-semibold text-slate-900 hover:text-blue-600 transition">Prof. Xiwei Xu</a>,
+                <a href="https://people.csiro.au/y/x/xin-yuan" class="font-semibold text-slate-900 hover:text-blue-600 transition">Dr. Xin Yuan</a>, and
+                <a href="https://people.csiro.au/Z/L/Liming-Zhu" class="font-semibold text-slate-900 hover:text-blue-600 transition">Prof. Liming Zhu</a>.
+              </p>
+
+              <p>
+                Previously, I completed both my Bachelor of Science and Master of Philosophy in Computer Science and Engineering at UNSW. My recent work studies graph-based reasoning, structured retrieval, temporal and memory-enhanced methods, and privacy-aware systems for large language models.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="soft-card rounded-3xl p-6">
+              <h3 class="flex items-center gap-2 text-base font-bold text-slate-900">
+                <i class="fas fa-briefcase text-blue-600"></i>
+                Current Role
+              </h3>
+              <p class="mt-3 text-sm leading-7 text-slate-600">
+                Currently working as an <span class="font-semibold text-slate-900">MLE & Research Intern</span> at <span class="font-semibold text-slate-900">TikTok Australia</span>, focusing on MLLMs and related applied research.
+              </p>
+            </div>
+
+            <div class="soft-card rounded-3xl p-6">
+              <h3 class="flex items-center gap-2 text-base font-bold text-slate-900">
+                <i class="fas fa-magnifying-glass text-blue-600"></i>
+                Research Interests
+              </h3>
+              <ul class="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+                <li><span class="font-semibold text-slate-900">Graph Mining:</span> subgraph detection, fairness-aware mining, graph analytics</li>
+                <li><span class="font-semibold text-slate-900">Knowledge Graph Reasoning:</span> multi-hop reasoning, retrieval-augmented generation</li>
+                <li><span class="font-semibold text-slate-900">Large Language Models:</span> knowledge-enhanced reasoning, interpretability</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="border-y border-slate-200 bg-white py-20">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between gap-4">
+          <h2 class="section-title">News</h2>
+          <span class="hidden sm:inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-500">Recent updates</span>
+        </div>
+
+        <div class="mt-8 max-h-[520px] space-y-8 overflow-y-auto pr-2 custom-scrollbar">
+          <div class="soft-card rounded-3xl p-6">
+            <h3 class="text-lg font-bold text-slate-900">2026</h3>
+            <div class="mt-5 space-y-4">
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <div class="news-date text-sm font-semibold text-slate-500">Jan. 2026</div>
+                <div class="flex-1 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                  <span class="tag tag-blue mr-2">Internship</span>
+                  Starting the <strong>MLE & Research Intern</strong> at <strong>TikTok Australia</strong> (Sydney).
+                </div>
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <div class="news-date text-sm font-semibold text-slate-500">Jan. 2026</div>
+                <div class="flex-1 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                  <span class="tag tag-green mr-2">Accepted</span>
+                  <em>MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning</em> accepted to <a href="https://www2026.thewebconf.org/" target="_blank" class="font-semibold text-blue-600 hover:underline">WWW 2026</a>.
+                </div>
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <div class="news-date text-sm font-semibold text-slate-500">Jan. 2026</div>
+                <div class="flex-1 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                  <span class="tag tag-green mr-2">Accepted</span>
+                  <em>PRoH: Dynamic Planning and Reasoning over Knowledge Hypergraphs for Retrieval-Augmented Generation</em> accepted to <a href="https://www2026.thewebconf.org/" target="_blank" class="font-semibold text-blue-600 hover:underline">WWW 2026</a>.
+                </div>
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <div class="news-date text-sm font-semibold text-slate-500">Jan. 2026</div>
+                <div class="flex-1 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                  <span class="tag tag-amber mr-2">Preprint</span>
+                  <a href="https://arxiv.org/abs/2601.08739" target="_blank" class="font-medium text-blue-600 hover:underline">PrivGemo: Privacy-Preserving Dual-Tower Graph Retrieval for Empowering LLM Reasoning with Memory Augmentation</a> is now public.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="soft-card rounded-3xl p-6">
+            <h3 class="text-lg font-bold text-slate-900">2025</h3>
+            <div class="mt-5 space-y-4 text-sm text-slate-700">
+              <div><span class="tag tag-rose mr-2">Award</span> <span class="font-semibold text-slate-500">Nov. 2025</span> · Awarded UNSW Industry Engagement Grant.</div>
+              <div><span class="tag tag-amber mr-2">Preprint</span> <span class="font-semibold text-slate-500">Oct. 2025</span> · <a href="https://arxiv.org/abs/2510.13614" target="_blank" class="text-blue-600 hover:underline">MemoTime</a> is now public.</div>
+              <div><span class="tag tag-amber mr-2">Preprint</span> <span class="font-semibold text-slate-500">Oct. 2025</span> · <a href="https://arxiv.org/abs/2510.12434" target="_blank" class="text-blue-600 hover:underline">PRoH</a> is now public.</div>
+              <div><span class="tag tag-green mr-2">Accepted</span> <span class="font-semibold text-slate-500">Aug. 2025</span> · <em>HydraRAG</em> accepted to <a href="https://2025.emnlp.org/" target="_blank" class="text-blue-600 font-semibold hover:underline">EMNLP 2025</a>.</div>
+              <div><span class="tag tag-amber mr-2">Preprint</span> <span class="font-semibold text-slate-500">Aug. 2025</span> · <a href="https://arxiv.org/pdf/2508.06588" target="_blank" class="text-blue-600 hover:underline">Graph is a Natural Regularization</a> is now public.</div>
+              <div><span class="tag tag-amber mr-2">Preprint</span> <span class="font-semibold text-slate-500">Jun. 2025</span> · <a href="https://www.arxiv.org/abs/2505.17464" target="_blank" class="text-blue-600 hover:underline">HydraRAG</a> is now public.</div>
+              <div><span class="tag tag-rose mr-2">Award</span> <span class="font-semibold text-slate-500">Apr. 2025</span> · Awarded the WWW2025 Student Travel Award.</div>
+              <div><span class="tag tag-green mr-2">Accepted</span> <span class="font-semibold text-slate-500">Jan. 2025</span> · <em>Paths-over-Graph</em> accepted to <a href="https://www2025.thewebconf.org/" target="_blank" class="text-blue-600 font-semibold hover:underline">WWW 2025</a>.</div>
+            </div>
+          </div>
+
+          <div class="soft-card rounded-3xl p-6">
+            <h3 class="text-lg font-bold text-slate-900">2024 & 2023</h3>
+            <div class="mt-5 space-y-4 text-sm text-slate-700">
+              <div><span class="tag tag-blue mr-2">Progress</span> <span class="font-semibold text-slate-500">May. 2024</span> · Obtained MPhil degree and started the PhD journey.</div>
+              <div><span class="tag tag-blue mr-2">Progress</span> <span class="font-semibold text-slate-500">Apr. 2024</span> · Passed MPhil thesis defence.</div>
+              <div><span class="tag tag-rose mr-2">Award</span> <span class="font-semibold text-slate-500">Jan. 2024</span> · Awarded the CSIRO’s Data61-UNSW Joint PhD Full Scholarship.</div>
+              <div><span class="tag tag-green mr-2">Accepted</span> <span class="font-semibold text-slate-500">Nov. 2023</span> · <em>Higher-order peak decomposition</em> accepted to <a href="https://uobevents.eventsair.com/cikm2023/" target="_blank" class="text-blue-600 font-semibold hover:underline">CIKM 2023</a>.</div>
+              <div><span class="tag tag-rose mr-2">Award</span> <span class="font-semibold text-slate-500">Nov. 2023</span> · Awarded the CIRES-ADC Travel Grant.</div>
+              <div><span class="tag tag-green mr-2">Accepted</span> <span class="font-semibold text-slate-500">Jun. 2023</span> · <em>Maximum Fairness-Aware (k,r)-Core Identification in Large Graphs</em> accepted to <a href="https://adc2023.github.io/" target="_blank" class="text-blue-600 font-semibold hover:underline">ADC 2023</a>.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="py-20">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between gap-4">
+          <h2 class="section-title">Selected Publications</h2>
+          <span class="hidden sm:inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-500">Representative work</span>
+        </div>
+
+        <div class="mt-8 space-y-6">
+          <article class="soft-card group rounded-3xl p-5 sm:p-6">
+            <div class="flex flex-col gap-6 md:flex-row">
+              <a href="https://stevetantan.github.io/PrivGemo/" class="block md:w-64 shrink-0 overflow-hidden rounded-2xl bg-slate-50 border border-slate-200">
+                <img src="./assets/img/PrivGemo.jpg" alt="PrivGemo" class="h-full w-full object-contain transition duration-500 group-hover:scale-[1.03]" onerror="this.src='https://placehold.co/640x420?text=PrivGemo'">
+              </a>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-xl font-bold leading-8 text-slate-900">PrivGemo: Privacy-Preserving Dual-Tower Graph Retrieval for Empowering LLM Reasoning with Memory Augmentation</h3>
+                <p class="mt-2 text-sm leading-7 text-slate-600"><strong class="text-slate-900">Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="tag tag-blue">ArXiv 2026</span>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
+                  <a href="https://arxiv.org/pdf/2601.08739" class="text-blue-600 hover:text-blue-800 hover:underline"><i class="far fa-file-pdf mr-1"></i>PDF</a>
+                  <a href="https://stevetantan.github.io/PrivGemo/" class="text-slate-600 hover:text-slate-900 hover:underline"><i class="fas fa-globe mr-1"></i>Website</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="soft-card group rounded-3xl p-5 sm:p-6">
+            <div class="flex flex-col gap-6 md:flex-row">
+              <a href="https://stevetantan.github.io/MemoTime/" class="block md:w-64 shrink-0 overflow-hidden rounded-2xl bg-slate-50 border border-slate-200">
+                <img src="./assets/img/MemoTime.jpg" alt="MemoTime" class="h-full w-full object-contain transition duration-500 group-hover:scale-[1.03]" onerror="this.src='https://placehold.co/640x420?text=MemoTime'">
+              </a>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-xl font-bold leading-8 text-slate-900">MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning</h3>
+                <p class="mt-2 text-sm leading-7 text-slate-600"><strong class="text-slate-900">Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="tag tag-blue">WWW 2026</span>
+                  <span class="tag tag-amber"><i class="fas fa-star text-[10px]"></i>CORE A*</span>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
+                  <a href="https://arxiv.org/pdf/2510.13614.pdf" class="text-blue-600 hover:text-blue-800 hover:underline"><i class="far fa-file-pdf mr-1"></i>PDF</a>
+                  <a href="https://github.com/SteveTANTAN/MemoTime" class="text-slate-600 hover:text-slate-900 hover:underline"><i class="fab fa-github mr-1"></i>Code</a>
+                  <a href="https://stevetantan.github.io/MemoTime/" class="text-slate-600 hover:text-slate-900 hover:underline"><i class="fas fa-globe mr-1"></i>Website</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="soft-card group rounded-3xl p-5 sm:p-6">
+            <div class="flex flex-col gap-6 md:flex-row">
+              <a href="https://arxiv.org/abs/2510.12434" class="block md:w-64 shrink-0 overflow-hidden rounded-2xl bg-slate-50 border border-slate-200">
+                <img src="./assets/img/PRoH.jpg" alt="PRoH" class="h-full w-full object-contain transition duration-500 group-hover:scale-[1.03]" onerror="this.src='https://placehold.co/640x420?text=PRoH'">
+              </a>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-xl font-bold leading-8 text-slate-900">PRoH: Dynamic Planning and Reasoning over Knowledge Hypergraphs for Retrieval-Augmented Generation</h3>
+                <p class="mt-2 text-sm leading-7 text-slate-600">Xiangjun Zai, <strong class="text-slate-900">Xingyu Tan</strong> <span class="text-xs text-slate-500">(corresponding author)</span>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Wenjie Zhang</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="tag tag-blue">WWW 2026</span>
+                  <span class="tag tag-amber"><i class="fas fa-star text-[10px]"></i>CORE A*</span>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
+                  <a href="https://arxiv.org/pdf/2510.12434.pdf" class="text-blue-600 hover:text-blue-800 hover:underline"><i class="far fa-file-pdf mr-1"></i>PDF</a>
+                  <a href="https://github.com/zaixjun/PRoH" class="text-slate-600 hover:text-slate-900 hover:underline"><i class="fab fa-github mr-1"></i>Code</a>
+                  <a href="https://arxiv.org/abs/2510.12434" class="text-slate-600 hover:text-slate-900 hover:underline"><i class="fas fa-globe mr-1"></i>Website</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="soft-card group rounded-3xl p-5 sm:p-6">
+            <div class="flex flex-col gap-6 md:flex-row">
+              <a href="https://stevetantan.github.io/Hydra/" class="block md:w-64 shrink-0 overflow-hidden rounded-2xl bg-slate-50 border border-slate-200">
+                <img src="./assets/img/Hydra.png" alt="HydraRAG" class="h-full w-full object-contain transition duration-500 group-hover:scale-[1.03]" onerror="this.src='https://placehold.co/640x420?text=HydraRAG'">
+              </a>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-xl font-bold leading-8 text-slate-900">HydraRAG: Structured Cross-Source Enhanced Large Language Model Reasoning</h3>
+                <p class="mt-2 text-sm leading-7 text-slate-600"><strong class="text-slate-900">Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="tag tag-blue">EMNLP 2025</span>
+                  <span class="tag tag-amber"><i class="fas fa-star text-[10px]"></i>CORE A*</span>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
+                  <a href="https://aclanthology.org/2025.emnlp-main.730/" class="text-blue-600 hover:text-blue-800 hover:underline"><i class="far fa-file-pdf mr-1"></i>PDF</a>
+                  <a href="https://github.com/SteveTANTAN/HydraRAG" class="text-slate-600 hover:text-slate-900 hover:underline"><i class="fab fa-github mr-1"></i>Code</a>
+                  <a href="https://stevetantan.github.io/Hydra/" class="text-slate-600 hover:text-slate-900 hover:underline"><i class="fas fa-globe mr-1"></i>Website</a>
+                  <a href="./assets/files/EMNLP_HydraRAG_poster.pdf" class="text-slate-600 hover:text-slate-900 hover:underline"><i class="fas fa-image mr-1"></i>Poster</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="soft-card group rounded-3xl p-5 sm:p-6">
+            <div class="flex flex-col gap-6 md:flex-row">
+              <a href="https://github.com/SteveTANTAN/PoG" class="block md:w-64 shrink-0 overflow-hidden rounded-2xl bg-slate-50 border border-slate-200">
+                <img src="./assets/img/PoG.jpg" alt="PoG" class="h-full w-full object-contain transition duration-500 group-hover:scale-[1.03]" onerror="this.src='https://placehold.co/640x420?text=PoG'">
+              </a>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-xl font-bold leading-8 text-slate-900">Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning</h3>
+                <p class="mt-2 text-sm leading-7 text-slate-600"><strong class="text-slate-900">Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Wenjie Zhang</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="tag tag-blue">WWW 2025</span>
+                  <span class="tag tag-amber"><i class="fas fa-star text-[10px]"></i>CORE A*</span>
+                  <span class="tag tag-rose"><i class="fas fa-award text-[10px]"></i>Travel Grant</span>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
+                  <a href="https://dl.acm.org/doi/abs/10.1145/3696410.3714892" class="text-blue-600 hover:text-blue-800 hover:underline"><i class="far fa-file-pdf mr-1"></i>PDF</a>
+                  <a href="https://github.com/SteveTANTAN/PoG" class="text-slate-600 hover:text-slate-900 hover:underline"><i class="fab fa-github mr-1"></i>Code</a>
+                  <a href="https://github.com/SteveTANTAN/PoG" class="text-slate-600 hover:text-slate-900 hover:underline"><i class="fas fa-globe mr-1"></i>Website</a>
+                  <a href="./assets/files/WWW_PoG_poster.pdf" class="text-slate-600 hover:text-slate-900 hover:underline"><i class="fas fa-image mr-1"></i>Poster</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="soft-card group rounded-3xl p-5 sm:p-6">
+            <div class="flex flex-col gap-6 md:flex-row">
+              <a href="https://dl.acm.org/doi/10.1145/3583780.3615209" class="block md:w-64 shrink-0 overflow-hidden rounded-2xl bg-slate-50 border border-slate-200">
+                <img src="./assets/img/CIKM.jpg" alt="CIKM" class="h-full w-full object-contain transition duration-500 group-hover:scale-[1.03]" onerror="this.src='https://placehold.co/640x420?text=CIKM'">
+              </a>
+              <div class="min-w-0 flex-1">
+                <h3 class="text-xl font-bold leading-8 text-slate-900">Higher-Order Peak Decomposition</h3>
+                <p class="mt-2 text-sm leading-7 text-slate-600"><strong class="text-slate-900">Xingyu Tan</strong>, Jingya Qian, Chen Chen, Sima Qing, Yanping Wu, Xiaoyang Wang, Wenjie Zhang</p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="tag tag-blue">CIKM 2023</span>
+                  <span class="tag tag-amber"><i class="fas fa-star-half-alt text-[10px]"></i>CORE A</span>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
+                  <a href="https://dl.acm.org/doi/10.1145/3583780.3615209" class="text-blue-600 hover:text-blue-800 hover:underline"><i class="far fa-file-pdf mr-1"></i>PDF</a>
+                  <a href="https://github.com/SteveTANTAN/kh-peak" class="text-slate-600 hover:text-slate-900 hover:underline"><i class="fab fa-github mr-1"></i>Code</a>
+                  <a href="./assets/files/CIKM_KHPeak_poster.pdf" class="text-slate-600 hover:text-slate-900 hover:underline"><i class="fas fa-image mr-1"></i>Poster</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="border-y border-slate-200 bg-white py-20">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          <div class="soft-card rounded-3xl p-6">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900">Machine Learning Engineer & Research Intern</h3>
+                <p class="mt-1 text-sm font-semibold text-blue-700">TikTok · Sydney, Australia</p>
+              </div>
+              <span class="tag tag-purple">Jan. 2026 – Present</span>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-600">Working on multimodal large language models and related applied research.</p>
+          </div>
+
+          <div class="soft-card rounded-3xl p-6">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900">COMP9315 Database Systems Implementation</h3>
+                <p class="mt-1 text-sm font-semibold text-blue-700">UNSW · Sydney, Australia</p>
+              </div>
+              <span class="tag tag-blue">2025 – Present</span>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-600">Course Admin: 2026T1, 2025T1</p>
+          </div>
+
+          <div class="soft-card rounded-3xl p-6">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900">COMP9311 Database Systems</h3>
+                <p class="mt-1 text-sm font-semibold text-blue-700">UNSW · Sydney, Australia</p>
+              </div>
+              <span class="tag tag-blue">2023 – Present</span>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-600">Admin: 26T1, 25T1, 24T1 · Teaching Academic: 23T3, 23T1</p>
+            <div class="mt-3 text-sm font-medium text-rose-600"><i class="fas fa-award mr-1"></i>Awarded Annual Best Teaching Course (2024, 2025)</div>
+          </div>
+
+          <div class="soft-card rounded-3xl p-6">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900">COMP9313 Big Data Management</h3>
+                <p class="mt-1 text-sm font-semibold text-blue-700">UNSW · Sydney, Australia</p>
+              </div>
+              <span class="tag tag-slate">2024</span>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-600">Teaching Academic: 2024T2</p>
+          </div>
+
+          <div class="soft-card rounded-3xl p-6">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900">ZZSC9001 Foundations of Data Science</h3>
+                <p class="mt-1 text-sm font-semibold text-blue-700">UNSW · Sydney, Australia</p>
+              </div>
+              <span class="tag tag-slate">2023</span>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-600">Teaching Academic: 2023T3</p>
+          </div>
+
+          <div class="soft-card rounded-3xl p-6">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900">CSIT115 Data Management and Security</h3>
+                <p class="mt-1 text-sm font-semibold text-blue-700">UoW · Sydney, Australia</p>
+              </div>
+              <span class="tag tag-slate">2023</span>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-slate-600">Teaching Academic: 2023S2</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="honors" class="py-20">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 grid gap-8 lg:grid-cols-2">
+        <div>
+          <h2 class="section-title">Honors & Awards</h2>
+          <div class="mt-8 soft-card rounded-3xl p-6">
+            <ul class="space-y-4 text-sm leading-7 text-slate-700">
+              <li><i class="fas fa-award mr-3 text-rose-500"></i><strong class="text-slate-900">UNSW Industry Engagement Grant</strong> (2025)</li>
+              <li><i class="fas fa-award mr-3 text-rose-500"></i><strong class="text-slate-900">WWW2025 Student Travel Award</strong> (2025)</li>
+              <li><i class="fas fa-award mr-3 text-rose-500"></i><strong class="text-slate-900">UNSW Development and Research Training Grant</strong> (2025)</li>
+              <li><i class="fas fa-award mr-3 text-rose-500"></i><strong class="text-slate-900">CSIRO's Data61-UNSW Joint PhD Full Scholarship</strong> (2024–2028)</li>
+              <li><i class="fas fa-award mr-3 text-rose-500"></i><strong class="text-slate-900">CIRES-ADC Travel Grant</strong> (2023)</li>
+              <li><i class="fas fa-award mr-3 text-rose-500"></i><strong class="text-slate-900">UNSW Global University Award</strong> (2022)</li>
+              <li><i class="fas fa-award mr-3 text-rose-500"></i><strong class="text-slate-900">UNSW International Academic Excellence Award</strong> (2019)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="section-title">Education</h2>
+          <div class="mt-8 space-y-5">
+            <div class="soft-card rounded-3xl p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="text-base font-bold text-slate-900">Ph.D. Candidate in Computer Science and Engineering</h3>
+                  <p class="mt-1 text-sm text-slate-600">UNSW & CSIRO’s Data61, Sydney</p>
+                </div>
+                <span class="tag tag-blue">May. 2024 – Present</span>
+              </div>
+            </div>
+            <div class="soft-card rounded-3xl p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="text-base font-bold text-slate-900">M.Phil. in Computer Science and Engineering</h3>
+                  <p class="mt-1 text-sm text-slate-600">UNSW, Sydney</p>
+                </div>
+                <span class="tag tag-slate">Sep. 2022 – Dec. 2023</span>
+              </div>
+            </div>
+            <div class="soft-card rounded-3xl p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <h3 class="text-base font-bold text-slate-900">B.Sc. in Computer Science with Distinction</h3>
+                  <p class="mt-1 text-sm text-slate-600">UNSW, Sydney</p>
+                </div>
+                <span class="tag tag-slate">Sep. 2019 – May. 2022</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white py-10 text-center text-sm text-slate-500">
+    <div class="mb-5 flex justify-center px-4">
+      <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=huHThO_g4uI-kUM6IW4GWhVqE2ZQ9ProJCJ7R0uQUfM&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff'></script>
+    </div>
+    <p>© 2026 Xingyu Tan. Built with Tailwind CSS.</p>
+  </footer>
+
+  <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', '{{ site.google_analytics }}', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
