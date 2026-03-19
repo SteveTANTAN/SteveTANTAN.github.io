@@ -241,7 +241,7 @@
     </main>
 
     <footer class="py-16 text-center opacity-50 text-sm">
-        <p>&copy; 2026 Xingyu Tan. PrivGemo Project. University of New South Wales & CSIRO Data61.</p>
+        <p>&copy; 2026 Xingyu Tan. PrivGemo Project. University of New South Wales & CSIRO Data61. <span class="mx-2">|</span> Visits: <span id="visit-count">—</span></p>
     </footer>
 
     <script>
@@ -306,6 +306,15 @@
             btn.innerText = 'Copied!';
             setTimeout(() => btn.innerText = 'Copy Citation', 2000);
         }
+        (function(){
+            var el=document.getElementById('visit-count');
+            if(!el) return;
+            var key='stevetantan.github.io/PrivGemo';
+            fetch('https://api.countapi.xyz/hit/'+encodeURIComponent(key))
+              .then(function(r){return r.json();})
+              .then(function(d){if(d&&typeof d.value!=='undefined'){el.textContent=d.value.toLocaleString();}})
+              .catch(function(){});
+        })();
     </script>
 </body>
 </html>
