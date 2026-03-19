@@ -241,7 +241,12 @@
     </main>
 
     <footer class="py-16 text-center opacity-50 text-sm">
-        <p>&copy; 2026 Xingyu Tan. PrivGemo Project. University of New South Wales & CSIRO Data61. <span class="mx-2">|</span> Visits: <span id="visit-count">—</span></p>
+        <p>&copy; 2026 Xingyu Tan. PrivGemo Project. University of New South Wales & CSIRO Data61.</p>
+        <div class="mt-3 flex justify-center">
+            <a href="https://hits.seeyoufarm.com" aria-label="Visit Counter">
+                <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fstevetantan.github.io%2FPrivGemo%2F&count_bg=%235B9CF6&title_bg=%23F3F4F6&icon=&icon_color=%23E7E7E7&title=Visits&edge_flat=true" alt="Visits counter badge">
+            </a>
+        </div>
     </footer>
 
     <script>
@@ -306,15 +311,6 @@
             btn.innerText = 'Copied!';
             setTimeout(() => btn.innerText = 'Copy Citation', 2000);
         }
-        (function(){
-            var el=document.getElementById('visit-count');
-            if(!el) return;
-            var key='stevetantan.github.io/PrivGemo';
-            fetch('https://api.countapi.xyz/hit/'+encodeURIComponent(key))
-              .then(function(r){return r.json();})
-              .then(function(d){if(d&&typeof d.value!=='undefined'){el.textContent=d.value.toLocaleString();}})
-              .catch(function(){});
-        })();
     </script>
 </body>
 </html>
