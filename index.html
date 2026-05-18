@@ -80,6 +80,7 @@
                     <a href="#news" class="text-slate-600 hover:text-blue-700 transition duration-200 whitespace-nowrap">News</a>
                     <a href="#publications" class="text-slate-600 hover:text-blue-700 transition duration-200 whitespace-nowrap">Publications</a>
                     <a href="#experience" class="text-slate-600 hover:text-blue-700 transition duration-200 whitespace-nowrap">Experience</a>
+                    <a href="#education" class="text-slate-600 hover:text-blue-700 transition duration-200 whitespace-nowrap">Education</a>
                     <a href="#honors" class="text-slate-600 hover:text-blue-700 transition duration-200 whitespace-nowrap">Honors</a>
                 </div>
                 <button id="nav-toggle" class="sm:hidden p-2 text-slate-600 hover:text-blue-700 ml-auto">
@@ -92,6 +93,7 @@
                     <a href="#news" class="py-2 text-slate-600 hover:text-blue-700">News</a>
                     <a href="#publications" class="py-2 text-slate-600 hover:text-blue-700">Publications</a>
                     <a href="#experience" class="py-2 text-slate-600 hover:text-blue-700">Experience</a>
+                    <a href="#education" class="py-2 text-slate-600 hover:text-blue-700">Education</a>
                     <a href="#honors" class="py-2 text-slate-600 hover:text-blue-700">Honors</a>
                 </div>
             </div>
@@ -119,6 +121,7 @@
                     <li><a href="#news" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700 text-lg font-medium">News</a></li>
                     <li><a href="#publications" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700 text-lg font-medium">Publications</a></li>
                     <li><a href="#experience" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700 text-lg font-medium">Experience</a></li>
+                    <li><a href="#education" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700 text-lg font-medium">Education</a></li>
                     <li><a href="#honors" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700 text-lg font-medium">Honors</a></li>
                 </ul>
             </nav>
@@ -957,7 +960,7 @@
                 </ul>
             </div>
             <div>
-                <h2 class="text-2xl font-bold text-slate-900 mb-6 border-l-4 border-blue-600 pl-4">Education</h2>
+                <h2 class="text-2xl font-bold text-slate-900 mb-6 border-l-4 border-blue-600 pl-4" id="education">Education</h2>
                 <div class="space-y-6 relative border-l-2 border-slate-200 ml-2 pl-6">
                     <div class="relative">
                         <div class="absolute -left-[31px] top-1 w-4 h-4 bg-blue-600 rounded-full border-2 border-white shadow"></div>
@@ -1013,7 +1016,7 @@
             if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}
             var l=document.querySelectorAll('#mobile-menu a');
             l.forEach(function(a){a.addEventListener('click',function(){m.classList.add('hidden');});});
-            var ids=['about','news','publications','experience','honors'];
+            var ids=['about','news','publications','experience','education','honors'];
             var links={};
             ids.forEach(function(id){var a=document.querySelector('#side-nav a[href="#'+id+'"]');if(a){links[id]=a;}});
             function setActive(id){
