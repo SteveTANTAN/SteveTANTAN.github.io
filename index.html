@@ -155,6 +155,50 @@
             border-radius: 6px;
             filter: saturate(1.02) contrast(1.02);
         }
+        .publication-card-body {
+            position: relative;
+        }
+        .publication-corner-icon {
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 12;
+            width: 4.25rem;
+            height: 4.25rem;
+            padding: 0.42rem;
+            border-radius: 8px;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(148, 163, 184, 0.26);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+            backdrop-filter: blur(10px);
+            opacity: 0.88;
+            pointer-events: none;
+            transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+        }
+        #publications .group.relative:hover .publication-corner-icon {
+            opacity: 1;
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.16);
+        }
+        @media (min-width: 768px) {
+            .publication-card-body {
+                padding-right: 5.75rem;
+                min-height: 10rem;
+            }
+        }
+        @media (max-width: 767px) {
+            .publication-card-body {
+                padding-bottom: 4rem;
+            }
+            .publication-corner-icon {
+                width: 3.4rem;
+                height: 3.4rem;
+                right: 0.9rem;
+                bottom: 0.9rem;
+                opacity: 0.82;
+            }
+        }
         .paper-tag {
             border-radius: 6px !important;
             box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
@@ -434,7 +478,7 @@
                 <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
                     <img src="./assets/img/DocTrace.jpg" alt="DocTrace" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=DocTrace'">
                 </div>
-                <div class="flex-1 relative z-10 pointer-events-none">
+                <div class="publication-card-body flex-1 relative z-10 pointer-events-none">
                     <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-700 transition">
                         Trace Only What You Need: Structure-Aware On-Demand Hypergraph Memory for Long-Document Question Answering
                     </h3>
@@ -451,6 +495,7 @@
                         <a href="https://stevetantan.github.io/DocTrace/" class="relative z-20 text-slate-600 hover:text-slate-900 hover:underline flex items-center gap-1"><i class="fas fa-globe"></i> Website</a>
                     </div>
                 </div>
+                <img src="./assets/img/DocTrace_logo.png" alt="" aria-hidden="true" class="publication-corner-icon" loading="lazy">
             </div>
 
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
@@ -459,7 +504,7 @@
                 <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
                     <img src="./assets/img/BioWave.jpg" alt="BioWeave" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=BioWeave'">
                 </div>
-                <div class="flex-1 relative z-10 pointer-events-none">
+                <div class="publication-card-body flex-1 relative z-10 pointer-events-none">
                     <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-700 transition">
                         Weaving Multi-Source Evidence for Biomedical Reasoning: The BioMedHop Benchmark and BioWeave Framework
                     </h3>
@@ -475,6 +520,7 @@
                         <a href="https://stevetantan.github.io/BioWeave/" class="relative z-20 text-slate-600 hover:text-slate-900 hover:underline flex items-center gap-1"><i class="fas fa-globe"></i> Website</a>
                     </div>
                 </div>
+                <img src="./assets/img/BioMedHop_BioWeave_logo.png" alt="" aria-hidden="true" class="publication-corner-icon" loading="lazy">
             </div>
 
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
@@ -483,7 +529,7 @@
                 <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
                     <img src="./assets/img/PrivGemo.jpg" alt="PrivGemo" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=PrivGemo'">
                 </div>
-                <div class="flex-1 relative z-10 pointer-events-none"> 
+                <div class="publication-card-body flex-1 relative z-10 pointer-events-none">
                     <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-700 transition">
                         PrivGemo: Privacy-Preserving Dual-Tower Graph Retrieval for Empowering LLM Reasoning with Memory Augmentation
                     </h3>
@@ -501,6 +547,7 @@
                         <a href="https://stevetantan.github.io/PrivGemo/" class="relative z-20 text-slate-600 hover:text-slate-900 hover:underline flex items-center gap-1"><i class="fas fa-globe"></i> Website</a>
                     </div>
                 </div>
+                <img src="./assets/img/privgemo_logo.png" alt="" aria-hidden="true" class="publication-corner-icon" loading="lazy">
             </div>
 
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
@@ -536,7 +583,7 @@
                 <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
                     <img src="./assets/img/MemoTime.jpg" alt="MemoTime" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=MemoTime'">
                 </div>
-                <div class="flex-1 relative z-10 pointer-events-none">
+                <div class="publication-card-body flex-1 relative z-10 pointer-events-none">
                     <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-700 transition">
                         MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning
                     </h3>
@@ -557,6 +604,7 @@
                         <a href="https://stevetantan.github.io/MemoTime/" class="relative z-20 text-slate-600 hover:text-slate-900 hover:underline flex items-center gap-1"><i class="fas fa-globe"></i> Website</a>
                     </div>
                 </div>
+                <img src="./assets/img/MemoTime_logo.png" alt="" aria-hidden="true" class="publication-corner-icon" loading="lazy">
             </div>
 
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
@@ -599,7 +647,7 @@
                 <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
                     <img src="./assets/img/Hydra.png" alt="HydraRAG" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=HydraRAG'">
                 </div>
-                <div class="flex-1 relative z-10 pointer-events-none">
+                <div class="publication-card-body flex-1 relative z-10 pointer-events-none">
                     <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-700 transition">
                         HydraRAG: Structured Cross-Source Enhanced Large Language Model Reasoning
                     </h3>
@@ -622,6 +670,7 @@
                         <a href="./assets/files/EMNLP_HydraRAG_poster.pdf" class="relative z-20 text-slate-600 hover:text-slate-900 hover:underline flex items-center gap-1"><i class="fas fa-image"></i> Poster</a>
                     </div>
                 </div>
+                <img src="./assets/img/hydra-logo-purple-1024.png" alt="" aria-hidden="true" class="publication-corner-icon" loading="lazy">
             </div>
 
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
@@ -630,7 +679,7 @@
                 <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
                     <img src="./assets/img/PoG.jpg" alt="PoG" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=PoG'">
                 </div>
-                <div class="flex-1 relative z-10 pointer-events-none">
+                <div class="publication-card-body flex-1 relative z-10 pointer-events-none">
                     <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-700 transition">
                         Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning
                     </h3>
@@ -655,6 +704,7 @@
                         <a href="./assets/files/WWW_PoG_poster.pdf" class="relative z-20 text-slate-600 hover:text-slate-900 hover:underline flex items-center gap-1"><i class="fas fa-image"></i> Poster</a>
                     </div>
                 </div>
+                <img src="./assets/img/PoG_logo.png" alt="" aria-hidden="true" class="publication-corner-icon" loading="lazy">
             </div>
 
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
