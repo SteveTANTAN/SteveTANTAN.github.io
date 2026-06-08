@@ -1,6 +1,6 @@
 main:
   - title: "Trace Only What You Need: Structure-Aware On-Demand Hypergraph Memory for Long-Document Question Answering"
-    authors: Xiangjun Zai, <strong>Xingyu Tan</strong>, Chen Chen, Xiaoyang Wang, Wenjie Zhang
+    authors: Xiangjun Zai, <strong>Xingyu Tan*</strong>, Chen Chen, Xiaoyang Wang, Wenjie Zhang
     conference_short: Preprint
     conference: Preprint, 2026.
     image: ./assets/img/DocTrace.jpg
