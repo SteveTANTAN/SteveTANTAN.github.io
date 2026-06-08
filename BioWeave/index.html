@@ -44,8 +44,8 @@
             font-family: 'Inter', sans-serif;
             transition: background-color 0.3s, color 0.3s;
             background:
-                linear-gradient(135deg, rgba(15, 118, 110, 0.08), transparent 32%),
-                linear-gradient(315deg, rgba(14, 165, 233, 0.10), transparent 34%),
+                linear-gradient(135deg, rgba(20, 184, 166, 0.09), transparent 32%),
+                linear-gradient(315deg, rgba(37, 99, 235, 0.10), transparent 34%),
                 var(--bg-light);
         }
         body::before {
@@ -54,8 +54,8 @@
             inset: 0;
             pointer-events: none;
             background-image:
-                linear-gradient(rgba(15, 118, 110, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+                linear-gradient(rgba(20, 184, 166, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
             background-size: 48px 48px;
             mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 72%);
             z-index: -1;
@@ -63,11 +63,11 @@
         html { scroll-behavior: smooth; }
         h1, .tracking-tight { letter-spacing: 0 !important; }
 
-        .bg-gradient-hero-dark { background-image: radial-gradient(circle at top right, #1a2e1a, var(--bg-dark)); }
-        .bg-gradient-hero-light { background-image: radial-gradient(circle at top right, #dcfce7, #ffffff); }
+        .bg-gradient-hero-dark { background-image: radial-gradient(circle at top right, #123b4c, var(--bg-dark)); }
+        .bg-gradient-hero-light { background-image: radial-gradient(circle at top right, #ccfbf1, #eff6ff 52%, #ffffff); }
 
-        .progress-dark { background: linear-gradient(90deg, #4ade80, #ffffff); }
-        .progress-light { background: linear-gradient(90deg, #86efac, #15803d); }
+        .progress-dark { background: linear-gradient(90deg, #2dd4bf, #60a5fa, #c4b5fd); }
+        .progress-light { background: linear-gradient(90deg, #2dd4bf, #2563eb, #7c3aed); }
 
         html[data-theme="dark"] { background-color: var(--bg-dark); color: var(--text-dark); }
         html[data-theme="light"] { background-color: var(--bg-light); color: var(--text-light); }
@@ -77,47 +77,47 @@
 
         .section-panel { border: 1px solid; border-radius: 8px !important; transition: all 0.3s; }
         html[data-theme="dark"] .section-panel { background-color: rgba(18, 18, 18, 0.86); border-color: var(--border-dark); box-shadow: 0 18px 45px var(--shadow-dark); }
-        html[data-theme="light"] .section-panel { background-color: rgba(255, 255, 255, 0.88); border-color: rgba(15, 118, 110, 0.13); box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08); }
+        html[data-theme="light"] .section-panel { background-color: rgba(255, 255, 255, 0.88); border-color: rgba(14, 165, 233, 0.16); box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08); }
 
         .pill-button { border: 1px solid; transition: all 0.3s; }
         html[data-theme="dark"] .pill-button { border-color: var(--border-dark); background-color: var(--panel-dark); }
         html[data-theme="light"] .pill-button { border-color: var(--border-light); background-color: var(--panel-light); }
 
         .text-brand-theme {
-            background: linear-gradient(135deg, #15803d 0%, #059669 100%);
+            background: linear-gradient(135deg, #0f766e 0%, #0ea5e9 58%, #7c3aed 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         [data-theme="dark"] .text-brand-theme {
-            background: linear-gradient(135deg, #4ade80 0%, #34d399 100%);
+            background: linear-gradient(135deg, #5eead4 0%, #60a5fa 58%, #c4b5fd 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .accent { color: #15803d; }
-        html[data-theme="dark"] .accent { color: #4ade80; }
+        .accent { color: #0e7490; }
+        html[data-theme="dark"] .accent { color: #67e8f9; }
 
         .bg-code-theme { transition: all 0.3s; }
         html[data-theme="dark"] .bg-code-theme { background-color: #010409; color: #d1d5db; }
         html[data-theme="light"] .bg-code-theme { background-color: #f1f5f9; color: #1e293b; }
 
         .brand-lockup { display: flex; align-items: center; gap: 0.65rem; }
-        .brand-logo { height: 3.25rem; width: auto; filter: drop-shadow(0 12px 22px rgba(15, 118, 110, 0.22)); }
-        .hero-logo { height: clamp(9rem, 24vw, 16.5rem); width: auto; max-width: min(84vw, 34rem); margin: 0 auto 1.25rem; filter: drop-shadow(0 28px 50px rgba(15, 118, 110, 0.25)); }
+        .brand-logo { height: 3.25rem; width: auto; border-radius: 8px; filter: drop-shadow(0 12px 22px rgba(14, 165, 233, 0.24)); }
+        .hero-logo { height: clamp(9rem, 24vw, 16.5rem); width: auto; max-width: min(84vw, 34rem); margin: 0 auto 1.25rem; border-radius: 8px; filter: drop-shadow(0 28px 50px rgba(37, 99, 235, 0.25)); }
         .hero-kicker {
             display: inline-flex;
             align-items: center;
             gap: 0.45rem;
             padding: 0.35rem 0.7rem;
             border-radius: 999px;
-            border: 1px solid rgba(15, 118, 110, 0.22);
-            background: rgba(236, 253, 245, 0.82);
-            color: #047857;
+            border: 1px solid rgba(14, 165, 233, 0.24);
+            background: rgba(236, 254, 255, 0.84);
+            color: #0e7490;
             font-size: 0.82rem;
             font-weight: 800;
             margin-bottom: 1.15rem;
         }
-        html[data-theme="dark"] .hero-kicker { background: rgba(6, 78, 59, 0.36); color: #a7f3d0; border-color: rgba(52, 211, 153, 0.28); }
+        html[data-theme="dark"] .hero-kicker { background: rgba(8, 47, 73, 0.38); color: #a5f3fc; border-color: rgba(96, 165, 250, 0.30); }
         .hero-subtitle { color: #0f172a; }
         html[data-theme="dark"] .hero-subtitle { color: #e2e8f0; }
         .title-colon { color: #0f172a; -webkit-text-fill-color: #0f172a; }
@@ -125,14 +125,14 @@
         .visual-frame {
             padding: 0.75rem;
             border-radius: 8px;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(14, 165, 233, 0.10));
-            border: 1px solid rgba(15, 118, 110, 0.16);
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(37, 99, 235, 0.10), rgba(124, 58, 237, 0.06));
+            border: 1px solid rgba(14, 165, 233, 0.18);
         }
         .visual-frame img { border-radius: 8px; }
         .metric-tile {
             border-radius: 8px;
-            border: 1px solid rgba(15, 118, 110, 0.12);
-            background: linear-gradient(180deg, rgba(236, 253, 245, 0.84), rgba(255, 255, 255, 0.56));
+            border: 1px solid rgba(14, 165, 233, 0.14);
+            background: linear-gradient(180deg, rgba(236, 254, 255, 0.84), rgba(239, 246, 255, 0.58));
         }
         html[data-theme="dark"] .metric-tile { background: rgba(6, 78, 59, 0.22); border-color: rgba(52, 211, 153, 0.16); }
     </style>
@@ -144,17 +144,17 @@
     <nav class="site-nav sticky top-0 z-40 backdrop-blur-md transition-colors duration-300 border-b border-transparent">
         <div class="container mx-auto flex items-center justify-between p-4 md:px-8">
             <a href="#top" class="brand-lockup text-xl font-bold">
-                <img src="/assets/img/bioweave_logo.svg" alt="BioMedHop &amp; BioWeave Logo" class="brand-logo">
+                <img src="/assets/img/BioMedHop_BioWeave_logo.png" alt="BioMedHop &amp; BioWeave Logo" class="brand-logo">
                 <span class="text-brand-theme font-extrabold">BioMedHop &amp; BioWeave</span>
             </a>
             <div class="flex items-center space-x-6">
                 <nav class="hidden md:flex space-x-6 text-sm font-medium opacity-80">
-                    <a href="#abstract" class="hover:text-green-600 transition-colors">Abstract</a>
-                    <a href="#benchmark" class="hover:text-green-600 transition-colors">Benchmark</a>
-                    <a href="#method" class="hover:text-green-600 transition-colors">Method</a>
-                    <a href="#results" class="hover:text-green-600 transition-colors">Results</a>
-                    <a href="#bibtex" class="hover:text-green-600 transition-colors">Cite</a>
-                    <a href="/" class="hover:text-green-600 transition-colors border-l pl-6 border-gray-400">Home</a>
+                    <a href="#abstract" class="hover:text-cyan-600 transition-colors">Abstract</a>
+                    <a href="#benchmark" class="hover:text-cyan-600 transition-colors">Benchmark</a>
+                    <a href="#method" class="hover:text-cyan-600 transition-colors">Method</a>
+                    <a href="#results" class="hover:text-cyan-600 transition-colors">Results</a>
+                    <a href="#bibtex" class="hover:text-cyan-600 transition-colors">Cite</a>
+                    <a href="/" class="hover:text-cyan-600 transition-colors border-l pl-6 border-gray-400">Home</a>
                 </nav>
                 <button class="p-2 rounded-full pill-button" id="themeToggle">
                     <span id="theme-icon">☀️</span>
@@ -170,7 +170,7 @@
         </div>
 
         <div class="container mx-auto py-12 relative z-10">
-            <img src="/assets/img/bioweave_logo.svg" alt="BioMedHop &amp; BioWeave Logo" class="hero-logo">
+            <img src="/assets/img/BioMedHop_BioWeave_logo.png" alt="BioMedHop &amp; BioWeave Logo" class="hero-logo">
             <div class="hero-kicker"><i class="fas fa-dna"></i> Multi-source biomedical reasoning</div>
             <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] mb-8 text-slate-900 max-w-5xl mx-auto">
                 <span class="text-brand-theme">Weaving Multi-Source Evidence for Biomedical Reasoning</span><span class="title-colon">:</span>
@@ -194,7 +194,7 @@
             </div>
 
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#" class="flex items-center px-8 py-3 rounded-full bg-green-700 text-white font-semibold shadow-lg hover:bg-green-800 transition-all transform hover:scale-105">
+                <a href="#" class="flex items-center px-8 py-3 rounded-full bg-cyan-700 text-white font-semibold shadow-lg hover:bg-blue-700 transition-all transform hover:scale-105">
                     <i class="far fa-file-pdf w-5 h-5 mr-2 flex items-center justify-center text-lg"></i>
                     Paper (Coming Soon)
                 </a>
@@ -227,19 +227,19 @@
         <section id="benchmark" class="mb-12">
             <h2 class="text-3xl font-bold mb-8 text-center">BioMedHop Benchmark</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="section-panel p-8 rounded-2xl border-t-4 border-green-600 shadow-sm hover:shadow-md transition-shadow">
+                <div class="section-panel p-8 rounded-2xl border-t-4 border-cyan-500 shadow-sm hover:shadow-md transition-shadow">
                     <h3 class="text-xl font-bold mb-4 accent">📊 Scale & Coverage</h3>
                     <p class="opacity-80 leading-relaxed">BioMedHop contains <strong>10,045 instances</strong> spanning four evidence settings: KG-only, document-only, web-accessible, and hybrid. Questions cover shared-neighbor matching, intersection reasoning, path-based reasoning, and counting tasks.</p>
                 </div>
-                <div class="section-panel p-8 rounded-2xl border-t-4 border-green-600 shadow-sm hover:shadow-md transition-shadow">
+                <div class="section-panel p-8 rounded-2xl border-t-4 border-cyan-500 shadow-sm hover:shadow-md transition-shadow">
                     <h3 class="text-xl font-bold mb-4 accent">🎯 Rendering Formats</h3>
                     <p class="opacity-80 leading-relaxed">Instances are presented in three formats: <strong>option-based</strong> (multiple choice), <strong>open-ended</strong> (free-form), and <strong>numeric count</strong> (quantitative), enabling evaluation across diverse answer types and reasoning challenges.</p>
                 </div>
-                <div class="section-panel p-8 rounded-2xl border-t-4 border-green-600 shadow-sm hover:shadow-md transition-shadow">
+                <div class="section-panel p-8 rounded-2xl border-t-4 border-cyan-500 shadow-sm hover:shadow-md transition-shadow">
                     <h3 class="text-xl font-bold mb-4 accent">🔗 Multi-Source Evidence</h3>
                     <p class="opacity-80 leading-relaxed">Evidence is drawn from <strong>biomedical KGs</strong> (Monarch, SPOKE), <strong>PubMed literature</strong>, <strong>clinical notes</strong>, and <strong>web resources</strong>. A single question may require connecting genes, diseases, drugs, phenotypes, and clinical outcomes.</p>
                 </div>
-                <div class="section-panel p-8 rounded-2xl border-t-4 border-green-600 shadow-sm hover:shadow-md transition-shadow">
+                <div class="section-panel p-8 rounded-2xl border-t-4 border-cyan-500 shadow-sm hover:shadow-md transition-shadow">
                     <h3 class="text-xl font-bold mb-4 accent">🧬 Graph-Grounded Reasoning</h3>
                     <p class="opacity-80 leading-relaxed">Unlike prior benchmarks focused on single-source retrieval, BioMedHop specifically targets <strong>source-conditioned graph reasoning</strong> and <strong>evidence topology construction</strong> — the two underexplored dimensions in biomedical QA evaluation.</p>
                 </div>
@@ -271,15 +271,15 @@
             <h2 class="text-3xl font-bold mb-8 accent">Key Results</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-8">
                 <div class="p-6">
-                    <div class="text-4xl font-extrabold text-green-600 mb-2">+10.5%</div>
+                    <div class="text-4xl font-extrabold text-cyan-600 mb-2">+10.5%</div>
                     <p class="text-sm opacity-70">Improvement in overall average over the strong hybrid baseline ToG-2 on BioMedHop.</p>
                 </div>
                 <div class="p-6">
-                    <div class="text-4xl font-extrabold text-green-600 mb-2">4B ≈ GPT-4</div>
+                    <div class="text-4xl font-extrabold text-cyan-600 mb-2">4B ≈ GPT-4</div>
                     <p class="text-sm opacity-70">BioWeave enables Qwen3-4B to achieve reasoning performance comparable to GPT-4-Turbo.</p>
                 </div>
                 <div class="p-6">
-                    <div class="text-4xl font-extrabold text-green-600 mb-2">10,045</div>
+                    <div class="text-4xl font-extrabold text-cyan-600 mb-2">10,045</div>
                     <p class="text-sm opacity-70">BioMedHop instances spanning KG, document, web, and hybrid evidence settings.</p>
                 </div>
             </div>
@@ -293,7 +293,7 @@
   author={Tan, Xingyu and Liu, Shiyuan and Wang, Xiaoyang and Liu, Qing and Xu, Xiwei and Yuan, Xin and Zhu, Liming and Zhang, Wenjie},
   year={2026}
 }</code></pre>
-            <button onclick="copyBib()" class="mt-4 flex items-center px-6 py-2 rounded-full pill-button hover:bg-green-600 hover:text-white transition-all border-green-200">
+            <button onclick="copyBib()" class="mt-4 flex items-center px-6 py-2 rounded-full pill-button hover:bg-cyan-600 hover:text-white transition-all border-cyan-200">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2v-2M8 5a2 2 0 002 2h6M8 5a2 2 0 012-2h4a2 2 0 012 2v2"></path></svg>
                 <span id="copyText">Copy Citation</span>
             </button>

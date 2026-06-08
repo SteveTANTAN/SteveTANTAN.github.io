@@ -63,11 +63,11 @@
         html { scroll-behavior: smooth; }
         h1, .tracking-tight { letter-spacing: 0 !important; }
 
-        .bg-gradient-hero-dark { background-image: radial-gradient(circle at top right, #262626, var(--bg-dark)); }
-        .bg-gradient-hero-light { background-image: radial-gradient(circle at top right, #dbeafe, #ffffff); }
+        .bg-gradient-hero-dark { background-image: radial-gradient(circle at top right, #14365d, var(--bg-dark)); }
+        .bg-gradient-hero-light { background-image: radial-gradient(circle at top right, #dbeafe, #eef9ff 50%, #ffffff); }
 
-        .progress-dark { background: linear-gradient(90deg, #737373, #ffffff); }
-        .progress-light { background: linear-gradient(90deg, #93c5fd, #1d4ed8); }
+        .progress-dark { background: linear-gradient(90deg, #38bdf8, #f59e0b, #ffffff); }
+        .progress-light { background: linear-gradient(90deg, #38bdf8, #2563eb, #f59e0b); }
 
         html[data-theme="dark"] { background-color: var(--bg-dark); color: var(--text-dark); }
         html[data-theme="light"] { background-color: var(--bg-light); color: var(--text-light); }
@@ -84,12 +84,12 @@
         html[data-theme="light"] .pill-button { border-color: var(--border-light); background-color: var(--panel-light); }
 
         .text-brand-theme {
-            background: linear-gradient(135deg, #1d4ed8 0%, #0ea5e9 100%);
+            background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 64%, #f59e0b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         [data-theme="dark"] .text-brand-theme {
-            background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+            background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 64%, #fbbf24 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -99,22 +99,22 @@
         html[data-theme="light"] .bg-code-theme { background-color: #f1f5f9; color: #1e293b; }
 
         .brand-lockup { display: flex; align-items: center; gap: 0.65rem; }
-        .brand-logo { height: 3.25rem; width: auto; filter: drop-shadow(0 12px 22px rgba(37, 99, 235, 0.22)); }
-        .hero-logo { height: clamp(9rem, 24vw, 16.5rem); width: auto; max-width: min(84vw, 34rem); margin: 0 auto 1.25rem; filter: drop-shadow(0 28px 50px rgba(37, 99, 235, 0.24)); }
+        .brand-logo { height: 3.25rem; width: auto; border-radius: 8px; filter: drop-shadow(0 12px 22px rgba(14, 165, 233, 0.24)); }
+        .hero-logo { height: clamp(9rem, 24vw, 16.5rem); width: auto; max-width: min(84vw, 34rem); margin: 0 auto 1.25rem; border-radius: 8px; filter: drop-shadow(0 28px 50px rgba(245, 158, 11, 0.18)); }
         .hero-kicker {
             display: inline-flex;
             align-items: center;
             gap: 0.45rem;
             padding: 0.35rem 0.7rem;
             border-radius: 999px;
-            border: 1px solid rgba(37, 99, 235, 0.22);
-            background: rgba(239, 246, 255, 0.82);
+            border: 1px solid rgba(14, 165, 233, 0.24);
+            background: rgba(239, 246, 255, 0.84);
             color: #1d4ed8;
             font-size: 0.82rem;
             font-weight: 800;
             margin-bottom: 1.15rem;
         }
-        html[data-theme="dark"] .hero-kicker { background: rgba(30, 64, 175, 0.30); color: #bfdbfe; border-color: rgba(96, 165, 250, 0.28); }
+        html[data-theme="dark"] .hero-kicker { background: rgba(30, 64, 175, 0.30); color: #bfdbfe; border-color: rgba(251, 191, 36, 0.28); }
         .hero-subtitle { color: #0f172a; }
         html[data-theme="dark"] .hero-subtitle { color: #e2e8f0; }
         .title-colon { color: #0f172a; -webkit-text-fill-color: #0f172a; }
@@ -122,14 +122,14 @@
         .visual-frame {
             padding: 0.75rem;
             border-radius: 8px;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(245, 158, 11, 0.10));
-            border: 1px solid rgba(37, 99, 235, 0.16);
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(14, 165, 233, 0.10), rgba(245, 158, 11, 0.08));
+            border: 1px solid rgba(14, 165, 233, 0.18);
         }
         .visual-frame img { border-radius: 8px; }
         .metric-tile {
             border-radius: 8px;
-            border: 1px solid rgba(37, 99, 235, 0.12);
-            background: linear-gradient(180deg, rgba(239, 246, 255, 0.88), rgba(255, 255, 255, 0.56));
+            border: 1px solid rgba(14, 165, 233, 0.14);
+            background: linear-gradient(180deg, rgba(239, 246, 255, 0.88), rgba(255, 251, 235, 0.48));
         }
         html[data-theme="dark"] .metric-tile { background: rgba(30, 64, 175, 0.20); border-color: rgba(96, 165, 250, 0.16); }
     </style>
@@ -141,7 +141,7 @@
     <nav class="site-nav sticky top-0 z-40 backdrop-blur-md transition-colors duration-300 border-b border-transparent">
         <div class="container mx-auto flex items-center justify-between p-4 md:px-8">
             <a href="#top" class="brand-lockup text-xl font-bold">
-                <img src="/assets/img/doctrace_logo.svg" alt="DocTrace Logo" class="brand-logo">
+                <img src="/assets/img/DocTrace_logo.png" alt="DocTrace Logo" class="brand-logo">
                 <span class="text-brand-theme font-extrabold">DocTrace</span>
             </a>
             <div class="flex items-center space-x-6">
@@ -166,7 +166,7 @@
         </div>
 
         <div class="container mx-auto py-12 relative z-10">
-            <img src="/assets/img/doctrace_logo.svg" alt="DocTrace Logo" class="hero-logo">
+            <img src="/assets/img/DocTrace_logo.png" alt="DocTrace Logo" class="hero-logo">
             <div class="hero-kicker"><i class="fas fa-route"></i> On-demand long-document reasoning</div>
             <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] mb-8 text-slate-900 max-w-5xl mx-auto">
                 <span class="text-brand-theme">Trace Only What You Need</span><span class="title-colon">:</span>
@@ -249,7 +249,7 @@
                     <p class="text-sm opacity-70">Improvement in Exact Match (EM) over the strongest baseline, demonstrating more precise answer extraction.</p>
                 </div>
                 <div class="p-6 metric-tile">
-                    <div class="text-4xl font-extrabold text-blue-500 mb-2">−53.32%</div>
+                    <div class="text-4xl font-extrabold text-amber-500 mb-2">−53.32%</div>
                     <p class="text-sm opacity-70">Reduction in overall computational cost through on-demand structure construction.</p>
                 </div>
             </div>
