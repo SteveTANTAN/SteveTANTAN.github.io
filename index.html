@@ -1168,6 +1168,13 @@
             if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}
             var l=document.querySelectorAll('#mobile-menu a');
             l.forEach(function(a){a.addEventListener('click',function(){m.classList.add('hidden');});});
+            document.querySelectorAll('#publications a[href]').forEach(function(a){
+                var href=a.getAttribute('href');
+                if(href && href.charAt(0) !== '#'){
+                    a.setAttribute('target','_blank');
+                    a.setAttribute('rel','noopener noreferrer');
+                }
+            });
             var ids=['about','news','publications','experience','honors','education'];
             var links={};
             ids.forEach(function(id){var a=document.querySelector('#side-nav a[href="#'+id+'"]');if(a){links[id]=a;}});
