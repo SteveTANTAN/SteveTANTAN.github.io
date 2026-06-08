@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" role="img" aria-labelledby="title desc">
+  <title id="title">BioWeave Logo</title>
+  <desc id="desc">A biomedical evidence-weaving logo with a glowing DNA ribbon, graph nodes, and layered research sources.</desc>
+  <defs>
+    <linearGradient id="bio-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111a"/>
+      <stop offset="0.32" stop-color="#09251f"/>
+      <stop offset="0.68" stop-color="#102f45"/>
+      <stop offset="1" stop-color="#f7fbff"/>
+    </linearGradient>
+    <radialGradient id="bio-spot" cx="50%" cy="48%" r="52%">
+      <stop offset="0" stop-color="#ecfff7" stop-opacity="0.94"/>
+      <stop offset="0.2" stop-color="#61f3c5" stop-opacity="0.56"/>
+      <stop offset="0.48" stop-color="#27b7e8" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#07111a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bio-ribbon-a" x1="355" y1="790" x2="1160" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f766e"/>
+      <stop offset="0.24" stop-color="#22c55e"/>
+      <stop offset="0.52" stop-color="#f8fafc"/>
+      <stop offset="0.78" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#0f4c81"/>
+    </linearGradient>
+    <linearGradient id="bio-ribbon-b" x1="320" y1="205" x2="1200" y2="812" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="0.28" stop-color="#dffdf2"/>
+      <stop offset="0.54" stop-color="#34d399"/>
+      <stop offset="0.8" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="node-fill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.42" stop-color="#8ef7d2"/>
+      <stop offset="1" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <linearGradient id="page-fill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#c7f9e6"/>
+    </linearGradient>
+    <pattern id="bio-grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0v64" fill="none" stroke="#ffffff" stroke-opacity="0.055" stroke-width="1.5"/>
+    </pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.22 0 0 0 0 0.93 0 0 0 0 0.72 0 0 0 0.75 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#001419" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1536" height="1024" fill="url(#bio-bg)"/>
+  <rect width="1536" height="1024" fill="url(#bio-grid)"/>
+  <ellipse cx="760" cy="510" rx="585" ry="365" fill="url(#bio-spot)"/>
+
+  <g opacity="0.45" stroke="#dffdf2" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M168 680 306 596 438 664 560 536" fill="none"/>
+    <path d="M1368 320 1226 412 1100 348 976 466" fill="none"/>
+    <path d="M236 298 424 396 610 306" fill="none"/>
+    <path d="M1310 724 1124 638 934 728" fill="none"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <path d="M510 722c178 98 344 96 520-2 31-18 47-52 38-87l-39-154c-7-28-29-50-57-57-139-36-273-36-407 0-28 7-50 29-57 57l-39 154c-9 35 9 72 41 89Z" fill="#082334" stroke="#eafff7" stroke-width="12"/>
+    <path d="M550 678c146 72 291 72 436 0 18-9 28-31 23-52l-32-130c-123-35-246-35-368 0l-32 130c-5 21 6 43 23 52Z" fill="url(#page-fill)" opacity="0.96"/>
+    <path d="M612 502c104-28 208-28 312 0l24 104c-112 54-225 54-338 0Z" fill="#063c53" opacity="0.16"/>
+  </g>
+
+  <g filter="url(#glow)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M405 752C608 330 910 284 1130 194" stroke="url(#bio-ribbon-a)" stroke-width="58"/>
+    <path d="M402 252c226 414 532 461 743 566" stroke="url(#bio-ribbon-b)" stroke-width="58"/>
+    <path d="M404 752C608 330 910 284 1130 194" stroke="#f8fafc" stroke-width="18" opacity="0.62"/>
+    <path d="M402 252c226 414 532 461 743 566" stroke="#ffffff" stroke-width="18" opacity="0.48"/>
+  </g>
+
+  <g stroke="#f8fafc" stroke-width="22" stroke-linecap="round" opacity="0.92">
+    <path d="M516 572h502"/>
+    <path d="M560 412h414"/>
+    <path d="M638 300h256"/>
+    <path d="M638 724h266"/>
+  </g>
+  <g stroke="#082334" stroke-width="9" stroke-linecap="round" opacity="0.72">
+    <path d="M516 572h502"/>
+    <path d="M560 412h414"/>
+    <path d="M638 300h256"/>
+    <path d="M638 724h266"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <circle cx="402" cy="252" r="62" fill="url(#node-fill)" stroke="#05283a" stroke-width="10"/>
+    <circle cx="405" cy="752" r="62" fill="url(#node-fill)" stroke="#05283a" stroke-width="10"/>
+    <circle cx="1130" cy="194" r="62" fill="url(#node-fill)" stroke="#05283a" stroke-width="10"/>
+    <circle cx="1145" cy="818" r="62" fill="url(#node-fill)" stroke="#05283a" stroke-width="10"/>
+    <circle cx="766" cy="514" r="82" fill="#f8fafc" stroke="#05283a" stroke-width="12"/>
+    <circle cx="766" cy="514" r="38" fill="#10b981"/>
+    <path d="M746 514h40M766 494v40" stroke="#eafff7" stroke-width="16" stroke-linecap="round"/>
+  </g>
+
+  <g opacity="0.96">
+    <circle cx="376" cy="228" r="25" fill="#ffffff" opacity="0.45"/>
+    <circle cx="1102" cy="170" r="25" fill="#ffffff" opacity="0.45"/>
+    <circle cx="382" cy="728" r="22" fill="#ffffff" opacity="0.38"/>
+    <circle cx="1122" cy="794" r="22" fill="#ffffff" opacity="0.38"/>
+  </g>
+</svg>

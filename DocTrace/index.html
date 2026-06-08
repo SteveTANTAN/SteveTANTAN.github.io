@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Official Website DocTrace: Structure-Aware On-Demand Hypergraph Memory for Long-Document Question Answering">
+    <meta name="keywords" content="DocTrace, LLM, RAG, Long-Document QA, Hypergraph, Memory, Multi-Agent">
+
+    <link rel="canonical" href="https://stevetantan.github.io/DocTrace/">
+    <link rel="icon" media="(prefers-color-scheme:dark)" href="/assets/img/favicon-dark.png" type="image/png" />
+    <link rel="icon" media="(prefers-color-scheme:light)" href="/assets/img/favicon.png" type="image/png" />
+
+    <title>Trace Only What You Need: Structure-Aware On-Demand Hypergraph Memory for Long-Document Question Answering</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --panel-dark: #121212;
+            --text-dark: #e5e5e5;
+            --muted-dark: #737373;
+            --brand-dark: #d4d4d8;
+            --brand-strong-dark: #ffffff;
+            --border-dark: #262626;
+            --shadow-dark: rgba(0, 0, 0, 0.8);
+        }
+        [data-theme="light"] {
+            --bg-light: #fafafa;
+            --panel-light: #ffffff;
+            --text-light: #171717;
+            --muted-light: #525252;
+            --brand-light: #3f3f46;
+            --brand-strong-light: #000000;
+            --border-light: #e5e5e5;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+            background:
+                linear-gradient(135deg, rgba(37, 99, 235, 0.08), transparent 32%),
+                linear-gradient(315deg, rgba(245, 158, 11, 0.10), transparent 34%),
+                var(--bg-light);
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 72%);
+            z-index: -1;
+        }
+        html { scroll-behavior: smooth; }
+        h1, .tracking-tight { letter-spacing: 0 !important; }
+
+        .bg-gradient-hero-dark { background-image: radial-gradient(circle at top right, #262626, var(--bg-dark)); }
+        .bg-gradient-hero-light { background-image: radial-gradient(circle at top right, #dbeafe, #ffffff); }
+
+        .progress-dark { background: linear-gradient(90deg, #737373, #ffffff); }
+        .progress-light { background: linear-gradient(90deg, #93c5fd, #1d4ed8); }
+
+        html[data-theme="dark"] { background-color: var(--bg-dark); color: var(--text-dark); }
+        html[data-theme="light"] { background-color: var(--bg-light); color: var(--text-light); }
+
+        .site-nav { background: rgba(255, 255, 255, 0.76); border-color: rgba(148, 163, 184, 0.22); }
+        html[data-theme="dark"] .site-nav { background: rgba(4, 12, 18, 0.78); border-color: rgba(148, 163, 184, 0.16); }
+
+        .section-panel { border: 1px solid; border-radius: 8px !important; transition: all 0.3s; }
+        html[data-theme="dark"] .section-panel { background-color: rgba(18, 18, 18, 0.86); border-color: var(--border-dark); box-shadow: 0 18px 45px var(--shadow-dark); }
+        html[data-theme="light"] .section-panel { background-color: rgba(255, 255, 255, 0.88); border-color: rgba(37, 99, 235, 0.13); box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08); }
+
+        .pill-button { border: 1px solid; transition: all 0.3s; }
+        html[data-theme="dark"] .pill-button { border-color: var(--border-dark); background-color: var(--panel-dark); }
+        html[data-theme="light"] .pill-button { border-color: var(--border-light); background-color: var(--panel-light); }
+
+        .text-brand-theme {
+            background: linear-gradient(135deg, #1d4ed8 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        [data-theme="dark"] .text-brand-theme {
+            background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-code-theme { transition: all 0.3s; }
+        html[data-theme="dark"] .bg-code-theme { background-color: #010409; color: #d1d5db; }
+        html[data-theme="light"] .bg-code-theme { background-color: #f1f5f9; color: #1e293b; }
+
+        .brand-lockup { display: flex; align-items: center; gap: 0.65rem; }
+        .brand-logo { height: 3.25rem; width: auto; filter: drop-shadow(0 12px 22px rgba(37, 99, 235, 0.22)); }
+        .hero-logo { height: clamp(9rem, 24vw, 16.5rem); width: auto; max-width: min(84vw, 34rem); margin: 0 auto 1.25rem; filter: drop-shadow(0 28px 50px rgba(37, 99, 235, 0.24)); }
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.35rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid rgba(37, 99, 235, 0.22);
+            background: rgba(239, 246, 255, 0.82);
+            color: #1d4ed8;
+            font-size: 0.82rem;
+            font-weight: 800;
+            margin-bottom: 1.15rem;
+        }
+        html[data-theme="dark"] .hero-kicker { background: rgba(30, 64, 175, 0.30); color: #bfdbfe; border-color: rgba(96, 165, 250, 0.28); }
+        .hero-subtitle { color: #0f172a; }
+        html[data-theme="dark"] .hero-subtitle { color: #e2e8f0; }
+        .title-colon { color: #0f172a; -webkit-text-fill-color: #0f172a; }
+        html[data-theme="dark"] .title-colon { color: #e2e8f0; -webkit-text-fill-color: #e2e8f0; }
+        .visual-frame {
+            padding: 0.75rem;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(245, 158, 11, 0.10));
+            border: 1px solid rgba(37, 99, 235, 0.16);
+        }
+        .visual-frame img { border-radius: 8px; }
+        .metric-tile {
+            border-radius: 8px;
+            border: 1px solid rgba(37, 99, 235, 0.12);
+            background: linear-gradient(180deg, rgba(239, 246, 255, 0.88), rgba(255, 255, 255, 0.56));
+        }
+        html[data-theme="dark"] .metric-tile { background: rgba(30, 64, 175, 0.20); border-color: rgba(96, 165, 250, 0.16); }
+    </style>
+</head>
+<body class="transition-colors duration-300">
+
+    <div class="fixed top-0 left-0 right-0 h-1 z-50 transform origin-left scale-x-0" id="progress"></div>
+
+    <nav class="site-nav sticky top-0 z-40 backdrop-blur-md transition-colors duration-300 border-b border-transparent">
+        <div class="container mx-auto flex items-center justify-between p-4 md:px-8">
+            <a href="#top" class="brand-lockup text-xl font-bold">
+                <img src="/assets/img/doctrace_logo.svg" alt="DocTrace Logo" class="brand-logo">
+                <span class="text-brand-theme font-extrabold">DocTrace</span>
+            </a>
+            <div class="flex items-center space-x-6">
+                <nav class="hidden md:flex space-x-6 text-sm font-medium opacity-80">
+                    <a href="#abstract" class="hover:text-blue-500 transition-colors">Abstract</a>
+                    <a href="#method" class="hover:text-blue-500 transition-colors">Method</a>
+                    <a href="#results" class="hover:text-blue-500 transition-colors">Results</a>
+                    <a href="#bibtex" class="hover:text-blue-500 transition-colors">Cite</a>
+                    <a href="/" class="hover:text-blue-500 transition-colors border-l pl-6 border-gray-400">Home</a>
+                </nav>
+                <button class="p-2 rounded-full pill-button" id="themeToggle">
+                    <span id="theme-icon">☀️</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header id="top" class="min-h-[85vh] flex items-center justify-center text-center px-4 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-hero-light opacity-100" id="hero-gradient-light"></div>
+            <div class="absolute inset-0 bg-gradient-hero-dark opacity-0" id="hero-gradient-dark"></div>
+        </div>
+
+        <div class="container mx-auto py-12 relative z-10">
+            <img src="/assets/img/doctrace_logo.svg" alt="DocTrace Logo" class="hero-logo">
+            <div class="hero-kicker"><i class="fas fa-route"></i> On-demand long-document reasoning</div>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] mb-8 text-slate-900 max-w-5xl mx-auto">
+                <span class="text-brand-theme">Trace Only What You Need</span><span class="title-colon">:</span>
+                <span class="hero-subtitle block text-3xl md:text-4xl mt-4 font-bold">Structure-Aware On-Demand Hypergraph Memory for Long-Document Question Answering</span>
+            </h1>
+
+            <div class="mb-10 text-lg md:text-xl font-medium opacity-90 space-y-2">
+                <p>
+                    Xiangjun Zai<sup>1</sup> ·
+                    <a href="https://stevetantan.github.io/" class="text-current hover:underline">Xingyu Tan</a><sup>1,2</sup> ·
+                    Chen Chen<sup>1</sup> ·
+                    Xiaoyang Wang<sup>1</sup> ·
+                    Wenjie Zhang<sup>1</sup>
+                </p>
+                <p class="text-sm md:text-base opacity-60">
+                    <sup>1</sup>University of New South Wales &nbsp;&nbsp; <sup>2</sup>CSIRO
+                </p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#" class="flex items-center px-8 py-3 rounded-full bg-blue-600 text-white font-semibold shadow-lg hover:bg-blue-700 transition-all transform hover:scale-105">
+                    <i class="far fa-file-pdf w-5 h-5 mr-2 flex items-center justify-center text-lg"></i>
+                    Paper (Coming Soon)
+                </a>
+                <a href="#" class="flex items-center px-8 py-3 rounded-full pill-button font-semibold shadow-lg hover:bg-opacity-80 transition-all">
+                    <i class="fab fa-github w-5 h-5 mr-2 flex items-center justify-center text-lg"></i>
+                    Code (Coming Soon)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 md:px-8 max-w-5xl">
+        <section id="abstract" class="section-panel p-8 md:p-12 rounded-3xl mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-blue-600">Abstract</h2>
+            <p class="text-lg leading-relaxed opacity-80 italic mb-8 text-center">
+                How can we reason over long documents efficiently — tracing only the structure that matters, exactly when it matters?
+            </p>
+            <p class="text-lg leading-relaxed opacity-90 mb-6">
+                Long-document question answering (QA) requires large language models (LLMs) to reason over evidence scattered across lengthy documents, where answers often depend on event order, section-level context, and cross-part evidence connections. Although retrieval-augmented generation (RAG) reduces the input context by retrieving relevant evidence, existing structured RAG methods still face three limitations: costly query-agnostic knowledge organization, insufficient use of original document structure, and no reuse of historical reasoning experience.
+            </p>
+            <p class="text-lg leading-relaxed opacity-90">
+                To address these limitations, we propose <strong>DocTrace</strong>, a multi-agent RAG framework for long-document QA that supports query-triggered knowledge organization, document-structure-aware and experience-guided reasoning. DocTrace preserves document hierarchy with a lightweight document structural tree index, constructs agent-shared hypergraph-structured working memory on demand during reasoning, and stores successful reasoning plans in graph-structured experience memory for future reuse, enabling adaptive exploration across related long-document questions.
+            </p>
+            <div class="mt-12 visual-frame">
+                <img src="/assets/img/DocTrace.jpg" alt="DocTrace Framework Overview" class="w-full shadow-2xl border border-gray-200" onerror="this.src='https://placehold.co/1200x600?text=DocTrace+Framework+Overview';">
+                <p class="text-sm text-center mt-4 opacity-50">Figure 1: Overview of the DocTrace framework with on-demand hypergraph memory and experience-guided reasoning.</p>
+            </div>
+        </section>
+
+        <section id="method" class="mb-12">
+            <h2 class="text-3xl font-bold mb-8 text-center">Addressed Limitations & Solutions</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="section-panel p-8 rounded-2xl border-t-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">📄 Query-Agnostic Overhead</h3>
+                    <p class="opacity-80 leading-relaxed"><strong>Limitation:</strong> Existing methods index the entire document before any query, introducing heavy upfront token and latency costs regardless of the question.<br><br><strong>DocTrace Solution:</strong> On-demand hypergraph construction — knowledge is organized only when and where reasoning needs it, triggered by the query itself.</p>
+                </div>
+
+                <div class="section-panel p-8 rounded-2xl border-t-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">🏗️ Lost Document Structure</h3>
+                    <p class="opacity-80 leading-relaxed"><strong>Limitation:</strong> Flat chunking discards the structural position of passages — event order, section context, and narrative flow are lost.<br><br><strong>DocTrace Solution:</strong> A lightweight document structural tree index preserves document hierarchy, enabling section-level and cross-part evidence connections during reasoning.</p>
+                </div>
+
+                <div class="section-panel p-8 rounded-2xl border-t-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow">
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">🧠 No Experience Reuse</h3>
+                    <p class="opacity-80 leading-relaxed"><strong>Limitation:</strong> Each query is processed from scratch — successful reasoning plans are never stored or reused for similar future questions.<br><br><strong>DocTrace Solution:</strong> A graph-structured experience memory stores successful reasoning plans, enabling adaptive exploration across related long-document questions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="results" class="section-panel p-8 md:p-12 rounded-3xl mb-12 bg-blue-50/10">
+            <h2 class="text-3xl font-bold mb-8 text-blue-600">Key Results</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-8">
+                <div class="p-6 metric-tile">
+                    <div class="text-4xl font-extrabold text-blue-500 mb-2">+8.85%</div>
+                    <p class="text-sm opacity-70">Improvement in F1 over the strongest baseline (ComoRAG) on long-document QA benchmarks.</p>
+                </div>
+                <div class="p-6 metric-tile">
+                    <div class="text-4xl font-extrabold text-blue-500 mb-2">+4.40%</div>
+                    <p class="text-sm opacity-70">Improvement in Exact Match (EM) over the strongest baseline, demonstrating more precise answer extraction.</p>
+                </div>
+                <div class="p-6 metric-tile">
+                    <div class="text-4xl font-extrabold text-blue-500 mb-2">−53.32%</div>
+                    <p class="text-sm opacity-70">Reduction in overall computational cost through on-demand structure construction.</p>
+                </div>
+            </div>
+            <p class="text-center opacity-70 text-sm">Evaluated on four long-document QA datasets. DocTrace achieves best performance on three out of four datasets.</p>
+        </section>
+
+        <section id="bibtex" class="section-panel p-8 md:p-12 rounded-3xl">
+            <h2 class="text-3xl font-bold mb-6">BibTeX</h2>
+            <pre id="bib" class="bg-code-theme p-6 rounded-xl overflow-x-auto text-sm"><code>@article{zai2026doctrace,
+  title={Trace Only What You Need: Structure-Aware On-Demand Hypergraph Memory for Long-Document Question Answering},
+  author={Zai, Xiangjun and Tan, Xingyu and Chen, Chen and Wang, Xiaoyang and Zhang, Wenjie},
+  year={2026}
+}</code></pre>
+            <button onclick="copyBib()" class="mt-4 flex items-center px-6 py-2 rounded-full pill-button hover:bg-blue-600 hover:text-white transition-all border-blue-200">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2v-2M8 5a2 2 0 002 2h6M8 5a2 2 0 012-2h4a2 2 0 012 2v2"></path></svg>
+                <span id="copyText">Copy Citation</span>
+            </button>
+        </section>
+    </main>
+
+    <footer class="py-16 text-center opacity-50 text-sm">
+        <p>&copy; 2026 DocTrace Project. University of New South Wales & CSIRO.</p>
+    </footer>
+
+    <script>
+        const root = document.documentElement;
+        const toggle = document.getElementById('themeToggle');
+        const icon = document.getElementById('theme-icon');
+        const gradientL = document.getElementById('hero-gradient-light');
+        const gradientD = document.getElementById('hero-gradient-dark');
+        const progress = document.getElementById('progress');
+
+        function getSmartTheme() {
+            const savedTheme = localStorage.getItem('doctrace-theme');
+            if (savedTheme) return savedTheme;
+            const hour = new Date().getHours();
+            const isNight = hour >= 18 || hour < 6;
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            return (isNight || prefersDark) ? 'dark' : 'light';
+        }
+
+        function updateUI(theme) {
+            const isDark = theme === 'dark';
+            root.setAttribute('data-theme', theme);
+            icon.textContent = isDark ? '🌙' : '☀️';
+            gradientL.style.opacity = isDark ? '0' : '1';
+            gradientD.style.opacity = isDark ? '1' : '0';
+            progress.className = `fixed top-0 left-0 right-0 h-1 z-50 transform origin-left scale-x-0 ${isDark ? 'progress-dark' : 'progress-light'}`;
+            const h1 = document.querySelector('h1');
+            if (isDark) {
+                h1.classList.remove('text-slate-900');
+                h1.classList.add('text-slate-100');
+            } else {
+                h1.classList.remove('text-slate-100');
+                h1.classList.add('text-slate-900');
+            }
+        }
+
+        let currentTheme = getSmartTheme();
+        updateUI(currentTheme);
+
+        toggle.addEventListener('click', () => {
+            currentTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('doctrace-theme', currentTheme);
+            updateUI(currentTheme);
+        });
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (!localStorage.getItem('doctrace-theme')) {
+                updateUI(e.matches ? 'dark' : 'light');
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement;
+            const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+            progress.style.transform = `scaleX(${scrolled})`;
+        });
+
+        function copyBib() {
+            const text = document.getElementById('bib').innerText;
+            navigator.clipboard.writeText(text);
+            const btn = document.getElementById('copyText');
+            btn.innerText = 'Copied!';
+            setTimeout(() => btn.innerText = 'Copy Citation', 2000);
+        }
+    </script>
+</body>
+</html>

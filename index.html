@@ -30,8 +30,64 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
-        body { font-family: 'Lora', serif; }
+        :root {
+            --paper-ink: #0f172a;
+            --paper-muted: #475569;
+            --paper-line: rgba(148, 163, 184, 0.22);
+            --paper-blue: #2563eb;
+            --paper-cyan: #0ea5e9;
+            --paper-green: #10b981;
+            --paper-amber: #f59e0b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background:
+                linear-gradient(135deg, rgba(37, 99, 235, 0.08), transparent 31%),
+                linear-gradient(315deg, rgba(16, 185, 129, 0.08), transparent 32%),
+                #f6f8fb;
+        }
         html { scroll-behavior: smooth; }
+        h1, h2, h3, .tracking-tight { letter-spacing: 0 !important; }
+        .site-bg { background: #f6f8fb; }
+        .site-bg::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(37, 99, 235, 0.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14, 165, 233, 0.045) 1px, transparent 1px);
+            background-size: 46px 46px;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent 74%);
+        }
+        .site-shell { background: transparent !important; }
+        .top-nav {
+            background: rgba(255, 255, 255, 0.82) !important;
+            backdrop-filter: blur(18px);
+            border-color: rgba(148, 163, 184, 0.22) !important;
+            box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07);
+        }
+        aside.profile-panel {
+            background: rgba(255, 255, 255, 0.84) !important;
+            backdrop-filter: blur(18px);
+            border-right: 1px solid rgba(148, 163, 184, 0.18);
+            box-shadow: 20px 0 55px rgba(15, 23, 42, 0.06);
+        }
+        section.bg-white {
+            background: rgba(255, 255, 255, 0.78) !important;
+            backdrop-filter: blur(14px);
+            border-color: rgba(148, 163, 184, 0.2) !important;
+        }
+        section h2.border-l-4 {
+            border-left-color: var(--paper-cyan) !important;
+            padding-left: 0.9rem;
+        }
+        .profile-panel img,
+        #about img {
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.10);
+        }
         
         /* 隐藏滚动条但保留滚动功能 (特别是为移动端导航) */
         .scroll-hide::-webkit-scrollbar { display: none; }
@@ -67,11 +123,51 @@
         .color-scholar { color: #4285F4; }
         .color-github { color: #333333; }
         .color-linkedin { color: #0077b5; }
+
+        #publications .group.relative {
+            border-radius: 8px !important;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,252,0.86)) !important;
+            border-color: rgba(148, 163, 184, 0.24) !important;
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.07);
+        }
+        #publications .group.relative::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(90deg, rgba(14, 165, 233, 0.08), transparent 34%, rgba(16, 185, 129, 0.07));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        #publications .group.relative:hover {
+            transform: translateY(-2px);
+            border-color: rgba(14, 165, 233, 0.38) !important;
+            box-shadow: 0 24px 58px rgba(15, 23, 42, 0.11);
+        }
+        #publications .group.relative:hover::before { opacity: 1; }
+        .publication-visual {
+            min-height: 12rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            background:
+                linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(16, 185, 129, 0.08)),
+                #ffffff;
+        }
+        .publication-visual img {
+            border-radius: 6px;
+            filter: saturate(1.02) contrast(1.02);
+        }
+        .paper-tag {
+            border-radius: 6px !important;
+            box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+        }
     </style>
 </head>
-<body class="bg-[#f8f9fa] text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-800">
+<body class="site-bg text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-800">
 
-    <nav class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 border-b border-gray-200 lg:hidden">
+    <nav class="top-nav fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 border-b border-gray-200 lg:hidden">
         <div class="px-4 sm:px-6 lg:px-8">
             <div class="flex flex-row items-center h-12">
                 <a href="#" class="flex-shrink-0 font-bold text-lg text-blue-700 tracking-tight hover:text-blue-900 transition">Xingyu Tan</a>
@@ -99,8 +195,8 @@
             </div>
         </div>
     </nav>
-    <div class="max-w-9xl mx-auto lg:mx-0 lg:mr-auto lg:ml-[50px] px-3 sm:px-4 lg:px-6 pt-24 lg:pt-6 relative lg:pl-60 bg-white">
-        <aside class="hidden lg:flex lg:flex-col fixed left-0 top-16 lg:top-0 h-[calc(100vh-4rem)] lg:h-screen w-60 bg-white p-5 lg:shadow-sm lg:ring-1 lg:ring-slate-100">
+    <div class="site-shell max-w-9xl mx-auto lg:mx-0 lg:mr-auto lg:ml-[50px] px-3 sm:px-4 lg:px-6 pt-24 lg:pt-6 relative lg:pl-60 bg-white">
+        <aside class="profile-panel hidden lg:flex lg:flex-col fixed left-0 top-16 lg:top-0 h-[calc(100vh-4rem)] lg:h-screen w-60 bg-white p-5 lg:shadow-sm lg:ring-1 lg:ring-slate-100">
             <div class="w-40 h-60 rounded-xl overflow-hidden mx-auto bg-slate-100 mt-6 ring-4 ring-blue-100 ring-offset-2 ring-offset-white shadow-md">
                 <img src="./assets/img/me.jpg" alt="Xingyu Tan" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Xingyu+Tan&size=300&background=random'">
             </div>
@@ -223,6 +319,14 @@
                     <h3 class="sticky top-0 bg-white/95 backdrop-blur py-2 font-bold text-slate-900 z-10 border-b border-slate-100 mb-4">📌 Current - 2026</h3>
                     <ul class="space-y-4 text-sm">
                         <li class="flex gap-3 items-start">
+                            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-amber-50 text-amber-600 mt-0.5 shrink-0 w-24 text-center border border-amber-200">Preprint</span>
+                            <div class="leading-relaxed"><span class="font-bold text-slate-500 mr-2">[Jun. 2026]</span> Our new paper is now public: <a href="https://stevetantan.github.io/DocTrace/" target="_blank" class="text-blue-600 hover:underline"><em>Trace Only What You Need: Structure-Aware On-Demand Hypergraph Memory for Long-Document Question Answering</em></a> 📢</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-amber-50 text-amber-600 mt-0.5 shrink-0 w-24 text-center border border-amber-200">Preprint</span>
+                            <div class="leading-relaxed"><span class="font-bold text-slate-500 mr-2">[Jun. 2026]</span> Our new paper is now public: <a href="https://stevetantan.github.io/BioWeave/" target="_blank" class="text-blue-600 hover:underline"><em>Weaving Multi-Source Evidence for Biomedical Reasoning: The BioMedHop Benchmark and BioWeave Framework</em></a> 📢</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
                             <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-green-50 text-green-600 mt-0.5 shrink-0 w-24 text-center border border-green-200">Accepted</span>
                             <div class="leading-relaxed"><span class="font-bold text-slate-500 mr-2">[May. 2026]</span> Our paper <em>Graph is a Natural Regularization: Revisiting Vector Quantization for Graph Representation Learning</em> is accepted to <a href="https://icml.cc/Conferences/2026" target="_blank" class="text-blue-600 font-semibold hover:underline">ICML 2026</a> 🎉</div>
                         </li>
@@ -327,11 +431,59 @@
         <h2 class="text-2xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">Selected Publications</h2>
         
         <div class="space-y-6">
-            
+
+            <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
+                <a href="https://stevetantan.github.io/DocTrace/" class="absolute inset-0 z-0"></a>
+
+                <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
+                    <img src="./assets/img/DocTrace.jpg" alt="DocTrace" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=DocTrace'">
+                </div>
+                <div class="flex-1 relative z-10 pointer-events-none">
+                    <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-700 transition">
+                        Trace Only What You Need: Structure-Aware On-Demand Hypergraph Memory for Long-Document Question Answering
+                    </h3>
+                    <div class="text-sm text-slate-600 mt-2">
+                        Xiangjun Zai, <strong class="text-slate-900">Xingyu Tan</strong>, Chen Chen, Xiaoyang Wang, Wenjie Zhang
+                    </div>
+
+                    <div class="mt-3 flex flex-wrap items-center gap-2">
+                        <span class="paper-tag bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold px-2.5 py-0.5 rounded">Preprint 2026</span>
+                    </div>
+
+                    <div class="mt-4 flex flex-wrap gap-3 text-sm font-medium pointer-events-auto">
+                        <a href="https://stevetantan.github.io/DocTrace/" class="relative z-20 text-slate-600 hover:text-slate-900 hover:underline flex items-center gap-1"><i class="fas fa-globe"></i> Website</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
+                <a href="https://stevetantan.github.io/BioWeave/" class="absolute inset-0 z-0"></a>
+
+                <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
+                    <img src="./assets/img/BioWave.jpg" alt="BioWeave" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=BioWeave'">
+                </div>
+                <div class="flex-1 relative z-10 pointer-events-none">
+                    <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-700 transition">
+                        Weaving Multi-Source Evidence for Biomedical Reasoning: The BioMedHop Benchmark and BioWeave Framework
+                    </h3>
+                    <div class="text-sm text-slate-600 mt-2">
+                        <strong class="text-slate-900">Xingyu Tan</strong>, Shiyuan Liu, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang
+                    </div>
+
+                    <div class="mt-3 flex flex-wrap items-center gap-2">
+                        <span class="paper-tag bg-amber-50 text-amber-700 border border-amber-200 text-xs font-bold px-2.5 py-0.5 rounded">Preprint 2026</span>
+                    </div>
+
+                    <div class="mt-4 flex flex-wrap gap-3 text-sm font-medium pointer-events-auto">
+                        <a href="https://stevetantan.github.io/BioWeave/" class="relative z-20 text-slate-600 hover:text-slate-900 hover:underline flex items-center gap-1"><i class="fas fa-globe"></i> Website</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
                 <a href="https://stevetantan.github.io/PrivGemo/" class="absolute inset-0 z-0"></a>
                 
-                <div class="w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
+                <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
                     <img src="./assets/img/PrivGemo.jpg" alt="PrivGemo" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=PrivGemo'">
                 </div>
                 <div class="flex-1 relative z-10 pointer-events-none"> 
@@ -343,7 +495,7 @@
                     </div>
                     
                     <div class="mt-3 flex flex-wrap items-center gap-2">
-                        <span class="bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold px-2.5 py-0.5 rounded">ArXiv 2026</span>
+                        <span class="paper-tag bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold px-2.5 py-0.5 rounded">ArXiv 2026</span>
                     </div>
 
                     <div class="mt-4 flex flex-wrap gap-3 text-sm font-medium pointer-events-auto">
@@ -357,7 +509,7 @@
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
                 <a href="https://arxiv.org/abs/2508.06588" class="absolute inset-0 z-0"></a>
 
-                <div class="w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
+                <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
                     <img src="./assets/img/RGVQ.jpg" alt="RGVQ" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=RGVQ'">
                 </div>
                 <div class="flex-1 relative z-10 pointer-events-none">
@@ -384,7 +536,7 @@
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
                 <a href="https://stevetantan.github.io/MemoTime/" class="absolute inset-0 z-0"></a>
 
-                <div class="w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
+                <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
                     <img src="./assets/img/MemoTime.jpg" alt="MemoTime" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=MemoTime'">
                 </div>
                 <div class="flex-1 relative z-10 pointer-events-none">
@@ -413,7 +565,7 @@
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
                 <a href="https://arxiv.org/abs/2510.12434" class="absolute inset-0 z-0"></a>
                 
-                <div class="w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
+                <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
                     <img src="./assets/img/PRoH.png" alt="PRoH" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=PRoH'">
                 </div>
                 <div class="flex-1 relative z-10 pointer-events-none">
@@ -447,7 +599,7 @@
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
                 <a href="https://stevetantan.github.io/Hydra/" class="absolute inset-0 z-0"></a>
                 
-                <div class="w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
+                <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
                     <img src="./assets/img/Hydra.png" alt="HydraRAG" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=HydraRAG'">
                 </div>
                 <div class="flex-1 relative z-10 pointer-events-none">
@@ -478,7 +630,7 @@
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
                 <a href="https://github.com/SteveTANTAN/PoG" class="absolute inset-0 z-0"></a>
                 
-                <div class="w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
+                <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
                     <img src="./assets/img/PoG.jpg" alt="PoG" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=PoG'">
                 </div>
                 <div class="flex-1 relative z-10 pointer-events-none">
@@ -511,7 +663,7 @@
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
                 <a href="https://dl.acm.org/doi/10.1145/3583780.3615209" class="absolute inset-0 z-0"></a>
                 
-                <div class="w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
+                <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
                     <img src="./assets/img/CIKM.jpg" alt="CIKM" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=CIKM'">
                 </div>
                 <div class="flex-1 relative z-10 pointer-events-none">
@@ -1011,7 +1163,7 @@
         </div>
     </footer>
 
-    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script src="./assets/js/scale.fix.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded',function(){
             var b=document.getElementById('nav-toggle');
@@ -1033,14 +1185,5 @@
             setActive(ids[0]);
         });
     </script>
-    <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-          ga('create', '{{ site.google_analytics }}', 'auto');
-          ga('send', 'pageview');
-    </script>
-
 </body>
 </html>
