@@ -1193,12 +1193,7 @@
             <div class="bg-white p-5 sm:p-6 rounded-xl border border-slate-200 shadow-sm text-sm text-black leading-relaxed">
                 <div class="divide-y divide-slate-100">
                     <div class="grid md:grid-cols-[210px_1fr] gap-4 pb-5">
-                        <h3 class="font-bold text-black flex items-center gap-2">
-                            <span class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center shrink-0">
-                                <i class="fas fa-clipboard-check text-xs"></i>
-                            </span>
-                            Invited Journal Reviewer
-                        </h3>
+                        <h3 class="font-bold text-black">Invited Journal Reviewer</h3>
                         <ul class="grid md:grid-cols-2 gap-x-10 gap-y-3">
                             <li class="flex items-start gap-2">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0"></span>
@@ -1224,12 +1219,7 @@
                     </div>
 
                     <div class="grid md:grid-cols-[210px_1fr] gap-4 py-5">
-                        <h3 class="font-bold text-black flex items-center gap-2">
-                            <span class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center shrink-0">
-                                <i class="fas fa-users-gear text-xs"></i>
-                            </span>
-                            Conference Service
-                        </h3>
+                        <h3 class="font-bold text-black">Conference Service</h3>
                         <ul class="grid md:grid-cols-2 gap-x-10 gap-y-3">
                             <!-- <li><span class="font-semibold text-black">Reviewer</span>, ACM The Web Conference (WWW): 2025, 2026.</li> -->
                             <li class="flex items-start gap-2">
@@ -1244,12 +1234,7 @@
                     </div>
 
                     <div class="grid md:grid-cols-[210px_1fr] gap-4 pt-5">
-                        <h3 class="font-bold text-black flex items-center gap-2">
-                            <span class="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center shrink-0">
-                                <i class="fas fa-seedling text-xs"></i>
-                            </span>
-                            Selected Initiatives
-                        </h3>
+                        <h3 class="font-bold text-black">Selected Initiatives</h3>
                         <ul class="grid md:grid-cols-2 gap-x-10 gap-y-3">
                             <li class="flex items-start gap-2">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0"></span>
@@ -1389,42 +1374,70 @@
             });
             var ids=['about','news','publications','experience','service','honors','education'];
             var links={};
-            ids.forEach(function(id){var a=document.querySelector('#side-nav a[href="#'+id+'"]');if(a){links[id]=a;}});
-            function setActive(id){
-                Object.values(links).forEach(function(a){
-                    a.classList.remove('bg-blue-50','text-blue-700');
-                    a.classList.add('text-slate-700');
+            ids.forEach(function(id){links[id]=Array.prototype.slice.call(document.querySelectorAll('a[href="#'+id+'"]'));});
+            function allNavLinks(callback){
+                Object.values(links).forEach(function(group){group.forEach(callback);});
+            }
+            function setActive(activeIds){
+                activeIds=Array.isArray(activeIds) ? activeIds : [activeIds];
+                allNavLinks(function(a){
+                    a.classList.remove('bg-blue-50','text-blue-700','font-semibold');
+                    a.classList.add(a.closest('#side-nav') ? 'text-slate-700' : 'text-slate-600');
                 });
-                if(links[id]){
-                    links[id].classList.remove('text-slate-700');
-                    links[id].classList.add('bg-blue-50','text-blue-700');
-                }
+                activeIds.forEach(function(id){
+                    (links[id] || []).forEach(function(a){
+                        a.classList.remove('text-slate-600','text-slate-700');
+                        a.classList.add('text-blue-700','font-semibold');
+                        if(a.closest('#side-nav')){a.classList.add('bg-blue-50');}
+                    });
+                });
             }
             function updateActive(){
-                var offset=40;
-                var current=ids[0];
+                var viewportHeight=window.innerHeight || document.documentElement.clientHeight || 0;
+                var footer=document.querySelector('footer');
+                if(footer && footer.getBoundingClientRect().top < viewportHeight - 80){
+                    setActive(['honors','education']);
+                    return;
+                }
+                var marker=Math.min(viewportHeight * 0.42, 360);
+                var current=null;
                 ids.forEach(function(id){
                     var section=document.getElementById(id);
-                    var sectionTop=section ? section.getBoundingClientRect().top + window.scrollY : null;
-                    if(section && window.scrollY + offset >= sectionTop){
+                    var rect=section ? section.getBoundingClientRect() : null;
+                    if(rect && rect.top <= marker && rect.bottom > 80){
                         current=id;
                     }
                 });
-                setActive(current);
+                if(!current){
+                    ids.forEach(function(id){
+                        var section=document.getElementById(id);
+                        var rect=section ? section.getBoundingClientRect() : null;
+                        if(rect && rect.top < viewportHeight && rect.bottom > 80 && !current){
+                            current=id;
+                        }
+                    });
+                }
+                current=current || ids[0];
+                setActive(current === 'honors' || current === 'education' ? ['honors','education'] : current);
             }
             var ticking=false;
-            window.addEventListener('scroll',function(){
+            function requestActiveUpdate(){
                 if(ticking){return;}
                 window.requestAnimationFrame(function(){
                     updateActive();
                     ticking=false;
                 });
                 ticking=true;
-            },{passive:true});
+            }
+            window.addEventListener('scroll',requestActiveUpdate,{passive:true});
+            document.addEventListener('scroll',requestActiveUpdate,{passive:true});
             window.addEventListener('resize',updateActive);
             window.addEventListener('hashchange',function(){window.setTimeout(updateActive,100);});
             updateActive();
             window.setTimeout(updateActive,250);
+            window.setTimeout(updateActive,900);
+            window.setInterval(updateActive,600);
+            window.addEventListener('load',updateActive);
         });
     </script>
 </body>
