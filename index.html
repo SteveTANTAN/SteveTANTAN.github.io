@@ -47,6 +47,15 @@
                 linear-gradient(315deg, rgba(16, 185, 129, 0.08), transparent 32%),
                 #f6f8fb;
         }
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        @supports (overflow: clip) {
+            html,
+            body { overflow-x: clip; }
+        }
         body.site-bg { font-family: 'Lora', serif; }
         html { scroll-behavior: smooth; }
         h1, h2, h3, .tracking-tight { letter-spacing: 0 !important; }
@@ -257,6 +266,505 @@
             padding: 0 !important;
             border: 0 !important;
         }
+
+        /* Publication list and research tree views */
+        .publication-heading-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .publication-heading-row h2 {
+            margin-bottom: 0 !important;
+        }
+        .publication-view-switch {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.2rem;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            background: #eff6ff;
+            box-shadow: 0 8px 22px rgba(37, 99, 235, 0.09);
+        }
+        .publication-view-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            min-width: 6.6rem;
+            min-height: 2.35rem;
+            padding: 0.45rem 0.75rem;
+            border-radius: 6px;
+            color: #475569;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            background: transparent;
+            transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .publication-view-button:hover {
+            color: #1d4ed8;
+            background: rgba(255, 255, 255, 0.7);
+        }
+        .publication-view-button.is-active {
+            color: #ffffff;
+            background: #2563eb;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        .publication-view-button.is-active:hover {
+            color: #ffffff;
+            background: #1d4ed8;
+        }
+        .publication-view-button:focus-visible {
+            outline: 2px solid #60a5fa;
+            outline-offset: 2px;
+        }
+        .publication-view-panel[hidden] {
+            display: none !important;
+        }
+        .research-tree-shell {
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            background: #fbfdff;
+        }
+        .research-tree-canvas {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1000 / 820;
+            min-height: 720px;
+            overflow: hidden;
+            isolation: isolate;
+        }
+        .research-tree-canvas::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background-image:
+                linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 82%);
+        }
+        .research-tree-art {
+            position: absolute;
+            inset: 1rem 0 0;
+            width: 100%;
+            height: calc(100% - 1rem);
+            overflow: visible;
+            pointer-events: none;
+        }
+        .tree-trunk {
+            fill: #665f50;
+            opacity: 0.9;
+            filter: drop-shadow(0 9px 12px rgba(51, 65, 85, 0.12));
+        }
+        .tree-ring {
+            fill: none;
+            stroke: rgba(255, 255, 255, 0.28);
+            stroke-width: 2;
+        }
+        .tree-root {
+            fill: none;
+            stroke: #7a6f5c;
+            stroke-width: 13;
+            stroke-linecap: round;
+            opacity: 0.72;
+            transition: opacity 0.2s ease, stroke-width 0.2s ease;
+        }
+        .tree-branch {
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            opacity: 0.8;
+            transition: opacity 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
+        }
+        .tree-branch[data-branch="structure"] { stroke: #3974c8; }
+        .tree-branch[data-branch="memory"] { stroke: #2f8a72; }
+        .tree-branch[data-branch="systems"] { stroke: #b75f70; }
+        .tree-branch-major { stroke-width: 17; }
+        .tree-branch-minor { stroke-width: 7; }
+        .tree-botanical-leaf {
+            opacity: 0.22;
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+        .tree-botanical-leaf.structure { fill: #4d86d5; }
+        .tree-botanical-leaf.memory { fill: #3d9b7d; }
+        .tree-botanical-leaf.systems { fill: #c66b7b; }
+        .tree-botanical-leaf.foundation { fill: #b6924c; }
+        .research-tree-canvas.has-tree-focus .tree-branch,
+        .research-tree-canvas.has-tree-focus .tree-root,
+        .research-tree-canvas.has-tree-focus .paper-leaf-node {
+            opacity: 0.22;
+        }
+        .research-tree-canvas.has-tree-focus .tree-branch.is-active,
+        .research-tree-canvas.has-tree-focus .tree-root.is-active {
+            opacity: 1;
+            filter: drop-shadow(0 4px 5px rgba(15, 23, 42, 0.14));
+        }
+        .research-tree-canvas.has-tree-focus .paper-leaf-node.is-related {
+            opacity: 0.78;
+        }
+        .research-tree-canvas.has-tree-focus .paper-leaf-node.is-current {
+            opacity: 1;
+            z-index: 12;
+        }
+        .tree-branch-group {
+            display: contents;
+        }
+        .tree-branch-label {
+            position: absolute;
+            z-index: 4;
+            width: 28%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: #0f172a;
+            pointer-events: none;
+        }
+        .tree-branch-label::after {
+            content: '';
+            display: block;
+            width: 3.5rem;
+            height: 3px;
+            margin: 0.55rem auto 0;
+            border-radius: 3px;
+            background: var(--branch-color);
+        }
+        .tree-branch-label strong {
+            display: block;
+            font-size: 0.94rem;
+            line-height: 1.32;
+        }
+        .tree-branch-label span {
+            display: block;
+            margin-bottom: 0.2rem;
+            color: var(--branch-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.64rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .tree-label-structure { --branch-color: #2563eb; left: 16%; top: 3.5%; }
+        .tree-label-memory { --branch-color: #047857; left: 50%; top: 1%; }
+        .tree-label-systems { --branch-color: #be405d; left: 84%; top: 3.5%; }
+        .tree-label-foundation {
+            --branch-color: #9a6a18;
+            left: 50%;
+            top: 91%;
+            width: 34%;
+        }
+        .tree-trunk-label {
+            position: absolute;
+            left: 55%;
+            top: 63%;
+            z-index: 4;
+            width: 15.5rem;
+            padding-left: 0.85rem;
+            border-left: 3px solid #6b6558;
+            color: #334155;
+        }
+        .tree-trunk-label span {
+            display: block;
+            margin-bottom: 0.15rem;
+            color: #766e5f;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.62rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .tree-trunk-label strong {
+            display: block;
+            font-size: 0.9rem;
+            line-height: 1.35;
+        }
+        .paper-leaf-node {
+            --leaf-color: #64748b;
+            --leaf-tint: #f8fafc;
+            position: absolute;
+            left: var(--tree-x);
+            top: var(--tree-y);
+            z-index: 6;
+            display: grid;
+            grid-template-columns: 2.4rem minmax(0, 1fr);
+            align-items: center;
+            gap: 0.55rem;
+            width: clamp(8.8rem, 16vw, 11rem);
+            min-height: 3.35rem;
+            padding: 0.42rem 0.62rem 0.42rem 0.45rem;
+            transform: translate(-50%, -50%);
+            border: 1px solid color-mix(in srgb, var(--leaf-color) 56%, white);
+            border-radius: 48% 8px 48% 8px;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+            color: #0f172a;
+            text-align: left;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+        }
+        .paper-leaf-node:hover,
+        .paper-leaf-node:focus-visible,
+        .paper-leaf-node.is-current {
+            transform: translate(-50%, -50%) scale(1.06);
+            border-color: var(--leaf-color);
+            box-shadow: 0 16px 34px color-mix(in srgb, var(--leaf-color) 20%, transparent);
+            outline: none;
+        }
+        .paper-leaf-node img {
+            width: 2.4rem;
+            height: 2.4rem;
+            border: 1px solid color-mix(in srgb, var(--leaf-color) 22%, white);
+            border-radius: 50%;
+            background: #ffffff;
+            object-fit: contain;
+        }
+        .paper-leaf-node .leaf-name {
+            display: block;
+            overflow-wrap: anywhere;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.74rem;
+            font-weight: 800;
+            line-height: 1.12;
+        }
+        .paper-leaf-node .leaf-venue {
+            display: block;
+            margin-top: 0.18rem;
+            color: var(--leaf-color);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.59rem;
+            font-weight: 750;
+            line-height: 1.1;
+        }
+        .leaf-structure { --leaf-color: #2563eb; --leaf-tint: #eff6ff; }
+        .leaf-memory { --leaf-color: #047857; --leaf-tint: #ecfdf5; }
+        .leaf-systems { --leaf-color: #be405d; --leaf-tint: #fff1f2; }
+        .leaf-foundation { --leaf-color: #9a6a18; --leaf-tint: #fffbeb; }
+        .paper-leaf-node.is-current img {
+            box-shadow: 0 0 0 3px var(--leaf-tint);
+        }
+        .research-tree-detail {
+            display: grid;
+            grid-template-columns: 3.6rem minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 1rem;
+            min-height: 6.2rem;
+            padding: 1rem 1.25rem;
+            border-top: 1px solid #e2e8f0;
+            background: #ffffff;
+        }
+        .research-tree-detail img {
+            width: 3.6rem;
+            height: 3.6rem;
+            border-radius: 50%;
+            border: 1px solid #e2e8f0;
+            object-fit: contain;
+            background: #ffffff;
+        }
+        .research-tree-detail #tree-detail-meta {
+            margin-bottom: 0.2rem;
+            color: #64748b;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.67rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .research-tree-detail h3 {
+            color: #0f172a;
+            font-size: 0.98rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+        .tree-detail-authors {
+            margin-top: 0.35rem;
+            color: #475569;
+            font-size: 0.78rem;
+            line-height: 1.45;
+        }
+        .tree-detail-authors strong {
+            color: #0f172a;
+            font-weight: 700;
+        }
+        .tree-detail-corresponding-icon {
+            margin-left: 0.18rem;
+            color: #64748b;
+            font-size: 0.68rem;
+            vertical-align: 0.08em;
+        }
+        .tree-detail-corresponding-note {
+            margin-top: 0.15rem;
+            color: #64748b;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.66rem;
+            line-height: 1.35;
+        }
+        .research-tree-detail a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.55rem;
+            height: 2.55rem;
+            border: 1px solid #bfdbfe;
+            border-radius: 50%;
+            color: #2563eb;
+            background: #eff6ff;
+            transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+        }
+        .research-tree-detail a:hover {
+            color: #ffffff;
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+        @media (max-width: 900px) {
+            .research-tree-canvas {
+                min-height: 680px;
+            }
+            .paper-leaf-node {
+                width: 9rem;
+            }
+            .tree-trunk-label {
+                left: 54%;
+                width: 13rem;
+            }
+        }
+        @media (max-width: 767px) {
+            .publication-heading-row {
+                align-items: flex-start;
+                flex-direction: column;
+                margin-bottom: 1.4rem;
+            }
+            .publication-view-switch {
+                width: 100%;
+            }
+            .publication-view-button {
+                flex: 1;
+                min-width: 0;
+            }
+            .research-tree-shell {
+                overflow: visible;
+            }
+            .research-tree-canvas {
+                display: flex;
+                flex-direction: column;
+                gap: 1.25rem;
+                min-height: 0;
+                aspect-ratio: auto;
+                padding: 1.25rem 0.2rem 1.4rem 2.4rem;
+                overflow: visible;
+            }
+            .research-tree-canvas::before {
+                inset: 0 auto 0 1rem;
+                width: 8px;
+                background: #756f61;
+                border-radius: 8px;
+                mask-image: none;
+                opacity: 0.9;
+            }
+            .research-tree-art {
+                display: none;
+            }
+            .tree-trunk-label {
+                position: relative;
+                left: auto;
+                top: auto;
+                order: -1;
+                width: auto;
+                padding: 0 0 0 0.8rem;
+            }
+            .tree-branch-group {
+                position: relative;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 0.75rem;
+            }
+            .tree-branch-group::before {
+                content: '';
+                position: absolute;
+                left: -1.4rem;
+                top: 1rem;
+                width: 1.4rem;
+                height: 3px;
+                background: var(--mobile-branch-color);
+                border-radius: 3px;
+            }
+            .tree-group-structure { --mobile-branch-color: #3974c8; }
+            .tree-group-memory { --mobile-branch-color: #2f8a72; }
+            .tree-group-systems { --mobile-branch-color: #b75f70; }
+            .tree-group-foundation { --mobile-branch-color: #9a6a18; }
+            .tree-branch-label {
+                position: relative;
+                left: auto;
+                top: auto;
+                grid-column: 1 / -1;
+                width: auto;
+                transform: none;
+                text-align: left;
+            }
+            .tree-branch-label::after {
+                width: 2.4rem;
+                margin: 0.45rem 0 0;
+            }
+            .tree-label-foundation {
+                width: auto;
+            }
+            .paper-leaf-node {
+                position: relative;
+                left: auto;
+                top: auto;
+                width: 100%;
+                min-width: 0;
+                min-height: 4rem;
+                transform: none;
+            }
+            .paper-leaf-node:hover,
+            .paper-leaf-node:focus-visible,
+            .paper-leaf-node.is-current {
+                transform: translateY(-2px);
+            }
+            .research-tree-canvas.has-tree-focus .paper-leaf-node {
+                opacity: 0.5;
+            }
+            .research-tree-canvas.has-tree-focus .paper-leaf-node.is-related {
+                opacity: 0.82;
+            }
+            .research-tree-canvas.has-tree-focus .paper-leaf-node.is-current {
+                opacity: 1;
+            }
+            .research-tree-detail {
+                grid-template-columns: 3rem minmax(0, 1fr) auto;
+                padding: 0.9rem 0.25rem;
+            }
+            .research-tree-detail img {
+                width: 3rem;
+                height: 3rem;
+            }
+            .research-tree-detail h3 {
+                font-size: 0.86rem;
+            }
+            .tree-detail-authors {
+                font-size: 0.74rem;
+                line-height: 1.4;
+            }
+        }
+        @media (max-width: 460px) {
+            .tree-branch-group {
+                grid-template-columns: 1fr;
+            }
+            .paper-leaf-node {
+                min-height: 3.7rem;
+            }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .paper-leaf-node,
+            .tree-branch,
+            .tree-root,
+            .publication-view-button,
+            .research-tree-detail a {
+                transition: none !important;
+            }
+        }
     </style>
 </head>
 <body class="site-bg text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-800">
@@ -402,6 +910,13 @@
                             <span><strong class="text-slate-900 font-bold">Long-Context, Multimodal, and Privacy-Aware Intelligent Systems:</strong> Developing efficient and trustworthy methods for reasoning over long documents, long videos, multimodal evidence, and privacy-sensitive external knowledge.</span>
                         </li>
                     </ul>
+                    <div class="mt-4 pt-4 border-t border-slate-100 flex justify-end">
+                        <a href="./index.html?view=tree#publications" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-blue-600 text-white text-sm font-semibold shadow-sm hover:bg-blue-700 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition">
+                            <i class="fas fa-tree" aria-hidden="true"></i>
+                            <span>Explore Research Tree</span>
+                            <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -539,9 +1054,167 @@
     </section>
 
     <section id="publications" class="py-12 bg-white border-y border-slate-200 w-full"><div class="w-full max-w-5xl mx-auto lg:mx-0 lg:mr-auto lg:ml-[50px] px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">Selected Publications</h2>
-        
-        <div class="space-y-6">
+        <div class="publication-heading-row">
+            <h2 class="text-2xl font-bold text-slate-900 border-l-4 border-blue-600 pl-4">Selected Publications</h2>
+            <div class="publication-view-switch" role="tablist" aria-label="Publication view">
+                <button id="publication-list-tab" class="publication-view-button is-active" type="button" role="tab" aria-selected="true" aria-controls="publication-list-view" data-publication-view="list">
+                    <i class="fas fa-list" aria-hidden="true"></i><span>List</span>
+                </button>
+                <button id="publication-tree-tab" class="publication-view-button" type="button" role="tab" aria-selected="false" aria-controls="publication-tree-view" data-publication-view="tree">
+                    <i class="fas fa-tree" aria-hidden="true"></i><span>Research Tree</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="publication-tree-view" class="publication-view-panel" role="tabpanel" aria-labelledby="publication-tree-tab" hidden>
+            <div class="research-tree-shell">
+                <div class="research-tree-canvas">
+                    <svg class="research-tree-art" viewBox="0 0 1000 820" role="img" aria-label="Research tree connecting graph foundations to three current research directions">
+                        <path class="tree-trunk" d="M462 748 C474 698 482 653 482 600 C482 568 470 540 478 512 C490 475 513 476 524 511 C534 543 520 571 520 603 C520 656 532 700 542 748 C520 770 484 770 462 748 Z"></path>
+                        <path class="tree-ring" d="M481 726 C494 714 511 714 524 726"></path>
+                        <path class="tree-ring" d="M485 681 C497 671 509 671 520 681"></path>
+
+                        <path class="tree-root" data-branch="foundation" d="M487 733 C438 748 393 774 340 807"></path>
+                        <path class="tree-root" data-branch="foundation" d="M494 741 C467 783 430 807 382 816"></path>
+                        <path class="tree-root" data-branch="foundation" d="M515 739 C548 778 591 805 651 814"></path>
+                        <path class="tree-root" data-branch="foundation" d="M523 729 C574 743 621 770 690 801"></path>
+
+                        <path class="tree-branch tree-branch-major" data-branch="structure" d="M492 594 C429 548 354 497 259 431 C199 389 151 325 111 238"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="structure" d="M358 500 C312 416 270 335 232 264"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="structure" d="M266 433 C204 445 151 458 108 474"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="structure" d="M213 382 C171 313 135 244 103 184"></path>
+
+                        <path class="tree-branch tree-branch-major" data-branch="memory" d="M502 578 C500 493 506 367 505 177"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="memory" d="M503 324 C471 286 447 257 420 225"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="memory" d="M504 386 C533 355 553 329 571 300"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="memory" d="M505 238 C529 206 548 181 566 153"></path>
+
+                        <path class="tree-branch tree-branch-major" data-branch="systems" d="M514 597 C606 548 682 482 744 397 C791 333 826 266 851 194"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="systems" d="M675 489 C706 425 724 360 730 293"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="systems" d="M751 387 C792 385 827 391 853 410"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="systems" d="M810 295 C841 263 864 232 885 194"></path>
+
+                        <g aria-hidden="true">
+                            <ellipse class="tree-botanical-leaf structure" cx="100" cy="187" rx="23" ry="11" transform="rotate(-30 100 187)"></ellipse>
+                            <ellipse class="tree-botanical-leaf structure" cx="145" cy="285" rx="20" ry="10" transform="rotate(32 145 285)"></ellipse>
+                            <ellipse class="tree-botanical-leaf structure" cx="217" cy="355" rx="24" ry="11" transform="rotate(-18 217 355)"></ellipse>
+                            <ellipse class="tree-botanical-leaf structure" cx="112" cy="475" rx="23" ry="10" transform="rotate(-8 112 475)"></ellipse>
+                            <ellipse class="tree-botanical-leaf structure" cx="260" cy="430" rx="23" ry="10" transform="rotate(25 260 430)"></ellipse>
+
+                            <ellipse class="tree-botanical-leaf memory" cx="505" cy="173" rx="21" ry="10" transform="rotate(-12 505 173)"></ellipse>
+                            <ellipse class="tree-botanical-leaf memory" cx="430" cy="230" rx="22" ry="10" transform="rotate(27 430 230)"></ellipse>
+                            <ellipse class="tree-botanical-leaf memory" cx="566" cy="157" rx="22" ry="10" transform="rotate(-34 566 157)"></ellipse>
+                            <ellipse class="tree-botanical-leaf memory" cx="570" cy="302" rx="22" ry="10" transform="rotate(-22 570 302)"></ellipse>
+
+                            <ellipse class="tree-botanical-leaf systems" cx="851" cy="194" rx="23" ry="10" transform="rotate(-34 851 194)"></ellipse>
+                            <ellipse class="tree-botanical-leaf systems" cx="884" cy="198" rx="21" ry="10" transform="rotate(25 884 198)"></ellipse>
+                            <ellipse class="tree-botanical-leaf systems" cx="730" cy="294" rx="23" ry="10" transform="rotate(-26 730 294)"></ellipse>
+                            <ellipse class="tree-botanical-leaf systems" cx="850" cy="411" rx="23" ry="10" transform="rotate(18 850 411)"></ellipse>
+                            <ellipse class="tree-botanical-leaf systems" cx="746" cy="397" rx="22" ry="10" transform="rotate(-14 746 397)"></ellipse>
+
+                            <ellipse class="tree-botanical-leaf foundation" cx="340" cy="806" rx="24" ry="10" transform="rotate(-18 340 806)"></ellipse>
+                            <ellipse class="tree-botanical-leaf foundation" cx="651" cy="812" rx="24" ry="10" transform="rotate(18 651 812)"></ellipse>
+                        </g>
+                    </svg>
+
+                    <div class="tree-trunk-label">
+                        <span>Research Trunk</span>
+                        <strong>Structured Intelligence for LLM Reasoning &amp; Agents</strong>
+                    </div>
+
+                    <div class="tree-branch-group tree-group-structure">
+                        <div class="tree-branch-label tree-label-structure">
+                            <span>Research Interest I</span>
+                            <strong>Knowledge-Grounded &amp; Structure-Aware LLM Reasoning</strong>
+                        </div>
+
+                        <a class="paper-leaf-node leaf-structure" style="--tree-x: 11%; --tree-y: 22%;" href="https://stevetantan.github.io/BioWeave/" target="_blank" rel="noopener noreferrer" data-branch="structure systems" data-title="Weaving Multi-Source Evidence for Biomedical Reasoning: The BioMedHop Benchmark and BioWeave Framework" data-meta="Preprint 2026 · Structure-Aware &amp; Multi-Source Reasoning" data-authors="Xingyu Tan, Shiyuan Liu, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/BioMedHop_BioWeave_logo_white_bg_400.webp" data-url="https://stevetantan.github.io/BioWeave/">
+                            <img src="./assets/img/BioMedHop_BioWeave_logo_white_bg_400.webp" alt="" loading="lazy">
+                            <span><span class="leaf-name">BioMedHop &amp; BioWeave</span><span class="leaf-venue">Preprint 2026</span></span>
+                        </a>
+                        <a class="paper-leaf-node leaf-structure" style="--tree-x: 23%; --tree-y: 33%;" href="https://dl.acm.org/doi/10.1145/3774904.3792611" target="_blank" rel="noopener noreferrer" data-branch="structure" data-title="PRoH: Dynamic Planning and Reasoning over Knowledge Hypergraphs for Retrieval-Augmented Generation" data-meta="WWW 2026 (Oral) · Knowledge Hypergraph Reasoning" data-authors="Xiangjun Zai, Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Wenjie Zhang" data-corresponding="Xingyu Tan" data-image="./assets/img/PRoH_logo_white_bg_400.webp" data-url="https://dl.acm.org/doi/10.1145/3774904.3792611">
+                            <img src="./assets/img/PRoH_logo_white_bg_400.webp" alt="" loading="lazy">
+                            <span><span class="leaf-name">PRoH</span><span class="leaf-venue">WWW 2026 · Oral</span></span>
+                        </a>
+                        <a class="paper-leaf-node leaf-structure" style="--tree-x: 12%; --tree-y: 48%;" href="https://github.com/SteveTANTAN/PoG" target="_blank" rel="noopener noreferrer" data-branch="structure" data-title="Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning" data-meta="WWW 2025 · Knowledge Graph Reasoning" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Wenjie Zhang" data-image="./assets/img/PoG_logo_400.webp" data-url="https://github.com/SteveTANTAN/PoG">
+                            <img src="./assets/img/PoG_logo_400.webp" alt="" loading="lazy">
+                            <span><span class="leaf-name">Paths-over-Graph</span><span class="leaf-venue">WWW 2025</span></span>
+                        </a>
+                        <a class="paper-leaf-node leaf-structure" style="--tree-x: 83%; --tree-y: 47%;" href="https://stevetantan.github.io/Hydra/" target="_blank" rel="noopener noreferrer" data-branch="structure systems" data-title="HydraRAG: Structured Cross-Source Enhanced Large Language Model Reasoning" data-meta="EMNLP 2025 · Structured Cross-Source Reasoning" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/hydra-logo-purple-1024_400.webp" data-url="https://stevetantan.github.io/Hydra/">
+                            <img src="./assets/img/hydra-logo-purple-1024_400.webp" alt="" loading="lazy">
+                            <span><span class="leaf-name">HydraRAG</span><span class="leaf-venue">EMNLP 2025</span></span>
+                        </a>
+                    </div>
+
+                    <div class="tree-branch-group tree-group-memory">
+                        <div class="tree-branch-label tree-label-memory">
+                            <span>Research Interest II</span>
+                            <strong>Memory, Belief Update &amp; Continual Reasoning for Agents</strong>
+                        </div>
+
+                        <button class="paper-leaf-node leaf-memory" style="--tree-x: 56%; --tree-y: 19%;" type="button" data-branch="memory" data-title="SkillZip: Contract-Preserving Graph Compression for Scalable Agent Skill Libraries" data-meta="Preprint 2026 · Scalable Agent Skill Libraries" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/SkillZip.webp" data-url="">
+                            <img src="./assets/img/SkillZip.webp" alt="" loading="lazy">
+                            <span><span class="leaf-name">SkillZip</span><span class="leaf-venue">Preprint 2026</span></span>
+                        </button>
+                        <a class="paper-leaf-node leaf-memory" style="--tree-x: 42%; --tree-y: 31%;" href="https://arxiv.org/abs/2608.02650" target="_blank" rel="noopener noreferrer" data-branch="memory structure" data-title="HyperAgent: Planning and Acting over Tool-Schema Hypergraphs for Tool-Use LLM Agents" data-meta="Preprint 2026 · Tool-Use Agents &amp; Hypergraphs" data-authors="Zian Zhai, Xingyu Tan, Gaowang Zou, Xiaoyang Wang, Wenjie Zhang" data-image="./assets/img/HyperAgent.jpg" data-url="https://arxiv.org/abs/2608.02650">
+                            <img src="./assets/img/HyperAgent.jpg" alt="" loading="lazy">
+                            <span><span class="leaf-name">HyperAgent</span><span class="leaf-venue">Preprint 2026</span></span>
+                        </a>
+                        <a class="paper-leaf-node leaf-memory" style="--tree-x: 57%; --tree-y: 40%;" href="https://stevetantan.github.io/MemoTime/" target="_blank" rel="noopener noreferrer" data-branch="memory" data-title="MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning" data-meta="WWW 2026 (Oral) · Temporal Memory &amp; Reasoning" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/MemoTime_logo_400.webp" data-url="https://stevetantan.github.io/MemoTime/">
+                            <img src="./assets/img/MemoTime_logo_400.webp" alt="" loading="lazy">
+                            <span><span class="leaf-name">MemoTime</span><span class="leaf-venue">WWW 2026 · Oral</span></span>
+                        </a>
+                    </div>
+
+                    <div class="tree-branch-group tree-group-systems">
+                        <div class="tree-branch-label tree-label-systems">
+                            <span>Research Interest III</span>
+                            <strong>Long-Context, Multi-Source &amp; Privacy-Aware Systems</strong>
+                        </div>
+
+                        <a class="paper-leaf-node leaf-systems" style="--tree-x: 72%; --tree-y: 31%;" href="https://zaixjun.github.io/DocTrace/" target="_blank" rel="noopener noreferrer" data-branch="systems memory" data-title="Trace Only What You Need: Structure-Aware On-Demand Hypergraph Memory for Long-Document Question Answering" data-meta="Preprint 2026 · Long Documents &amp; On-Demand Memory" data-authors="Xiangjun Zai, Xingyu Tan, Chen Chen, Xiaoyang Wang, Wenjie Zhang" data-corresponding="Xingyu Tan" data-image="./assets/img/DocTrace_compass_logo_400.webp" data-url="https://zaixjun.github.io/DocTrace/">
+                            <img src="./assets/img/DocTrace_compass_logo_400.webp" alt="" loading="lazy">
+                            <span><span class="leaf-name">DocTrace</span><span class="leaf-venue">Preprint 2026</span></span>
+                        </a>
+                        <a class="paper-leaf-node leaf-systems" style="--tree-x: 86%; --tree-y: 22%;" href="https://stevetantan.github.io/PrivGemo/" target="_blank" rel="noopener noreferrer" data-branch="systems memory" data-title="PrivGemo: Privacy-Preserving Dual-Tower Graph Retrieval for Empowering LLM Reasoning with Memory Augmentation" data-meta="Preprint 2026 · Privacy-Aware Memory Augmentation" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/privgemo_logo_watermark_400.webp" data-url="https://stevetantan.github.io/PrivGemo/">
+                            <img src="./assets/img/privgemo_logo_watermark_400.webp" alt="" loading="lazy">
+                            <span><span class="leaf-name">PrivGemo</span><span class="leaf-venue">Preprint 2026</span></span>
+                        </a>
+                    </div>
+
+                    <div class="tree-branch-group tree-group-foundation">
+                        <div class="tree-branch-label tree-label-foundation">
+                            <span>Research Roots</span>
+                            <strong>Graph Representation &amp; Data Mining Foundations</strong>
+                        </div>
+
+                        <a class="paper-leaf-node leaf-foundation" style="--tree-x: 37%; --tree-y: 80%;" href="https://arxiv.org/abs/2508.06588" target="_blank" rel="noopener noreferrer" data-branch="foundation" data-title="Graph is a Natural Regularization: Revisiting Vector Quantization for Graph Representation Learning" data-meta="ICML 2026 · Graph Representation Learning" data-authors="Zian Zhai, Fan Li, Xingyu Tan, Xiaoyang Wang, Wenjie Zhang" data-image="./assets/img/RGVQ_logo_white_bg_400.webp" data-url="https://arxiv.org/abs/2508.06588">
+                            <img src="./assets/img/RGVQ_logo_white_bg_400.webp" alt="" loading="lazy">
+                            <span><span class="leaf-name">RGVQ</span><span class="leaf-venue">ICML 2026</span></span>
+                        </a>
+                        <a class="paper-leaf-node leaf-foundation" style="--tree-x: 64%; --tree-y: 83%;" href="https://dl.acm.org/doi/10.1145/3583780.3615209" target="_blank" rel="noopener noreferrer" data-branch="foundation" data-title="Higher-Order Peak Decomposition" data-meta="CIKM 2023 · Higher-Order Graph Mining" data-authors="Xingyu Tan, Jingya Qian, Chen Chen, Sima Qing, Yanping Wu, Xiaoyang Wang, Wenjie Zhang" data-image="./assets/img/KHPeak_logo_white_bg_400.webp" data-url="https://dl.acm.org/doi/10.1145/3583780.3615209">
+                            <img src="./assets/img/KHPeak_logo_white_bg_400.webp" alt="" loading="lazy">
+                            <span><span class="leaf-name">Higher-Order Peak</span><span class="leaf-venue">CIKM 2023</span></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="research-tree-detail" aria-live="polite">
+                    <img id="tree-detail-image" src="./assets/img/SkillZip.webp" alt="">
+                    <div>
+                        <p id="tree-detail-meta">Preprint 2026 · Scalable Agent Skill Libraries</p>
+                        <h3 id="tree-detail-title">SkillZip: Contract-Preserving Graph Compression for Scalable Agent Skill Libraries</h3>
+                        <p id="tree-detail-authors" class="tree-detail-authors"><strong>Xingyu Tan</strong>, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang</p>
+                        <p id="tree-detail-corresponding" class="tree-detail-corresponding-note" hidden><i class="fas fa-envelope" aria-hidden="true"></i> Corresponding author</p>
+                    </div>
+                    <a id="tree-detail-open" href="#" target="_blank" rel="noopener noreferrer" title="Open paper" hidden>
+                        <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i><span class="sr-only">Open paper</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="publication-list-view" class="publication-view-panel space-y-6" role="tabpanel" aria-labelledby="publication-list-tab">
 
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
                 <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
@@ -1386,9 +2059,11 @@
 
     <footer class="bg-white border-t border-slate-200 py-10 text-sm text-slate-500">
         <div class="w-full max-w-7xl mx-auto lg:mx-0 lg:mr-auto lg:ml-[50px] lg:pl-60 px-4 sm:px-6 lg:px-8 text-center">
+            <!-- MapMyVisitors map temporarily hidden
             <div class="mb-4 flex justify-center">
                 <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=ffffff&w=300&t=t&d=is9r4--UPPK1Lfc_xuRS3rZjQSDjGDJg84StK-jDI0s'></script>
             </div>
+            -->
             
             <p class="inline-flex items-center justify-center flex-wrap gap-y-1">&copy; 2026 Xingyu Tan. Powered by Tailwind CSS & Minimal Light Concept.<span class="footer-mini-widget"><script src="https://efreecode.com/js.js" id="eXF-stevetan-0" async defer></script></span></p>
         </div>
@@ -1412,6 +2087,114 @@
             document.querySelectorAll('a[target="_blank"]').forEach(function(a){
                 a.setAttribute('rel','noopener noreferrer');
             });
+
+            var publicationViewButtons=Array.prototype.slice.call(document.querySelectorAll('[data-publication-view]'));
+            var publicationTreeView=document.getElementById('publication-tree-view');
+            var publicationListView=document.getElementById('publication-list-view');
+            function setPublicationView(view){
+                var showTree=view==='tree';
+                if(publicationTreeView){publicationTreeView.hidden=!showTree;}
+                if(publicationListView){publicationListView.hidden=showTree;}
+                publicationViewButtons.forEach(function(button){
+                    var active=button.getAttribute('data-publication-view')===view;
+                    button.classList.toggle('is-active',active);
+                    button.setAttribute('aria-selected',active ? 'true' : 'false');
+                    button.setAttribute('tabindex',active ? '0' : '-1');
+                });
+            }
+            publicationViewButtons.forEach(function(button,index){
+                button.addEventListener('click',function(){
+                    setPublicationView(button.getAttribute('data-publication-view'));
+                });
+                button.addEventListener('keydown',function(event){
+                    if(event.key!=='ArrowLeft' && event.key!=='ArrowRight'){return;}
+                    event.preventDefault();
+                    var direction=event.key==='ArrowRight' ? 1 : -1;
+                    var next=publicationViewButtons[(index+direction+publicationViewButtons.length)%publicationViewButtons.length];
+                    next.focus();
+                    setPublicationView(next.getAttribute('data-publication-view'));
+                });
+            });
+            var requestedPublicationView=new URLSearchParams(window.location.search).get('view');
+            setPublicationView(requestedPublicationView==='tree' ? 'tree' : 'list');
+
+            var researchTreeCanvas=document.querySelector('.research-tree-canvas');
+            var researchTreeLeaves=Array.prototype.slice.call(document.querySelectorAll('.paper-leaf-node'));
+            var researchTreeBranches=Array.prototype.slice.call(document.querySelectorAll('.tree-branch, .tree-root'));
+            var treeDetailImage=document.getElementById('tree-detail-image');
+            var treeDetailMeta=document.getElementById('tree-detail-meta');
+            var treeDetailTitle=document.getElementById('tree-detail-title');
+            var treeDetailAuthors=document.getElementById('tree-detail-authors');
+            var treeDetailCorresponding=document.getElementById('tree-detail-corresponding');
+            var treeDetailOpen=document.getElementById('tree-detail-open');
+            function treeBranchTokens(node){
+                return (node.getAttribute('data-branch') || '').trim().split(/\s+/).filter(Boolean);
+            }
+            function shareTreeBranch(first,second){
+                return first.some(function(token){return second.indexOf(token)>-1;});
+            }
+            function updateTreeDetail(leaf){
+                if(!leaf){return;}
+                if(treeDetailImage){
+                    treeDetailImage.src=leaf.getAttribute('data-image') || '';
+                    treeDetailImage.alt='';
+                }
+                if(treeDetailMeta){treeDetailMeta.textContent=leaf.getAttribute('data-meta') || '';}
+                if(treeDetailTitle){treeDetailTitle.textContent=leaf.getAttribute('data-title') || '';}
+                if(treeDetailAuthors){
+                    var authors=(leaf.getAttribute('data-authors') || '').split(',').map(function(author){return author.trim();}).filter(Boolean);
+                    var correspondingAuthors=(leaf.getAttribute('data-corresponding') || '').split(',').map(function(author){return author.trim();}).filter(Boolean);
+                    treeDetailAuthors.textContent='';
+                    authors.forEach(function(author,index){
+                        if(index){treeDetailAuthors.appendChild(document.createTextNode(', '));}
+                        var authorNode=author==='Xingyu Tan' ? document.createElement('strong') : document.createElement('span');
+                        authorNode.textContent=author;
+                        treeDetailAuthors.appendChild(authorNode);
+                        if(correspondingAuthors.indexOf(author)>-1){
+                            var correspondingIcon=document.createElement('i');
+                            correspondingIcon.className='fas fa-envelope tree-detail-corresponding-icon';
+                            correspondingIcon.title='Corresponding author';
+                            correspondingIcon.setAttribute('aria-label','Corresponding author');
+                            treeDetailAuthors.appendChild(correspondingIcon);
+                        }
+                    });
+                    if(treeDetailCorresponding){treeDetailCorresponding.hidden=!correspondingAuthors.length;}
+                }
+                if(treeDetailOpen){
+                    var url=leaf.getAttribute('data-url') || '';
+                    treeDetailOpen.hidden=!url;
+                    if(url){treeDetailOpen.href=url;}
+                }
+            }
+            function focusTreeLeaf(leaf){
+                if(!researchTreeCanvas){return;}
+                var activeTokens=treeBranchTokens(leaf);
+                researchTreeCanvas.classList.add('has-tree-focus');
+                researchTreeLeaves.forEach(function(candidate){
+                    candidate.classList.toggle('is-current',candidate===leaf);
+                    candidate.classList.toggle('is-related',shareTreeBranch(activeTokens,treeBranchTokens(candidate)));
+                });
+                researchTreeBranches.forEach(function(branch){
+                    branch.classList.toggle('is-active',activeTokens.indexOf(branch.getAttribute('data-branch'))>-1);
+                });
+                updateTreeDetail(leaf);
+            }
+            function clearTreeFocus(){
+                if(!researchTreeCanvas){return;}
+                researchTreeCanvas.classList.remove('has-tree-focus');
+                researchTreeLeaves.forEach(function(leaf){leaf.classList.remove('is-current','is-related');});
+                researchTreeBranches.forEach(function(branch){branch.classList.remove('is-active');});
+            }
+            researchTreeLeaves.forEach(function(leaf){
+                leaf.addEventListener('mouseenter',function(){focusTreeLeaf(leaf);});
+                leaf.addEventListener('mouseleave',clearTreeFocus);
+                leaf.addEventListener('focus',function(){focusTreeLeaf(leaf);});
+                leaf.addEventListener('blur',clearTreeFocus);
+                if(leaf.tagName==='BUTTON'){
+                    leaf.addEventListener('click',function(){updateTreeDetail(leaf);});
+                }
+            });
+
             document.querySelectorAll('[data-card-link]').forEach(function(card){
                 function openCardLink(){
                     var href=card.getAttribute('data-card-link');
