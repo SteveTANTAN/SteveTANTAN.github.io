@@ -215,6 +215,14 @@
             --logo-visual-scale: 1.13;
             --logo-hover-scale: 1.18;
         }
+        .publication-logo-skillzip {
+            --logo-visual-scale: 1.10;
+            --logo-hover-scale: 1.15;
+        }
+        .publication-logo-hyperagent {
+            --logo-visual-scale: 1.04;
+            --logo-hover-scale: 1.09;
+        }
         @media (min-width: 768px) {
             .publication-card-body {
                 min-height: 10rem;
@@ -1152,12 +1160,12 @@
                             <strong>Memory, Belief Update &amp; Continual Reasoning for Agents</strong>
                         </div>
 
-                        <a class="paper-leaf-node leaf-memory" style="--tree-x: 56%; --tree-y: 19%;" href="https://arxiv.org/abs/2608.05604" target="_blank" rel="noopener noreferrer" data-branch="memory" data-title="SkillZip: Contract-Preserving Graph Compression for Scalable Agent Skill Libraries" data-meta="Preprint 2026 · Scalable Agent Skill Libraries" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/SkillZip.webp" data-url="https://arxiv.org/abs/2608.05604">
-                            <img src="./assets/img/SkillZip.webp" alt="" loading="lazy">
+                        <a class="paper-leaf-node leaf-memory" style="--tree-x: 56%; --tree-y: 19%;" href="https://arxiv.org/abs/2608.05604" target="_blank" rel="noopener noreferrer" data-branch="memory" data-title="SkillZip: Contract-Preserving Graph Compression for Scalable Agent Skill Libraries" data-meta="Preprint 2026 · Scalable Agent Skill Libraries" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/SkillZip_logo_white_bg_400.webp" data-url="https://arxiv.org/abs/2608.05604">
+                            <img src="./assets/img/SkillZip_logo_white_bg_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">SkillZip</span><span class="leaf-venue">Preprint 2026</span></span>
                         </a>
-                        <a class="paper-leaf-node leaf-memory" style="--tree-x: 42%; --tree-y: 31%;" href="https://arxiv.org/abs/2608.02650" target="_blank" rel="noopener noreferrer" data-branch="memory structure" data-title="HyperAgent: Planning and Acting over Tool-Schema Hypergraphs for Tool-Use LLM Agents" data-meta="Preprint 2026 · Tool-Use Agents &amp; Hypergraphs" data-authors="Zian Zhai, Xingyu Tan, Gaowang Zou, Xiaoyang Wang, Wenjie Zhang" data-image="./assets/img/HyperAgent.jpg" data-url="https://arxiv.org/abs/2608.02650">
-                            <img src="./assets/img/HyperAgent.jpg" alt="" loading="lazy">
+                        <a class="paper-leaf-node leaf-memory" style="--tree-x: 42%; --tree-y: 31%;" href="https://arxiv.org/abs/2608.02650" target="_blank" rel="noopener noreferrer" data-branch="memory structure" data-title="HyperAgent: Planning and Acting over Tool-Schema Hypergraphs for Tool-Use LLM Agents" data-meta="Preprint 2026 · Tool-Use Agents &amp; Hypergraphs" data-authors="Zian Zhai, Xingyu Tan, Gaowang Zou, Xiaoyang Wang, Wenjie Zhang" data-image="./assets/img/HyperAgent_logo_white_bg_400.webp" data-url="https://arxiv.org/abs/2608.02650">
+                            <img src="./assets/img/HyperAgent_logo_white_bg_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">HyperAgent</span><span class="leaf-venue">Preprint 2026</span></span>
                         </a>
                         <a class="paper-leaf-node leaf-memory" style="--tree-x: 57%; --tree-y: 40%;" href="https://stevetantan.github.io/MemoTime/" target="_blank" rel="noopener noreferrer" data-branch="memory" data-title="MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning" data-meta="WWW 2026 (Oral) · Temporal Memory &amp; Reasoning" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/MemoTime_logo_400.webp" data-url="https://stevetantan.github.io/MemoTime/">
@@ -1200,7 +1208,7 @@
                 </div>
 
                 <div class="research-tree-detail" aria-live="polite">
-                    <img id="tree-detail-image" src="./assets/img/SkillZip.webp" alt="">
+                    <img id="tree-detail-image" src="./assets/img/SkillZip_logo_white_bg_400.webp" alt="">
                     <div>
                         <p id="tree-detail-meta">Preprint 2026 · Scalable Agent Skill Libraries</p>
                         <h3 id="tree-detail-title">SkillZip: Contract-Preserving Graph Compression for Scalable Agent Skill Libraries</h3>
@@ -1236,10 +1244,13 @@
 
                     <div class="mt-4 flex flex-wrap gap-3 text-sm font-medium pointer-events-auto">
                         <a href="https://arxiv.org/pdf/2608.05604" class="relative z-20 text-blue-600 hover:text-blue-800 hover:underline flex items-center gap-1"><i class="far fa-file-pdf"></i> PDF</a>
+                        <!-- SkillZip Website tab temporarily hidden
                         <span class="text-slate-300">|</span>
                         <a href="https://arxiv.org/abs/2608.05604" class="relative z-20 text-slate-600 hover:text-slate-900 hover:underline flex items-center gap-1"><i class="fas fa-globe"></i> Website</a>
+                        -->
                     </div>
                 </div>
+                <img src="./assets/img/SkillZip_logo_white_bg_400.webp" alt="" aria-hidden="true" class="publication-corner-icon publication-logo-skillzip" loading="lazy">
             </div>
 
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
@@ -1264,6 +1275,7 @@
                         <a href="https://arxiv.org/pdf/2608.02650" class="relative z-20 text-blue-600 hover:text-blue-800 hover:underline flex items-center gap-1"><i class="far fa-file-pdf"></i> PDF</a>
                     </div>
                 </div>
+                <img src="./assets/img/HyperAgent_logo_white_bg_400.webp" alt="" aria-hidden="true" class="publication-corner-icon publication-logo-hyperagent" loading="lazy">
             </div>
 
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
