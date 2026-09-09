@@ -223,6 +223,10 @@
             --logo-visual-scale: 1.04;
             --logo-hover-scale: 1.09;
         }
+        .publication-logo-blindstep {
+            --logo-visual-scale: 1.04;
+            --logo-hover-scale: 1.09;
+        }
         @media (min-width: 768px) {
             .publication-card-body {
                 min-height: 10rem;
@@ -939,6 +943,10 @@
                     <h3 class="sticky top-0 bg-white/95 backdrop-blur py-2 font-bold text-slate-900 z-10 border-b border-slate-100 mb-4">📌 Current - 2026</h3>
                     <ul class="space-y-4 text-sm">
                         <li class="flex gap-3 items-start">
+                            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-green-50 text-green-600 mt-0.5 shrink-0 w-24 text-center border border-green-200">Accepted</span>
+                            <div class="leading-relaxed"><span class="font-bold text-slate-500 mr-2">[Sep. 2026]</span> Our paper <em>BlindStep: A Secure One-Step Kernel for Privacy-Preserving Collaborative Reasoning</em> is accepted to <a href="https://www.acsac.org/" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold hover:underline">ACSAC 2026</a> 🎉</div>
+                        </li>
+                        <li class="flex gap-3 items-start">
                             <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-rose-50 text-rose-600 mt-0.5 shrink-0 w-24 text-center border border-rose-200">Award</span>
                             <div class="leading-relaxed"><span class="font-bold text-slate-500 mr-2">[Jun. 2026]</span> Received the <strong>School Nomination (Top-2)</strong> for the <a href="https://www.unsw.edu.au/unsw-3-minute-thesis" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold hover:underline">UNSW 3 Minute Thesis (3MT) Competition</a>.</div>
                         </li>
@@ -1176,6 +1184,10 @@
                             <strong>Long-Context, Multi-Source &amp; Privacy-Aware Systems</strong>
                         </div>
 
+                        <a class="paper-leaf-node leaf-systems" style="--tree-x: 63%; --tree-y: 47%;" href="https://www.acsac.org/" target="_blank" rel="noopener noreferrer" data-branch="systems" data-title="BlindStep: A Secure One-Step Kernel for Privacy-Preserving Collaborative Reasoning" data-meta="ACSAC 2026 · Privacy-Preserving Collaborative Reasoning" data-authors="Xiaoxian Liu, Xingyu Tan, Chen Chen, Xiaoyang Wang" data-corresponding="Xingyu Tan" data-image="./assets/img/BlindStep_logo_white_bg_400.webp" data-url="https://www.acsac.org/">
+                            <img src="./assets/img/BlindStep_logo_white_bg_400.webp" alt="" loading="lazy">
+                            <span><span class="leaf-name">BlindStep</span><span class="leaf-venue">ACSAC 2026</span></span>
+                        </a>
                         <a class="paper-leaf-node leaf-systems" style="--tree-x: 72%; --tree-y: 31%;" href="https://zaixjun.github.io/DocTrace/" target="_blank" rel="noopener noreferrer" data-branch="systems memory" data-title="Trace Only What You Need: Structure-Aware On-Demand Hypergraph Memory for Long-Document Question Answering" data-meta="Preprint 2026 · Long Documents &amp; On-Demand Memory" data-authors="Xiangjun Zai, Xingyu Tan, Chen Chen, Xiaoyang Wang, Wenjie Zhang" data-corresponding="Xingyu Tan" data-image="./assets/img/DocTrace_compass_logo_400.webp" data-url="https://zaixjun.github.io/DocTrace/">
                             <img src="./assets/img/DocTrace_compass_logo_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">DocTrace</span><span class="leaf-venue">Preprint 2026</span></span>
@@ -1223,6 +1235,29 @@
         </div>
 
         <div id="publication-list-view" class="publication-view-panel space-y-6" role="tabpanel" aria-labelledby="publication-list-tab">
+
+            <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
+                <a href="https://www.acsac.org/" class="absolute inset-0 z-0" aria-label="Visit the ACSAC 2026 website"></a>
+
+                <div class="publication-visual w-full md:w-64 shrink-0 flex items-center justify-center rounded-lg bg-white relative z-0">
+                    <img src="./assets/img/BlindStep.webp" alt="BlindStep framework overview" class="w-full max-h-48 object-contain group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=BlindStep'">
+                </div>
+                <div class="publication-card-body flex-1 relative z-10 pointer-events-none">
+                    <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-700 transition">
+                        BlindStep: A Secure One-Step Kernel for Privacy-Preserving Collaborative Reasoning
+                    </h3>
+                    <div class="text-sm text-slate-600 mt-2">
+                        Xiaoxian Liu, <strong class="text-slate-900">Xingyu Tan</strong> <i class="fas fa-envelope text-slate-500 text-xs" title="Corresponding author"></i>, Chen Chen, Xiaoyang Wang
+                        <div class="text-xs text-slate-500 ml-1">(<i class="fas fa-envelope"></i> Corresponding author)</div>
+                    </div>
+
+                    <div class="mt-3 flex flex-wrap items-center gap-2">
+                        <span class="bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold px-2.5 py-0.5 rounded">ACSAC 2026</span>
+                        <span class="bg-amber-100 text-amber-800 border border-amber-200 text-xs font-bold px-2.5 py-0.5 rounded flex items-center gap-1"><i class="fas fa-star-half-alt text-[10px]"></i> CORE A</span>
+                    </div>
+                </div>
+                <img src="./assets/img/BlindStep_logo_white_bg_400.webp" alt="" aria-hidden="true" class="publication-corner-icon publication-logo-blindstep" loading="lazy">
+            </div>
 
             <div class="bg-white p-5 rounded-xl shadow-sm hover:shadow-lg hover:border-blue-300 transition duration-300 border border-slate-200 flex flex-col md:flex-row gap-6 group relative">
                 <a href="https://arxiv.org/abs/2608.05604" class="absolute inset-0 z-0"></a>
@@ -1959,6 +1994,44 @@
                             <li class="flex items-start gap-2">
                                 <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0"></span>
                                 <span>Knowledge-Based Systems.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0"></span>
+                                <span>Neurocomputing.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0"></span>
+                                <span>Pattern Recognition.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grid md:grid-cols-[210px_1fr] gap-4 py-5">
+                        <h3 class="font-bold text-black">Conference PC / Reviewer</h3>
+                        <ul class="grid md:grid-cols-2 gap-x-10 gap-y-3">
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0"></span>
+                                <span>ACM The Web Conference (WWW).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0"></span>
+                                <span>ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0"></span>
+                                <span>AAAI Conference on Artificial Intelligence (AAAI).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0"></span>
+                                <span>ACL Rolling Review (ARR).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0"></span>
+                                <span>ACM International Conference on Information and Knowledge Management (CIKM).</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0"></span>
+                                <span>International Conference on Database Systems for Advanced Applications (DASFAA).</span>
                             </li>
                         </ul>
                     </div>
