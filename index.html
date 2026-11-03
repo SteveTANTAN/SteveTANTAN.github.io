@@ -553,13 +553,10 @@
         .leaf-efficiency { --leaf-color: #b45309; --leaf-tint: #fff7ed; }
         .leaf-systems { --leaf-color: #be405d; --leaf-tint: #fff1f2; }
         .leaf-foundation { --leaf-color: #9a6a18; --leaf-tint: #fffbeb; }
-        .tree-branch-group > .paper-leaf-node:nth-child(odd) {
-            border-radius: 8px 48% 8px 48%;
-        }
         @media (min-width: 1200px) {
-            #publications > div:has(#publication-tree-view:not([hidden])) {
-                max-width: 80rem;
-                margin-inline: auto;
+            .research-tree-shell {
+                width: 100%;
+                zoom: 0.9;
             }
         }
         .paper-leaf-node.is-current img {
