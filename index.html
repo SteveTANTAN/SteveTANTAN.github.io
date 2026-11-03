@@ -350,7 +350,7 @@
             position: relative;
             width: 100%;
             aspect-ratio: 1000 / 820;
-            min-height: 720px;
+            min-height: 760px;
             overflow: hidden;
             isolation: isolate;
         }
@@ -367,9 +367,9 @@
         }
         .research-tree-art {
             position: absolute;
-            inset: 1rem 0 0;
+            inset: 0;
             width: 100%;
-            height: calc(100% - 1rem);
+            height: 100%;
             overflow: visible;
             pointer-events: none;
         }
@@ -402,18 +402,8 @@
         .tree-branch[data-branch="memory"] { stroke: #2f8a72; }
         .tree-branch[data-branch="efficiency"] { stroke: #b86616; }
         .tree-branch[data-branch="systems"] { stroke: #b75f70; }
-        .tree-branch-major { stroke-width: 17; }
-        .tree-branch-minor { stroke-width: 7; }
-        .tree-botanical-leaf {
-            opacity: 0.22;
-            transform-box: fill-box;
-            transform-origin: center;
-        }
-        .tree-botanical-leaf.structure { fill: #4d86d5; }
-        .tree-botanical-leaf.memory { fill: #3d9b7d; }
-        .tree-botanical-leaf.efficiency { fill: #d28a32; }
-        .tree-botanical-leaf.systems { fill: #c66b7b; }
-        .tree-botanical-leaf.foundation { fill: #b6924c; }
+        .tree-branch-major { stroke-width: 12; }
+        .tree-branch-minor { stroke-width: 3; }
         .research-tree-canvas.has-tree-focus .tree-branch,
         .research-tree-canvas.has-tree-focus .tree-root,
         .research-tree-canvas.has-tree-focus .paper-leaf-node {
@@ -466,20 +456,20 @@
             font-weight: 800;
             text-transform: uppercase;
         }
-        .tree-label-structure { --branch-color: #2563eb; left: 13%; top: 3.5%; width: 23%; }
-        .tree-label-memory { --branch-color: #047857; left: 37%; top: 1%; width: 23%; }
-        .tree-label-efficiency { --branch-color: #b45309; left: 63%; top: 3.5%; width: 23%; }
-        .tree-label-systems { --branch-color: #be405d; left: 87.5%; top: 1%; width: 23%; }
+        .tree-label-structure { --branch-color: #2563eb; left: 13%; top: 18%; width: 24%; }
+        .tree-label-memory { --branch-color: #047857; left: 36%; top: 2%; width: 25%; }
+        .tree-label-efficiency { --branch-color: #b45309; left: 66%; top: 5%; width: 24%; }
+        .tree-label-systems { --branch-color: #be405d; left: 87%; top: 20%; width: 24%; }
         .tree-label-foundation {
             --branch-color: #9a6a18;
             left: 50%;
-            top: 91%;
+            top: 93%;
             width: 34%;
         }
         .tree-trunk-label {
             position: absolute;
             left: 55%;
-            top: 63%;
+            top: 76%;
             z-index: 4;
             width: 15.5rem;
             padding-left: 0.85rem;
@@ -511,14 +501,15 @@
             grid-template-columns: 2.4rem minmax(0, 1fr);
             align-items: center;
             gap: 0.55rem;
-            width: clamp(8.8rem, 16vw, 11rem);
+            width: 18%;
+            max-width: 11rem;
             min-height: 3.35rem;
             padding: 0.42rem 0.62rem 0.42rem 0.45rem;
             transform: translate(-50%, -50%);
             border: 1px solid color-mix(in srgb, var(--leaf-color) 56%, white);
             border-radius: 48% 8px 48% 8px;
             background: rgba(255, 255, 255, 0.96);
-            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+            box-shadow: 0 5px 14px rgba(15, 23, 42, 0.06);
             color: #0f172a;
             text-align: left;
             cursor: pointer;
@@ -562,6 +553,15 @@
         .leaf-efficiency { --leaf-color: #b45309; --leaf-tint: #fff7ed; }
         .leaf-systems { --leaf-color: #be405d; --leaf-tint: #fff1f2; }
         .leaf-foundation { --leaf-color: #9a6a18; --leaf-tint: #fffbeb; }
+        .tree-branch-group > .paper-leaf-node:nth-child(odd) {
+            border-radius: 8px 48% 8px 48%;
+        }
+        @media (min-width: 1200px) {
+            #publications > div:has(#publication-tree-view:not([hidden])) {
+                max-width: 80rem;
+                margin-inline: auto;
+            }
+        }
         .paper-leaf-node.is-current img {
             box-shadow: 0 0 0 3px var(--leaf-tint);
         }
@@ -649,7 +649,7 @@
                 width: 13rem;
             }
         }
-        @media (max-width: 767px) {
+        @media (max-width: 1199px) {
             .publication-heading-row {
                 align-items: flex-start;
                 flex-direction: column;
@@ -735,6 +735,7 @@
                 left: auto;
                 top: auto;
                 width: 100%;
+                max-width: none;
                 min-width: 0;
                 min-height: 4rem;
                 transform: none;
@@ -1098,60 +1099,36 @@
         <div id="publication-tree-view" class="publication-view-panel" role="tabpanel" aria-labelledby="publication-tree-tab" hidden>
             <div class="research-tree-shell">
                 <div class="research-tree-canvas">
-                    <svg class="research-tree-art" viewBox="0 0 1000 820" role="img" aria-label="Research tree connecting graph foundations to four current research directions">
-                        <path class="tree-trunk" d="M462 748 C474 698 482 653 482 600 C482 568 470 540 478 512 C490 475 513 476 524 511 C534 543 520 571 520 603 C520 656 532 700 542 748 C520 770 484 770 462 748 Z"></path>
-                        <path class="tree-ring" d="M481 726 C494 714 511 714 524 726"></path>
+                    <svg class="research-tree-art" viewBox="0 0 1000 820" preserveAspectRatio="none" role="img" aria-label="Research tree connecting graph foundations to four current research directions">
+                        <path class="tree-trunk" d="M478 720 C487 698 489 664 489 619 C480 592 474 572 480 562 C490 553 501 578 505 590 C516 571 528 565 531 576 C527 603 514 619 514 641 C514 685 520 703 528 720 C514 731 488 731 478 720 Z"></path>
+                        <path class="tree-ring" d="M485 710 C494 700 511 700 520 710"></path>
                         <path class="tree-ring" d="M485 681 C497 671 509 671 520 681"></path>
 
-                        <path class="tree-root" data-branch="foundation" d="M487 733 C438 748 393 774 340 807"></path>
-                        <path class="tree-root" data-branch="foundation" d="M494 741 C467 783 430 807 382 816"></path>
-                        <path class="tree-root" data-branch="foundation" d="M515 739 C548 778 591 805 651 814"></path>
-                        <path class="tree-root" data-branch="foundation" d="M523 729 C574 743 621 770 690 801"></path>
+                        <path class="tree-root" data-branch="foundation" d="M490 710 C438 714 393 735 340 750"></path>
+                        <path class="tree-root" data-branch="foundation" d="M498 714 C467 739 430 751 382 754"></path>
+                        <path class="tree-root" data-branch="foundation" d="M510 714 C548 738 591 751 651 754"></path>
+                        <path class="tree-root" data-branch="foundation" d="M519 710 C574 714 621 734 690 748"></path>
 
-                        <path class="tree-branch tree-branch-major" data-branch="structure" d="M492 594 C429 548 354 497 259 431 C199 389 151 325 111 238"></path>
-                        <path class="tree-branch tree-branch-minor" data-branch="structure" d="M358 500 C312 416 270 335 232 264"></path>
-                        <path class="tree-branch tree-branch-minor" data-branch="structure" d="M266 433 C204 445 151 458 108 474"></path>
-                        <path class="tree-branch tree-branch-minor" data-branch="structure" d="M213 382 C171 313 135 244 103 184"></path>
+                        <path class="tree-branch tree-branch-major" data-branch="structure" d="M497 626 C408 592 276 514 223 444 C183 393 160 349 120 295"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="structure" d="M211 428 Q251 408 250 377"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="structure" d="M247 472 Q180 489 110 467"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="structure" d="M356 558 Q326 566 300 541"></path>
 
-                        <path class="tree-branch tree-branch-major" data-branch="memory" d="M500 586 C472 500 430 352 385 177"></path>
-                        <path class="tree-branch tree-branch-minor" data-branch="memory" d="M430 350 C396 320 364 291 335 265"></path>
-                        <path class="tree-branch tree-branch-minor" data-branch="memory" d="M405 258 C418 219 427 188 420 157"></path>
-                        <path class="tree-branch tree-branch-minor" data-branch="memory" d="M454 430 C470 407 481 384 486 361"></path>
+                        <path class="tree-branch tree-branch-major" data-branch="memory" d="M501 615 C468 510 387 371 378 277 C370 215 359 179 360 148"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="memory" d="M378 276 Q420 250 440 213"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="memory" d="M397 353 Q336 346 300 303"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="memory" d="M434 446 Q462 420 450 385"></path>
 
-                        <path class="tree-branch tree-branch-major" data-branch="efficiency" d="M508 586 C540 500 579 350 630 173"></path>
-                        <path class="tree-branch tree-branch-minor" data-branch="efficiency" d="M590 331 C626 297 661 267 700 245"></path>
-                        <path class="tree-branch tree-branch-minor" data-branch="efficiency" d="M615 225 C632 195 648 169 665 145"></path>
+                        <path class="tree-branch tree-branch-major" data-branch="efficiency" d="M506 619 C548 519 609 403 616 305 C618 243 632 205 650 172"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="efficiency" d="M616 322 Q573 313 560 279"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="efficiency" d="M604 383 Q663 384 700 344"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="efficiency" d="M558 506 Q589 494 590 459"></path>
 
-                        <path class="tree-branch tree-branch-major" data-branch="systems" d="M514 597 C606 548 682 482 744 397 C791 333 826 266 851 194"></path>
-                        <path class="tree-branch tree-branch-minor" data-branch="systems" d="M675 489 C706 425 724 360 730 293"></path>
-                        <path class="tree-branch tree-branch-minor" data-branch="systems" d="M751 387 C792 385 827 391 853 410"></path>
-                        <path class="tree-branch tree-branch-minor" data-branch="systems" d="M810 295 C841 263 864 232 885 194"></path>
+                        <path class="tree-branch tree-branch-major" data-branch="systems" d="M513 632 C629 613 762 543 809 464 C839 413 870 356 890 303"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="systems" d="M816 451 Q784 442 780 410"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="systems" d="M784 500 Q843 519 890 500"></path>
+                        <path class="tree-branch tree-branch-minor" data-branch="systems" d="M682 585 Q722 598 740 574"></path>
 
-                        <g aria-hidden="true">
-                            <ellipse class="tree-botanical-leaf structure" cx="100" cy="187" rx="23" ry="11" transform="rotate(-30 100 187)"></ellipse>
-                            <ellipse class="tree-botanical-leaf structure" cx="145" cy="285" rx="20" ry="10" transform="rotate(32 145 285)"></ellipse>
-                            <ellipse class="tree-botanical-leaf structure" cx="217" cy="355" rx="24" ry="11" transform="rotate(-18 217 355)"></ellipse>
-                            <ellipse class="tree-botanical-leaf structure" cx="112" cy="475" rx="23" ry="10" transform="rotate(-8 112 475)"></ellipse>
-                            <ellipse class="tree-botanical-leaf structure" cx="260" cy="430" rx="23" ry="10" transform="rotate(25 260 430)"></ellipse>
-
-                            <ellipse class="tree-botanical-leaf memory" cx="385" cy="177" rx="21" ry="10" transform="rotate(-12 385 177)"></ellipse>
-                            <ellipse class="tree-botanical-leaf memory" cx="335" cy="265" rx="22" ry="10" transform="rotate(27 335 265)"></ellipse>
-                            <ellipse class="tree-botanical-leaf memory" cx="420" cy="157" rx="22" ry="10" transform="rotate(-34 420 157)"></ellipse>
-                            <ellipse class="tree-botanical-leaf memory" cx="486" cy="361" rx="22" ry="10" transform="rotate(-22 486 361)"></ellipse>
-
-                            <ellipse class="tree-botanical-leaf efficiency" cx="630" cy="173" rx="22" ry="10" transform="rotate(-18 630 173)"></ellipse>
-                            <ellipse class="tree-botanical-leaf efficiency" cx="700" cy="245" rx="22" ry="10" transform="rotate(24 700 245)"></ellipse>
-                            <ellipse class="tree-botanical-leaf efficiency" cx="665" cy="145" rx="21" ry="10" transform="rotate(-32 665 145)"></ellipse>
-
-                            <ellipse class="tree-botanical-leaf systems" cx="851" cy="194" rx="23" ry="10" transform="rotate(-34 851 194)"></ellipse>
-                            <ellipse class="tree-botanical-leaf systems" cx="884" cy="198" rx="21" ry="10" transform="rotate(25 884 198)"></ellipse>
-                            <ellipse class="tree-botanical-leaf systems" cx="730" cy="294" rx="23" ry="10" transform="rotate(-26 730 294)"></ellipse>
-                            <ellipse class="tree-botanical-leaf systems" cx="850" cy="411" rx="23" ry="10" transform="rotate(18 850 411)"></ellipse>
-                            <ellipse class="tree-botanical-leaf systems" cx="746" cy="397" rx="22" ry="10" transform="rotate(-14 746 397)"></ellipse>
-
-                            <ellipse class="tree-botanical-leaf foundation" cx="340" cy="806" rx="24" ry="10" transform="rotate(-18 340 806)"></ellipse>
-                            <ellipse class="tree-botanical-leaf foundation" cx="651" cy="812" rx="24" ry="10" transform="rotate(18 651 812)"></ellipse>
-                        </g>
                     </svg>
 
                     <div class="tree-trunk-label">
@@ -1165,19 +1142,19 @@
                             <strong>Knowledge-Grounded &amp; Structure-Aware LLM Reasoning</strong>
                         </div>
 
-                        <a class="paper-leaf-node leaf-structure" style="--tree-x: 13%; --tree-y: 20%;" href="https://stevetantan.github.io/BioWeave/" target="_blank" rel="noopener noreferrer" data-branch="structure" data-title="Weaving Multi-Source Evidence for Biomedical Reasoning: The BioMedHop Benchmark and BioWeave Framework" data-meta="Preprint 2026 · Structure-Aware &amp; Multi-Source Reasoning" data-authors="Xingyu Tan, Shiyuan Liu, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/BioMedHop_BioWeave_logo_white_bg_400.webp" data-url="https://stevetantan.github.io/BioWeave/">
+                        <a class="paper-leaf-node leaf-structure" style="--tree-x: 12%; --tree-y: 36%;" href="https://stevetantan.github.io/BioWeave/" target="_blank" rel="noopener noreferrer" data-branch="structure" data-title="Weaving Multi-Source Evidence for Biomedical Reasoning: The BioMedHop Benchmark and BioWeave Framework" data-meta="Preprint 2026 · Structure-Aware &amp; Multi-Source Reasoning" data-authors="Xingyu Tan, Shiyuan Liu, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/BioMedHop_BioWeave_logo_white_bg_400.webp" data-url="https://stevetantan.github.io/BioWeave/">
                             <img src="./assets/img/BioMedHop_BioWeave_logo_white_bg_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">BioMedHop &amp; BioWeave</span><span class="leaf-venue">Preprint 2026</span></span>
                         </a>
-                        <a class="paper-leaf-node leaf-structure" style="--tree-x: 13%; --tree-y: 31%;" href="https://dl.acm.org/doi/10.1145/3774904.3792611" target="_blank" rel="noopener noreferrer" data-branch="structure" data-title="PRoH: Dynamic Planning and Reasoning over Knowledge Hypergraphs for Retrieval-Augmented Generation" data-meta="WWW 2026 (Oral) · Knowledge Hypergraph Reasoning" data-authors="Xiangjun Zai, Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Wenjie Zhang" data-corresponding="Xingyu Tan" data-image="./assets/img/PRoH_logo_white_bg_400.webp" data-url="https://dl.acm.org/doi/10.1145/3774904.3792611">
+                        <a class="paper-leaf-node leaf-structure" style="--tree-x: 25%; --tree-y: 46%;" href="https://dl.acm.org/doi/10.1145/3774904.3792611" target="_blank" rel="noopener noreferrer" data-branch="structure" data-title="PRoH: Dynamic Planning and Reasoning over Knowledge Hypergraphs for Retrieval-Augmented Generation" data-meta="WWW 2026 (Oral) · Knowledge Hypergraph Reasoning" data-authors="Xiangjun Zai, Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Wenjie Zhang" data-corresponding="Xingyu Tan" data-image="./assets/img/PRoH_logo_white_bg_400.webp" data-url="https://dl.acm.org/doi/10.1145/3774904.3792611">
                             <img src="./assets/img/PRoH_logo_white_bg_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">PRoH</span><span class="leaf-venue">WWW 2026 · Oral</span></span>
                         </a>
-                        <a class="paper-leaf-node leaf-structure" style="--tree-x: 13%; --tree-y: 42%;" href="https://github.com/SteveTANTAN/PoG" target="_blank" rel="noopener noreferrer" data-branch="structure efficiency" data-title="Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning" data-meta="WWW 2025 · Knowledge Graph Reasoning &amp; Efficient Path Selection" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Wenjie Zhang" data-image="./assets/img/PoG_logo_400.webp" data-url="https://github.com/SteveTANTAN/PoG">
+                        <a class="paper-leaf-node leaf-structure" style="--tree-x: 11%; --tree-y: 57%;" href="https://github.com/SteveTANTAN/PoG" target="_blank" rel="noopener noreferrer" data-branch="structure efficiency" data-title="Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning" data-meta="WWW 2025 · Knowledge Graph Reasoning &amp; Efficient Path Selection" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Wenjie Zhang" data-image="./assets/img/PoG_logo_400.webp" data-url="https://github.com/SteveTANTAN/PoG">
                             <img src="./assets/img/PoG_logo_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">Paths-over-Graph</span><span class="leaf-venue">WWW 2025</span></span>
                         </a>
-                        <a class="paper-leaf-node leaf-structure" style="--tree-x: 13%; --tree-y: 53%;" href="https://arxiv.org/abs/2608.02650" target="_blank" rel="noopener noreferrer" data-branch="memory structure" data-title="HyperAgent: Planning and Acting over Tool-Schema Hypergraphs for Tool-Use LLM Agents" data-meta="Preprint 2026 · Tool-Use Agents &amp; Hypergraphs" data-authors="Zian Zhai, Xingyu Tan, Gaowang Zou, Xiaoyang Wang, Wenjie Zhang" data-image="./assets/img/HyperAgent_logo_white_bg_400.webp" data-url="https://arxiv.org/abs/2608.02650">
+                        <a class="paper-leaf-node leaf-structure" style="--tree-x: 30%; --tree-y: 66%;" href="https://arxiv.org/abs/2608.02650" target="_blank" rel="noopener noreferrer" data-branch="memory structure" data-title="HyperAgent: Planning and Acting over Tool-Schema Hypergraphs for Tool-Use LLM Agents" data-meta="Preprint 2026 · Tool-Use Agents &amp; Hypergraphs" data-authors="Zian Zhai, Xingyu Tan, Gaowang Zou, Xiaoyang Wang, Wenjie Zhang" data-image="./assets/img/HyperAgent_logo_white_bg_400.webp" data-url="https://arxiv.org/abs/2608.02650">
                             <img src="./assets/img/HyperAgent_logo_white_bg_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">HyperAgent</span><span class="leaf-venue">Preprint 2026</span></span>
                         </a>
@@ -1189,19 +1166,19 @@
                             <strong>Memory, Belief Update &amp; Continual Reasoning for Agents</strong>
                         </div>
 
-                        <a class="paper-leaf-node leaf-memory" style="--tree-x: 38%; --tree-y: 20%;" href="https://arxiv.org/abs/2608.05604" target="_blank" rel="noopener noreferrer" data-branch="memory efficiency" data-title="SkillZip: Contract-Preserving Graph Compression for Scalable Agent Skill Libraries" data-meta="Preprint 2026 · Efficient &amp; Scalable Agent Skill Libraries" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/SkillZip_logo_white_bg_400.webp" data-url="https://arxiv.org/abs/2608.05604">
+                        <a class="paper-leaf-node leaf-memory" style="--tree-x: 36%; --tree-y: 18%;" href="https://arxiv.org/abs/2608.05604" target="_blank" rel="noopener noreferrer" data-branch="memory efficiency" data-title="SkillZip: Contract-Preserving Graph Compression for Scalable Agent Skill Libraries" data-meta="Preprint 2026 · Efficient &amp; Scalable Agent Skill Libraries" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/SkillZip_logo_white_bg_400.webp" data-url="https://arxiv.org/abs/2608.05604">
                             <img src="./assets/img/SkillZip_logo_white_bg_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">SkillZip</span><span class="leaf-venue">Preprint 2026</span></span>
                         </a>
-                        <a class="paper-leaf-node leaf-memory" style="--tree-x: 38%; --tree-y: 31%;" href="https://arxiv.org/abs/2608.02650" target="_blank" rel="noopener noreferrer" data-branch="memory structure" data-title="HyperAgent: Planning and Acting over Tool-Schema Hypergraphs for Tool-Use LLM Agents" data-meta="Preprint 2026 · Tool-Use Agents &amp; Hypergraphs" data-authors="Zian Zhai, Xingyu Tan, Gaowang Zou, Xiaoyang Wang, Wenjie Zhang" data-image="./assets/img/HyperAgent_logo_white_bg_400.webp" data-url="https://arxiv.org/abs/2608.02650">
+                        <a class="paper-leaf-node leaf-memory" style="--tree-x: 44%; --tree-y: 26%;" href="https://arxiv.org/abs/2608.02650" target="_blank" rel="noopener noreferrer" data-branch="memory structure" data-title="HyperAgent: Planning and Acting over Tool-Schema Hypergraphs for Tool-Use LLM Agents" data-meta="Preprint 2026 · Tool-Use Agents &amp; Hypergraphs" data-authors="Zian Zhai, Xingyu Tan, Gaowang Zou, Xiaoyang Wang, Wenjie Zhang" data-image="./assets/img/HyperAgent_logo_white_bg_400.webp" data-url="https://arxiv.org/abs/2608.02650">
                             <img src="./assets/img/HyperAgent_logo_white_bg_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">HyperAgent</span><span class="leaf-venue">Preprint 2026</span></span>
                         </a>
-                        <a class="paper-leaf-node leaf-memory" style="--tree-x: 38%; --tree-y: 42%;" href="https://stevetantan.github.io/MemoTime/" target="_blank" rel="noopener noreferrer" data-branch="memory" data-title="MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning" data-meta="WWW 2026 (Oral) · Temporal Memory &amp; Reasoning" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/MemoTime_logo_400.webp" data-url="https://stevetantan.github.io/MemoTime/">
+                        <a class="paper-leaf-node leaf-memory" style="--tree-x: 30%; --tree-y: 37%;" href="https://stevetantan.github.io/MemoTime/" target="_blank" rel="noopener noreferrer" data-branch="memory" data-title="MemoTime: Memory-Augmented Temporal Knowledge Graph Enhanced Large Language Model Reasoning" data-meta="WWW 2026 (Oral) · Temporal Memory &amp; Reasoning" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/MemoTime_logo_400.webp" data-url="https://stevetantan.github.io/MemoTime/">
                             <img src="./assets/img/MemoTime_logo_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">MemoTime</span><span class="leaf-venue">WWW 2026 · Oral</span></span>
                         </a>
-                        <a class="paper-leaf-node leaf-memory" style="--tree-x: 38%; --tree-y: 53%;" href="https://stevetantan.github.io/PrivGemo/" target="_blank" rel="noopener noreferrer" data-branch="systems memory" data-title="PrivGemo: Privacy-Preserving Dual-Tower Graph Retrieval for Empowering LLM Reasoning with Memory Augmentation" data-meta="Preprint 2026 · Privacy-Aware Memory Augmentation" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/privgemo_logo_watermark_400.webp" data-url="https://stevetantan.github.io/PrivGemo/">
+                        <a class="paper-leaf-node leaf-memory" style="--tree-x: 45%; --tree-y: 47%;" href="https://stevetantan.github.io/PrivGemo/" target="_blank" rel="noopener noreferrer" data-branch="systems memory" data-title="PrivGemo: Privacy-Preserving Dual-Tower Graph Retrieval for Empowering LLM Reasoning with Memory Augmentation" data-meta="Preprint 2026 · Privacy-Aware Memory Augmentation" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/privgemo_logo_watermark_400.webp" data-url="https://stevetantan.github.io/PrivGemo/">
                             <img src="./assets/img/privgemo_logo_watermark_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">PrivGemo</span><span class="leaf-venue">Preprint 2026</span></span>
                         </a>
@@ -1213,19 +1190,19 @@
                             <strong>Efficient LLM &amp; Agent Systems</strong>
                         </div>
 
-                        <button type="button" class="paper-leaf-node leaf-efficiency" style="--tree-x: 63%; --tree-y: 20%;" data-branch="efficiency" data-title="KaleidoKV: Rearranging Evidence for Efficient KV Cache Reuse in Offline RAG Inference" data-meta="Preprint 2026 · Efficient Offline RAG Inference" data-authors="Peiting Xie, Xingyu Tan, Xiangjun Zai, Chen Chen, Xiaoyang Wang, Wenjie Zhang" data-image="./assets/img/KaleidoKV_logo_white_bg_400.webp" data-url="" aria-label="Show KaleidoKV details">
+                        <button type="button" class="paper-leaf-node leaf-efficiency" style="--tree-x: 65%; --tree-y: 21%;" data-branch="efficiency" data-title="KaleidoKV: Rearranging Evidence for Efficient KV Cache Reuse in Offline RAG Inference" data-meta="Preprint 2026 · Efficient Offline RAG Inference" data-authors="Peiting Xie, Xingyu Tan, Xiangjun Zai, Chen Chen, Xiaoyang Wang, Wenjie Zhang" data-image="./assets/img/KaleidoKV_logo_white_bg_400.webp" data-url="" aria-label="Show KaleidoKV details">
                             <img src="./assets/img/KaleidoKV_logo_white_bg_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">KaleidoKV</span><span class="leaf-venue">Preprint 2026</span></span>
                         </button>
-                        <a class="paper-leaf-node leaf-efficiency" style="--tree-x: 63%; --tree-y: 31%;" href="https://arxiv.org/abs/2608.05604" target="_blank" rel="noopener noreferrer" data-branch="memory efficiency" data-title="SkillZip: Contract-Preserving Graph Compression for Scalable Agent Skill Libraries" data-meta="Preprint 2026 · Efficient &amp; Scalable Agent Skill Libraries" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/SkillZip_logo_white_bg_400.webp" data-url="https://arxiv.org/abs/2608.05604">
+                        <a class="paper-leaf-node leaf-efficiency" style="--tree-x: 56%; --tree-y: 34%;" href="https://arxiv.org/abs/2608.05604" target="_blank" rel="noopener noreferrer" data-branch="memory efficiency" data-title="SkillZip: Contract-Preserving Graph Compression for Scalable Agent Skill Libraries" data-meta="Preprint 2026 · Efficient &amp; Scalable Agent Skill Libraries" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/SkillZip_logo_white_bg_400.webp" data-url="https://arxiv.org/abs/2608.05604">
                             <img src="./assets/img/SkillZip_logo_white_bg_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">SkillZip</span><span class="leaf-venue">Preprint 2026</span></span>
                         </a>
-                        <a class="paper-leaf-node leaf-efficiency" style="--tree-x: 63%; --tree-y: 42%;" href="https://zaixjun.github.io/DocTrace/" target="_blank" rel="noopener noreferrer" data-branch="systems efficiency" data-title="Trace Only What You Need: Structure-Aware On-Demand Hypergraph Memory for Long-Document Question Answering" data-meta="Preprint 2026 · Efficient Long-Document &amp; On-Demand Memory" data-authors="Xiangjun Zai, Xingyu Tan, Chen Chen, Xiaoyang Wang, Wenjie Zhang" data-corresponding="Xingyu Tan" data-image="./assets/img/DocTrace_compass_logo_400.webp" data-url="https://zaixjun.github.io/DocTrace/">
+                        <a class="paper-leaf-node leaf-efficiency" style="--tree-x: 70%; --tree-y: 42%;" href="https://zaixjun.github.io/DocTrace/" target="_blank" rel="noopener noreferrer" data-branch="systems efficiency" data-title="Trace Only What You Need: Structure-Aware On-Demand Hypergraph Memory for Long-Document Question Answering" data-meta="Preprint 2026 · Efficient Long-Document &amp; On-Demand Memory" data-authors="Xiangjun Zai, Xingyu Tan, Chen Chen, Xiaoyang Wang, Wenjie Zhang" data-corresponding="Xingyu Tan" data-image="./assets/img/DocTrace_compass_logo_400.webp" data-url="https://zaixjun.github.io/DocTrace/">
                             <img src="./assets/img/DocTrace_compass_logo_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">DocTrace</span><span class="leaf-venue">Preprint 2026</span></span>
                         </a>
-                        <a class="paper-leaf-node leaf-efficiency" style="--tree-x: 63%; --tree-y: 53%;" href="https://github.com/SteveTANTAN/PoG" target="_blank" rel="noopener noreferrer" data-branch="structure efficiency" data-title="Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning" data-meta="WWW 2025 · Knowledge Graph Reasoning &amp; Efficient Path Selection" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Wenjie Zhang" data-image="./assets/img/PoG_logo_400.webp" data-url="https://github.com/SteveTANTAN/PoG">
+                        <a class="paper-leaf-node leaf-efficiency" style="--tree-x: 59%; --tree-y: 56%;" href="https://github.com/SteveTANTAN/PoG" target="_blank" rel="noopener noreferrer" data-branch="structure efficiency" data-title="Paths-over-Graph: Knowledge Graph Empowered Large Language Model Reasoning" data-meta="WWW 2025 · Knowledge Graph Reasoning &amp; Efficient Path Selection" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Wenjie Zhang" data-image="./assets/img/PoG_logo_400.webp" data-url="https://github.com/SteveTANTAN/PoG">
                             <img src="./assets/img/PoG_logo_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">Paths-over-Graph</span><span class="leaf-venue">WWW 2025</span></span>
                         </a>
@@ -1237,19 +1214,19 @@
                             <strong>Long-Context, Multi-Source &amp; Privacy-Aware Systems</strong>
                         </div>
 
-                        <a class="paper-leaf-node leaf-systems" style="--tree-x: 88%; --tree-y: 20%;" href="https://www.acsac.org/" target="_blank" rel="noopener noreferrer" data-branch="systems" data-title="BlindStep: A Secure One-Step Kernel for Privacy-Preserving Collaborative Reasoning" data-meta="ACSAC 2026 · Privacy-Preserving Collaborative Reasoning" data-authors="Xiaoxian Liu, Xingyu Tan, Chen Chen, Xiaoyang Wang" data-corresponding="Xingyu Tan" data-image="./assets/img/BlindStep_logo_white_bg_400.webp" data-url="https://www.acsac.org/">
+                        <a class="paper-leaf-node leaf-systems" style="--tree-x: 89%; --tree-y: 37%;" href="https://www.acsac.org/" target="_blank" rel="noopener noreferrer" data-branch="systems" data-title="BlindStep: A Secure One-Step Kernel for Privacy-Preserving Collaborative Reasoning" data-meta="ACSAC 2026 · Privacy-Preserving Collaborative Reasoning" data-authors="Xiaoxian Liu, Xingyu Tan, Chen Chen, Xiaoyang Wang" data-corresponding="Xingyu Tan" data-image="./assets/img/BlindStep_logo_white_bg_400.webp" data-url="https://www.acsac.org/">
                             <img src="./assets/img/BlindStep_logo_white_bg_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">BlindStep</span><span class="leaf-venue">ACSAC 2026</span></span>
                         </a>
-                        <a class="paper-leaf-node leaf-systems" style="--tree-x: 88%; --tree-y: 31%;" href="https://zaixjun.github.io/DocTrace/" target="_blank" rel="noopener noreferrer" data-branch="systems efficiency" data-title="Trace Only What You Need: Structure-Aware On-Demand Hypergraph Memory for Long-Document Question Answering" data-meta="Preprint 2026 · Efficient Long-Document &amp; On-Demand Memory" data-authors="Xiangjun Zai, Xingyu Tan, Chen Chen, Xiaoyang Wang, Wenjie Zhang" data-corresponding="Xingyu Tan" data-image="./assets/img/DocTrace_compass_logo_400.webp" data-url="https://zaixjun.github.io/DocTrace/">
+                        <a class="paper-leaf-node leaf-systems" style="--tree-x: 78%; --tree-y: 50%;" href="https://zaixjun.github.io/DocTrace/" target="_blank" rel="noopener noreferrer" data-branch="systems efficiency" data-title="Trace Only What You Need: Structure-Aware On-Demand Hypergraph Memory for Long-Document Question Answering" data-meta="Preprint 2026 · Efficient Long-Document &amp; On-Demand Memory" data-authors="Xiangjun Zai, Xingyu Tan, Chen Chen, Xiaoyang Wang, Wenjie Zhang" data-corresponding="Xingyu Tan" data-image="./assets/img/DocTrace_compass_logo_400.webp" data-url="https://zaixjun.github.io/DocTrace/">
                             <img src="./assets/img/DocTrace_compass_logo_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">DocTrace</span><span class="leaf-venue">Preprint 2026</span></span>
                         </a>
-                        <a class="paper-leaf-node leaf-systems" style="--tree-x: 88%; --tree-y: 42%;" href="https://stevetantan.github.io/PrivGemo/" target="_blank" rel="noopener noreferrer" data-branch="systems memory" data-title="PrivGemo: Privacy-Preserving Dual-Tower Graph Retrieval for Empowering LLM Reasoning with Memory Augmentation" data-meta="Preprint 2026 · Privacy-Aware Memory Augmentation" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/privgemo_logo_watermark_400.webp" data-url="https://stevetantan.github.io/PrivGemo/">
+                        <a class="paper-leaf-node leaf-systems" style="--tree-x: 89%; --tree-y: 61%;" href="https://stevetantan.github.io/PrivGemo/" target="_blank" rel="noopener noreferrer" data-branch="systems memory" data-title="PrivGemo: Privacy-Preserving Dual-Tower Graph Retrieval for Empowering LLM Reasoning with Memory Augmentation" data-meta="Preprint 2026 · Privacy-Aware Memory Augmentation" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/privgemo_logo_watermark_400.webp" data-url="https://stevetantan.github.io/PrivGemo/">
                             <img src="./assets/img/privgemo_logo_watermark_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">PrivGemo</span><span class="leaf-venue">Preprint 2026</span></span>
                         </a>
-                        <a class="paper-leaf-node leaf-systems" style="--tree-x: 88%; --tree-y: 53%;" href="https://stevetantan.github.io/Hydra/" target="_blank" rel="noopener noreferrer" data-branch="systems" data-title="HydraRAG: Structured Cross-Source Enhanced Large Language Model Reasoning" data-meta="EMNLP 2025 · Structured Cross-Source Reasoning" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/hydra-logo-purple-1024_400.webp" data-url="https://stevetantan.github.io/Hydra/">
+                        <a class="paper-leaf-node leaf-systems" style="--tree-x: 74%; --tree-y: 70%;" href="https://stevetantan.github.io/Hydra/" target="_blank" rel="noopener noreferrer" data-branch="systems" data-title="HydraRAG: Structured Cross-Source Enhanced Large Language Model Reasoning" data-meta="EMNLP 2025 · Structured Cross-Source Reasoning" data-authors="Xingyu Tan, Xiaoyang Wang, Qing Liu, Xiwei Xu, Xin Yuan, Liming Zhu, Wenjie Zhang" data-image="./assets/img/hydra-logo-purple-1024_400.webp" data-url="https://stevetantan.github.io/Hydra/">
                             <img src="./assets/img/hydra-logo-purple-1024_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">HydraRAG</span><span class="leaf-venue">EMNLP 2025</span></span>
                         </a>
@@ -1261,11 +1238,11 @@
                             <strong>Graph Representation &amp; Data Mining Foundations</strong>
                         </div>
 
-                        <a class="paper-leaf-node leaf-foundation" style="--tree-x: 37%; --tree-y: 80%;" href="https://arxiv.org/abs/2508.06588" target="_blank" rel="noopener noreferrer" data-branch="foundation" data-title="Graph is a Natural Regularization: Revisiting Vector Quantization for Graph Representation Learning" data-meta="ICML 2026 · Graph Representation Learning" data-authors="Zian Zhai, Fan Li, Xingyu Tan, Xiaoyang Wang, Wenjie Zhang" data-image="./assets/img/RGVQ_logo_white_bg_400.webp" data-url="https://arxiv.org/abs/2508.06588">
+                        <a class="paper-leaf-node leaf-foundation" style="--tree-x: 35%; --tree-y: 85%;" href="https://arxiv.org/abs/2508.06588" target="_blank" rel="noopener noreferrer" data-branch="foundation" data-title="Graph is a Natural Regularization: Revisiting Vector Quantization for Graph Representation Learning" data-meta="ICML 2026 · Graph Representation Learning" data-authors="Zian Zhai, Fan Li, Xingyu Tan, Xiaoyang Wang, Wenjie Zhang" data-image="./assets/img/RGVQ_logo_white_bg_400.webp" data-url="https://arxiv.org/abs/2508.06588">
                             <img src="./assets/img/RGVQ_logo_white_bg_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">RGVQ</span><span class="leaf-venue">ICML 2026</span></span>
                         </a>
-                        <a class="paper-leaf-node leaf-foundation" style="--tree-x: 64%; --tree-y: 83%;" href="https://dl.acm.org/doi/10.1145/3583780.3615209" target="_blank" rel="noopener noreferrer" data-branch="foundation" data-title="Higher-Order Peak Decomposition" data-meta="CIKM 2023 · Higher-Order Graph Mining" data-authors="Xingyu Tan, Jingya Qian, Chen Chen, Sima Qing, Yanping Wu, Xiaoyang Wang, Wenjie Zhang" data-image="./assets/img/KHPeak_logo_white_bg_400.webp" data-url="https://dl.acm.org/doi/10.1145/3583780.3615209">
+                        <a class="paper-leaf-node leaf-foundation" style="--tree-x: 67%; --tree-y: 88%;" href="https://dl.acm.org/doi/10.1145/3583780.3615209" target="_blank" rel="noopener noreferrer" data-branch="foundation" data-title="Higher-Order Peak Decomposition" data-meta="CIKM 2023 · Higher-Order Graph Mining" data-authors="Xingyu Tan, Jingya Qian, Chen Chen, Sima Qing, Yanping Wu, Xiaoyang Wang, Wenjie Zhang" data-image="./assets/img/KHPeak_logo_white_bg_400.webp" data-url="https://dl.acm.org/doi/10.1145/3583780.3615209">
                             <img src="./assets/img/KHPeak_logo_white_bg_400.webp" alt="" loading="lazy">
                             <span><span class="leaf-name">Higher-Order Peak</span><span class="leaf-venue">CIKM 2023</span></span>
                         </a>
