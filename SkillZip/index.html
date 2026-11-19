@@ -476,12 +476,20 @@
           </div>
           <figure class="framework">
             <div class="figure-header">
-              <span>THE COMPLETE FRAMEWORK</span
-              ><button type="button" id="expand-figure">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 4H4v5M15 4h5v5M4 15v5h5M20 15v5h-5" /></svg
-                >Enlarge
-              </button>
+              <span>THE COMPLETE FRAMEWORK</span>
+              <div class="figure-actions">
+                <a
+                  href="./assets/framework.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Original PDF</a
+                >
+                <button type="button" id="expand-figure">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 4H4v5M15 4h5v5M4 15v5h5M20 15v5h-5" /></svg
+                  >Enlarge
+                </button>
+              </div>
             </div>
             <button
               class="figure-button"
@@ -489,10 +497,10 @@
               aria-label="Enlarge SkillZip framework diagram"
             >
               <img
-                src="../assets/img/SkillZip.webp"
+                src="./assets/framework.svg"
                 alt="SkillZip framework: Sec2Graph builds procedural subgraphs; MotifZip validates contracts and compresses motifs; PathHydrate constructs budgeted executable context; ReZip maintains the library using new skills and execution traces."
-                width="1400"
-                height="625"
+                width="5526"
+                height="2434"
                 loading="lazy"
               />
             </button>
@@ -669,24 +677,49 @@
     </footer>
     <dialog id="figure-dialog" aria-label="SkillZip framework, enlarged">
       <div class="dialog-header">
-        <strong>SkillZip framework</strong
-        ><button
-          type="button"
-          id="close-figure"
-          aria-label="Close enlarged framework"
-        >
-          Close <span aria-hidden="true">×</span>
-        </button>
+        <strong>SkillZip framework</strong>
+        <div class="dialog-actions">
+          <a
+            href="./assets/framework.svg"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Open SVG</a
+          >
+          <a
+            href="./assets/framework.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Original PDF</a
+          >
+          <button type="button" id="zoom-framework" aria-pressed="false">
+            Zoom 2×
+          </button>
+          <button
+            type="button"
+            id="close-figure"
+            aria-label="Close enlarged framework"
+          >
+            Close <span aria-hidden="true">×</span>
+          </button>
+        </div>
       </div>
-      <div class="dialog-image">
+      <div
+        class="dialog-image"
+        tabindex="0"
+        role="region"
+        aria-label="Scrollable framework diagram"
+      >
         <img
-          src="../assets/img/SkillZip.webp"
+          src="./assets/framework.svg"
           alt="Full SkillZip framework showing Sec2Graph, MotifZip, PathHydrate, and ReZip."
-          width="1400"
-          height="625"
+          width="5526"
+          height="2434"
         />
       </div>
-      <p>On smaller screens, scroll horizontally to inspect the diagram.</p>
+      <p>
+        Vector artwork · Use Zoom 2× for details, then scroll to explore. Open
+        the original PDF for further magnification.
+      </p>
     </dialog>
   </body>
 </html>

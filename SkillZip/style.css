@@ -1795,3 +1795,53 @@ dialog p {
     margin-top: 4px;
   }
 }
+
+/* Preserve native vector detail in both the page and the zoomable viewer. */
+.figure-actions,
+.dialog-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.figure-actions a,
+.dialog-actions a {
+  font-size: 0.875rem;
+  color: #537585;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.dialog-header {
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.dialog-image {
+  max-height: 65vh;
+  overscroll-behavior: contain;
+}
+.dialog-image img {
+  max-width: none;
+}
+.dialog-image.is-zoomed img {
+  width: 200%;
+  min-width: 1800px;
+}
+@media (max-width: 600px) {
+  .figure-header {
+    align-items: flex-start;
+  }
+  .figure-actions {
+    gap: 10px;
+  }
+  .figure-actions a {
+    font-size: 0.8rem;
+  }
+  .dialog-actions {
+    justify-content: flex-start;
+    gap: 10px 14px;
+  }
+  .dialog-image {
+    max-height: 60vh;
+  }
+}

@@ -192,6 +192,19 @@ document.getElementById("backbone").addEventListener("change", updateResults);
 updateResults();
 
 const dialog = document.getElementById("figure-dialog");
+const zoomFramework = document.getElementById("zoom-framework");
+const diagramViewport = dialog.querySelector(".dialog-image");
+function setFrameworkZoom(zoomed) {
+  diagramViewport.classList.toggle("is-zoomed", zoomed);
+  zoomFramework.setAttribute("aria-pressed", String(zoomed));
+  zoomFramework.textContent = zoomed ? "Fit to view" : "Zoom 2×";
+  diagramViewport.scrollLeft = 0;
+  diagramViewport.scrollTop = 0;
+}
+zoomFramework.addEventListener("click", () => {
+  setFrameworkZoom(zoomFramework.getAttribute("aria-pressed") !== "true");
+});
+dialog.addEventListener("close", () => setFrameworkZoom(false));
 document
   .querySelectorAll("#expand-figure, .figure-button")
   .forEach((button) =>
