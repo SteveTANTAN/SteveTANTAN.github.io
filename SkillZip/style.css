@@ -1664,3 +1664,159 @@ dialog p {
     font-size: 0.8rem;
   }
 }
+
+/* Equal halves: benchmark evidence and a tactile stack of illustrated tasks. */
+.results-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 28px;
+}
+.results-layout > * {
+  min-width: 0;
+}
+.results-layout .chart-toolbar {
+  flex-wrap: wrap;
+}
+.task-showcase {
+  padding: 16px 8px;
+}
+.task-showcase-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 0 12px;
+}
+.task-showcase-heading .eyebrow {
+  font-size: 0.75rem;
+}
+.task-stack-hint {
+  font-size: 0.75rem;
+  color: #7a8995;
+}
+.task-stack {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 0.98;
+  margin: 24px 0 10px;
+}
+.task-example {
+  position: absolute;
+  display: block;
+  width: 88%;
+  padding: 6px;
+  border: 1px solid #d9d7cb;
+  border-radius: 14px;
+  background: #fffdf6;
+  box-shadow: 0 12px 26px #253e4b1f;
+  line-height: 0;
+  cursor: pointer;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+.task-example:first-child {
+  top: 0;
+  left: 2%;
+  transform: rotate(-4deg);
+}
+.task-example:nth-child(2) {
+  top: 21%;
+  right: 2%;
+  transform: rotate(4deg);
+}
+.task-example:last-child {
+  bottom: 0;
+  left: 6%;
+  transform: rotate(-2deg);
+}
+.task-example.is-front {
+  z-index: 4;
+  box-shadow: 0 18px 30px #253e4b29;
+}
+.task-example:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 5px;
+}
+.task-example img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.task-showcase-note {
+  padding: 14px 12px 0;
+  font-size: 0.72rem;
+  color: #788793;
+}
+.task-showcase-note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--teal-dark);
+}
+@media (max-width: 900px) {
+  .results-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .task-showcase {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 600px) {
+  .task-showcase {
+    padding: 10px 0;
+  }
+  .task-stack {
+    margin-top: 24px;
+  }
+  .task-example {
+    width: 91%;
+    padding: 4px;
+    border-radius: 10px;
+  }
+  .task-example:first-child {
+    transform: rotate(-3deg);
+  }
+  .task-example:last-child {
+    transform: rotate(3deg);
+  }
+  .task-example img {
+    border-radius: 6px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .task-example {
+    transition: none;
+  }
+}
+
+.task-picker {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 18px;
+}
+.task-picker button {
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 50%;
+  border: 1px solid #dce5e8;
+  background: #fff;
+  color: #758694;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.task-picker button[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+.task-picker button:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
+}

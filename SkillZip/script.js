@@ -159,7 +159,100 @@ methodNames.forEach((name, index) => {
   row.querySelector(".bar-label").textContent = name;
   chart.append(row);
 });
+// Conceptual examples of published task types, not recorded benchmark runs.
+const taskExamples = {
+  alfworld: {
+    title: "ALFWorld · everyday actions",
+    source: "https://alfworld.github.io/",
+    examples: [
+      {
+        image: "alfworld-task-comic",
+        query: "Put a clean apple in the fridge.",
+        description:
+          "A comic shows picking up an apple, washing it, and placing it in a fridge.",
+      },
+      {
+        image: "alfworld-lamp-comic",
+        query: "Examine an alarm clock with a lamp.",
+        description:
+          "A comic shows picking up a clock, carrying it to a lamp, and examining it in the light.",
+      },
+      {
+        image: "alfworld-two-apples-comic",
+        query: "Put two apples on the table.",
+        description:
+          "A comic shows finding two apples and placing them together on a dining table.",
+      },
+    ],
+  },
+  skillsbench: {
+    title: "SkillsBench · digital workflows",
+    source: "https://www.skillsbench.ai/skills",
+    examples: [
+      {
+        image: "skillsbench-task-comic",
+        query: "Create a sales summary workbook.",
+        description:
+          "A comic shows sales data sheets becoming a spreadsheet and a summary report.",
+      },
+      {
+        image: "skillsbench-slides-comic",
+        query: "Add an Excel table to a presentation.",
+        description:
+          "A comic shows spreadsheet data arranged into a presentation slide.",
+      },
+      {
+        image: "skillsbench-paper-comic",
+        query: "Remove author details from a paper.",
+        description:
+          "A comic shows editing out author information while preserving the research content.",
+      },
+    ],
+  },
+};
+const taskCards = [...document.querySelectorAll(".task-example")];
+const taskPickers = [...document.querySelectorAll("[data-task-index]")];
+function selectTask(index) {
+  taskCards.forEach((card, i) => {
+    card.classList.toggle("is-front", i === index);
+    card.setAttribute("aria-pressed", String(i === index));
+    taskPickers[i].setAttribute("aria-pressed", String(i === index));
+  });
+}
+let displayedBenchmark;
+function showTaskExamples() {
+  if (displayedBenchmark === benchmark) return;
+  displayedBenchmark = benchmark;
+  const data = taskExamples[benchmark];
+  const name = benchmark === "alfworld" ? "ALFWorld" : "SkillsBench";
+  document.getElementById("task-showcase-title").textContent = data.title;
+  document
+    .getElementById("task-stack")
+    .setAttribute("aria-label", `${name} illustrative task examples`);
+  const source = document.getElementById("task-source");
+  source.href = data.source;
+  source.textContent = `About ${name} ↗`;
+  taskCards.forEach((card, i) => {
+    const example = data.examples[i];
+    const img = card.querySelector("img");
+    img.src = `./assets/${example.image}.webp`;
+    img.alt = `Query: ${example.query} ${example.description}`;
+    card.setAttribute("aria-label", `Show task: ${example.query}`);
+    taskPickers[i].setAttribute(
+      "aria-label",
+      `View example ${i + 1}: ${example.query}`,
+    );
+  });
+  selectTask(taskCards.length - 1);
+}
+taskCards.forEach((card, i) =>
+  card.addEventListener("click", () => selectTask(i)),
+);
+taskPickers.forEach((button, i) =>
+  button.addEventListener("click", () => selectTask(i)),
+);
 function updateResults() {
+  showTaskExamples();
   const backbone = document.getElementById("backbone");
   const values = scores[backbone.value][benchmark];
   const benchmarkName = benchmark === "alfworld" ? "ALFWorld" : "SkillsBench";
