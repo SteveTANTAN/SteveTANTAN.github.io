@@ -53,7 +53,7 @@
         >
         <div class="nav-links">
           <a href="#overview">Overview</a><a href="#method">Method</a
-          ><a href="#results">Highlights</a><a href="#citation">Citation</a>
+          ><a href="#results">Results</a><a href="#citation">Citation</a>
         </div>
         <a
           class="nav-paper"
@@ -491,9 +491,72 @@
           </figure>
         </div>
       </section>
+      <section class="results section wrap" id="results">
+        <div class="section-heading heading-row">
+          <div>
+            <span class="eyebrow">EXPERIMENTAL RESULTS</span>
+            <h2>Compact context.<br />Stronger execution.</h2>
+          </div>
+          <p>
+            Evaluated on technical tasks and embodied agents,<br />with
+            consistent gains across comparable settings.
+          </p>
+        </div>
+        <div class="results-layout">
+          <div class="benchmark-card">
+            <div class="chart-toolbar">
+              <div class="segmented" role="group" aria-label="Benchmark">
+                <button
+                  type="button"
+                  data-benchmark="skillsbench"
+                  aria-pressed="false"
+                >
+                  SkillsBench</button
+                ><button
+                  type="button"
+                  data-benchmark="alfworld"
+                  aria-pressed="true"
+                >
+                  ALFWorld
+                </button>
+              </div>
+              <label class="model-select"
+                ><span class="sr-only">Model backbone</span
+                ><select id="backbone" aria-label="Model backbone">
+                  <option value="minimax">MiniMax-M2.7</option>
+                  <option value="codex">gpt-5.2-codex</option></select
+                ><svg viewBox="0 0 16 16" aria-hidden="true">
+                  <path d="m4 6 4 4 4-4" /></svg
+              ></label>
+            </div>
+            <div class="chart-heading">
+              <h3 id="chart-title">Episode success rate</h3>
+              <span>Higher is better · %</span>
+            </div>
+            <div
+              id="result-chart"
+              class="bar-chart"
+              role="img"
+              aria-label="ALFWorld episode success rate, MiniMax-M2.7: Vanilla Skills 47.1, Vector Skills 50.7, GoS 54.3, SkillDAG 67.1, SkillZip 79.3"
+            ></div>
+            <p class="chart-summary" id="chart-summary" aria-live="polite">
+              <strong>+12.2 points</strong> over SkillDAG on ALFWorld.
+            </p>
+            <p class="source-note">
+              Reported main results ·
+              <a
+                href="https://arxiv.org/html/2608.05604v1#S5"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Paper, §5.1</a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
       <section
         class="highlights section wrap"
-        id="results"
+        id="highlights"
         aria-labelledby="highlights-title"
       >
         <div class="section-heading heading-row">
@@ -510,41 +573,6 @@
         </div>
         <div class="feature-grid">
           <article class="feature-card">
-            <div class="feature-art" aria-hidden="true">
-              <svg viewBox="0 0 320 140" fill="none">
-                <path
-                  class="art-edge"
-                  d="M53 70H115M143 70H203M231 70H275M129 56V30H217V56M129 84V111H217V84"
-                />
-                <rect
-                  class="art-node"
-                  x="32"
-                  y="49"
-                  width="42"
-                  height="42"
-                  rx="12"
-                />
-                <rect
-                  class="art-accent"
-                  x="108"
-                  y="49"
-                  width="42"
-                  height="42"
-                  rx="12"
-                />
-                <rect
-                  class="art-node"
-                  x="196"
-                  y="49"
-                  width="42"
-                  height="42"
-                  rx="12"
-                />
-                <circle class="art-node" cx="275" cy="70" r="13" />
-                <circle class="art-port" cx="129" cy="30" r="5" />
-                <circle class="art-port" cx="217" cy="111" r="5" />
-              </svg>
-            </div>
             <span class="feature-label">CONNECTED PROCEDURES</span>
             <h3>Dependency preservation</h3>
             <p>
@@ -556,27 +584,6 @@
             </div>
           </article>
           <article class="feature-card">
-            <div class="feature-art" aria-hidden="true">
-              <svg viewBox="0 0 320 140" fill="none">
-                <path
-                  class="art-edge"
-                  d="M43 70H109L159 35H209M109 70L159 105H209M209 35L251 70M209 105L251 70"
-                />
-                <circle class="art-node" cx="43" cy="70" r="14" />
-                <circle class="art-node" cx="109" cy="70" r="12" />
-                <circle class="art-node" cx="159" cy="35" r="10" />
-                <circle class="art-node" cx="159" cy="105" r="10" />
-                <rect
-                  class="art-accent"
-                  x="237"
-                  y="47"
-                  width="46"
-                  height="46"
-                  rx="14"
-                />
-                <path class="art-check" d="m249 70 8 8 15-17" />
-              </svg>
-            </div>
             <span class="feature-label">VERIFIABLE EXECUTION</span>
             <h3>Verifier reachability</h3>
             <p>
@@ -586,35 +593,6 @@
             <div class="feature-takeaway">Keep verification within reach.</div>
           </article>
           <article class="feature-card">
-            <div class="feature-art" aria-hidden="true">
-              <svg viewBox="0 0 320 140" fill="none">
-                <path
-                  class="art-edge"
-                  d="M53 35H104M53 70H104M53 105H104M115 35C160 35 147 62 192 62M115 70H192M115 105C160 105 147 78 192 78M247 70H281"
-                />
-                <g class="art-node">
-                  <rect x="39" y="22" width="27" height="27" rx="7" />
-                  <rect x="91" y="22" width="27" height="27" rx="7" />
-                  <rect x="39" y="57" width="27" height="27" rx="7" />
-                  <rect x="91" y="57" width="27" height="27" rx="7" />
-                  <rect x="39" y="92" width="27" height="27" rx="7" />
-                  <rect x="91" y="92" width="27" height="27" rx="7" />
-                </g>
-                <rect
-                  class="art-accent"
-                  x="192"
-                  y="42"
-                  width="56"
-                  height="56"
-                  rx="15"
-                />
-                <path
-                  class="art-check"
-                  d="m220 54 13 8v16l-13 8-13-8V62zM207 62l13 8 13-8M220 70v16"
-                />
-                <circle class="art-port" cx="281" cy="70" r="5" />
-              </svg>
-            </div>
             <span class="feature-label">COMPACT CONTEXT</span>
             <h3>Efficient compression</h3>
             <p>
@@ -626,42 +604,6 @@
             </div>
           </article>
           <article class="feature-card">
-            <div class="feature-art" aria-hidden="true">
-              <svg viewBox="0 0 320 140" fill="none">
-                <path
-                  class="art-edge"
-                  d="M160 70 90 35M160 70 90 105M160 70 230 35M160 70 230 105M90 35 48 25M90 35 48 60M90 105 48 90M90 105 48 120M230 35 272 25M230 35 272 60M230 105 272 90M230 105 272 120"
-                />
-                <g class="art-node">
-                  <circle cx="90" cy="35" r="13" />
-                  <circle cx="90" cy="105" r="13" />
-                  <circle cx="230" cy="35" r="13" />
-                  <circle cx="230" cy="105" r="13" />
-                </g>
-                <g class="art-port">
-                  <circle cx="48" cy="25" r="6" />
-                  <circle cx="48" cy="60" r="6" />
-                  <circle cx="48" cy="90" r="6" />
-                  <circle cx="48" cy="120" r="6" />
-                  <circle cx="272" cy="25" r="6" />
-                  <circle cx="272" cy="60" r="6" />
-                  <circle cx="272" cy="90" r="6" />
-                  <circle cx="272" cy="120" r="6" />
-                </g>
-                <rect
-                  class="art-accent"
-                  x="137"
-                  y="47"
-                  width="46"
-                  height="46"
-                  rx="14"
-                />
-                <path
-                  class="art-check"
-                  d="M150 60h20v20h-20zM155 65h10v10h-10z"
-                />
-              </svg>
-            </div>
             <span class="feature-label">GROWING SKILL LIBRARIES</span>
             <h3>100K-scale skill libraries</h3>
             <p>

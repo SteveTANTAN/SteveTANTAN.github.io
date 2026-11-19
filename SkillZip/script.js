@@ -131,6 +131,66 @@ Object.values(methods).forEach(({ image }) => {
   preload.src = image;
 });
 
+// Paper Table 1. Scores are task reward (%) or episode success rate (%).
+const scores = {
+  minimax: {
+    skillsbench: [17.2, 10.4, 18.7, 27.3, 33.3],
+    alfworld: [47.1, 50.7, 54.3, 67.1, 79.3],
+  },
+  codex: {
+    skillsbench: [27.4, 21.5, 34.4, 36.8, 43.0],
+    alfworld: [89.3, 92.9, 93.6, 93.6, 96.4],
+  },
+};
+const methodNames = [
+  "Vanilla Skills",
+  "Vector Skills",
+  "GoS",
+  "SkillDAG",
+  "SkillZip",
+];
+const chart = document.getElementById("result-chart");
+let benchmark = "alfworld";
+methodNames.forEach((name, index) => {
+  const row = document.createElement("div");
+  row.className = `bar-row${index === 4 ? " ours" : ""}`;
+  row.innerHTML =
+    '<span class="bar-label"></span><div class="bar-track"><div class="bar-fill"></div></div><span class="bar-value"></span>';
+  row.querySelector(".bar-label").textContent = name;
+  chart.append(row);
+});
+function updateResults() {
+  const backbone = document.getElementById("backbone");
+  const values = scores[backbone.value][benchmark];
+  const benchmarkName = benchmark === "alfworld" ? "ALFWorld" : "SkillsBench";
+  const metric =
+    benchmark === "alfworld" ? "Episode success rate" : "Task reward";
+  document.getElementById("chart-title").textContent = metric;
+  chart.querySelectorAll(".bar-row").forEach((row, index) => {
+    row.querySelector(".bar-fill").style.width = `${values[index]}%`;
+    row.querySelector(".bar-value").textContent = values[index].toFixed(1);
+  });
+  chart.setAttribute(
+    "aria-label",
+    `${benchmarkName} ${metric.toLowerCase()}, ${backbone.selectedOptions[0].textContent}: ${methodNames.map((name, index) => `${name} ${values[index].toFixed(1)}%`).join(", ")}.`,
+  );
+  document.getElementById("chart-summary").innerHTML =
+    `<strong>+${(values[4] - values[3]).toFixed(1)} points</strong> over SkillDAG on ${benchmarkName}.`;
+}
+document.querySelectorAll("[data-benchmark]").forEach((button) => {
+  button.addEventListener("click", () => {
+    benchmark = button.dataset.benchmark;
+    document
+      .querySelectorAll("[data-benchmark]")
+      .forEach((item) =>
+        item.setAttribute("aria-pressed", String(item === button)),
+      );
+    updateResults();
+  });
+});
+document.getElementById("backbone").addEventListener("change", updateResults);
+updateResults();
+
 const dialog = document.getElementById("figure-dialog");
 const zoomFramework = document.getElementById("zoom-framework");
 const diagramViewport = dialog.querySelector(".dialog-image");
