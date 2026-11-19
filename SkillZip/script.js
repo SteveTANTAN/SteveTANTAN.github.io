@@ -167,45 +167,51 @@ const taskExamples = {
     examples: [
       {
         image: "alfworld-task-comic",
+        category: "Clean",
         query: "Put a clean apple in the fridge.",
         description:
           "A comic shows picking up an apple, washing it, and placing it in a fridge.",
       },
       {
         image: "alfworld-lamp-comic",
+        category: "Examine",
         query: "Examine an alarm clock with a lamp.",
         description:
           "A comic shows picking up a clock, carrying it to a lamp, and examining it in the light.",
       },
       {
-        image: "alfworld-two-apples-comic",
-        query: "Put two apples on the table.",
+        image: "alfworld-heat-comic",
+        category: "Heat",
+        query: "Heat a potato and put it on the table.",
         description:
-          "A comic shows finding two apples and placing them together on a dining table.",
+          "A comic shows heating a potato in a microwave and placing the hot potato on the table.",
       },
     ],
   },
   skillsbench: {
-    title: "SkillsBench · digital workflows",
+    title: "SkillsBench · diverse domains",
     source: "https://www.skillsbench.ai/skills",
     examples: [
       {
         image: "skillsbench-task-comic",
+        category: "Data",
         query: "Create a sales summary workbook.",
         description:
           "A comic shows sales data sheets becoming a spreadsheet and a summary report.",
       },
       {
-        image: "skillsbench-slides-comic",
-        query: "Add an Excel table to a presentation.",
+        image: "skillsbench-code-comic",
+        category: "Code",
+        query: "Fix a failing software build.",
         description:
-          "A comic shows spreadsheet data arranged into a presentation slide.",
+          "A comic shows diagnosing a broken code dependency, repairing it, and passing the software build.",
       },
       {
-        image: "skillsbench-paper-comic",
-        query: "Remove author details from a paper.",
+        image: "skillsbench-space-comic",
+        category: "Science",
+        query: "Find an exoplanet’s orbital period.",
         description:
-          "A comic shows editing out author information while preserving the research content.",
+          "A comic shows telescope observations, periodic dips in a stellar light curve, and the inferred planetary orbit.",
       },
     ],
   },
@@ -238,6 +244,7 @@ function showTaskExamples() {
     img.src = `./assets/${example.image}.webp`;
     img.alt = `Query: ${example.query} ${example.description}`;
     card.setAttribute("aria-label", `Show task: ${example.query}`);
+    taskPickers[i].textContent = example.category;
     taskPickers[i].setAttribute(
       "aria-label",
       `View example ${i + 1}: ${example.query}`,
