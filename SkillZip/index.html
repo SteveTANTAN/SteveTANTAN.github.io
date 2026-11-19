@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#102c45" />
+    <meta
+      name="description"
+      content="SkillZip: Contract-Preserving Graph Compression for Scalable Agent Skill Libraries. A KDD 2027 research project on compact, executable procedural memory for AI agents."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="SkillZip — Smaller context. Executable skills."
+    />
+    <meta
+      property="og:description"
+      content="Contract-preserving graph compression for scalable agent skill libraries. KDD 2027 · UNSW & CSIRO."
+    />
+    <meta property="og:url" content="https://stevetantan.github.io/SkillZip/" />
+    <meta
+      property="og:image"
+      content="https://stevetantan.github.io/assets/img/SkillZip_logo_white_bg.png"
+    />
+    <meta name="twitter:card" content="summary" />
+    <link rel="canonical" href="https://stevetantan.github.io/SkillZip/" />
+    <link
+      rel="icon"
+      href="../assets/img/SkillZip_logo_white_bg_400.webp"
+      type="image/webp"
+    />
+    <title>SkillZip | Contract-Preserving Agent Skill Compression</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;650;700;750;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#overview">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav wrap" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="SkillZip home"
+          ><img
+            src="../assets/img/SkillZip_logo_white_bg_400.webp"
+            alt=""
+            width="42"
+            height="42"
+          /><span>Skill<span class="brand-accent">Zip</span></span></a
+        >
+        <div class="nav-links">
+          <a href="#overview">Overview</a><a href="#method">Method</a
+          ><a href="#results">Results</a><a href="#citation">Citation</a>
+        </div>
+        <a
+          class="nav-paper"
+          href="https://arxiv.org/abs/2608.05604"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Read paper
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M5 2.5h7l3 3v12H5zM12 2.5v4h3M8 10h4M8 13h4" /></svg
+        ></a>
+      </nav>
+    </header>
+    <main id="top">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="venue">KDD 2027</span><span>Research Track</span>
+          </div>
+          <h1 id="hero-title">
+            Skill<span>Zip</span><span class="title-period">.</span>
+          </h1>
+          <h2 class="paper-title">
+            Contract-Preserving Graph Compression for Scalable Agent Skill
+            Libraries
+          </h2>
+          <p class="hero-description">
+            Smaller context.<br /><strong>Executable skills.</strong>
+          </p>
+          <p class="hero-explainer">
+            Turn recurring procedures into reusable macros.<br
+              class="desktop-break"
+            />
+            Keep the contracts that make them work.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="button primary"
+              href="https://arxiv.org/pdf/2608.05604"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6" /></svg
+              >Read the paper</a
+            ><a class="button secondary" href="#method">Explore the method</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="visual-topline">
+            <span class="mono">PROCEDURAL MEMORY</span
+            ><span class="visual-badge">Contract-aware</span>
+          </div>
+          <div class="graph-stage" data-state="compressed">
+            <svg
+              id="skill-graph"
+              viewBox="0 0 540 385"
+              role="img"
+              aria-labelledby="graph-title graph-description"
+            >
+              <title id="graph-title">
+                Shared procedures, compressed into reusable macros
+              </title>
+              <desc id="graph-description">
+                Illustrative graph: three skill packages share a tabular
+                ingestion routine. SkillZip replaces compatible occurrences with
+                reversible macros while keeping each skill's output and verifier
+                connected.
+              </desc>
+              <defs>
+                <pattern
+                  id="dots"
+                  width="22"
+                  height="22"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <circle cx="1" cy="1" r="1" fill="#c8d4df" opacity=".65" />
+                </pattern>
+                <linearGradient id="macro-fill" x1="0" x2="1" y1="0" y2="1">
+                  <stop stop-color="#163d57" />
+                  <stop offset="1" stop-color="#102b45" />
+                </linearGradient>
+                <filter
+                  id="node-shadow"
+                  x="-40%"
+                  y="-40%"
+                  width="180%"
+                  height="180%"
+                >
+                  <feDropShadow
+                    dx="0"
+                    dy="8"
+                    stdDeviation="10"
+                    flood-color="#153a53"
+                    flood-opacity=".09"
+                  />
+                </filter>
+              </defs>
+              <rect width="540" height="385" fill="url(#dots)" />
+              <g class="graph-labels">
+                <text x="32" y="35">SKILL PACKAGES</text>
+                <text x="386" y="35">VERIFIED OUTPUTS</text>
+              </g>
+              <g class="graph-wires" fill="none" stroke-width="1.7">
+                <path
+                  d="M115 104C180 104 155 177 219 177M115 194H219M115 284C175 284 160 211 219 211"
+                />
+                <path
+                  d="M321 177C380 177 356 104 416 104M321 194H416M321 211C380 211 356 284 416 284"
+                />
+              </g>
+              <g class="compressed-content">
+                <rect
+                  class="macro-orbit"
+                  x="184"
+                  y="110"
+                  width="172"
+                  height="168"
+                  rx="31"
+                  fill="none"
+                  stroke="#78b5b5"
+                  stroke-dasharray="4 6"
+                  opacity=".6"
+                />
+                <g filter="url(#node-shadow)">
+                  <rect
+                    x="209"
+                    y="135"
+                    width="122"
+                    height="119"
+                    rx="23"
+                    fill="url(#macro-fill)"
+                  />
+                  <path
+                    d="m270 153 14 8v16l-14 8-14-8v-16zM256 161l14 8 14-8M270 169v16"
+                    fill="none"
+                    stroke="#8ee0cf"
+                    stroke-width="1.6"
+                  />
+                  <text class="macro-name" x="270" y="211" text-anchor="middle">
+                    Tabular ingest
+                  </text>
+                  <text
+                    class="macro-detail"
+                    x="270"
+                    y="233"
+                    text-anchor="middle"
+                  >
+                    REUSABLE MACRO
+                  </text>
+                </g>
+                <g fill="#fff" stroke="#5b9d9f" stroke-width="2">
+                  <circle cx="209" cy="177" r="4" />
+                  <circle cx="209" cy="194" r="4" />
+                  <circle cx="209" cy="211" r="4" />
+                  <circle cx="331" cy="177" r="4" />
+                  <circle cx="331" cy="194" r="4" />
+                  <circle cx="331" cy="211" r="4" />
+                </g>
+                <text class="port-label" x="270" y="303" text-anchor="middle">
+                  Typed ports · reversible expansion
+                </text>
+              </g>
+              <g class="raw-content" aria-hidden="true">
+                <g class="raw-edges" stroke="#86a5b8" fill="none">
+                  <path d="M115 104H416M115 194H416M115 284H416" />
+                </g>
+                <g id="raw-nodes"></g>
+              </g>
+              <g class="skill-node">
+                <rect x="28" y="79" width="100" height="50" rx="12" />
+                <text x="78" y="109" text-anchor="middle">Clean CSV</text>
+              </g>
+              <g class="skill-node teal">
+                <rect x="28" y="169" width="100" height="50" rx="12" />
+                <text x="78" y="199" text-anchor="middle">Pivot table</text>
+              </g>
+              <g class="skill-node purple">
+                <rect x="28" y="259" width="100" height="50" rx="12" />
+                <text x="78" y="289" text-anchor="middle">Plot data</text>
+              </g>
+              <g class="output-node">
+                <rect x="412" y="79" width="100" height="50" rx="12" />
+                <text x="462" y="109" text-anchor="middle">Cleaned CSV</text>
+              </g>
+              <g class="output-node teal">
+                <rect x="412" y="169" width="100" height="50" rx="12" />
+                <text x="462" y="199" text-anchor="middle">Pivot output</text>
+              </g>
+              <g class="output-node purple">
+                <rect x="412" y="259" width="100" height="50" rx="12" />
+                <text x="462" y="289" text-anchor="middle">Chart output</text>
+              </g>
+              <g
+                class="verified-mark"
+                fill="#278b80"
+                stroke="#fff"
+                stroke-width="1.6"
+              >
+                <circle cx="507" cy="81" r="8" />
+                <path d="m503 81 3 3 5-5" fill="none" />
+                <circle cx="507" cy="171" r="8" />
+                <path d="m503 171 3 3 5-5" fill="none" />
+                <circle cx="507" cy="261" r="8" />
+                <path d="m503 261 3 3 5-5" fill="none" />
+              </g>
+              <text x="270" y="357" text-anchor="middle" class="graph-footer">
+                LESS REPETITION. CONTRACTS INTACT.
+              </text>
+            </svg>
+          </div>
+          <div
+            class="graph-controls"
+            role="group"
+            aria-label="Illustrative graph view"
+          >
+            <button type="button" data-graph="raw" aria-pressed="false">
+              Original sections</button
+            ><button type="button" data-graph="compressed" aria-pressed="true">
+              With SkillZip
+            </button>
+          </div>
+          <p class="visual-caption" id="graph-caption" aria-live="polite">
+            Shared routines become reversible macros. Each verifier stays
+            connected.
+          </p>
+          <span class="illustration-label">Conceptual illustration</span>
+        </div>
+      </section>
+      <div class="authors wrap">
+        <p>
+          <a href="../">Xingyu Tan<sup>1,2</sup></a
+          ><span>Xiaoyang Wang<sup>1</sup></span
+          ><span>Qing Liu<sup>2</sup></span
+          ><span>Xiwei Xu<sup>2</sup></span
+          ><span>Xin Yuan<sup>1,2</sup></span
+          ><span>Liming Zhu<sup>2</sup></span
+          ><span>Wenjie Zhang<sup>1</sup></span>
+        </p>
+        <div class="affiliations">
+          <span><sup>1</sup> UNSW Sydney</span><span><sup>2</sup> CSIRO</span>
+        </div>
+      </div>
+      <div class="metrics wrap" aria-label="Research highlights">
+        <div>
+          <strong>3.46<span>×</span></strong>
+          <p>Context compression</p>
+          <small>On SkillsBench</small>
+        </div>
+        <div>
+          <strong>+12.2<span>pts</span></strong>
+          <p>End-task improvement</p>
+          <small>Over SkillDAG · ALFWorld · MiniMax-M2.7</small>
+        </div>
+        <div>
+          <strong>100<span>K</span></strong>
+          <p>Skills in scaling study</p>
+          <small>From 200 to 100,000 skills</small>
+        </div>
+      </div>
+      <section class="overview section wrap" id="overview">
+        <div class="section-heading">
+          <span class="eyebrow">THE CORE IDEA</span>
+          <h2>
+            A smaller library.<br />
+            A complete procedure.
+          </h2>
+        </div>
+        <div class="overview-copy">
+          <p class="lead">
+            An agent does not need every line of every skill. It needs the right
+            procedure, with everything required to execute and verify it.
+          </p>
+          <p>
+            SkillZip opens skill packages into source-grounded section graphs.
+            Recurring, contract-compatible routines become reusable macros;
+            task-time retrieval exposes only the relevant executable context.
+          </p>
+          <div class="principles">
+            <span><i aria-hidden="true">✓</i> Explicit interfaces</span
+            ><span><i aria-hidden="true">✓</i> Closed dependencies</span
+            ><span><i aria-hidden="true">✓</i> Reachable verifiers</span
+            ><span><i aria-hidden="true">✓</i> Recoverable source</span>
+          </div>
+          <details class="abstract">
+            <summary>Read the summary<span aria-hidden="true">+</span></summary>
+            <div id="abstract-text">
+              <p>
+                Large Language Models (LLMs) increasingly act as agents whose
+                procedural knowledge is stored in reusable skill packages and
+                loaded at inference time. As skill libraries grow, a central
+                challenge is to expose the smallest sufficient executable
+                context under a limited context budget. Existing systems
+                struggle to reuse routines below the whole-skill level, preserve
+                procedural contracts during compression, keep compressed
+                routines executable and expandable, and update the compressed
+                library as skills evolve. These challenges reveal a unit
+                mismatch: skills are retrieved as packages, compressed as text,
+                and converted into execution graphs only after retrieval,
+                whereas reliable reuse requires a contract-bearing procedural
+                unit. We propose SkillZip, an execution-aware procedural
+                abstraction framework that performs contract-preserving
+                compression over section-level graphs. SkillZip rewrites
+                recurring contract-valid motifs into reversible ported macros
+                while preserving boundary signatures, dependency closure,
+                verifier reachability, and source-level expansion. At inference
+                time, it hydrates a compact, dependency-closed context and
+                expands macros only when required. ReZip further integrates new
+                skills and revises risky macros using execution evidence.
+                Comprehensive experiments on technical and embodied agent
+                benchmarks show SkillZip consistently outperforms the strongest
+                baseline by up to 12.2 points, while achieving a 3.46×
+                compression ratio with 98.7% verifier reachability. Scaling
+                analyses further confirm robust retrieval across skill libraries
+                ranging from 200 to 100K skills.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+      <section class="method-section" id="method">
+        <div class="wrap section">
+          <div class="section-heading heading-row">
+            <div>
+              <span class="eyebrow">INSIDE SKILLZIP</span>
+              <h2>From packages to<br />procedural memory.</h2>
+            </div>
+            <p>
+              One graph connects how skills are<br />represented, compressed,
+              and executed.
+            </p>
+          </div>
+          <div
+            class="method-tabs"
+            role="tablist"
+            aria-label="SkillZip components"
+          >
+            <button
+              id="tab-sec2graph"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="method-panel"
+              data-method="sec2graph"
+            >
+              <span class="tab-symbol" aria-hidden="true">⌘</span
+              >Sec2Graph<small>Represent</small></button
+            ><button
+              id="tab-motifzip"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="method-panel"
+              tabindex="-1"
+              data-method="motifzip"
+            >
+              <span class="tab-symbol" aria-hidden="true">◇</span>MotifZip<small
+                >Compress</small
+              ></button
+            ><button
+              id="tab-pathhydrate"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="method-panel"
+              tabindex="-1"
+              data-method="pathhydrate"
+            >
+              <span class="tab-symbol" aria-hidden="true">≋</span
+              >PathHydrate<small>Retrieve &amp; expand</small></button
+            ><button
+              id="tab-rezip"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="method-panel"
+              tabindex="-1"
+              data-method="rezip"
+            >
+              <span class="tab-symbol" aria-hidden="true">⟳</span>ReZip<small
+                >Maintain</small
+              >
+            </button>
+          </div>
+          <div
+            class="method-panel"
+            id="method-panel"
+            role="tabpanel"
+            aria-labelledby="tab-sec2graph"
+            tabindex="0"
+          >
+            <div class="method-text">
+              <span class="panel-tag" id="method-tag"
+                >SOURCE-GROUNDED REPRESENTATION</span
+              >
+              <h3 id="method-title">Make the procedure visible.</h3>
+              <p id="method-description">
+                Split each skill into typed sections: inputs, operations,
+                preconditions, verifiers, and outputs. Connect them through
+                procedural dependencies while retaining pointers to the source.
+              </p>
+              <p class="method-takeaway" id="method-takeaway">
+                The reusable unit is an executable section graph.
+              </p>
+            </div>
+            <figure class="method-demo" id="method-demo">
+              <img
+                id="method-illustration"
+                src="./assets/sec2graph.webp"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+                alt="Skill documents separate into typed inputs, operations, guards, and verifier nodes, with provenance connections back to the source."
+              />
+              <figcaption>
+                <span id="method-caption"
+                  >Source-grounded sections form an executable graph.</span
+                ><small>Conceptual illustration</small>
+              </figcaption>
+            </figure>
+          </div>
+          <figure class="framework">
+            <div class="figure-header">
+              <span>THE COMPLETE FRAMEWORK</span
+              ><button type="button" id="expand-figure">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 4H4v5M15 4h5v5M4 15v5h5M20 15v5h-5" /></svg
+                >Enlarge
+              </button>
+            </div>
+            <button
+              class="figure-button"
+              type="button"
+              aria-label="Enlarge SkillZip framework diagram"
+            >
+              <img
+                src="../assets/img/SkillZip.webp"
+                alt="SkillZip framework: Sec2Graph builds procedural subgraphs; MotifZip validates contracts and compresses motifs; PathHydrate constructs budgeted executable context; ReZip maintains the library using new skills and execution traces."
+                width="1400"
+                height="625"
+                loading="lazy"
+              />
+            </button>
+            <figcaption>
+              Offline abstraction, task-time hydration, and execution-aware
+              maintenance in one framework.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="results section wrap" id="results">
+        <div class="section-heading heading-row">
+          <div>
+            <span class="eyebrow">EXPERIMENTAL RESULTS</span>
+            <h2>Compact context.<br />Stronger execution.</h2>
+          </div>
+          <p>
+            Evaluated on technical tasks and embodied agents,<br />with
+            consistent gains across comparable settings.
+          </p>
+        </div>
+        <div class="results-layout">
+          <div class="benchmark-card">
+            <div class="chart-toolbar">
+              <div class="segmented" role="group" aria-label="Benchmark">
+                <button
+                  type="button"
+                  data-benchmark="skillsbench"
+                  aria-pressed="false"
+                >
+                  SkillsBench</button
+                ><button
+                  type="button"
+                  data-benchmark="alfworld"
+                  aria-pressed="true"
+                >
+                  ALFWorld
+                </button>
+              </div>
+              <label class="model-select"
+                ><span class="sr-only">Model backbone</span
+                ><select id="backbone" aria-label="Model backbone">
+                  <option value="minimax">MiniMax-M2.7</option>
+                  <option value="codex">gpt-5.2-codex</option></select
+                ><svg viewBox="0 0 16 16" aria-hidden="true">
+                  <path d="m4 6 4 4 4-4" /></svg
+              ></label>
+            </div>
+            <div class="chart-heading">
+              <h3 id="chart-title">Episode success rate</h3>
+              <span>Higher is better · %</span>
+            </div>
+            <div
+              id="result-chart"
+              class="bar-chart"
+              role="img"
+              aria-label="ALFWorld episode success rate, MiniMax-M2.7: Vanilla Skills 47.1, Vector Skills 50.7, GoS 54.3, SkillDAG 67.1, SkillZip 79.3"
+            ></div>
+            <p class="chart-summary" id="chart-summary" aria-live="polite">
+              <strong>+12.2 points</strong> over SkillDAG on ALFWorld.
+            </p>
+            <p class="source-note">
+              Reported main results ·
+              <a
+                href="https://arxiv.org/html/2608.05604v1#S5"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Paper, §5.1</a
+              >
+            </p>
+          </div>
+          <aside class="fidelity-card">
+            <span class="eyebrow">COMPRESSION WITH STRUCTURE</span>
+            <h3>
+              Keep what<br />
+              execution needs.
+            </h3>
+            <p>
+              At the same 3.46× compression ratio, preserving contracts makes a
+              measurable difference.
+            </p>
+            <div class="fidelity-legend">
+              <span><i class="legend-text"></i>Text compression</span
+              ><span><i class="legend-skillzip"></i>SkillZip</span>
+            </div>
+            <div class="fidelity-metric">
+              <div>
+                Verifiers reachable<span>60.0% / <strong>98.7%</strong></span>
+              </div>
+              <div class="fidelity-bar"><span style="width: 60%"></span></div>
+              <div class="fidelity-bar ours">
+                <span style="width: 98.7%"></span>
+              </div>
+            </div>
+            <p class="fidelity-note">
+              SkillsBench · Text compression uses LLMLingua-2.<br /><a
+                href="https://arxiv.org/html/2608.05604v1#S5.T2"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Compression and structural fidelity results</a
+              >
+            </p>
+          </aside>
+        </div>
+        <div class="scale-strip">
+          <span class="scale-icon" aria-hidden="true">⌘</span>
+          <div>
+            <h3>Built for growing skill libraries.</h3>
+            <p>
+              Evaluated from 200 to 100K skills, with incremental updates
+              through ReZip.
+            </p>
+          </div>
+          <a
+            href="https://arxiv.org/html/2608.05604v1#A2.SS2"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Explore the scaling study</a
+          >
+        </div>
+      </section>
+      <section class="citation-section" id="citation">
+        <div class="wrap section citation-layout">
+          <div class="section-heading">
+            <span class="eyebrow">BUILD ON THIS WORK</span>
+            <h2>A small citation.<br />A big thank you.</h2>
+            <p>
+              If SkillZip is useful to your research,<br />please consider
+              citing our paper.
+            </p>
+            <a
+              class="text-link"
+              href="https://arxiv.org/abs/2608.05604"
+              target="_blank"
+              rel="noopener noreferrer"
+              >arXiv:2608.05604</a
+            >
+          </div>
+          <div class="citation-card">
+            <div class="citation-toolbar">
+              <span class="mono">BIBTEX</span
+              ><button type="button" id="copy-citation">
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M7 7h9v10H7zM4 13H3V3h9v1" /></svg
+                ><span>Copy citation</span>
+              </button>
+            </div>
+            <pre id="bibtex"><code>@article{tan2026skillzip,
+  title   = {SkillZip: Contract-Preserving Graph
+             Compression for Scalable Agent Skill Libraries},
+  author  = {Tan, Xingyu and Wang, Xiaoyang and Liu, Qing
+             and Xu, Xiwei and Yuan, Xin and Zhu, Liming
+             and Zhang, Wenjie},
+  journal = {arXiv preprint arXiv:2608.05604},
+  year    = {2026},
+  doi     = {10.48550/arXiv.2608.05604}
+}</code></pre>
+            <span id="copy-status" class="sr-only" role="status"></span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="wrap footer">
+      <a href="#top" class="brand"
+        ><img
+          src="../assets/img/SkillZip_logo_white_bg_400.webp"
+          alt=""
+          width="36"
+          height="36"
+        /><span>Skill<span class="brand-accent">Zip</span></span></a
+      >
+      <p>Procedural memory, thoughtfully compressed.</p>
+      <a href="../">Xingyu Tan · Research</a>
+    </footer>
+    <dialog id="figure-dialog" aria-label="SkillZip framework, enlarged">
+      <div class="dialog-header">
+        <strong>SkillZip framework</strong
+        ><button
+          type="button"
+          id="close-figure"
+          aria-label="Close enlarged framework"
+        >
+          Close <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="dialog-image">
+        <img
+          src="../assets/img/SkillZip.webp"
+          alt="Full SkillZip framework showing Sec2Graph, MotifZip, PathHydrate, and ReZip."
+          width="1400"
+          height="625"
+        />
+      </div>
+      <p>On smaller screens, scroll horizontally to inspect the diagram.</p>
+    </dialog>
+  </body>
+</html>
