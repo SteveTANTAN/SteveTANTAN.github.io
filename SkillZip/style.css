@@ -189,17 +189,23 @@ p {
   align-items: center;
   position: relative;
 }
+.hero .eyebrow {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
 .venue {
-  background: #e9f4f2;
-  border: 1px solid #d1e8e2;
-  border-radius: 5px;
-  padding: 4px 9px;
-  letter-spacing: 0.08em;
+  color: #125b4d;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-weight: 750;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
 }
 .hero .eyebrow > span + span {
-  color: var(--muted);
+  color: #627179;
+  font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
 }
 .hero h1 {
   font-size: clamp(5rem, 7.8vw, 7rem);
@@ -451,7 +457,7 @@ p {
   justify-content: center;
   gap: 6px 21px;
   flex-wrap: wrap;
-  color: #344f63;
+  color: #171717;
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -461,14 +467,14 @@ p {
 .authors sup {
   font-size: 0.6rem;
   margin-left: 2px;
-  color: #708698;
+  color: #171717;
 }
 .affiliations {
   display: flex;
   justify-content: center;
   gap: 23px;
   font-size: 0.8rem;
-  color: #768793;
+  color: #171717;
   margin-top: 9px;
 }
 .overview {
