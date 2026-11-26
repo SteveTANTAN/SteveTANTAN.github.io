@@ -18,14 +18,16 @@
         'PoG_homepage.png': 'PoG.webp',
         'CIKM.jpg': 'CIKM.webp'
     };
-    const previewSources = new WeakMap();
-    let previewVersion = 0;
-    // Avoid data-zoom-src: the library fetches it before the animation completes.
+    const mobileList = window.matchMedia('(max-width: 767px)').matches;
+    // Zoom reuses the list image: desktop HD, mobile thumbnail.
     // MemoTime deliberately retains its existing image at both sizes.
     images.forEach(function (image) {
         const filename = new URL(image.src).pathname.split('/').pop();
-        if (highResolutionSources[filename]) {
-            previewSources.set(image, './assets/img/hd/' + highResolutionSources[filename]);
+        if (!mobileList && highResolutionSources[filename]) {
+            const source = './assets/img/hd/' + highResolutionSources[filename];
+            image.decoding = 'async';
+            image.loading = 'eager';
+            image.src = source;
         }
     });
     const zoom = window.mediumZoom(images, {
@@ -54,7 +56,6 @@
     });
 
     zoom.on('open', function (event) {
-        previewVersion += 1;
         const width = document.documentElement.clientWidth;
         const height = document.documentElement.clientHeight;
         const mobile = window.matchMedia('(max-width: 767px)').matches;
@@ -71,32 +72,12 @@
         });
         event.target.setAttribute('aria-expanded', 'true');
     });
-    zoom.on('opened', async function (event) {
+    zoom.on('opened', function () {
         // The library's visual clone should not duplicate the keyboard control.
         document.querySelectorAll('.medium-zoom-image--opened').forEach(function (clone) {
             clone.tabIndex = -1;
             clone.setAttribute('aria-hidden', 'true');
         });
-        const source = previewSources.get(event.target);
-        const preview = document.querySelector('body > .medium-zoom-image--opened');
-        if (!source || !preview) return;
-
-        const version = previewVersion;
-        const fullResolution = new Image();
-        fullResolution.decoding = 'async';
-        fullResolution.src = source;
-        try {
-            await fullResolution.decode();
-        } catch (_) {
-            return; // Keep the visible thumbnail if the HD file cannot load.
-        }
-        if (version === previewVersion && preview.isConnected &&
-            zoom.getZoomedImage() === event.target) {
-            preview.src = source;
-        }
-    });
-    zoom.on('close', function () {
-        previewVersion += 1;
     });
     zoom.on('closed', function (event) {
         event.target.setAttribute('aria-expanded', 'false');

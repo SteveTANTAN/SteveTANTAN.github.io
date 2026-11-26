@@ -1,9 +1,9 @@
 # Publication Zoom Images
 
-Full-resolution previews are loaded by `publication-zoom.js` after the opening
-animation finishes, then swapped in only after decoding. Failed downloads or
-previews closed while loading leave the thumbnail unchanged.
-List thumbnails are unchanged. MemoTime intentionally uses its existing image.
+On desktop, `publication-zoom.js` loads these images directly in the publication
+list and reuses them for zoom. On mobile, both the list and zoom use the existing
+thumbnails, without loading HD assets. Neither mode swaps images during zoom.
+MemoTime intentionally uses its existing image on both desktop and mobile.
 These files use lossless WebP encoding after rendering the source PDF figures,
 not upscaling the website thumbnails.
 
