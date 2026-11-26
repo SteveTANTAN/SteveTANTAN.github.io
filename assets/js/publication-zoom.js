@@ -34,6 +34,7 @@
         margin: 24,
         background: 'rgba(255, 255, 255, 0.94)'
     });
+    const animatedStyles = new Map();
 
     images.forEach(function (image) {
         image.tabIndex = 0;
@@ -77,7 +78,31 @@
         document.querySelectorAll('.medium-zoom-image--opened').forEach(function (clone) {
             clone.tabIndex = -1;
             clone.setAttribute('aria-hidden', 'true');
+            // Safari can upscale a thumbnail-sized compositing layer. Render at
+            // the final dimensions once the transform animation has finished.
+            const bounds = clone.getBoundingClientRect();
+            animatedStyles.set(clone, clone.style.cssText);
+            clone.style.setProperty('transition', 'none', 'important');
+            clone.style.transform = 'none';
+            clone.style.willChange = 'auto';
+            clone.style.left = (bounds.left + window.scrollX) + 'px';
+            clone.style.top = (bounds.top + window.scrollY) + 'px';
+            clone.style.width = bounds.width + 'px';
+            clone.style.height = bounds.height + 'px';
+            clone.style.maxWidth = 'none';
+            clone.style.maxHeight = 'none';
         });
+    });
+    zoom.on('close', function () {
+        animatedStyles.forEach(function (cssText, clone) {
+            // Restore the equivalent transformed geometry before animating back.
+            clone.style.cssText = cssText;
+            clone.style.setProperty('transition', 'none', 'important');
+            void clone.offsetWidth;
+            clone.style.removeProperty('transition');
+            clone.style.transform = '';
+        });
+        animatedStyles.clear();
     });
     zoom.on('closed', function (event) {
         event.target.setAttribute('aria-expanded', 'false');

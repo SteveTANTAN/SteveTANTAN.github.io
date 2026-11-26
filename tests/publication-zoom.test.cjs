@@ -23,7 +23,7 @@ function setup(filename, mobile) {
     vm.runInNewContext(script, {
         URL,
         Image: class { constructor() { throw new Error('Zoom must reuse the list image'); } },
-        window: { mediumZoom: () => zoom, matchMedia: () => ({ matches: mobile }) },
+        window: { mediumZoom: () => zoom, matchMedia: () => ({ matches: mobile }), scrollX: 0, scrollY: 400 },
         document: {
             documentElement: { clientWidth: mobile ? 390 : 1280, clientHeight: 844 },
             querySelectorAll(selector) {
@@ -34,13 +34,40 @@ function setup(filename, mobile) {
     return {
         source,
         open() {
-            clone = { src: source.src, setAttribute() {} };
+            clone = {
+                src: source.src,
+                setAttribute() {},
+                getBoundingClientRect() { return { left: 160, top: 100, width: 960, height: 400 }; },
+                style: {
+                    cssText: 'width: 240px; height: 100px; transform: scale(4);',
+                    setProperty(name, value) { this[name] = value; },
+                    removeProperty(name) { delete this[name]; }
+                },
+                offsetWidth: 240
+            };
             handlers.open({ target: source });
             handlers.opened({ target: source });
             return { clone, options };
-        }
+        },
+        close() { handlers.close(); }
     };
 }
+
+test('opened preview renders at actual dimensions and restores closing geometry', () => {
+    const app = setup('Hydra.png', false);
+    const { clone } = app.open();
+    assert.equal(clone.style.transform, 'none');
+    assert.equal(clone.style.transition, 'none');
+    assert.equal(clone.style.width, '960px');
+    assert.equal(clone.style.height, '400px');
+    assert.equal(clone.style.top, '500px');
+    assert.equal(clone.style.left, '160px');
+    assert.equal(clone.style.maxHeight, 'none');
+    app.close();
+    assert.equal(clone.style.cssText, 'width: 240px; height: 100px; transform: scale(4);');
+    assert.equal(clone.style.transform, '');
+    assert.equal(clone.style.transition, undefined);
+});
 
 for (const mobile of [false, true]) {
     const platform = mobile ? 'mobile' : 'desktop';
