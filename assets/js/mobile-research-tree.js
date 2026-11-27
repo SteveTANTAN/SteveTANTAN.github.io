@@ -18,18 +18,27 @@
     let returnFocus;
     let drag;
     let suppressClick = false;
+    let fitted = true;
 
-    function setScale(next, root) {
-        const centerX = (viewport.scrollLeft + viewport.clientWidth / 2) / scale;
-        const centerY = (viewport.scrollTop + viewport.clientHeight / 2) / scale;
-        scale = Math.max(0.5, Math.min(1.5, next));
+    function setScale(next, fit) {
+        const padding = getComputedStyle(viewport);
+        const padX = parseFloat(padding.paddingLeft) + parseFloat(padding.paddingRight);
+        const padY = parseFloat(padding.paddingTop) + parseFloat(padding.paddingBottom);
+        const width = viewport.clientWidth - padX;
+        const height = viewport.clientHeight - padY;
+        // The minimum fits both axes, including landscape and safe-area padding.
+        const minimum = Math.min(1, (viewport.offsetWidth - padX) / 1000, (viewport.offsetHeight - padY) / 1000);
+        const centerX = (viewport.scrollLeft + Math.min(width, 1000 * scale) / 2) / scale;
+        const centerY = (viewport.scrollTop + Math.min(height, 1000 * scale) / 2) / scale;
+        scale = fit ? minimum : Math.max(minimum, Math.min(1.5, next));
+        fitted = Math.abs(scale - minimum) < 0.001;
         stage.style.width = 1000 * scale + 'px';
         stage.style.height = 1000 * scale + 'px';
         canvas.style.transform = 'scale(' + scale + ')';
         zoomIn.disabled = scale >= 1.5;
-        zoomOut.disabled = scale <= 0.5;
-        viewport.scrollLeft = root ? (1000 * scale - viewport.clientWidth) / 2 : centerX * scale - viewport.clientWidth / 2;
-        viewport.scrollTop = root ? 1000 * scale - viewport.clientHeight : centerY * scale - viewport.clientHeight / 2;
+        zoomOut.disabled = fitted;
+        viewport.scrollLeft = fit ? 0 : Math.max(0, centerX * scale - width / 2);
+        viewport.scrollTop = fit ? 0 : Math.max(0, centerY * scale - height / 2);
     }
     function open() {
         if (dialog.open || !mobile.matches) return;
@@ -72,6 +81,9 @@
         });
     });
     mobile.addEventListener('change', function () { if (!mobile.matches) close(); });
+    window.addEventListener('resize', function () {
+        if (dialog.open) requestAnimationFrame(function () { if (dialog.open) setScale(scale, fitted); });
+    });
 
     // Touch uses native two-axis scrolling; mouse dragging is an additional input path.
     viewport.addEventListener('pointerdown', function (event) {
@@ -108,6 +120,6 @@
         close: close,
         isMobile: function () { return mobile.matches; },
         isOpen: function () { return dialog.open; },
-        showDetail: function () { dock.hidden = false; }
+        showDetail: function () { dock.hidden = false; setScale(scale, fitted); }
     };
 }());

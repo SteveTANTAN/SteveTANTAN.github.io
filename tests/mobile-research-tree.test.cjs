@@ -25,7 +25,7 @@ function setup() {
     const shell = element();
     const canvas = element();
     const detail = element();
-    const viewport = Object.assign(element(), { clientWidth: 390, clientHeight: 700 });
+    const viewport = Object.assign(element(), { clientWidth: 390, clientHeight: 700, offsetWidth: 390, offsetHeight: 700 });
     const stage = element();
     const dock = element();
     const buttons = Object.fromEntries(['in', 'out', 'root', 'close'].map(action => [action, Object.assign(element(), { dataset: { treeAction: action } })]));
@@ -41,10 +41,12 @@ function setup() {
     const window = {
         scrollY: 1250,
         matchMedia: () => mobile,
+        addEventListener(type, callback) { this[type] = callback; },
         scrollTo(value) { this.restoredScroll = value.top; }
     };
     vm.runInNewContext(script, {
         window,
+        getComputedStyle: () => ({ paddingLeft: '16px', paddingRight: '16px', paddingTop: '16px', paddingBottom: '16px' }),
         document: {
             body, activeElement: focusTarget,
             getElementById: () => dialog,
@@ -58,15 +60,17 @@ function setup() {
     return { api: window.mobileResearchTree, window, body, dialog, shell, canvas, detail, stage, dock, viewport, mobile, buttons, events, focusTarget, flush };
 }
 
-test('mobile opens at roots and restores shared nodes, page scroll and focus on close', () => {
+test('mobile opens fitted and restores shared nodes, page scroll and focus on close', () => {
     const app = setup();
     app.api.open();
     app.flush();
     assert.equal(app.dialog.open, true);
     assert.equal(app.canvas.parent, app.stage);
     assert.equal(app.detail.parent, app.dock);
-    assert.equal(app.viewport.scrollLeft, 305);
-    assert.equal(app.viewport.scrollTop, 300);
+    assert.equal(app.stage.style.width, '358px');
+    assert.equal(app.viewport.scrollLeft, 0);
+    assert.equal(app.viewport.scrollTop, 0);
+    assert.equal(app.buttons.out.disabled, true);
     assert.equal(app.body.style.position, 'fixed');
     app.api.showDetail();
     assert.equal(app.dock.hidden, false);
@@ -85,12 +89,12 @@ test('zoom preserves the viewed center and stays within bounds', () => {
     const app = setup();
     app.api.open(); app.flush();
     app.buttons.in.listeners.click();
-    assert.ok(Math.abs((app.viewport.scrollLeft + 195) / 1.15 - 500) < 0.01);
+    assert.ok(Math.abs((app.viewport.scrollLeft + 179) / 0.508 - 500) < 0.01);
     for (let i = 0; i < 20; i++) app.buttons.in.listeners.click();
     assert.equal(app.stage.style.width, '1500px');
     assert.equal(app.buttons.in.disabled, true);
     for (let i = 0; i < 20; i++) app.buttons.out.listeners.click();
-    assert.equal(app.stage.style.width, '500px');
+    assert.equal(app.stage.style.width, '358px');
     assert.equal(app.buttons.out.disabled, true);
 });
 
@@ -109,15 +113,31 @@ test('drag pans without activating a leaf, while touch retains native scrolling'
     const app = setup();
     app.api.open(); app.flush();
     const listeners = app.viewport.listeners;
+    app.buttons.in.listeners.click();
+    const initialX = app.viewport.scrollLeft;
+    const initialY = app.viewport.scrollTop;
     listeners.pointerdown({ pointerType: 'mouse', pointerId: 1, button: 0, clientX: 100, clientY: 100 });
     listeners.pointermove({ pointerId: 1, buttons: 1, clientX: 140, clientY: 125, preventDefault() {} });
-    assert.equal(app.viewport.scrollLeft, 265);
-    assert.equal(app.viewport.scrollTop, 275);
+    assert.equal(app.viewport.scrollLeft, initialX - 40);
+    assert.equal(app.viewport.scrollTop, initialY - 25);
     listeners.pointerup();
     let prevented = false;
     listeners.click({ preventDefault() { prevented = true; }, stopPropagation() {} });
     assert.equal(prevented, true);
     listeners.pointerdown({ pointerType: 'touch' });
     listeners.pointermove({ pointerId: 2, buttons: 1, clientX: 200, clientY: 200 });
-    assert.equal(app.viewport.scrollLeft, 265);
+    assert.equal(app.viewport.scrollLeft, initialX - 40);
+});
+
+test('fit adapts to landscape height and reset returns to the full tree', () => {
+    const app = setup();
+    app.api.open(); app.flush();
+    Object.assign(app.viewport, { clientWidth: 844, offsetWidth: 844, clientHeight: 333, offsetHeight: 333 });
+    app.window.resize(); app.flush();
+    assert.equal(app.stage.style.width, '301px');
+    app.buttons.in.listeners.click();
+    app.buttons.root.listeners.click();
+    assert.equal(app.stage.style.width, '301px');
+    assert.equal(app.viewport.scrollLeft, 0);
+    assert.equal(app.viewport.scrollTop, 0);
 });

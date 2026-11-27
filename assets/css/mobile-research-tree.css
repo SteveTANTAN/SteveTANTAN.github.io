@@ -42,6 +42,7 @@
 .mobile-tree-tools button:focus-visible { outline: 2px solid #2563eb; outline-offset: -2px; }
 .mobile-tree-tools button:disabled { color: #cbd5e1; cursor: default; }
 .mobile-tree-viewport {
+    display: flex;
     flex: 1;
     min-height: 0;
     overflow: auto;
@@ -50,7 +51,8 @@
     scrollbar-width: thin;
     scrollbar-color: #93c5fd #eff6ff;
     cursor: grab;
-    padding-bottom: env(safe-area-inset-bottom);
+    padding: 16px;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
 }
 .mobile-tree-viewport.is-dragging { cursor: grabbing; user-select: none; }
 #mobile-tree-dialog .mobile-tree-stage {
@@ -59,6 +61,9 @@
     width: 1000px;
     height: 1000px;
     border: 0;
+    margin: auto;
+    outline: 1px solid #e2e8f0;
+    border-radius: 6px;
     overflow: hidden;
     zoom: 1;
 }
