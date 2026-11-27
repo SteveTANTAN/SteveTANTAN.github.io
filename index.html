@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Xingyu Tan | UNSW, Sydney | Data61, CSIRO</title>
+    <title>Xingyu Tan | UNSW, Sydney | CSIRO</title>
     <meta name="description" content="Xingyu TAN, UNSW, Sydney">
     <meta name="keywords" content="Xingyu TAN">
     <link rel="canonical" href="https://SteveTANTAN.github.io/"/>
@@ -38,6 +38,7 @@
             --paper-cyan: #0ea5e9;
             --paper-green: #10b981;
             --paper-amber: #f59e0b;
+            --ui-accent: #2563eb;
         }
 
         body {
@@ -91,13 +92,85 @@
             border-color: rgba(148, 163, 184, 0.2) !important;
         }
         section h2.border-l-4 {
-            border-left-color: var(--paper-cyan) !important;
+            border-left-color: var(--ui-accent) !important;
             padding-left: 0.9rem;
+        }
+        #side-nav { position: relative; isolation: isolate; }
+        #side-nav ul { position: relative; z-index: 1; }
+        #side-nav a {
+            background-color: transparent;
+            transition: color 180ms ease;
+        }
+        #side-nav a:hover {
+            color: var(--ui-accent);
+            background-color: transparent;
+        }
+        #side-nav a.is-current {
+            color: #ffffff;
+            background-color: transparent;
+        }
+        .side-nav-indicator {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            border-radius: 6px;
+            background: var(--ui-accent);
+            box-shadow: 0 3px 10px rgba(37, 99, 235, 0.18);
+            pointer-events: none;
+            opacity: 0;
+            transition: transform 280ms cubic-bezier(0.2, 0, 0.2, 1), height 280ms ease, opacity 150ms ease;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #side-nav a,
+            .side-nav-indicator { transition: none; }
+        }
+        .top-nav a:hover,
+        .top-nav a.is-current {
+            color: var(--ui-accent);
+        }
+        .research-interest-icon { color: var(--ui-accent); }
+        .research-tree-link {
+            color: #ffffff;
+            background-color: var(--ui-accent);
+            border: 1px solid var(--ui-accent);
+            box-shadow: 0 3px 10px rgba(37, 99, 235, 0.18);
+        }
+        .research-tree-link:hover {
+            background-color: #1d4ed8;
+            border-color: #1d4ed8;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.24);
+        }
+        .research-tree-link:focus-visible {
+            outline: 2px solid var(--ui-accent);
+            outline-offset: 3px;
         }
         .profile-panel img,
         #about img {
             box-shadow: 0 18px 40px rgba(15, 23, 42, 0.10);
         }
+        #about .tiktok-intro-logo {
+            width: 42px;
+            height: 42px;
+            max-width: none;
+            box-shadow: none;
+        }
+        .honor-organization {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 28px;
+            flex: 0 0 40px;
+        }
+        .honor-organization img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 28px;
+            object-fit: contain;
+        }
+        .honor-description { padding-top: 4px; min-width: 0; }
         
         /* 隐藏滚动条但保留滚动功能 (特别是为移动端导航) */
         .scroll-hide::-webkit-scrollbar { display: none; }
@@ -945,7 +1018,7 @@
             <div class="text-center mt-3">
                 <div class="text-3xl font-bold text-slate-900">Xingyu Tan</div>
                 <div class="mt-1 text-sm text-slate-600">Ph.D. Candidate</div>
-                <div class="text-xs text-slate-600 mt-1">UNSW, Sydney | Data61, CSIRO</div>
+                <div class="text-xs text-slate-600 mt-1">UNSW, Sydney | CSIRO</div>
             </div>
             <div class="flex justify-center gap-4 text-2xl mt-4">
                 <a href="https://scholar.google.com/citations?user=2gzpDtsAAAAJ&hl=en" target="_blank" title="Google Scholar" class="color-scholar transition hover:scale-110"><i class="ai ai-google-scholar"></i></a>
@@ -954,6 +1027,7 @@
                 <a href="mailto:xingyu.tan@unsw.edu.au" title="Email" class="text-blue-600 transition hover:scale-110"><i class="fas fa-envelope"></i></a>
             </div>
             <nav class="mt-6" id="side-nav">
+                <span class="side-nav-indicator" aria-hidden="true"></span>
                 <ul class="space-y-1">
                     <li><a href="#about" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700 text-lg font-medium">About</a></li>
                     <li><a href="#news" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-blue-50 hover:text-blue-700 text-lg font-medium">News</a></li>
@@ -978,7 +1052,7 @@
                 <h1 class="text-3xl font-bold text-slate-900 tracking-tight">Xingyu Tan</h1>
                 <div class="mt-3 space-y-1">
                     <p class="text-blue-700 font-semibold bg-blue-50 px-3 py-1 rounded-full inline-block text-sm border border-blue-100">Ph.D. Candidate</p>
-                    <p class="text-sm text-slate-600 mt-2">UNSW, Sydney | Data61, CSIRO</p>
+                    <p class="text-sm text-slate-600 mt-2">UNSW, Sydney | CSIRO</p>
                     <p class="text-xs text-slate-500 mt-1">xingyu.tan (at) unsw.edu.au</p>
                 </div>
 
@@ -1008,7 +1082,7 @@
                         at the School of Computer Science and Engineering,
                         <a href="https://www.unsw.edu.au/" class="text-blue-600 hover:underline font-medium">University of New South Wales (UNSW)</a>,
                         and the <a href="https://research.csiro.au/ss/" class="text-blue-600 hover:underline font-medium">Software Systems Research Group</a> at
-                        <a href="https://www.csiro.au/" class="text-blue-600 hover:underline font-medium">Data61, Commonwealth Scientific and Industrial Research Organisation (CSIRO)</a>. 
+                        <a href="https://www.csiro.au/" class="text-blue-600 hover:underline font-medium">Commonwealth Scientific and Industrial Research Organisation (CSIRO)</a>.
                         I am fortunate to be jointly supervised by 
                         <a href="https://www.unsw.edu.au/staff/xiaoyang-wang"><strong class="text-slate-900 font-bold hover:text-blue-600 transition">Dr. Xiaoyang Wang</strong></a> and 
                         <a href="https://cgi.cse.unsw.edu.au/~zhangw/"><strong class="text-slate-900 font-bold hover:text-blue-600 transition">Prof. Wenjie Zhang</strong></a> from UNSW, along with 
@@ -1028,7 +1102,7 @@
                             <span class="min-w-0">Honored to be a <strong>2026 Google PhD Fellow in NLP</strong>, with sincere thanks to Google Research for its support.</span>
                         </a>
                         <div class="flex w-full items-center gap-2 px-3 py-1.5 bg-blue-50 text-blue-800 rounded-md text-sm font-medium border border-blue-200 shadow-sm">
-                            <img src="./assets/img/logo/TikTok-Logo.wine.svg" alt="TikTok" class="w-10 h-auto sm:w-12 shrink-0">
+                            <span class="w-10 sm:w-12 h-8 flex items-center justify-center shrink-0"><img src="./assets/img/logo/TikTok-Logo.wine.svg" alt="TikTok" class="tiktok-intro-logo"></span>
                             <span>Former MLE & Research Intern at TikTok (Australia), worked on MLLMs and related research.</span>
                         </div>
                     </div>
@@ -1036,7 +1110,7 @@
                 
                 <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
                     <h3 class="font-bold text-slate-900 mb-3 flex items-center gap-2">
-                        <i class="fas fa-search text-blue-500"></i> Research Interests
+                        <i class="fas fa-search research-interest-icon"></i> Research Interests
                     </h3>
                     <ul class="grid sm:grid-cols-1 gap-3 text-sm text-slate-700">
                         <li class="flex items-start gap-2">
@@ -1057,7 +1131,7 @@
                         </li>
                     </ul>
                     <div class="mt-4 pt-4 border-t border-slate-100 flex justify-end">
-                        <a href="./index.html?view=tree#publications" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-blue-50 text-blue-800 text-sm font-semibold border border-blue-200 shadow-sm hover:bg-blue-100 hover:border-blue-300 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 transition">
+                        <a href="./index.html?view=tree#publications" class="research-tree-link inline-flex items-center gap-2 px-3.5 py-2 rounded-md text-sm font-semibold transition">
                             <i class="fas fa-tree" aria-hidden="true"></i>
                             <span>Explore Research Tree</span>
                             <i class="fas fa-arrow-right text-xs" aria-hidden="true"></i>
@@ -1194,7 +1268,7 @@
                        </li>
                        <li class="flex gap-3 items-start">
                            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-rose-50 text-rose-600 mt-0.5 shrink-0 w-24 text-center border border-rose-200">Award</span>
-                           <div class="leading-relaxed"><span class="font-bold text-slate-500 mr-2">[Jan. 2024]</span> Awarded the CSIRO’s Data61-UNSW Joint PhD Full Scholarship 📚</div>
+                           <div class="leading-relaxed"><span class="font-bold text-slate-500 mr-2">[Jan. 2024]</span> Awarded the UNSW-CSIRO Joint PhD Full Scholarship 📚</div>
                        </li>
                        <li class="flex gap-3 items-start">
                            <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-green-50 text-green-600 mt-0.5 shrink-0 w-24 text-center border border-green-200">Accepted</span>
@@ -2260,62 +2334,95 @@
     </section>
 
     <section id="honors" class="py-12 bg-white border-y border-slate-200 w-full">
-        <div class="w-full max-w-5xl mx-auto lg:mx-0 lg:mr-auto lg:ml-[50px] px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12">
-            <div>
-                <h2 class="text-2xl font-bold text-slate-900 mb-6 border-l-4 border-blue-600 pl-4">Honors & Awards</h2>
-                <ul class="space-y-4 text-sm text-slate-700">
-                    <li class="flex items-start gap-3">
-                        <span class="text-rose-500 mt-0.5"><i class="fas fa-award"></i></span>
-                        <span><strong class="text-slate-900"><a href="https://research.google/programs-and-events/phd-fellowship/recipients/" target="_blank" rel="noopener noreferrer" class="text-slate-900 hover:text-blue-700 hover:underline">Google PhD Fellowship</a></strong> (2026)</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-rose-500 mt-0.5"><i class="fas fa-award"></i></span>
-                        <span><strong class="text-slate-900">School Nomination (Top-2), <a href="https://www.unsw.edu.au/unsw-3-minute-thesis" target="_blank" rel="noopener noreferrer" class="text-slate-900 hover:text-blue-700 hover:underline">UNSW 3 Minute Thesis (3MT) Competition</a></strong> (2026)</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-rose-500 mt-0.5"><i class="fas fa-award"></i></span>
-                        <span><strong class="text-slate-900">UNSW The Norman Foo Memorial Best Research Paper Prize (University Prize, 1 Recipient)</strong> (2026)</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-rose-500 mt-0.5"><i class="fas fa-award"></i></span>
-                        <span><strong class="text-slate-900">UNSW Industry Engagement Grant</strong> (2025)</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-rose-500 mt-0.5"><i class="fas fa-award"></i></span>
-                        <span><strong class="text-slate-900">WWW2025 Student Travel Award</strong> (2025)</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-rose-500 mt-0.5"><i class="fas fa-award"></i></span>
-                        <span><strong class="text-slate-900">UNSW Development and Research Training Grant</strong> (2025 &amp; 2026)</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-rose-500 mt-0.5"><i class="fas fa-award"></i></span>
-                        <span><strong class="text-slate-900">CSIRO's Data61-UNSW Joint PhD Full Scholarship</strong> (2024-2028)</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-rose-500 mt-0.5"><i class="fas fa-award"></i></span>
-                        <span><strong class="text-slate-900">CIRES-ADC Travel Grant</strong> (2023)</span>
-                    </li>
-                     <li class="flex items-start gap-3">
-                        <span class="text-rose-500 mt-0.5"><i class="fas fa-award"></i></span>
-                        <span><strong class="text-slate-900">UNSW Global University Award</strong> (2022)</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <span class="text-rose-500 mt-0.5"><i class="fas fa-award"></i></span>
-                        <span><strong class="text-slate-900">UNSW International Academic Excellence Award</strong> (2019)</span>
-                    </li>
-                </ul>
+        <div class="w-full max-w-5xl mx-auto lg:mx-0 lg:mr-auto lg:ml-[50px] px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6 border-l-4 border-blue-600 pl-4">Honors &amp; Awards</h2>
+            <div class="space-y-6 relative border-l-2 border-slate-200 ml-2 pl-6 text-sm">
+                <div class="relative" role="group" aria-label="2026 honors">
+                    <span aria-hidden="true" class="absolute -left-[31px] top-1.5 w-4 h-4 bg-blue-600 rounded-full border-2 border-white shadow"></span>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="honor-organization" title="Google"><img src="./assets/img/logo/Google-G.png" alt="Google" loading="lazy"></span>
+                            <span class="honor-description"><strong class="text-slate-900"><a href="https://research.google/programs-and-events/phd-fellowship/recipients/" target="_blank" rel="noopener noreferrer" class="text-slate-900 hover:text-blue-700 hover:underline">Google PhD Fellowship</a></strong> <span class="text-slate-500">(2026)</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="honor-organization" title="UNSW"><img src="./assets/img/logo/UNSW%20L.png" alt="UNSW" loading="lazy"></span>
+                            <span class="honor-description"><strong class="text-slate-900">School Nomination (Top-2), <a href="https://www.unsw.edu.au/unsw-3-minute-thesis" target="_blank" rel="noopener noreferrer" class="text-slate-900 hover:text-blue-700 hover:underline">UNSW 3 Minute Thesis (3MT) Competition</a></strong> <span class="text-slate-500">(2026)</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="honor-organization" title="UNSW"><img src="./assets/img/logo/UNSW%20L.png" alt="UNSW" loading="lazy"></span>
+                            <span class="honor-description"><strong class="text-slate-900">UNSW The Norman Foo Memorial Best Research Paper Prize (University Prize, 1 Recipient)</strong> <span class="text-slate-500">(2026)</span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative" role="group" aria-label="2025 honors">
+                    <span aria-hidden="true" class="absolute -left-[31px] top-1.5 w-4 h-4 bg-slate-400 rounded-full border-2 border-white"></span>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="honor-organization" title="UNSW"><img src="./assets/img/logo/UNSW%20L.png" alt="UNSW" loading="lazy"></span>
+                            <span class="honor-description"><strong class="text-slate-900">UNSW Industry Engagement Grant</strong> <span class="text-slate-500">(2025)</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="honor-organization" title="The ACM Web Conference 2025"><img src="./assets/img/logo/WWW2025.png" alt="The ACM Web Conference 2025" loading="lazy"></span>
+                            <span class="honor-description"><strong class="text-slate-900">WWW2025 Student Travel Award</strong> <span class="text-slate-500">(2025)</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="honor-organization" title="UNSW"><img src="./assets/img/logo/UNSW%20L.png" alt="UNSW" loading="lazy"></span>
+                            <span class="honor-description"><strong class="text-slate-900">UNSW Development and Research Training Grant</strong> <span class="text-slate-500">(2025 &amp; 2026)</span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative" role="group" aria-label="2024 honors">
+                    <span aria-hidden="true" class="absolute -left-[31px] top-1.5 w-4 h-4 bg-slate-400 rounded-full border-2 border-white"></span>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="honor-organization" title="CSIRO"><img src="./assets/img/logo/CSIRO.png" alt="CSIRO" loading="lazy"></span>
+                            <span class="honor-description"><strong class="text-slate-900">UNSW-CSIRO Joint PhD Full Scholarship</strong> <span class="text-slate-500">(2024-2028)</span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative" role="group" aria-label="2023 honors">
+                    <span aria-hidden="true" class="absolute -left-[31px] top-1.5 w-4 h-4 bg-slate-400 rounded-full border-2 border-white"></span>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="honor-organization" title="CIRES"><img src="./assets/img/logo/CIRES.svg" alt="CIRES" loading="lazy"></span>
+                            <span class="honor-description"><strong class="text-slate-900">CIRES-ADC Travel Grant</strong> <span class="text-slate-500">(2023)</span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative" role="group" aria-label="2022 honors">
+                    <span aria-hidden="true" class="absolute -left-[31px] top-1.5 w-4 h-4 bg-slate-400 rounded-full border-2 border-white"></span>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="honor-organization" title="UNSW"><img src="./assets/img/logo/UNSW%20L.png" alt="UNSW" loading="lazy"></span>
+                            <span class="honor-description"><strong class="text-slate-900">UNSW Global University Award</strong> <span class="text-slate-500">(2022)</span></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative" role="group" aria-label="2019 honors">
+                    <span aria-hidden="true" class="absolute -left-[31px] top-1.5 w-4 h-4 bg-slate-400 rounded-full border-2 border-white"></span>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="honor-organization" title="UNSW"><img src="./assets/img/logo/UNSW%20L.png" alt="UNSW" loading="lazy"></span>
+                            <span class="honor-description"><strong class="text-slate-900">UNSW International Academic Excellence Award</strong> <span class="text-slate-500">(2019)</span></span>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-12 bg-white border-b border-slate-200 w-full">
+        <div class="w-full max-w-5xl mx-auto lg:mx-0 lg:mr-auto lg:ml-[50px] px-4 sm:px-6 lg:px-8">
             <div>
-                <h2 class="text-2xl font-bold text-slate-900 mb-6 border-l-4 border-blue-600 pl-4" id="education">Education</h2>
+                <h2 class="text-2xl font-bold text-slate-900 mb-6 border-l-4 border-blue-600 pl-4">Education</h2>
                 <div class="space-y-6 relative border-l-2 border-slate-200 ml-2 pl-6">
                     <div class="relative">
                         <div class="absolute -left-[31px] top-1 w-4 h-4 bg-blue-600 rounded-full border-2 border-white shadow"></div>
                         <h4 class="font-bold text-slate-900">Ph.D. Candidate in Computer Science and Engineering</h4>
                         <p class="text-sm text-slate-600 mb-1 flex items-center gap-2">
                             <img src="./assets/img/logo/UNSW%20L.png" alt="UNSW" class="h-5 w-auto rounded-sm" loading="lazy">
-                            <img src="./assets/img/logo/data61-logo.png" alt="CSIRO Data61" class="h-5 w-auto rounded-sm" loading="lazy">
-                            <span>UNSW & CSIRO's Data61, Sydney</span>
+                            <img src="./assets/img/logo/CSIRO.png" alt="CSIRO" class="h-5 w-auto rounded-sm" loading="lazy">
+                            <span>UNSW & CSIRO, Sydney</span>
                         </p>
                         <span class="text-xs font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">May. 2024 – Present</span>
                     </div>
@@ -2503,6 +2610,8 @@
             });
             var ids=['about','news','publications','experience','service','honors','education'];
             var links={};
+            var sideNav=document.getElementById('side-nav');
+            var sideNavIndicator=sideNav.querySelector('.side-nav-indicator');
             ids.forEach(function(id){links[id]=Array.prototype.slice.call(document.querySelectorAll('a[href="#'+id+'"]'));});
             function allNavLinks(callback){
                 Object.values(links).forEach(function(group){group.forEach(callback);});
@@ -2510,22 +2619,32 @@
             function setActive(activeIds){
                 activeIds=Array.isArray(activeIds) ? activeIds : [activeIds];
                 allNavLinks(function(a){
-                    a.classList.remove('bg-blue-50','text-blue-700','font-semibold');
+                    a.classList.remove('is-current','font-semibold');
+                    a.removeAttribute('aria-current');
                     a.classList.add(a.closest('#side-nav') ? 'text-slate-700' : 'text-slate-600');
                 });
                 activeIds.forEach(function(id){
                     (links[id] || []).forEach(function(a){
                         a.classList.remove('text-slate-600','text-slate-700');
-                        a.classList.add('text-blue-700','font-semibold');
-                        if(a.closest('#side-nav')){a.classList.add('bg-blue-50');}
+                        a.classList.add('is-current','font-semibold');
+                        a.setAttribute('aria-current','location');
                     });
                 });
+                var selected=sideNav.querySelectorAll('a.is-current');
+                if(selected.length && sideNav.offsetWidth){
+                    var navBounds=sideNav.getBoundingClientRect();
+                    var firstBounds=selected[0].getBoundingClientRect();
+                    var lastBounds=selected[selected.length-1].getBoundingClientRect();
+                    sideNavIndicator.style.transform='translateY('+(firstBounds.top-navBounds.top)+'px)';
+                    sideNavIndicator.style.height=(lastBounds.bottom-firstBounds.top)+'px';
+                    sideNavIndicator.style.opacity='1';
+                }
             }
             function updateActive(){
                 var viewportHeight=window.innerHeight || document.documentElement.clientHeight || 0;
                 var footer=document.querySelector('footer');
                 if(footer && footer.getBoundingClientRect().top < viewportHeight - 80){
-                    setActive(['honors','education']);
+                    setActive('education');
                     return;
                 }
                 var marker=Math.min(viewportHeight * 0.42, 360);
@@ -2547,7 +2666,7 @@
                     });
                 }
                 current=current || ids[0];
-                setActive(current === 'honors' || current === 'education' ? ['honors','education'] : current);
+                setActive(current);
             }
             var ticking=false;
             function requestActiveUpdate(){

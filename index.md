@@ -6,7 +6,7 @@ layout: homepage
 
 ## About Me
 
-Hi there! 👋 I am **Xingyu Tan (谭星雨)**, currently a **Ph.D. candidate** in the [Data and Knowledge Research Group (DKR)](https://unswdb.github.io/) at the School of Computer Science and Engineering, [University of New South Wales (UNSW)](https://www.unsw.edu.au/), and the [Software Systems Group](https://research.csiro.au/ss/) at Data61, [Commonwealth Scientific and Industrial Research Organisation (CSIRO)](https://www.csiro.au/). I am fortunate to be jointly supervised by [Dr. Xiaoyang Wang](https://www.unsw.edu.au/staff/xiaoyang-wang) and [Prof. Wenjie Zhang](https://cgi.cse.unsw.edu.au/~zhangw/) from UNSW, along with [Dr. Qing Liu](https://people.csiro.au/L/Q/Q-Liu), [Prof. Xiwei Xu](https://people.csiro.au/X/S/Xiwei-Xu), [Dr. Xin Yuan](https://people.csiro.au/y/x/xin-yuan), and [Prof. Liming Zhu](https://people.csiro.au/Z/L/Liming-Zhu) from CSIRO.
+Hi there! 👋 I am **Xingyu Tan (谭星雨)**, currently a **Ph.D. candidate** in the [Data and Knowledge Research Group (DKR)](https://unswdb.github.io/) at the School of Computer Science and Engineering, [University of New South Wales (UNSW)](https://www.unsw.edu.au/), and the [Software Systems Group](https://research.csiro.au/ss/) at [Commonwealth Scientific and Industrial Research Organisation (CSIRO)](https://www.csiro.au/). I am fortunate to be jointly supervised by [Dr. Xiaoyang Wang](https://www.unsw.edu.au/staff/xiaoyang-wang) and [Prof. Wenjie Zhang](https://cgi.cse.unsw.edu.au/~zhangw/) from UNSW, along with [Dr. Qing Liu](https://people.csiro.au/L/Q/Q-Liu), [Prof. Xiwei Xu](https://people.csiro.au/X/S/Xiwei-Xu), [Dr. Xin Yuan](https://people.csiro.au/y/x/xin-yuan), and [Prof. Liming Zhu](https://people.csiro.au/Z/L/Liming-Zhu) from CSIRO.
 
 
 
@@ -107,7 +107,7 @@ I am currently a **MLE & Research Intern** at **TikTok, Australia**, working on 
       <span style="color:purple"><b>[🎓 Progress]</b></span> [Apr. 2024] I have passed my MPhil Thesis Defence 🎉
     </li>
     <li>
-      <span style="color:blue"><b>[🏆 Award]</b></span> [Jan. 2024] Awarded the CSIRO’s Data61-UNSW Joint PhD Full Scholarship 📚
+      <span style="color:blue"><b>[🏆 Award]</b></span> [Jan. 2024] Awarded the UNSW-CSIRO Joint PhD Full Scholarship 📚
     </li>
   </ul>
 </details>
@@ -212,7 +212,7 @@ I am currently a **MLE & Research Intern** at **TikTok, Australia**, working on 
 <ul>
   <li><b>UNSW Industry Engagement Grant</b> (2025)</li>
   <li><b>WWW2025 Student Travel Award</b> (2025)</li>
-  <li><b>CSIRO's Data61-UNSW Joint PhD Full Scholarship</b> (2024-2028)</li>
+  <li><b>UNSW-CSIRO Joint PhD Full Scholarship</b> (2024-2028)</li>
   <li><b>CIRES-ADC Travel Grant</b> (2023)</li>
   <li><b>UNSW Australia's Global University Award PUCA1026</b> (2022)</li>
   <li><b>UNSW International Academic Excellence Award PUCE1015</b> (2019)</li>
@@ -221,7 +221,7 @@ I am currently a **MLE & Research Intern** at **TikTok, Australia**, working on 
 
 ## Educations
 
-- [May. 2024 – Present], Ph.D. Candidate in Computer Science,        UNSW & CSIRO’s Data61, Sydney
+- [May. 2024 – Present], Ph.D. Candidate in Computer Science,        UNSW & CSIRO, Sydney
 - [Sep. 2022 – Dec. 2023], M.Phil. in Computer Science,                UNSW, Sydney
 - [Sep. 2019 – May. 2022], B.Sc. in Computer Science with Distinction, UNSW, Sydney
 
