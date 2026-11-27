@@ -1,0 +1,86 @@
+#mobile-tree-dialog {
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    height: 100dvh;
+    max-height: none;
+    border: 0;
+    background: #fbfdff;
+    color: #0f172a;
+    overflow: hidden;
+}
+#mobile-tree-dialog[open] { display: flex; flex-direction: column; }
+#mobile-tree-dialog::backdrop { background: rgba(15, 23, 42, 0.35); }
+.mobile-tree-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: calc(8px + env(safe-area-inset-top)) 10px 8px;
+    border-bottom: 1px solid #e2e8f0;
+    background: white;
+    flex-shrink: 0;
+}
+.mobile-tree-toolbar h2 { font-size: 16px; font-weight: 700; line-height: 1.3; }
+.mobile-tree-tools { display: flex; gap: 2px; flex-shrink: 0; }
+.mobile-tree-tools button {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 40px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: #2563eb;
+    cursor: pointer;
+}
+.mobile-tree-tools button:hover { background: #eff6ff; }
+.mobile-tree-tools button:focus-visible { outline: 2px solid #2563eb; outline-offset: -2px; }
+.mobile-tree-tools button:disabled { color: #cbd5e1; cursor: default; }
+.mobile-tree-viewport {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    overscroll-behavior: contain;
+    touch-action: pan-x pan-y pinch-zoom;
+    scrollbar-width: thin;
+    scrollbar-color: #93c5fd #eff6ff;
+    cursor: grab;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+.mobile-tree-viewport.is-dragging { cursor: grabbing; user-select: none; }
+#mobile-tree-dialog .mobile-tree-stage {
+    position: relative;
+    flex: none;
+    width: 1000px;
+    height: 1000px;
+    border: 0;
+    overflow: hidden;
+    zoom: 1;
+}
+#mobile-tree-dialog .research-tree-canvas {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 1000px;
+    height: 1000px;
+    min-height: 0;
+    transform-origin: top left;
+}
+#mobile-tree-dialog .paper-leaf-node { -webkit-user-drag: none; }
+#mobile-tree-dialog .paper-leaf-node img { -webkit-user-drag: none; }
+.mobile-tree-detail-dock {
+    flex: 0 1 auto;
+    max-height: 32%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-bottom: env(safe-area-inset-bottom);
+    background: white;
+}
+#mobile-tree-dialog .research-tree-detail { padding: 12px; gap: 10px; }
+#mobile-tree-dialog .research-tree-detail img { width: 40px; height: 40px; }
+#mobile-tree-dialog .research-tree-detail h3 { font-size: 13px; }
+#mobile-tree-dialog .tree-detail-authors { font-size: 12px; }

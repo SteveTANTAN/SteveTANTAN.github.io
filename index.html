@@ -944,13 +944,13 @@
             transform: translateY(-1px);
         }
         @media (max-width: 900px) {
-            .research-tree-canvas {
+            .research-tree-shell:not(.is-explorer) .research-tree-canvas {
                 min-height: 680px;
             }
-            .paper-leaf-node {
+            .research-tree-shell:not(.is-explorer) .paper-leaf-node {
                 width: 9rem;
             }
-            .tree-trunk-label {
+            .research-tree-shell:not(.is-explorer) .tree-trunk-label {
                 left: 54%;
                 width: 13rem;
             }
@@ -971,7 +971,7 @@
             .research-tree-shell {
                 overflow: visible;
             }
-            .research-tree-canvas {
+            .research-tree-shell:not(.is-explorer) .research-tree-canvas {
                 display: flex;
                 flex-direction: column;
                 gap: 1.25rem;
@@ -980,7 +980,7 @@
                 padding: 1.25rem 0.2rem 1.4rem 2.4rem;
                 overflow: visible;
             }
-            .research-tree-canvas::before {
+            .research-tree-shell:not(.is-explorer) .research-tree-canvas::before {
                 inset: 0 auto 0 1rem;
                 width: 8px;
                 background: #756f61;
@@ -988,10 +988,10 @@
                 mask-image: none;
                 opacity: 0.9;
             }
-            .research-tree-art {
+            .research-tree-shell:not(.is-explorer) .research-tree-art {
                 display: none;
             }
-            .tree-trunk-label {
+            .research-tree-shell:not(.is-explorer) .tree-trunk-label {
                 position: relative;
                 left: auto;
                 top: auto;
@@ -999,13 +999,13 @@
                 width: auto;
                 padding: 0 0 0 0.8rem;
             }
-            .tree-branch-group {
+            .research-tree-shell:not(.is-explorer) .tree-branch-group {
                 position: relative;
                 display: grid;
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: 0.75rem;
             }
-            .tree-branch-group::before {
+            .research-tree-shell:not(.is-explorer) .tree-branch-group::before {
                 content: '';
                 position: absolute;
                 left: -1.4rem;
@@ -1020,7 +1020,7 @@
             .tree-group-efficiency { --mobile-branch-color: #b86616; }
             .tree-group-systems { --mobile-branch-color: #b75f70; }
             .tree-group-foundation { --mobile-branch-color: #9a6a18; }
-            .tree-branch-label {
+            .research-tree-shell:not(.is-explorer) .tree-branch-label {
                 position: relative;
                 left: auto;
                 top: auto;
@@ -1029,14 +1029,14 @@
                 transform: none;
                 text-align: left;
             }
-            .tree-branch-label::after {
+            .research-tree-shell:not(.is-explorer) .tree-branch-label::after {
                 width: 2.4rem;
                 margin: 0.45rem 0 0;
             }
-            .tree-label-foundation {
+            .research-tree-shell:not(.is-explorer) .tree-label-foundation {
                 width: auto;
             }
-            .paper-leaf-node {
+            .research-tree-shell:not(.is-explorer) .paper-leaf-node {
                 position: relative;
                 left: auto;
                 top: auto;
@@ -1046,9 +1046,9 @@
                 min-height: 4rem;
                 transform: none;
             }
-            .paper-leaf-node:hover,
-            .paper-leaf-node:focus-visible,
-            .paper-leaf-node.is-current {
+            .research-tree-shell:not(.is-explorer) .paper-leaf-node:hover,
+            .research-tree-shell:not(.is-explorer) .paper-leaf-node:focus-visible,
+            .research-tree-shell:not(.is-explorer) .paper-leaf-node.is-current {
                 transform: translateY(-2px);
             }
             .research-tree-canvas.has-tree-focus .paper-leaf-node {
@@ -1077,10 +1077,10 @@
             }
         }
         @media (max-width: 460px) {
-            .tree-branch-group {
+            .research-tree-shell:not(.is-explorer) .tree-branch-group {
                 grid-template-columns: 1fr;
             }
-            .paper-leaf-node {
+            .research-tree-shell:not(.is-explorer) .paper-leaf-node {
                 min-height: 3.7rem;
             }
         }
@@ -1094,6 +1094,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="./assets/css/mobile-research-tree.css">
 </head>
 <body class="site-bg text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-800">
 
@@ -2597,6 +2598,22 @@
         </div>
     </footer>
 
+    <dialog id="mobile-tree-dialog" aria-labelledby="mobile-tree-title">
+        <header class="mobile-tree-toolbar">
+            <h2 id="mobile-tree-title">Research Tree</h2>
+            <div class="mobile-tree-tools">
+                <button type="button" data-tree-action="out" title="Zoom out" aria-label="Zoom out"><i class="fas fa-minus" aria-hidden="true"></i></button>
+                <button type="button" data-tree-action="in" title="Zoom in" aria-label="Zoom in"><i class="fas fa-plus" aria-hidden="true"></i></button>
+                <button type="button" data-tree-action="root" title="Return to roots" aria-label="Return to roots"><i class="fas fa-crosshairs" aria-hidden="true"></i></button>
+                <button type="button" data-tree-action="close" title="Close research tree" aria-label="Close research tree" autofocus><i class="fas fa-xmark" aria-hidden="true"></i></button>
+            </div>
+        </header>
+        <div class="mobile-tree-viewport" tabindex="0" aria-label="Research tree canvas">
+            <div class="research-tree-shell is-explorer mobile-tree-stage"></div>
+        </div>
+        <div class="mobile-tree-detail-dock" hidden></div>
+    </dialog>
+    <script src="./assets/js/mobile-research-tree.js"></script>
     <script src="./assets/js/scale.fix.js"></script>
     <script src="./assets/js/news-scroll.js"></script>
     <script src="./assets/js/publication-areas.js"></script>
@@ -2625,15 +2642,20 @@
             var publicationListView=document.getElementById('publication-list-view');
             function setPublicationView(view){
                 var showTree=view==='tree';
-                if(publicationTreeView){publicationTreeView.hidden=!showTree;}
-                if(publicationListView){publicationListView.hidden=showTree;}
+                var mobileTree=showTree && window.mobileResearchTree && window.mobileResearchTree.isMobile();
+                if(publicationTreeView){publicationTreeView.hidden=!showTree || mobileTree;}
+                if(publicationListView){publicationListView.hidden=showTree && !mobileTree;}
                 publicationViewButtons.forEach(function(button){
                     var active=button.getAttribute('data-publication-view')===view;
                     button.classList.toggle('is-active',active);
                     button.setAttribute('aria-selected',active ? 'true' : 'false');
                     button.setAttribute('tabindex',active ? '0' : '-1');
                 });
+                if(mobileTree){window.mobileResearchTree.open();}
             }
+            document.addEventListener('mobile-tree-close',function(event){
+                setPublicationView(event.detail.desktop ? 'tree' : 'list');
+            });
             publicationViewButtons.forEach(function(button,index){
                 button.addEventListener('click',function(){
                     setPublicationView(button.getAttribute('data-publication-view'));
@@ -2713,12 +2735,23 @@
             }
             function clearTreeFocus(){
                 if(!researchTreeCanvas){return;}
+                if(window.mobileResearchTree && window.mobileResearchTree.isOpen()){return;}
                 researchTreeCanvas.classList.remove('has-tree-focus');
                 researchTreeLeaves.forEach(function(leaf){leaf.classList.remove('is-current','is-related');});
                 researchTreeBranches.forEach(function(branch){branch.classList.remove('is-active');});
             }
             researchTreeLeaves.forEach(function(leaf){
-                leaf.addEventListener('mouseenter',function(){focusTreeLeaf(leaf);});
+                leaf.addEventListener('click',function(event){
+                    if(window.mobileResearchTree && window.mobileResearchTree.isOpen()){
+                        event.preventDefault();
+                        focusTreeLeaf(leaf);
+                        window.mobileResearchTree.showDetail();
+                    }
+                });
+                leaf.addEventListener('mouseenter',function(){
+                    if(window.mobileResearchTree && window.mobileResearchTree.isOpen()){return;}
+                    focusTreeLeaf(leaf);
+                });
                 leaf.addEventListener('mouseleave',clearTreeFocus);
                 leaf.addEventListener('focus',function(){focusTreeLeaf(leaf);});
                 leaf.addEventListener('blur',clearTreeFocus);
