@@ -245,6 +245,10 @@
             object-fit: contain;
         }
         .honor-description { padding-top: 4px; min-width: 0; }
+        @media (max-width: 767px) {
+            #honors li { align-items: center; }
+            #honors .honor-description { padding-top: 0; }
+        }
         
         /* 隐藏滚动条但保留滚动功能 (特别是为移动端导航) */
         .scroll-hide::-webkit-scrollbar { display: none; }
@@ -259,6 +263,34 @@
         .custom-scrollbar::-webkit-scrollbar-track { background: #eff6ff; border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--ui-accent); border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #1d4ed8; }
+        .news-scroll-shell { position: relative; }
+        .news-scroll-indicator { display: none; }
+        @media (max-width: 767px) {
+            .has-scroll-indicator .custom-scrollbar {
+                scrollbar-width: none;
+                scrollbar-gutter: auto;
+                padding-right: 16px;
+            }
+            .has-scroll-indicator .custom-scrollbar::-webkit-scrollbar { display: none; }
+            .has-scroll-indicator .news-scroll-indicator:not([hidden]) {
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                width: 6px;
+                border-radius: 3px;
+                background: #eff6ff;
+                pointer-events: none;
+            }
+            .news-scroll-thumb {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                border-radius: inherit;
+                background: var(--ui-accent);
+            }
+        }
         #news .news-current-heading {
             padding: 8px 0;
             color: var(--ui-accent);
@@ -1240,6 +1272,7 @@
             <h2 class="text-2xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">News</h2>
 
             <div class="border border-slate-200 rounded-lg bg-white p-4 sm:p-6">
+            <div class="news-scroll-shell">
             <div class="max-h-[400px] overflow-y-auto custom-scrollbar pr-2 space-y-8 text-slate-700">
                  <div>
                     <h3 class="news-current-heading sticky top-0 font-bold z-10 mb-4">📌 Current - 2026</h3>
@@ -1378,6 +1411,8 @@
                        </li>
                     </ul>
                </div>
+            </div>
+            <div class="news-scroll-indicator" aria-hidden="true" hidden><span class="news-scroll-thumb"></span></div>
             </div>
             </div>
         </div>
@@ -2563,6 +2598,7 @@
     </footer>
 
     <script src="./assets/js/scale.fix.js"></script>
+    <script src="./assets/js/news-scroll.js"></script>
     <script src="./assets/js/publication-areas.js"></script>
     <script src="./assets/js/vendor/medium-zoom-1.1.0.min.js"></script>
     <script src="./assets/js/publication-zoom.js"></script>
