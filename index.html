@@ -149,11 +149,85 @@
         #about img {
             box-shadow: 0 18px 40px rgba(15, 23, 42, 0.10);
         }
-        #about .tiktok-intro-logo {
-            width: 42px;
-            height: 42px;
-            max-width: none;
+        .affiliation-banner {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-height: 64px;
+            padding: 9px 16px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: #fff;
+            color: #202124;
+        }
+        .affiliation-banner::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 3px;
+        }
+        .affiliation-google::before {
+            background: linear-gradient(to bottom, #4285f4 0% 25%, #ea4335 25% 50%, #fbbc05 50% 75%, #34a853 75% 100%);
+        }
+        a.affiliation-banner {
+            transition: border-color 180ms ease, box-shadow 180ms ease;
+        }
+        a.affiliation-banner:hover {
+            border-color: #b6c9eb;
+            box-shadow: 0 4px 16px rgba(66, 133, 244, 0.09);
+        }
+        a.affiliation-banner:focus-visible {
+            outline: 2px solid #4285f4;
+            outline-offset: 3px;
+        }
+        .affiliation-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 36px;
+            min-width: 0;
+            height: 36px;
+        }
+        #about .affiliation-logo img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
             box-shadow: none;
+        }
+        #about .affiliation-logo .tiktok-intro-logo {
+            width: 63px;
+            height: 42px;
+            flex-shrink: 0;
+            max-width: none;
+        }
+        .affiliation-copy { flex: 1; min-width: 0; }
+        .affiliation-title {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+        .affiliation-description {
+            display: block;
+            margin-top: 1px;
+            color: #5f6368;
+            font-size: 12.5px;
+            line-height: 1.6;
+        }
+        .affiliation-link-icon { font-size: 12px; color: #4285f4; }
+        .affiliation-tiktok {
+            background: #fff;
+            border-color: #e2e8f0;
+            color: #202124;
+        }
+        .affiliation-tiktok::before {
+            background: linear-gradient(to bottom, #25f4ee 0% 50%, #fe2c55 50% 100%);
+        }
+        @media (max-width: 639px) {
+            .affiliation-banner { gap: 10px; padding: 10px 12px; }
+            .affiliation-link-icon { align-self: flex-start; margin-top: 6px; }
         }
         .honor-organization {
             display: flex;
@@ -1097,14 +1171,22 @@
                     </p>
 
                     <div class="grid gap-3 mt-2 mb-6 text-left">
-                        <a href="https://research.google/programs-and-events/phd-fellowship/recipients/" target="_blank" rel="noopener noreferrer" class="flex w-full items-center gap-2 px-3 py-1.5 bg-emerald-50 text-emerald-900 rounded-md text-sm font-medium border border-emerald-200 shadow-sm hover:border-emerald-400 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">
-                            <span class="w-10 sm:w-12 h-8 flex items-center justify-center shrink-0"><img src="./assets/img/logo/Google-G.png" alt="Google" width="96" height="96" class="w-7 h-7 object-contain"></span>
-                            <span class="min-w-0">Honored to be a <strong>2026 Google PhD Fellow in NLP</strong>, with sincere thanks to Google Research for its support.</span>
+                        <a href="https://research.google/programs-and-events/phd-fellowship/recipients/" target="_blank" rel="noopener noreferrer" class="affiliation-banner affiliation-google">
+                            <span class="affiliation-logo"><img src="./assets/img/logo/Google-G.png" alt="Google" width="96" height="96"></span>
+                            <span class="affiliation-copy">
+                                <strong class="affiliation-title">2026 Google PhD Fellow in NLP</strong>
+                                <span class="affiliation-description">Honored to be a fellow, with sincere thanks to Google Research for its support.</span>
+                            </span>
+                            <i class="fas fa-arrow-up-right-from-square affiliation-link-icon" aria-hidden="true"></i>
                         </a>
-                        <div class="flex w-full items-center gap-2 px-3 py-1.5 bg-blue-50 text-blue-800 rounded-md text-sm font-medium border border-blue-200 shadow-sm">
-                            <span class="w-10 sm:w-12 h-8 flex items-center justify-center shrink-0"><img src="./assets/img/logo/TikTok-Logo.wine.svg" alt="TikTok" class="tiktok-intro-logo"></span>
-                            <span>Former MLE & Research Intern at TikTok (Australia), worked on MLLMs and related research.</span>
-                        </div>
+                        <a href="https://lifeattiktok.com/blog/detail/7353007392034670857" target="_blank" rel="noopener noreferrer" title="Explore TikTok's Sydney office" class="affiliation-banner affiliation-tiktok">
+                            <span class="affiliation-logo"><img src="./assets/img/logo/TikTok-Logo.wine.svg" alt="TikTok" class="tiktok-intro-logo"></span>
+                            <span class="affiliation-copy">
+                                <strong class="affiliation-title">MLE &amp; Research Intern at TikTok Australia</strong>
+                                <span class="affiliation-description">Previously worked on MLLMs and related research.</span>
+                            </span>
+                            <i class="fas fa-arrow-up-right-from-square affiliation-link-icon" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
                 
