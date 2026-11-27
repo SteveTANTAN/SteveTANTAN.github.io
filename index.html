@@ -260,15 +260,10 @@
         .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--ui-accent); border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #1d4ed8; }
         #news .news-current-heading {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 12px;
+            padding: 8px 0;
             color: var(--ui-accent);
-            background: #eff6ff;
-            border-left: 3px solid var(--ui-accent);
-            border-bottom: 1px solid #dbeafe;
-            border-radius: 4px;
+            background: #fff;
+            border-bottom: 1px solid #f1f5f9;
         }
         
         .hover-underline-animation {
@@ -1244,9 +1239,10 @@
         <div class="w-full max-w-5xl mx-auto lg:mx-0 lg:mr-auto lg:ml-[50px] px-4 sm:px-6 lg:px-8">
             <h2 class="text-2xl font-bold text-slate-900 mb-8 border-l-4 border-blue-600 pl-4">News</h2>
 
+            <div class="border border-slate-200 rounded-lg bg-white p-4 sm:p-6">
             <div class="max-h-[400px] overflow-y-auto custom-scrollbar pr-2 space-y-8 text-slate-700">
                  <div>
-                    <h3 class="news-current-heading sticky top-0 font-bold z-10 mb-4"><i class="fas fa-thumbtack" aria-hidden="true"></i> Current - 2026</h3>
+                    <h3 class="news-current-heading sticky top-0 font-bold z-10 mb-4">📌 Current - 2026</h3>
                     <ul class="space-y-4 text-sm">
                         <li class="flex gap-3 items-start">
                             <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-green-50 text-green-600 mt-0.5 shrink-0 w-24 text-center border border-green-200">Accepted</span>
@@ -1382,6 +1378,7 @@
                        </li>
                     </ul>
                </div>
+            </div>
             </div>
         </div>
     </section>
